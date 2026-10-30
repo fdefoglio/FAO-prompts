@@ -1,0 +1,5448 @@
+{
+ "part": "C_s06-09",
+ "lines_covered": [
+  1110,
+  1463
+ ],
+ "rules": [
+  {
+   "id": "TRM-6-001",
+   "section": "6",
+   "section_title": "TERMINOLOGY AND NAMES",
+   "lines": [
+    1111,
+    1112
+   ],
+   "quote": "The main reference for FAO terminology is the FAO Term Portal, which should be consulted in case of any doubt.",
+   "rule": "Consult the FAO Term Portal for FAO terminology whenever in doubt.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Editor reference; no automatic check. A term-list lookup (FAO Term Portal export) could support the agent."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6_1-014",
+    "CAP-8-002"
+   ]
+  },
+  {
+   "id": "TRM-6_1-001",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1114,
+    1114
+   ],
+   "quote": "The full name of FAO is the Food and Agriculture Organization of the United Nations.",
+   "rule": "Write the full name of FAO as \"Food and Agriculture Organization of the United Nations\".",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bFood\\s+and\\s+Agriculture\\s+Organi[sz]ation\\b(?!\\s*(?:\\(FAO\\)\\s*)?of\\s+the\\s+United\\s+Nations)",
+    "notes": "Flags the full name truncated before \"of the United Nations\". \"(FAO)\" placed after Organization is caught by TRM-6_1-002. Known false positives: direct quotations and published titles in the reference list (exclude reference scope and quoted text)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Food and Agriculture Organization of the United Nations"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6_1-002",
+    "TRM-6_1-005"
+   ]
+  },
+  {
+   "id": "TRM-6_1-002",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1114,
+    1116
+   ],
+   "quote": "Note that when indicating the abbreviation, FAO is placed in parentheses at the end of the full name, not after the word Organization.",
+   "rule": "Place \"(FAO)\" after \"of the United Nations\", not directly after \"Organization\".",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bOrgani[sz]ation\\s*\\(FAO\\)\\s*of\\s+the\\s+United\\s+Nations\\b",
+    "notes": "High precision."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6_1-001",
+    "ABB-7-003"
+   ]
+  },
+  {
+   "id": "TRM-6_1-003",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1117,
+    1117
+   ],
+   "quote": "The abbreviation is FAO, not the FAO and not F.A.O.",
+   "rule": "Use \"FAO\" without a definite article and without full stops.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bF\\.A\\.O\\b\\.?|\\b[Tt]he\\s+FAO(?=\\s*(?:[.,;:)]|$)|\\s+(?:and|or|is|has|was|will|which|that|in|to|for|with|on|at|by|as|have|are|were|its|itself|also|should|would|could|may|must|can|does|did|had)\\b)",
+    "notes": "Matches \"the FAO\" only where FAO stands as a noun (followed by punctuation, end of text or a function word/verb). Attributive uses such as \"the FAO Conference\" or \"the FAO Term Portal\" are correct and not matched. Remaining false positives: \"the FAO and WHO guidelines\" (attributive with coordination). Known false positives: direct quotations and published titles in the reference list (exclude reference scope and quoted text)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "In 1951, FAO moved its headquarters to Rome.",
+     "the FAO Conference"
+    ],
+    "incorrect": [
+     "the FAO",
+     "F.A.O."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-004",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1117,
+    1119
+   ],
+   "quote": "The abbreviation FAO of the UN is tolerated for some media purposes but should generally be avoided.",
+   "rule": "Avoid \"FAO of the UN\".",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bFAO\\s+of\\s+the\\s+UN\\b",
+    "notes": "Tolerated in media content; Verify for media-type products."
+   },
+   "action": "Verify",
+   "examples": {
+    "incorrect": [
+     "FAO of the UN"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-005",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1119,
+    1119
+   ],
+   "quote": "Other common mistakes to avoid are the use of Agricultural or Organisation.",
+   "rule": "In the FAO name, do not write \"Agricultural\" or \"Organisation\".",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bFood\\s+and\\s+Agricultural\\b|\\bFood\\s+and\\s+Agricultur\\w*\\s+Organisation\\b|\\b[Tt]he\\s+Organisation\\b",
+    "notes": "Covers the FAO name and \"the Organisation\" (FAO short reference, see TRM-6_1-007). Other bodies spelled with -isation are a §4 spelling matter, not this rule. Known false positives: direct quotations and published titles in the reference list (exclude reference scope and quoted text)."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6_1-001"
+   ]
+  },
+  {
+   "id": "TRM-6_1-006",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1120,
+    1120
+   ],
+   "quote": "Write an FAO regulation (not a FAO regulation).",
+   "rule": "Use the article \"an\", not \"a\", before FAO.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b[Aa]\\s+FAO\\b",
+    "notes": "High precision. False positive: \"Annex A FAO ...\" style labels (rare)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "an FAO regulation"
+    ],
+    "incorrect": [
+     "a FAO regulation"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-007",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1121,
+    1122
+   ],
+   "quote": "Following an initial mention, FAO may subsequently be referred to as the Organization, using an initial capital",
+   "rule": "When FAO is referred to as \"the Organization\", capitalize Organization.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b[Tt]he\\s+organi[sz]ation\\b",
+    "notes": "Flags lower-case \"the organization\"; the editor decides whether it refers to FAO (capitalize) or another body (leave lower case, see CAP-8-012). Moderate precision."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "The Organization has Regional Offices around the globe."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "CAP-8-012"
+   ]
+  },
+  {
+   "id": "TRM-6_1-008",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1122,
+    1124
+   ],
+   "quote": "In the same way, the FAO Conference, after it has been mentioned in full, may subsequently be referred to as the Conference.",
+   "rule": "After the FAO Conference has been named in full, it may be called \"the Conference\", with a capital C.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Needs to know whether \"the conference\" refers to the FAO Conference. Candidate pattern for the agent: \\bthe\\s+conference\\b (lower case) in documents that mention \"FAO Conference\"."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "CAP-8-012"
+   ]
+  },
+  {
+   "id": "TRM-6_1-009",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1125,
+    1125
+   ],
+   "quote": "FAO headquarters does not take a capital h.",
+   "rule": "Write \"headquarters\" in lower case.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bFAO\\s+Headquarters\\b|(?<=[a-z0-9,;:(]\\s)Headquarters\\b",
+    "notes": "Sentence-initial and heading-initial \"Headquarters\" are not matched. False positives: names of other bodies' buildings in title case. Known false positives: direct quotations and published titles in the reference list (exclude reference scope and quoted text)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "In 1951, FAO moved its headquarters to Rome."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-010",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1125,
+    1125
+   ],
+   "quote": "Do not use the initialism HQ.",
+   "rule": "Do not use \"HQ\"; write \"headquarters\".",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bHQs?\\b",
+    "notes": "High precision."
+   },
+   "action": "Apply",
+   "examples": {
+    "incorrect": [
+     "HQ"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-011",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1125,
+    1127
+   ],
+   "quote": "When referring to FAO's offices, whether in a specific or general context, use initial capitalization: Country Offices, Decentralized Offices, Liaison Offices, Regional Offices, Subregional Offices.",
+   "rule": "Capitalize the names of FAO office types (Country Offices, Decentralized Offices, Liaison Offices, Regional Offices, Subregional Offices), in specific and general contexts.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:country|decentrali[sz]ed|liaison|regional|subregional)\\s+[Oo]ffices?\\b|\\b(?:Country|Decentrali[sz]ed|Liaison|Regional|Subregional)\\s+offices?\\b",
+    "notes": "Flags any lower-case element. False positives: offices of other organizations or governments (e.g. a ministry's regional offices) — Verify. Sentence-initial \"Regional offices\" is still a violation."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Country Offices",
+     "Decentralized Offices",
+     "Liaison Offices",
+     "Regional Offices",
+     "Subregional Offices"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-012",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1128,
+    1128
+   ],
+   "quote": "Avoid the use of national office.",
+   "rule": "Avoid the term \"national office\".",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\bnational\\s+offices?\\b",
+    "notes": "False positives: national offices of other bodies (e.g. national statistics office)."
+   },
+   "action": "Verify",
+   "examples": {
+    "incorrect": [
+     "national office"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-013",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1129,
+    1129
+   ],
+   "quote": "Hyphens are used in Director-General, Assistant Director-General and Secretary-General.",
+   "rule": "Hyphenate Director-General, Assistant Director-General and Secretary-General.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:[Dd]irectors?|[Ss]ecretar(?:y|ies))(?:\\s+|\\s*[–—]\\s*)[Gg]eneral\\b",
+    "notes": "Flags space or dash instead of hyphen. False positive: national posts officially styled \"Director General\" (e.g. in a ministry) and published titles in references."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Director-General",
+     "Assistant Director-General",
+     "Secretary-General"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "CAP-8-014"
+   ]
+  },
+  {
+   "id": "TRM-6_1-014",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1130,
+    1131
+   ],
+   "quote": "Correct names for FAO strategies and concepts should follow the FAO Term Portal",
+   "rule": "Use the FAO Term Portal form of names of FAO strategies and concepts.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Requires a Term Portal term list; the guide does not reproduce the list."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6-001"
+   ]
+  },
+  {
+   "id": "TRM-6_1-015",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1131,
+    1133
+   ],
+   "quote": "For the four betters, always use lower case: better production, better nutrition, a better environment and a better life.",
+   "rule": "Write the four betters in lower case.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b[Ff]our\\s+Betters\\b|\\b[Bb]etter\\s+(?:Production|Nutrition|Environment|Life)\\b|(?<=[a-z0-9,;:(]\\s)Better\\s+(?:production|nutrition|environment|life)\\b",
+    "notes": "Sentence- or heading-initial \"Better production\" is not matched. Known false positives: direct quotations and published titles in the reference list (exclude reference scope and quoted text)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "better production",
+     "better nutrition",
+     "a better environment",
+     "a better life"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-016",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1133,
+    1133
+   ],
+   "quote": "Programme Priority Areas (PPAs) should have initial capitalization.",
+   "rule": "Capitalize \"Programme Priority Areas\".",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?!Programme Priority Areas?\\b)(?i:program(?:me)?\\s+priority\\s+areas?)\\b",
+    "notes": "Flags any form other than \"Programme Priority Area(s)\", including lower case and the spelling \"Program\"."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Programme Priority Areas (PPAs)"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-017",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1133,
+    1135
+   ],
+   "quote": "The names of the PPAs themselves use sentence case (e.g. Green innovation), except for those that are names of approaches or programmes (e.g. One Health).",
+   "rule": "Write individual PPA names in sentence case unless the name is that of an approach or programme.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Needs the PPA list (not in the guide) and judgement on approach/programme names."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Green innovation",
+     "One Health"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-018",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1136,
+    1137
+   ],
+   "quote": "FAO has 197 Members, comprising 194 Member Nations, one Member Organization (the European Union) and two Associate Members (the Faroe Islands and Tokelau).",
+   "rule": "FAO membership figures as at the guide revision: 197 Members (194 Member Nations, one Member Organization, two Associate Members).",
+   "kind": "guidance",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Background fact for checking membership statements; figures may change after November 2024."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "TRM-6_1-019",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1139,
+    1140
+   ],
+   "quote": "it is appropriate to refer to Members or Member Nations. The term Member States is used to refer to the individual states of the Member Organization.",
+   "rule": "Refer to FAO Members as \"Members\" or \"Member Nations\"; reserve \"Member States\" for the individual states of the Member Organization (the European Union).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b[Mm]ember\\s+[Ss]tates\\b",
+    "notes": "Every hit needs a decision: correct only for EU member states. Also catches \"member states\" of other bodies (e.g. United Nations Member States) — Verify."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6_1-020"
+   ]
+  },
+  {
+   "id": "TRM-6_1-020",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1141,
+    1144
+   ],
+   "quote": "Members, Member Nations, Member Organization, Member States and Associate Members should be capitalized when referring to FAO.",
+   "rule": "Capitalize Members, Member Nations, Member Organization, Member States and Associate Members when they refer to FAO.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:[Mm]ember\\s+(?:nations?|organi[sz]ations?|states?)|member\\s+(?:Nations?|Organi[sz]ations?|States?)|[Aa]ssociate\\s+members?|associate\\s+Members?)\\b",
+    "notes": "Plain lower-case \"members\" is not matched (too many generic uses) — the agent should check it in FAO contexts. False positives: members of other bodies."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Members",
+     "Member Nations",
+     "Member Organization",
+     "Member States",
+     "Associate Members"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_1-021",
+   "section": "6.1",
+   "section_title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1144,
+    1144
+   ],
+   "quote": "The Holy See, not the Vatican, has Permanent Observer status at FAO.",
+   "rule": "Use \"the Holy See\", not \"the Vatican\".",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bVatican\\b",
+    "notes": "False positives: Vatican used as a place name in quotations or references."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "The Holy See"
+    ],
+    "incorrect": [
+     "the Vatican"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1-001"
+   ]
+  },
+  {
+   "id": "TRM-6_2-001",
+   "section": "6.2",
+   "section_title": "SDG-RELATED TERMINOLOGY",
+   "lines": [
+    1149,
+    1150
+   ],
+   "quote": "Be consistent with the use of the short or long form of the SDG name within a document. Refer to the Sustainable Development Goals Helpdesk",
+   "rule": "Use either the short or the long form of SDG names consistently within a document (forms per the Sustainable Development Goals Helpdesk).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "module",
+    "module": "consistency",
+    "notes": "Track per-document whether SDG names appear in short form (e.g. Zero Hunger) or long form; flag mixing. Form lists come from the SDG Helpdesk, not the guide."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_2-002",
+   "section": "6.2",
+   "section_title": "SDG-RELATED TERMINOLOGY",
+   "lines": [
+    1151,
+    1152
+   ],
+   "quote": "When using the short form, check initial caps in the FAO Term Portal, e.g. Zero Hunger, Life below Water.",
+   "rule": "Capitalize SDG short-form names as in the FAO Term Portal.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:[Zz]ero\\s+hunger|zero\\s+Hunger|Life\\s+Below\\s+Water|[Ll]ife\\s+below\\s+water|life\\s+below\\s+Water)\\b",
+    "notes": "Covers only the two names printed in the guide; extend from the Term Portal. False positive: generic \"zero hunger\" not used as the SDG name (Verify)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Zero Hunger",
+     "Life below Water"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_2-003",
+   "section": "6.2",
+   "section_title": "SDG-RELATED TERMINOLOGY",
+   "lines": [
+    1153,
+    1153
+   ],
+   "quote": "Use 2030 Agenda, not Agenda 2030 or any other version.",
+   "rule": "Write \"2030 Agenda\", not \"Agenda 2030\" or other variants.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bAgenda\\s+2030\\b|\\b2030\\s+agenda\\b|\\bAgenda\\s+for\\s+2030\\b",
+    "notes": "Lower-case \"2030 agenda\" and \"Agenda for 2030\" treated as \"other versions\". Known false positives: direct quotations and published titles in the reference list (exclude reference scope and quoted text)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "2030 Agenda"
+    ],
+    "incorrect": [
+     "Agenda 2030"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_2-004",
+   "section": "6.2",
+   "section_title": "SDG-RELATED TERMINOLOGY",
+   "lines": [
+    1154,
+    1154
+   ],
+   "quote": "Use a non-breaking space between SDG and the number, i.e. SDG 1.",
+   "rule": "Put a non-breaking space between \"SDG\" and its number.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bSDGs?(?:[ \\t]|-)?(?=\\d)",
+    "notes": "Matches ordinary space, hyphen or no space before the number; a no-break space (U+00A0/U+202F) is not matched. The DOCX/markdown extractor must preserve no-break spaces or every SDG reference will be flagged. Conversion artefact: the guide line itself shows an ordinary space in \"SDG 1\"."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_2-005",
+   "section": "6.2",
+   "section_title": "SDG-RELATED TERMINOLOGY",
+   "lines": [
+    1155,
+    1155
+   ],
+   "quote": "For targets and indicators, use lower case if mentioned generally.",
+   "rule": "Write \"target(s)\" and \"indicator(s)\" in lower case when used generally.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<=[a-z0-9,;:(]\\s)(?:Targets?|Indicators?)\\b(?!\\s+\\d)",
+    "notes": "Mid-sentence capitalized Target/Indicator not followed by a number. False positives: names of indicator frameworks or titles."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_2-006",
+   "section": "6.2",
+   "section_title": "SDG-RELATED TERMINOLOGY",
+   "lines": [
+    1155,
+    1156
+   ],
+   "quote": "When used with a specific number, capitalize and use the following form: Target 1.1, Indicator 17.b.1.",
+   "rule": "Capitalize Target and Indicator before a specific SDG number, in the form Target 1.1, Indicator 17.b.1.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:target|indicator)s?\\s+\\d+\\.(?:\\d+|[a-z])(?:\\.\\d+)?\\b",
+    "notes": "Lower-case target/indicator before an SDG-style number. False positive: non-SDG numbered targets/indicators in a study (Verify)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Target 1.1",
+     "Indicator 17.b.1"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "TRM-6_2-007",
+   "section": "6.2",
+   "section_title": "SDG-RELATED TERMINOLOGY",
+   "lines": [
+    1157,
+    1158
+   ],
+   "quote": "If space is a concern, the abbreviation SDGs may be used in headings on inside pages (including in running heads), but not on the front cover.",
+   "rule": "SDGs may be abbreviated in inside headings and running heads when space is short, but never on the front cover.",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "title"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Front cover is production. For manuscripts this acts as an exception to ABB-7-013 (no abbreviations in headings)."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "ABB-7-013"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1-001",
+   "section": "6.3.1",
+   "section_title": "Country names and regions",
+   "lines": [
+    1161,
+    1161
+   ],
+   "quote": "All FAO content must follow the Names of Countries and Territories (NOCS) database.",
+   "rule": "Use country and territory names as given in NOCS.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1-002",
+   "section": "6.3.1",
+   "section_title": "Country names and regions",
+   "lines": [
+    1163,
+    1165
+   ],
+   "quote": "the European Union is treated as a country (because it is an FAO Member) and therefore may not be abbreviated to the EU (some exceptions apply)",
+   "rule": "Do not abbreviate the European Union to \"the EU\" (except as permitted in 6.3.1.1/6.3.1.3).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Candidate pattern: \\b[Tt]he\\s+EU\\b. Exceptions: adjectival \"EU\" (e.g. EU exports) and EU-27/EU-25."
+   },
+   "action": "Verify",
+   "exceptions": [
+    {
+     "quote": "US, UK and EU may be used as adjectives, such as US exports.",
+     "lines": [
+      1197,
+      1197
+     ],
+     "note": "Adjectival use allowed."
+    },
+    {
+     "quote": "EU-27 and EU-25 are acceptable if their meaning is clarified",
+     "lines": [
+      1198,
+      1198
+     ],
+     "note": "Grouping labels allowed when explained."
+    }
+   ],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_1-009",
+    "NAM-6_3_1_1-010"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1-003",
+   "section": "6.3.1",
+   "section_title": "Country names and regions",
+   "lines": [
+    1166,
+    1166
+   ],
+   "quote": "Palestine is used, rather than the State of Palestine.",
+   "rule": "Write \"Palestine\", not \"the State of Palestine\".",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Candidate pattern: \\bState\\s+of\\s+Palestine\\b."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Palestine"
+    ],
+    "incorrect": [
+     "the State of Palestine"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1-004",
+   "section": "6.3.1",
+   "section_title": "Country names and regions",
+   "lines": [
+    1167,
+    1169
+   ],
+   "quote": "country and area codes are standard use for FAO. In some cases, M49 codes have been adapted to FAO specifics.",
+   "rule": "Use M49 country and area codes (FAO-adapted where applicable) where codes are needed.",
+   "kind": "guidance",
+   "scope": [
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Only relevant where a manuscript uses country codes (tables, data annexes). The quote starts after the footnote-broken \"The M49\" on line 1167."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "NAM-6_3_1-005",
+   "section": "6.3.1",
+   "section_title": "Country names and regions",
+   "lines": [
+    1170,
+    1170
+   ],
+   "quote": "Pay attention to sensitive political issues.",
+   "rule": "Check content for politically sensitive designations and statements.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement; flag disputed territories, borders and designations for the author/editor."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1-006",
+   "section": "6.3.1",
+   "section_title": "Country names and regions",
+   "lines": [
+    1170,
+    1171
+   ],
+   "quote": "Include additional statements when required and FAO’s standard disclaimers.",
+   "rule": "Include FAO standard disclaimers and any additional required statements.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter",
+    "figure"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Standard disclaimers are mostly added by publishing staff (front matter, map disclaimers); check that maps carry a disclaimer."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1-007"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1-007",
+   "section": "6.3.1",
+   "section_title": "Country names and regions",
+   "lines": [
+    1171,
+    1173
+   ],
+   "quote": "Maps must be checked carefully. Consult the map guidance folder f  or source files, guidance and special disclaimers.",
+   "rule": "Check every map carefully against FAO map guidance and disclaimers.",
+   "kind": "mandatory",
+   "scope": [
+    "figure"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Maps are images; cannot be checked from manuscript text. Flag the presence of maps for manual review. Conversion artefact \"f  or\" (= \"for\")."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1-006"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_1-001",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1177,
+    1177
+   ],
+   "quote": "Use the Near East rather than the Middle East unless the latter is specifically required.",
+   "rule": "Use \"the Near East\" rather than \"the Middle East\" unless the latter is specifically required.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bMiddle\\s+East(?:ern)?\\b",
+    "notes": "Region-name rule in the country-names section; plain regex because NOCS covers countries, not this preference. Verify: \"specifically required\" (e.g. names of bodies, quotations, MENA-type programme names)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the Near East"
+    ],
+    "incorrect": [
+     "the Middle East"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_1-002",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1178,
+    1179
+   ],
+   "quote": "For former administrative areas, use former rather than ex- or other forms, e.g. the former Soviet Union.",
+   "rule": "For former administrative areas, write \"former\", not \"ex-\" or other forms.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b[Ee]x-[A-Z]",
+    "notes": "Catches \"ex-\" before a capitalized name (e.g. ex-Soviet). \"Other forms\" (e.g. erstwhile) need the agent."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "the former Soviet Union"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_1-003",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1180,
+    1181
+   ],
+   "quote": "Countries such as the Bahamas and the United States of America are treated as singular nouns, e.g. Maldives is the smallest country in Asia.",
+   "rule": "Treat country names with plural form as singular (singular verb agreement).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:Bahamas|United\\s+States(?:\\s+of\\s+America)?|Maldives)\\s+(?:are|were|have|do)\\b",
+    "notes": "Only the names printed in the guide; extend with other plural-form NOCS names (agent/nocs). False positive: \"the United States are\" inside a quotation."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Maldives is the smallest country in Asia."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_1-004",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1182,
+    1183
+   ],
+   "quote": "When listing countries, the default order is alphabetical. Depending on the context, territories and states may come at the end of a list.",
+   "rule": "List countries in alphabetical order by default; territories and states may be placed at the end.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Sort key is the NOCS Short Name for Lists and Tables (see NAM-6_3_1_2-008). Lists ordered by another logic (e.g. by value in a table) are not violations — Verify."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_2-008"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_1-005",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1186,
+    1188
+   ],
+   "quote": "Geopolitical names that include common nouns – such as Islands (but not Island), Gulf, Territory, Kingdom, Isle and Republic – should be preceded by the definite article in a sentence, e.g. the Persian Gulf.",
+   "rule": "In running text, put \"the\" before geopolitical names that contain Islands, Gulf, Territory, Kingdom, Isle or Republic (not Island).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Article is omitted in headings, after colon/comma/en dash in headings, in meeting locations and places of publication (NAM-6_3_1_2-004..007)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "the Persian Gulf"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_1-006",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1189,
+    1189
+   ],
+   "quote": "Region names should be preceded by the definite article in a sentence, e.g. the Near East.",
+   "rule": "In running text, put \"the\" before region names.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Candidate pattern: (?<![Tt]he\\s)\\bNear\\s+East\\b(?!ern). Adjectival uses (\"Near East countries\") need judgement."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the Near East"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_1-007",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1191,
+    1195
+   ],
+   "quote": "The United Kingdom of Great Britain and Northern Ireland and the United States of America may be shortened to (the) United Kingdom and (the) United States, respectively, in text, figures (except maps), tables and boxes after appearing written out once in full in the main text of the document. This exception does not extend to people's titles or signatures; covers; or title pages.",
+   "rule": "Write the United Kingdom and the United States in full at first mention in the main text; thereafter the short forms may be used in text, figures (not maps), tables and boxes, but not in people's titles, signatures, covers or title pages.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter",
+    "title"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Needs first-mention tracking. Restated, with differences, in NAM-6_3_1_3-001 (which omits boxes and says the article-less form is for figures and tables only)."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_3-001"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_1-008",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1196,
+    1196
+   ],
+   "quote": "The use of UK and USA in lieu of the NOCS Short Name is permitted in citations only.",
+   "rule": "Use UK and USA as country names only in citations.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Candidate pattern outside the reference list and in-text citations: \\b(?:UK|USA)\\b (exclude adjectival UK, see NAM-6_3_1_1-009)."
+   },
+   "action": "Apply",
+   "exceptions": [
+    {
+     "quote": "US, UK and EU may be used as adjectives, such as US exports.",
+     "lines": [
+      1197,
+      1197
+     ],
+     "note": "Adjectival UK allowed outside citations."
+    }
+   ],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_3-002"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_1-009",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1197,
+    1197
+   ],
+   "quote": "US, UK and EU may be used as adjectives, such as US exports.",
+   "rule": "US, UK and EU may be used as adjectives.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Permission; used to suppress false positives of NAM-6_3_1-002 and NAM-6_3_1_1-008. Noun use of US/UK/EU remains a violation."
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "US exports"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_3-003"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_1-010",
+   "section": "6.3.1.1",
+   "section_title": "General guidelines",
+   "lines": [
+    1198,
+    1200
+   ],
+   "quote": "EU-27 and EU-25 are acceptable if their meaning is clarified, and EU-27 and the United Kingdom may be used after the United Kingdom of Great Britain and Northern Ireland has been written out once.",
+   "rule": "EU-27 and EU-25 may be used if their meaning is clarified; \"EU-27 and the United Kingdom\" may be used once the United Kingdom has been written out in full.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Check that EU-27/EU-25 is explained at first use (acronym_first_use can supply this)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "EU-27",
+     "EU-25"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_3-004"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_2-001",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1202,
+    1203
+   ],
+   "quote": "The Full Name is reserved for formal documents, e.g. official agreements and formal invitations.",
+   "rule": "Use the NOCS Full Name only in formal documents (official agreements, formal invitations).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. In manuscripts, flag NOCS Full Names (except the UK/US first-mention requirement, NAM-6_3_1_1-007)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_2-002",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1204,
+    1204
+   ],
+   "quote": "The Short Name is used in most text and in titles   or headings.",
+   "rule": "Use the NOCS Short Name in most text and in titles and headings.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading",
+    "title"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "China, Hong Kong SAR"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_2-003",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1205,
+    1207
+   ],
+   "quote": "However, when the name has (the) at the end, move it to the front and remove the parentheses, e.g. Niger (the) becomes the Niger.",
+   "rule": "When the NOCS Short Name ends in \"(the)\", move \"the\" to the front without parentheses.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Candidate pattern: \\s\\(the\\) — high precision."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "the Niger"
+    ],
+    "incorrect": [
+     "Niger (the)"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_2-004",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1208,
+    1209
+   ],
+   "quote": "The article is omitted in the following cases: - when the country name is the first, or only, word(s) of a title or heading",
+   "rule": "Omit the article when the country name is the first or only word(s) of a title or heading.",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "title"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "United States of America GLOBEFISH Market Profile"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_2-005",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1213,
+    1213
+   ],
+   "quote": "directly after a colon, comma or en-dash in a title or heading",
+   "rule": "Omit the article directly after a colon, comma or en dash in a title or heading.",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "title"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "National gender profile of agriculture – United Republic of Tanzania"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_2-006",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1217,
+    1217
+   ],
+   "quote": "when specifying a location (after a comma) where a meeting or other event took place",
+   "rule": "Omit the article when giving, after a comma, the location of a meeting or event.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "title",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Report on Port State Measures – Wageningen, Kingdom of the Netherlands"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_2-007",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1220,
+    1220
+   ],
+   "quote": "when identifying a place of publication in a bibliographic reference.",
+   "rule": "Omit the article in the place of publication in a bibliographic reference.",
+   "kind": "mandatory",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "REF-12"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_2-008",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1221,
+    1221
+   ],
+   "quote": "The Short Name for Lists and Tables determines the alphabetical order of country names",
+   "rule": "Order country names alphabetically by the NOCS Short Name for Lists and Tables.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_1-004"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_2-009",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1221,
+    1228
+   ],
+   "quote": "is used for several specific purposes: - figures (including maps) and tables; - vertical and in -text lists that follow a colon or are contained within parentheses, e.g. Data was supplied by the following countries: Bahamas, Bolivia (Plurinational State of) and Chile; - nameplates; and - contact information and addresses.",
+   "rule": "Use the NOCS Short Name for Lists and Tables in figures (including maps), tables, lists after a colon or in parentheses, nameplates, and contact information and addresses.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "body",
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Nameplates are not part of manuscripts. Contact information covers author affiliations/addresses. Conversion artefact \"in -text\" (= in-text)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Data was supplied by the following countries: Bahamas, Bolivia (Plurinational State of) and Chile"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_2-010",
+   "section": "6.3.1.2",
+   "section_title": "Using NOCS entries",
+   "lines": [
+    1229,
+    1230
+   ],
+   "quote": "When the Adjective/Nationality field is blank, use of with the Short Name, e.g. legislation of the Andaman and Nicobar Islands.",
+   "rule": "Where NOCS gives no adjective, use \"of\" + Short Name instead of an adjective.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "legislation of the Andaman and Nicobar Islands"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_1_3-001",
+   "section": "6.3.1.3",
+   "section_title": "Exceptions to the NOCS rules",
+   "lines": [
+    1237,
+    1241
+   ],
+   "quote": "After the United Kingdom of Great Britain and Northern Ireland and the United States of America have been written out once in the main text, they may subsequently be shortened to the United Kingdom and the United States, respectively, and to United Kingdom and United States in figures (except maps) and tables only. This exception does not extend to personal titles,  signatures,  covers or title pages.",
+   "rule": "After first full mention in the main text, use \"the United Kingdom\"/\"the United States\"; the forms without article only in figures (not maps) and tables; never in personal titles, signatures, covers or title pages.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter",
+    "title"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Restates §6.3.1.1 exceptions; deduplicate at merge so a hit is reported once. Differs from NAM-6_3_1_1-007: boxes not listed; article-less form limited to figures and tables."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_1-007"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_3-002",
+   "section": "6.3.1.3",
+   "section_title": "Exceptions to the NOCS rules",
+   "lines": [
+    1242,
+    1242
+   ],
+   "quote": "The use of UK and USA in lieu of the Short Name is permitted in citations only.",
+   "rule": "Use UK and USA as country names only in citations.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Restates §6.3.1.1 exceptions; deduplicate at merge so a hit is reported once."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_1-008"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_3-003",
+   "section": "6.3.1.3",
+   "section_title": "Exceptions to the NOCS rules",
+   "lines": [
+    1243,
+    1243
+   ],
+   "quote": "US, UK and EU may be used as adjectives, such as US exports.",
+   "rule": "US, UK and EU may be used as adjectives.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Restates §6.3.1.1 exceptions; deduplicate at merge so a hit is reported once."
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "US exports"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_1-009"
+   ]
+  },
+  {
+   "id": "NAM-6_3_1_3-004",
+   "section": "6.3.1.3",
+   "section_title": "Exceptions to the NOCS rules",
+   "lines": [
+    1244,
+    1244
+   ],
+   "quote": "EU-27 and EU-25 are acceptable if their meaning is explained.",
+   "rule": "EU-27 and EU-25 may be used if their meaning is explained.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country-name rule; checked by the existing NOCS module. Restates §6.3.1.1 exceptions; deduplicate at merge so a hit is reported once."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_1_1-010"
+   ]
+  },
+  {
+   "id": "NAM-6_3_2-001",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1247,
+    1247
+   ],
+   "quote": "Follow individuals’ expressed preference on how to mention their names.",
+   "rule": "Follow each person's stated preference for the form of their name.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Only the author can confirm preferences."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-002",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1247,
+    1249
+   ],
+   "quote": "In some languages, the surname is the first element; in these cases the order should not be inverted. Note that Spanish and Portuguese names often include two or more surnames.",
+   "rule": "Do not invert names in languages where the surname comes first; keep all surnames of Spanish and Portuguese names.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement on name origin."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-003",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1250,
+    1251
+   ],
+   "quote": "When referring to an individual, generally use the person’s surname only (or given name and surname if there is a justification for both).",
+   "rule": "Refer to individuals by surname only, unless there is a reason to use given name and surname.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement; footnote a allows exceptions for informal content."
+   },
+   "action": "Verify",
+   "exceptions": [
+    {
+     "quote": "Some exceptions are permitted for more informal content, such as magazines or web stories.",
+     "lines": [
+      1273,
+      1273
+     ],
+     "note": "Footnote a (marker on line 1252)."
+    }
+   ],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-004",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1253,
+    1254
+   ],
+   "quote": "For Director-General Qu Dongyu, the given name and surname should always be used together.",
+   "rule": "Always write \"Qu Dongyu\" in full, never surname or given name alone.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter",
+    "caption"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bQu\\b(?!\\s+Dongyu\\b)|(?<!\\bQu\\s)(?<!\\bQU\\s)\\bDongyu\\b",
+    "notes": "False positive: other people surnamed Qu (e.g. author citations \"Qu et al., 2020\") — exclude reference scope and in-text citations."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Qu Dongyu"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-005",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1254,
+    1255
+   ],
+   "quote": "Note that in official documentation (but not in publications), the whole surname should be capitalized: QU.",
+   "rule": "In publications, do not write the surname in full capitals (QU); that form is for official documentation only.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bQU\\s+Dongyu\\b",
+    "notes": "Manuscripts are publications, so \"QU Dongyu\" is a violation."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-006",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1256,
+    1256
+   ],
+   "quote": "Only use honorifics or titles, such as Dr and Professor, if strictly relevant to the context.",
+   "rule": "Use honorifics or titles such as Dr and Professor only when strictly relevant.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "caption",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:Dr|Prof|Professor)\\.?\\s+[A-Z]",
+    "notes": "Every hit needs judgement on relevance."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-007",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1256,
+    1257
+   ],
+   "quote": "Do not use Mr, Mrs or Ms.",
+   "rule": "Do not use Mr, Mrs or Ms.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "caption",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:Mr|Mrs|Ms)\\.?\\s+[A-Z]",
+    "notes": "False positive: quotations."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-008",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1259,
+    1260
+   ],
+   "quote": "Chinese and Vietnamese names: alphabetize according to the first (family) name, e.g. Kim Thanh, C.",
+   "rule": "Alphabetize Chinese and Vietnamese names by the first (family) name.",
+   "kind": "preference",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Reference list and index ordering; needs judgement on name origin. Applies to sorting/inversion in the reference list."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Kim Thanh, C."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "REF-12"
+   ]
+  },
+  {
+   "id": "NAM-6_3_2-009",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1261,
+    1262
+   ],
+   "quote": "Arabic names: the particles Al and El are not used when alphabetizing reference lists and indexes, e.g. Al-Hamadan is listed under H and not under A, so it would be Hamadan, S.A. Al.",
+   "rule": "Ignore the particles Al and El when alphabetizing Arabic names.",
+   "kind": "preference",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Reference list and index ordering; needs judgement on name origin. Applies to sorting/inversion in the reference list."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Hamadan, S.A. Al"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-010",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1263,
+    1264
+   ],
+   "quote": "Burmese names: move the honorific (U, Daw, Saw) to the end before alphabetizing, e.g. Aung Sang Suu Kyi, Daw.",
+   "rule": "Move Burmese honorifics (U, Daw, Saw) to the end before alphabetizing.",
+   "kind": "preference",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Reference list and index ordering; needs judgement on name origin. Applies to sorting/inversion in the reference list."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Aung Sang Suu Kyi, Daw"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-011",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1265,
+    1266
+   ],
+   "quote": "Spanish names: where there are two surnames, alphabetize according to the first surname, e.g. Alejandra Martinez Espinosa is listed under Martinez Espinosa, A.",
+   "rule": "Alphabetize Spanish names with two surnames by the first surname.",
+   "kind": "preference",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Reference list and index ordering; needs judgement on name origin. Applies to sorting/inversion in the reference list."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Martinez Espinosa, A."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-012",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1267,
+    1270
+   ],
+   "quote": "Portuguese names: where there are two or more surnames, the entry is alphabetized according to the last surname. Words like Filho, Junior, Neto and Sobrinho are treated as part of the last surname",
+   "rule": "Alphabetize Portuguese names by the last surname, treating Filho, Junior, Neto and Sobrinho as part of it.",
+   "kind": "preference",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Reference list and index ordering; needs judgement on name origin. Applies to sorting/inversion in the reference list."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Gomes Filho, P. R. do Rosario"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-013",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1276,
+    1277
+   ],
+   "quote": "Particles: van, von, de, etc. are used for the alphabetical ordering of the list, e.g. de María is listed under D and not under M.",
+   "rule": "Alphabetize names with particles (van, von, de, etc.) under the particle.",
+   "kind": "preference",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Reference list and index ordering; needs judgement on name origin. Applies to sorting/inversion in the reference list."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "de María"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_2-014",
+   "section": "6.3.2",
+   "section_title": "Titles and proper names",
+   "lines": [
+    1277,
+    1278
+   ],
+   "quote": "In Dutch, particles are upper case when they start the name, e.g. Van Otterdijk, R.",
+   "rule": "Capitalize Dutch name particles when they begin the name.",
+   "kind": "mandatory",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?m)^\\s*(?:van|ter|ten)(?:\\s+(?:der|den|de))?\\s+[A-Z]",
+    "notes": "Reference-list entries starting with a lower-case Dutch particle. Cannot distinguish Dutch from other languages (e.g. Flemish/Afrikaans conventions) — Verify. \"de\" alone is not matched because Spanish/French \"de\" stays lower case (de María)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Van Otterdijk, R."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_3-001",
+   "section": "6.3.3",
+   "section_title": "Scientific names",
+   "lines": [
+    1280,
+    1281
+   ],
+   "quote": "Use italics (see also 9.1 Italics) to indicate genera, species and subspecies (e.g. Oryza sativa, Cucurbita spp.)",
+   "rule": "Italicize names of genera, species and subspecies.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information. Candidate detection: capitalized Latin genus + lower-case epithet, or genus + spp./sp."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Oryza sativa",
+     "Cucurbita spp."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "ITA-9_1-010"
+   ]
+  },
+  {
+   "id": "NAM-6_3_3-002",
+   "section": "6.3.3",
+   "section_title": "Scientific names",
+   "lines": [
+    1281,
+    1281
+   ],
+   "quote": "but not for higher levels of taxonomic classification (e.g. Brassicaceae).",
+   "rule": "Do not italicize taxonomic ranks above genus.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Flag italic runs that are single capitalized words ending in family/order suffixes (e.g. -aceae) — heuristic, Verify."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Brassicaceae"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_3-003",
+   "section": "6.3.3",
+   "section_title": "Scientific names",
+   "lines": [
+    1282,
+    1284
+   ],
+   "quote": "Note that modifiers to species’ names (e.g. var., spp.) and species authorities (e.g. Rubus L.) are not italicized.",
+   "rule": "Set species-name modifiers (var., spp.) and species authorities in roman.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Flag italic var./spp./subsp. and italic authority abbreviations following a binomial."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_3-004",
+   "section": "6.3.3",
+   "section_title": "Scientific names",
+   "lines": [
+    1285,
+    1288
+   ],
+   "quote": "As guidance, the IPPC style guide suggests: “Upon first mention of a species, the common name is given first, followed by the scientific name, authority, order and family",
+   "rule": "At first mention of a species, give the common name, then scientific name, authority, order and family; use the common name afterwards.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Offered \"as guidance\" (IPPC style guide, footnote 2). Agent checks first mention of each species."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Mediterranean fruit fly Ceratitis capitata (Wiedemann) (Diptera: Tephritidae)"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_3-005",
+   "section": "6.3.3",
+   "section_title": "Scientific names",
+   "lines": [
+    1290,
+    1290
+   ],
+   "quote": "Be consistent throughout the document.",
+   "rule": "Treat species names consistently throughout the document.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "consistency",
+    "notes": "Ambiguous scope: presumably consistency of species naming (common vs scientific name pattern). Verify."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NAM-6_3_3-006",
+   "section": "6.3.3",
+   "section_title": "Scientific names",
+   "lines": [
+    1291,
+    1291
+   ],
+   "quote": "Where scientific names appear as part of italicized titles, they must be presented in roman.",
+   "rule": "Set scientific names in roman when they occur within italicized titles.",
+   "kind": "mandatory",
+   "scope": [
+    "reference",
+    "body"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Reverse italics inside italic book/journal titles in references and text."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "ITA-9_1-003"
+   ]
+  },
+  {
+   "id": "FOR-6_4-001",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1293,
+    1295
+   ],
+   "quote": "Foreign words and phrases that have been adopted by the English language should not be italicized, e.g. ad hoc, de facto and per capita",
+   "rule": "Do not italicize foreign words and phrases adopted into English.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Flag italic runs matching adopted-word list (seed with the guide examples: ad hoc, de facto, per capita; extension needs a dictionary)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "ad hoc",
+     "de facto",
+     "per capita"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "ITA-9_1-011"
+   ]
+  },
+  {
+   "id": "FOR-6_4-002",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1296,
+    1296
+   ],
+   "quote": "Avoid writing a quote or word directly in a foreign language.",
+   "rule": "Avoid quoting or writing words directly in a foreign language.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Language-identification of non-English spans; judgement."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "FOR-6_4-003",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1296,
+    1297
+   ],
+   "quote": "If it is necessary, provide a translation in parentheses.",
+   "rule": "When a foreign-language quote or word is needed, give a translation in parentheses.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Check that each foreign span is followed by a parenthetical translation."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "FOR-6_4-002"
+   ]
+  },
+  {
+   "id": "FOR-6_4-004",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1298,
+    1299
+   ],
+   "quote": "Use official translations of titles of publications, major events, organizations and so on. Where no official translation exists, a translation may be made.",
+   "rule": "Use official English translations of titles of publications, events and organizations; otherwise a translation may be made.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Only the author/editor can verify official translations."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "FOR-6_4-005",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1300,
+    1301
+   ],
+   "quote": "When reproducing foreign words, include the diacritical marks that are placed above or beneath certain letters and that change their sound.",
+   "rule": "Keep diacritical marks on foreign words.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Compare with source spellings; DOCX/PDF extraction can strip diacritics, so check the original file before flagging."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "FOR-6_4-006",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1302,
+    1303
+   ],
+   "quote": "Foreign proper nouns, people’s names, company names and names of currencies are not italicized.",
+   "rule": "Do not italicize foreign proper nouns, personal names, company names or currency names.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Flag italic runs that are capitalized proper nouns (heuristic) — Verify against legitimate italics (titles, ships)."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "FOR-6_4-007",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1303,
+    1305
+   ],
+   "quote": "When a foreign organization name is abbreviated and no official translation exists, include a translation after the first mention only in square brackets, if it is necessary for the reader’s understanding.",
+   "rule": "For an abbreviated foreign organization name with no official translation, give a translation in square brackets after the first mention only, if needed for understanding.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "At the first definition of an acronym whose expansion is non-English, expect a bracketed English translation; flag repeated translations after first mention."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "ABB-7-003"
+   ]
+  },
+  {
+   "id": "FOR-6_4-008",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1306,
+    1306
+   ],
+   "quote": "If no official translation of a name exists, transliterate non-Latin scripts into Latin characters.",
+   "rule": "Transliterate names in non-Latin scripts into Latin characters when there is no official translation.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "[Ͱ-ϿЀ-ӿ֐-׿؀-ۿऀ-ॿ฀-๿぀-ヿ㐀-鿿가-힯]",
+    "notes": "Flags Greek, Cyrillic, Hebrew, Arabic, Devanagari, Thai, Japanese kana, CJK and Hangul characters. Greek letters used as mathematical/statistical symbols (α, β, μ) are false positives."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "FOR-6_4-009",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1311,
+    1314
+   ],
+   "quote": "If a document is bilingual, all the content must be available in both languages; for example, an annex cannot appear in only one of the two languages.",
+   "rule": "In a bilingual document, provide all content in both languages.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Box 6.1. Rarely applicable to journal manuscripts."
+   },
+   "action": "Author",
+   "exceptions": [
+    {
+     "quote": "An exception may be made for meeting reports that include lengthy lists as annexes. An exception may also be made for the inclusion of a speech at an event.",
+     "lines": [
+      1312,
+      1314
+     ],
+     "note": "Box 6.1 exceptions."
+    }
+   ],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "FOR-6_4-010",
+   "section": "6.4",
+   "section_title": "FOREIGN LANGUAGES",
+   "lines": [
+    1314,
+    1316
+   ],
+   "quote": "When this is not translated, the following comment must be added as a footnote: This content is available only in the original language of delivery.",
+   "rule": "When a speech in a bilingual document is not translated, add the footnote \"This content is available only in the original language of delivery.\"",
+   "kind": "mandatory",
+   "scope": [
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Box 6.1. Only if an untranslated speech is present."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-001",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1320,
+    1324
+   ],
+   "quote": "There are four types of abbreviations: - shortened forms of words, for example Vol. for volume; - contractions, for example Dr for doctor; - acronyms (initial letters of words pronounced as a word, e.g. NATO); and - initialisms (initial letters of words pronounced individually, e.g. SMS).",
+   "rule": "Abbreviations comprise shortened forms, contractions, acronyms and initialisms.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Definitions used by other §7 rules."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "ABB-7-002",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1325,
+    1325
+   ],
+   "quote": "Abbreviations may be used where they improve readability, but do not litter the text with them.",
+   "rule": "Use abbreviations only where they improve readability; do not overload the text with them.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Report abbreviation density (distinct abbreviations and occurrences per 1 000 words) for editor review; threshold is not given in the guide."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-003",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1326,
+    1328
+   ],
+   "quote": "At first mention, the phrase or word should be written out, followed by the abbreviation in parentheses, e.g. the World Health Organization (WHO). It may then be used alone",
+   "rule": "Write out the term at first mention followed by the abbreviation in parentheses; afterwards use the abbreviation alone.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Flag abbreviations used before (or without) a \"full form (ABBR)\" definition, and full forms repeated after the definition."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "the World Health Organization (WHO)"
+    ]
+   },
+   "exceptions": [
+    {
+     "quote": "An abbreviation may be used without writing out the full phrase at first mention if the abbreviated form is commonly used and readily identifiable (e.g. HIV).",
+     "lines": [
+      1331,
+      1332
+     ],
+     "note": "Needs a whitelist of commonly known abbreviations; the guide gives only HIV."
+    }
+   ],
+   "relevance": "manuscript",
+   "see_also": [
+    "ABB-7-010",
+    "ABB-7-011"
+   ]
+  },
+  {
+   "id": "ABB-7-004",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1329,
+    1330
+   ],
+   "quote": "Abbreviations may be used for complex words or phrases that appear more than three times in one document, such as crop wild relatives (CWR).",
+   "rule": "Introduce an abbreviation only for complex terms that occur more than three times in the document.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Count occurrences (full form + abbreviation) per defined abbreviation; flag those used three times or fewer. Guide does not say whether the defining mention counts."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "crop wild relatives (CWR)"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-005",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1332,
+    1333
+   ],
+   "quote": "Abbreviations should not be used for simple two-word phrases (e.g. PR for public relations).",
+   "rule": "Do not abbreviate simple two-word phrases.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Flag definitions whose expansion has exactly two words; \"simple\" needs judgement (Verify)."
+   },
+   "action": "Verify",
+   "examples": {
+    "incorrect": [
+     "PR for public relations"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-006",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1333,
+    1334
+   ],
+   "quote": "Avoid using abbreviations that are not pre-existing.",
+   "rule": "Do not coin new abbreviations.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement on whether an abbreviation is established; author may need to confirm."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-007",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1335,
+    1335
+   ],
+   "quote": "Abbreviations are usually defined as singular, so the plural form needs to be marked (SDG, SDGs).",
+   "rule": "Define abbreviations in the singular and mark the plural (e.g. SDGs).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Check plural agreement: plural contexts must use the -s form of the abbreviation."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "SDG",
+     "SDGs"
+    ]
+   },
+   "exceptions": [
+    {
+     "quote": "If the expression is always used in the plural sense, then the plural may be chosen for the definition of the initialism, e.g. trees outside forests (TOF).",
+     "lines": [
+      1336,
+      1337
+     ],
+     "note": "Always-plural expressions may be defined in the plural."
+    }
+   ],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-008",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1337,
+    1338
+   ],
+   "quote": "The preferred option is to define in the singular and aim to use the singular form in text to avoid awkward plural forms.",
+   "rule": "Prefer singular definitions and singular use of abbreviations.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Report abbreviations defined in the plural."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-009",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1339,
+    1340
+   ],
+   "quote": "Where an abbreviation is used for a common noun (as opposed to a proper noun), the expanded form will not usually take initial capitals, hence gross domestic product (GDP).",
+   "rule": "Write the expansion of a common-noun abbreviation in lower case.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "At each definition, flag Title Case expansions; proper-noun expansions (organizations, programmes) are correct — Verify."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "gross domestic product (GDP)"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-010",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1341,
+    1343
+   ],
+   "quote": "Abbreviations need not be redefined in annexes, appendices, etc. when already correctly abbreviated in the main text of the document (except in boxes, which should be considered separate from the main text).",
+   "rule": "Define abbreviations again at first use within each box; annexes and appendices need no redefinition.",
+   "kind": "mandatory",
+   "scope": [
+    "box",
+    "body"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Treat each box as its own first-use scope; treat annexes/appendices as continuing the main-text scope."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-011",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1343,
+    1346
+   ],
+   "quote": "However, if parts of a publication are likely to be read separately (such as the front matter and main text, or independent chapters written by different authors), consider writing out the full phrase or word, and the abbreviation, upon first mention in each of the parts concerned.",
+   "rule": "Consider redefining abbreviations at first mention in each part likely to be read separately (front matter, main text, independent chapters).",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Optional per-part scope (abstract/front matter vs main text); report undefined first uses per part as Verify."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-012",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1347,
+    1348
+   ],
+   "quote": "Avoid abbreviations that are used only within the Organization, e.g. for divisions, offices and units.",
+   "rule": "Avoid FAO-internal abbreviations for divisions, offices and units.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Needs a list of FAO internal unit abbreviations (not in the guide)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-013",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1349,
+    1350
+   ],
+   "quote": "With the exceptions of FAO and COVID-19, avoid using abbreviations in titles and headings of information products.",
+   "rule": "Avoid abbreviations (other than FAO and COVID-19) in titles and headings.",
+   "kind": "preference",
+   "scope": [
+    "heading",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?!FAO\\b)(?!COVID-19\\b)(?![IVXLC]+\\b)[A-Z][A-Z0-9&]*[A-Z](?:s|-\\d+)?\\b",
+    "notes": "Apply to heading/title text only. Excludes FAO, COVID-19 and roman numerals. False positives: all-caps headings (normalise case first), chemical formulae, NOCS names such as \"China, Hong Kong SAR\"."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "FAO",
+     "COVID-19"
+    ]
+   },
+   "exceptions": [
+    {
+     "quote": "Depending on the target audience, it may be acceptable to use an abbreviation in a title (for example, SDGs in an internal publication).",
+     "lines": [
+      1350,
+      1351
+     ],
+     "note": "Audience-dependent."
+    },
+    {
+     "quote": "If space is a concern, the abbreviation SDGs may be used in headings on inside pages (including in running heads), but not on the front cover.",
+     "lines": [
+      1157,
+      1158
+     ],
+     "note": "§6.2 exception for SDGs."
+    }
+   ],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6_2-007"
+   ]
+  },
+  {
+   "id": "ABB-7-014",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1352,
+    1352
+   ],
+   "quote": "Avoid beginning sentences with an abbreviation. FAO and COVID-19 are exceptions.",
+   "rule": "Do not start a sentence with an abbreviation, except FAO and COVID-19.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?m)(?:^|(?<=[.!?]\\s))(?!(?:FAO|COVID-19)\\b)[A-Z][A-Z0-9&]*[A-Z0-9](?:s)?\\b(?![a-z])",
+    "notes": "Sentence start = line start or after . ! ? plus space. False positives: list items and table cells starting with an abbreviation; sentences after \"e.g.\" mid-sentence."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "FAO and COVID-19 are exceptions."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-015",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1355,
+    1355
+   ],
+   "quote": "Acronyms and initialisms do not take full stops (e.g. NATO, not N.A.T.O.).",
+   "rule": "Write acronyms and initialisms without full stops.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:[A-Z]\\.){2,}(?![A-Z]\\.)(?!\\s?[A-Z][a-z])",
+    "notes": "Skips personal initials followed by a surname (J.R. Smith). Exclude reference scope (author initials). False negative: a dotted acronym followed by a capitalized word."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "NATO"
+    ],
+    "incorrect": [
+     "N.A.T.O."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUN-5_7"
+   ]
+  },
+  {
+   "id": "ABB-7-016",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1355,
+    1358
+   ],
+   "quote": "Most other abbreviations take full stops at the end (e.g. max.), except for units of measurement (e.g. kg or ml), words where the abbreviation ends with the same letter as the original word (e.g. eds), and contractions (don’t).",
+   "rule": "End shortened-form abbreviations with a full stop, except units, abbreviations ending in the last letter of the word, and contractions.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "reference"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Needs a lexicon of shortened forms; the guide gives max. (stop), kg, ml, eds, don't (no stop). Cross-check §5.7."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "max.",
+     "kg",
+     "ml",
+     "eds"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUN-5_7"
+   ]
+  },
+  {
+   "id": "ABB-7-017",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1359,
+    1359
+   ],
+   "quote": "Avoid overusing the abbreviations e.g., i.e. and etc. in the main text.",
+   "rule": "Do not overuse e.g., i.e. and etc. in the main text.",
+   "kind": "preference",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Count e.g./i.e./etc. per 1 000 words; threshold not given — report for editor judgement. Manuals are exempt."
+   },
+   "action": "Verify",
+   "exceptions": [
+    {
+     "quote": "An exception may be made for manuals.",
+     "lines": [
+      1361,
+      1362
+     ],
+     "note": "Manuals."
+    }
+   ],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-018",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1359,
+    1361
+   ],
+   "quote": "Where necessary, prefer the use of them in parentheses, not in the main part of the sentence. Usually, these can be replaced with that is, in other words, for example, such as and and so on, if needed at all.",
+   "rule": "Use e.g., i.e. and etc. inside parentheses; in running text replace them with that is, in other words, for example, such as or and so on.",
+   "kind": "preference",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<![\\w.])(?:e\\.g\\.|i\\.e\\.|etc\\.)(?![^()]*\\))",
+    "notes": "Approximates \"outside parentheses\": flags the abbreviation unless a closing parenthesis follows before any opening one. Exempt: manuals."
+   },
+   "action": "Verify",
+   "exceptions": [
+    {
+     "quote": "An exception may be made for manuals.",
+     "lines": [
+      1361,
+      1362
+     ],
+     "note": "Manuals."
+    }
+   ],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-019",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1363,
+    1363
+   ],
+   "quote": "When abbreviating the word number, use the abbreviation No.",
+   "rule": "Abbreviate \"number\" as \"No.\"",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?:\\b(?:no|nr|Nr|NR|num|Num|NO)\\.?|\\bNo(?!\\.)|#)\\s?(?=\\d)",
+    "notes": "Flags no./Nr./num./#/No without full stop before a numeral. False positive: lower-case \"no 2\" in ordinary prose (rare)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "No."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-020",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1364,
+    1365
+   ],
+   "quote": "Avoid the use of abbreviations such as op. cit., loc. cit., ibid. and cf. in footnotes or endnotes.",
+   "rule": "Do not use op. cit., loc. cit., ibid. or cf. in footnotes or endnotes.",
+   "kind": "preference",
+   "scope": [
+    "footnote",
+    "body",
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b(?:op\\.\\s*cit\\.|loc\\.\\s*cit\\.|ibid\\b\\.?|cf\\.)",
+    "notes": "Guide scopes this to footnotes/endnotes; running-text hits are also worth flagging (Verify)."
+   },
+   "action": "Apply",
+   "examples": {
+    "incorrect": [
+     "op. cit.",
+     "loc. cit.",
+     "ibid.",
+     "cf."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-021",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1366,
+    1367
+   ],
+   "quote": "If you use numerous abbreviations, list them in alphabetical order in a separate section (Abbreviations) in the front matter.",
+   "rule": "If many abbreviations are used, list them alphabetically in an \"Abbreviations\" section in the front matter.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "\"Numerous\" is undefined. Check presence of an Abbreviations list when many are defined, alphabetical order, and that every defined abbreviation is listed."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ABB-7-022",
+   "section": "7",
+   "section_title": "ABBREVIATIONS",
+   "lines": [
+    1367,
+    1368
+   ],
+   "quote": "In the list, abbreviations should follow the same capitalization used in the text.",
+   "rule": "In the abbreviations list, capitalize expansions as in the text.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Compare list expansions with in-text definitions (case-sensitive)."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-001",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1372,
+    1373
+   ],
+   "quote": "It is not usually necessary to capitalize common nouns. For example, rather than the Committees and the Working Groups, write the committees and the working groups.",
+   "rule": "Do not capitalize common nouns.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Flag mid-sentence capitalized common nouns (e.g. plural generic Committees, Working Groups); needs judgement against proper names."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the committees and the working groups"
+    ],
+    "incorrect": [
+     "the Committees and the Working Groups"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-002",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1373,
+    1375
+   ],
+   "quote": "Terminology must be consistent with the FAO Term Portal",
+   "rule": "Make terminology consistent with the FAO Term Portal.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Requires a Term Portal export."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6-001",
+    "TRM-6_1-014"
+   ]
+  },
+  {
+   "id": "CAP-8-003",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1375,
+    1376
+   ],
+   "quote": "Prioritize uncapitalized terms over versions with initial capitalization.",
+   "rule": "Where a term exists with and without initial capitals, prefer the uncapitalized form.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Term Portal lookup."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-004",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1377,
+    1377
+   ],
+   "quote": "Do not capitalize the phrases arabic numerals, roman type or roman numerals.",
+   "rule": "Write \"arabic numerals\", \"roman type\" and \"roman numerals\" in lower case.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<=[a-z0-9,;:(]\\s)(?:Arabic|Roman)\\s+(?:numerals?|type)\\b|\\b(?:arabic|roman)\\s+(?:Numerals?|Type)\\b",
+    "notes": "Sentence-initial \"Arabic numerals\" is not matched."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "arabic numerals",
+     "roman type",
+     "roman numerals"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-005",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1378,
+    1379
+   ],
+   "quote": "The first word after a colon should be capitalized only if it is a proper noun or introduces a sentence.",
+   "rule": "After a colon, capitalize only a proper noun or the start of a full sentence.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Candidate pattern for review: :\\s+[A-Z][a-z]+ (capital after colon) — judgement whether a full sentence or proper noun follows. Headings and titles with subtitles may follow §8.1 instead."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-006",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1380,
+    1381
+   ],
+   "quote": "If a quotation fragment is used in a sentence, an upper case or lower case letter in the original quotation may be altered to suit its position in the new sentence.",
+   "rule": "The initial letter of a quoted fragment may be changed in case to fit the sentence.",
+   "kind": "guidance",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Permission; no check."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-007",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1382,
+    1382
+   ],
+   "quote": "Names of the seasons are not capitalized.",
+   "rule": "Write season names in lower case.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<=[a-z0-9,;:(]\\s)(?:Spring|Summer|Autumn|Winter)\\b(?!\\s+(?:School|Institute|Academy|Olympics)\\b)",
+    "notes": "Mid-sentence only. False positives: proper names containing season words (event titles) and place names (e.g. Spring as part of a name)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-008",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1382,
+    1384
+   ],
+   "quote": "Note that seasons should not generally be used as a frame of reference, as they vary according to the hemisphere. Exceptions may be made for training materials aimed at a specific country or region.",
+   "rule": "Avoid seasons as a time reference (they differ by hemisphere), except in training materials for a specific country or region.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b(?:in|during|by|this|last|next|early|late|mid|the)[\\s-]+(?:spring|summer|autumn|winter)\\b",
+    "notes": "Every hit needs judgement; seasons qualified by place (e.g. the Australian summer) are acceptable."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-009",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1384,
+    1384
+   ],
+   "quote": "As a season, use autumn, not fall.",
+   "rule": "Use \"autumn\", not \"fall\", for the season.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b(?:in|during|this|last|next|early|late|the)\\s+(?:the\\s+)?fall\\b(?!\\s+(?:of|in|by|to|from)\\b)",
+    "notes": "Excludes \"the fall in/of prices\" etc. Remaining false positives: noun \"fall\" meaning decline at end of clause (\"a sharp fall\")."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "autumn"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-010",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1385,
+    1386
+   ],
+   "quote": "Capitalization of brand and trade names should reflect the registered version of the name, such as YouTube and InDesign.",
+   "rule": "Capitalize brand and trade names as registered.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "caption",
+    "reference"
+   ],
+   "check": {
+    "method": "wordlist",
+    "pairs": [
+     [
+      "Youtube",
+      "YouTube"
+     ],
+     [
+      "youtube",
+      "YouTube"
+     ],
+     [
+      "YOUTUBE",
+      "YouTube"
+     ],
+     [
+      "Indesign",
+      "InDesign"
+     ],
+     [
+      "indesign",
+      "InDesign"
+     ]
+    ],
+    "notes": "Case-sensitive. Only the two brands named in the guide; others need a brand list or agent. URLs (youtube.com) are false positives."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "YouTube",
+     "InDesign"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-011",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1387,
+    1390
+   ],
+   "quote": "Use capital letters when naming a specific body, e.g. The Government of France ruled that ... but not when referring to a body more generally, e.g. All participating governments were asked to comment on the ruling.",
+   "rule": "Capitalize the name of a specific body; use lower case for bodies referred to generally.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement: specific vs generic reference."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "The Government of France ruled that",
+     "All participating governments were asked to comment on the ruling."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-012",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1391,
+    1396
+   ],
+   "quote": "Organizations, committees, universities, laws, treaties, governments and so on take initial capitals when the full title is given, but not when referred to subsequently without the full title",
+   "rule": "Capitalize organizations, committees, universities, laws, treaties and governments only when the full title is given; use lower case in later short references (FAO-related exceptions in 6.1).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b[Tt]he\\s+(?:Government|Ministry|Committee|Commission|University|Treaty|Policy|Strategy|Law|Act)\\b(?!\\s+(?:of|for|on|to)\\b)(?!\\s+[A-Z])",
+    "notes": "Flags short-form \"the Government\", \"the Committee\" etc. not followed by of/for/on or a capitalized name. Exceptions: the Organization and the Conference for FAO (TRM-6_1-007/008); FAO governing bodies may need judgement."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "The Government of Malawi has stated that the policy is being drafted.",
+     "The goal of the policy is to give the government more control, according to the minister."
+    ]
+   },
+   "exceptions": [
+    {
+     "quote": "Following an initial mention, FAO may subsequently be referred to as the Organization, using an initial capital",
+     "lines": [
+      1121,
+      1122
+     ],
+     "note": "§6.1 exception."
+    }
+   ],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6_1-007",
+    "TRM-6_1-008"
+   ]
+  },
+  {
+   "id": "CAP-8-013",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1397,
+    1400
+   ],
+   "quote": "For geographical and political designations, use upper case only if part of the official name. For example, the word state takes a lower case s when referring generally to the institution or to nations or divisions of a nation, e.g. state-owned enterprise; it takes a capital S when a specific state is named, e.g. State of Andhra Pradesh.",
+   "rule": "Capitalize geographical and political designations only as part of an official name (e.g. state-owned enterprise, but State of Andhra Pradesh).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Candidate patterns for review: (?<=[a-z,;(]\\s)State-[a-z]+ ; \\b[Tt]he\\s+State\\b(?!\\s+of). Note FAO exception: Member States is capitalized (TRM-6_1-020)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "state-owned enterprise",
+     "State of Andhra Pradesh"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-014",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1401,
+    1404
+   ],
+   "quote": "For formal or job titles, use upper case only if it comes before a person’s name or directly following the name, e.g. Prime Minister Anderson or Jennifer Smith, Director of Communications, spoke to the press. Use lower case when a title is separated from the person’s name",
+   "rule": "Capitalize a formal or job title only directly before or after a person's name; otherwise use lower case.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "caption"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement on title adjacency."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Prime Minister Anderson",
+     "Jennifer Smith, Director of Communications, spoke to the press.",
+     "Qu Dongyu, the ninth director-general of FAO, was elected in 2019."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "TRM-6_1-013"
+   ]
+  },
+  {
+   "id": "CAP-8-015",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1405,
+    1406
+   ],
+   "quote": "Use initial capitals for historical eras and events (the First World War), declarations and conventions when the full title is given.",
+   "rule": "Capitalize historical eras and events, and declarations and conventions given with their full title.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Candidate pattern: \\b(?:first|second)\\s+world\\s+war\\b (lower case)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the First World War"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-016",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1407,
+    1410
+   ],
+   "quote": "Names of stars and planets (e.g. the Sun, the Earth) should be capitalized where treated as proper nouns. Where earth is used to refer to ground or soil, the word is not capitalized. Where sun is used generically, it should be lower case",
+   "rule": "Capitalize Sun and Earth as proper nouns; use lower case for earth as soil and generic sun.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement on sense."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the Sun",
+     "the Earth",
+     "The cacao beans are dried in the sun."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-017",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1413,
+    1414
+   ],
+   "quote": "When referring to a specific figure or table in the text, use a capital letter, e.g. see Table 1.3.",
+   "rule": "Capitalize Figure and Table in references to a specific figure or table.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:figure|table)s?\\s+[A-Z]?\\d",
+    "notes": "High precision. Line 1413 starts with a private-use bullet glyph (conversion artefact)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "see Table 1.3"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-018",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1414,
+    1415
+   ],
+   "quote": "When referring to more than one figure or table, refer to each separately, e.g. As shown in Figure 2 and Figure 3 (not As shown in Figures 2 and 3).",
+   "rule": "Refer to each figure or table separately (Figure 2 and Figure 3), not with a plural (Figures 2 and 3).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b[Ff]igures\\s+[A-Z]?\\d|\\b[Tt]ables\\s+[A-Z]?\\d",
+    "notes": "High precision."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "As shown in Figure 2 and Figure 3"
+    ],
+    "incorrect": [
+     "As shown in Figures 2 and 3"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8-019",
+   "section": "8",
+   "section_title": "CAPITALIZATION",
+   "lines": [
+    1415,
+    1416
+   ],
+   "quote": "Note that capitals are not used when the term is used in a general sense, e.g. The tables show a trend of ....",
+   "rule": "Use lower case for figure and table in a general sense.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<=[a-z0-9,;:(]\\s)(?:Figure|Table)s?\\b(?!\\s*[A-Z]?\\d)",
+    "notes": "Mid-sentence capitalized Figure/Table without a number. False positive: \"Table A1\"-style labels with letters only, and table titles quoted in text."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "The tables show a trend of"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_1-001",
+   "section": "8.1",
+   "section_title": "TITLES AND HEADINGS",
+   "lines": [
+    1418,
+    1419
+   ],
+   "quote": "In headings, subheadings and book titles, use sentence case, i.e. capitals only for the initial letter of the phrase and any proper names.",
+   "rule": "Use sentence case in headings, subheadings and book titles.",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "title",
+    "caption",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "heading_case",
+    "notes": "Flag headings/titles with capitalized non-initial words that are not proper names; proper names need judgement (Verify). Applies to book titles in the reference list too."
+   },
+   "action": "Verify",
+   "exceptions": [
+    {
+     "quote": "If the title is based on a conference, workshop, government programme, project name or journal whose title was capitalized, retain the capitalization.",
+     "lines": [
+      1419,
+      1420
+     ],
+     "note": "Keep original capitalization of such names."
+    },
+    {
+     "quote": "Capitalize the initial letter of the first word, the final word and major words of series titles, e.g. Microbiological Risk Assessment Series.",
+     "lines": [
+      1423,
+      1424
+     ],
+     "note": "Series titles use title case (CAP-8_1-003)."
+    }
+   ],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_1-002",
+   "section": "8.1",
+   "section_title": "TITLES AND HEADINGS",
+   "lines": [
+    1420,
+    1422
+   ],
+   "quote": "Note that designers may choose to use all upper case for titles or headings, but the capitalization rules should be followed in the citation.",
+   "rule": "In citations, apply the capitalization rules even if the title was designed in all capitals.",
+   "kind": "mandatory",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "heading_case",
+    "notes": "Flag all-caps titles in the reference list. Designer choice of all caps is production."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_1-003",
+   "section": "8.1",
+   "section_title": "TITLES AND HEADINGS",
+   "lines": [
+    1423,
+    1424
+   ],
+   "quote": "Capitalize the initial letter of the first word, the final word and major words of series titles, e.g. Microbiological Risk Assessment Series.",
+   "rule": "Use title case (first, last and major words) for series titles.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "reference",
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "heading_case",
+    "notes": "Needs recognition of series titles (e.g. trailing \"Series\"). Exception to sentence case (CAP-8_1-001)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Microbiological Risk Assessment Series"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_2-001",
+   "section": "8.2",
+   "section_title": "REGIONS AND GROUPS OF PEOPLE",
+   "lines": [
+    1426,
+    1428
+   ],
+   "quote": "For regions, capitalize when part of a proper name or political grouping, e.g. the representatives of Southeast Asia, the Near East and Eastern Europe, but not for a generic geographical grouping, e.g. a species common across eastern Europe.",
+   "rule": "Capitalize region names that are proper names or political groupings; use lower case for generic geographical groupings.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement political vs geographical sense; guide allows upper case depending on context (lines 1428–1430)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the representatives of Southeast Asia, the Near East and Eastern Europe",
+     "a species common across eastern Europe"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_2-002",
+   "section": "8.2",
+   "section_title": "REGIONS AND GROUPS OF PEOPLE",
+   "lines": [
+    1428,
+    1430
+   ],
+   "quote": "The naming of regions across the world can also carry cultural, historical or traditional connotations and for this reason upper case may often be appropriate depending on context; be consistent throughout the document.",
+   "rule": "Capitalize region names consistently throughout the document.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "consistency",
+    "notes": "Flag the same region term appearing with different capitalization (e.g. Eastern Europe / eastern Europe) — Verify, since political vs geographical senses may legitimately differ."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_2-003",
+   "section": "8.2",
+   "section_title": "REGIONS AND GROUPS OF PEOPLE",
+   "lines": [
+    1431,
+    1431
+   ],
+   "quote": "Adjectives derived from these names (e.g. Near Eastern, North African) are also capitalized.",
+   "rule": "Capitalize adjectives derived from capitalized region names.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b[Nn]ear\\s+eastern\\b|\\bnear\\s+Eastern\\b|\\b[Nn]orth\\s+african\\b|\\bnorth\\s+African\\b",
+    "notes": "Covers only the guide examples; extend with agent."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Near Eastern",
+     "North African"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_2-004",
+   "section": "8.2",
+   "section_title": "REGIONS AND GROUPS OF PEOPLE",
+   "lines": [
+    1431,
+    1432
+   ],
+   "quote": "Do not capitalize, however, where a hyphen is part of a prefixed word, e.g. sub-Saharan Africa.",
+   "rule": "Keep the prefix lower case in hyphenated prefixed region words (sub-Saharan).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<=[a-z0-9,;:(]\\s)Sub-Saharan\\b|\\b[Ss]ub-saharan\\b",
+    "notes": "Sentence- or heading-initial \"Sub-Saharan\" is not matched. Published titles in references are false positives."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "sub-Saharan Africa"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_2-005",
+   "section": "8.2",
+   "section_title": "REGIONS AND GROUPS OF PEOPLE",
+   "lines": [
+    1433,
+    1434
+   ],
+   "quote": "Names of Indigenous Peoples and ethnic and national groups take an initial capital",
+   "rule": "Capitalize names of Indigenous Peoples and ethnic and national groups.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Needs a list of group names; judgement."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the San people"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "CAP-8_2-006",
+   "section": "8.2",
+   "section_title": "REGIONS AND GROUPS OF PEOPLE",
+   "lines": [
+    1433,
+    1434
+   ],
+   "quote": "Names of Indigenous Peoples and ethnic and national groups take an initial capital and are not italicized",
+   "rule": "Do not italicize names of Indigenous Peoples and ethnic and national groups.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Flag italic runs that are group names (needs list or agent)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the San people"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-001",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1439,
+    1440
+   ],
+   "quote": "Italic font is used for: - emphasis, as sparingly as possible",
+   "rule": "Use italics for emphasis only sparingly.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Report italic runs not explained by another category (titles, species, variables, legal cases, foreign words)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-002",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1440,
+    1441
+   ],
+   "quote": "(note that when the body text is in italics, roman type should be used for emphasis)",
+   "rule": "Within italic text, use roman type for emphasis.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Mainly for boxes/quotes set in italics."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-003",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1442,
+    1442
+   ],
+   "quote": "book and journal titles in all languages",
+   "rule": "Italicize book and journal titles in all languages.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "reference",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. In the reference list, italicize the book or journal title element. Coordinate with §12 reference format."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "REF-12",
+    "NAM-6_3_3-006"
+   ]
+  },
+  {
+   "id": "ITA-9_1-004",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1442,
+    1442
+   ],
+   "quote": "(titles of chapters and articles are not italicized)",
+   "rule": "Do not italicize titles of chapters and articles.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "reference",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-005",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1443,
+    1443
+   ],
+   "quote": "website names",
+   "rule": "Italicize website names.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Website names (not URLs); recognising them needs judgement (agent). The quote is a list fragment from the italics list (lines 1439–1443)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-006",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1443,
+    1444
+   ],
+   "quote": "titles of paintings and sculptures in all languages; plays, films, and radio and television programmes in all languages",
+   "rule": "Italicize titles of paintings, sculptures, plays, films, and radio and television programmes.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Recognition needs judgement."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-007",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1444,
+    1445
+   ],
+   "quote": "and names of ships (prefixes such as SS or HMS are not italicized)",
+   "rule": "Italicize names of ships, but not prefixes such as SS or HMS.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Candidate: italic run starting with SS/HMS/RV etc. → prefix should be roman."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-008",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1446,
+    1447
+   ],
+   "quote": "mathematical variables, e.g. 2 x + 3p",
+   "rule": "Italicize mathematical variables.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "table",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Conversion artefact: the example is split across lines 1446–1447 (\"2 / x + 3p\"), presumably \"2x + 3p\" with x and p italic."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "2x + 3p"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-009",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1448,
+    1449
+   ],
+   "quote": "names of legal cases or judgments, e.g. State of Wyoming v. Jameson",
+   "rule": "Italicize names of legal cases and judgments.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Locate candidates with \\b[A-Z][\\w ]+ v\\. [A-Z]\\w+ and check italics."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "State of Wyoming v. Jameson"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_1-010",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1450,
+    1450
+   ],
+   "quote": "the indication of genera, species and subspecies",
+   "rule": "Italicize genera, species and subspecies.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Same requirement as NAM-6_3_3-001; deduplicate at merge."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "NAM-6_3_3-001"
+   ]
+  },
+  {
+   "id": "ITA-9_1-011",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1452,
+    1452
+   ],
+   "quote": "some foreign words and phrases. See 6.4 Foreign languages for more information.",
+   "rule": "Italicize some foreign words and phrases (those not adopted into English).",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Needs run-level italic information from the DOCX. Ambiguous: the guide does not say which foreign words are italicized, only (6.4) that adopted ones are not. Non-adopted foreign words therefore italic — Verify."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "FOR-6_4-001",
+    "FOR-6_4-006"
+   ]
+  },
+  {
+   "id": "ITA-9_1-012",
+   "section": "9.1",
+   "section_title": "ITALICS",
+   "lines": [
+    1453,
+    1453
+   ],
+   "quote": "Note that only words italicized in the original text should be italicized within a direct quote.",
+   "rule": "Within a direct quotation, italicize only words italic in the original.",
+   "kind": "mandatory",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Only the author can confirm the source formatting; flag italic runs inside quotation marks."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_2-001",
+   "section": "9.2",
+   "section_title": "BOLD",
+   "lines": [
+    1455,
+    1456
+   ],
+   "quote": "Authors’ names may be in bold in reference lists and in the source notes under figures, tables and boxes. This is optional, provided it is consistent throughout the document.",
+   "rule": "Bold author names in reference lists and source notes either throughout or not at all.",
+   "kind": "mandatory",
+   "scope": [
+    "reference",
+    "caption",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Consistency check on bold author-name runs across the reference list and source notes."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "REF-12"
+   ]
+  },
+  {
+   "id": "ITA-9_2-002",
+   "section": "9.2",
+   "section_title": "BOLD",
+   "lines": [
+    1458,
+    1458
+   ],
+   "quote": "In the text, avoid bold unless there is a clear purpose, such as emphasis.",
+   "rule": "Avoid bold in running text unless it has a clear purpose such as emphasis.",
+   "kind": "preference",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Report bold runs in body paragraphs (excluding headings and run-in labels)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "ITA-9_3-001",
+   "section": "9.3",
+   "section_title": "UNDERLINING",
+   "lines": [
+    1460,
+    1461
+   ],
+   "quote": "Hyperlinked text should be underlined. The exception to this rule is URLs, from which an underline may be removed.",
+   "rule": "Underline hyperlinked text; URLs may be left without underline.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "formatting",
+    "notes": "Check DOCX hyperlink runs for underline; skip runs whose text is a URL. Final link styling is often applied in production."
+   },
+   "action": "Verify",
+   "exceptions": [
+    {
+     "quote": "The exception to this rule is URLs, from which an underline may be removed.",
+     "lines": [
+      1460,
+      1461
+     ],
+     "note": "URLs."
+    }
+   ],
+   "relevance": "manuscript"
+  }
+ ],
+ "sections": [
+  {
+   "section": "6",
+   "title": "TERMINOLOGY AND NAMES",
+   "lines": [
+    1110,
+    1112
+   ],
+   "rule_ids": [
+    "TRM-6-001"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "6.1",
+   "title": "FAO-RELATED TERMINOLOGY",
+   "lines": [
+    1113,
+    1145
+   ],
+   "rule_ids": [
+    "TRM-6_1-001",
+    "TRM-6_1-002",
+    "TRM-6_1-003",
+    "TRM-6_1-004",
+    "TRM-6_1-005",
+    "TRM-6_1-006",
+    "TRM-6_1-007",
+    "TRM-6_1-008",
+    "TRM-6_1-009",
+    "TRM-6_1-010",
+    "TRM-6_1-011",
+    "TRM-6_1-012",
+    "TRM-6_1-013",
+    "TRM-6_1-014",
+    "TRM-6_1-015",
+    "TRM-6_1-016",
+    "TRM-6_1-017",
+    "TRM-6_1-018",
+    "TRM-6_1-019",
+    "TRM-6_1-020",
+    "TRM-6_1-021"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "6.2",
+   "title": "SDG-RELATED TERMINOLOGY",
+   "lines": [
+    1147,
+    1158
+   ],
+   "rule_ids": [
+    "TRM-6_2-001",
+    "TRM-6_2-002",
+    "TRM-6_2-003",
+    "TRM-6_2-004",
+    "TRM-6_2-005",
+    "TRM-6_2-006",
+    "TRM-6_2-007"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "6.3",
+   "title": "NAMES",
+   "lines": [
+    1159,
+    1159
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Parent heading only; no text before 6.3.1."
+  },
+  {
+   "section": "6.3.1",
+   "title": "Country names and regions",
+   "lines": [
+    1160,
+    1174
+   ],
+   "rule_ids": [
+    "NAM-6_3_1-001",
+    "NAM-6_3_1-002",
+    "NAM-6_3_1-003",
+    "NAM-6_3_1-004",
+    "NAM-6_3_1-005",
+    "NAM-6_3_1-006",
+    "NAM-6_3_1-007"
+   ],
+   "status": "rules",
+   "note": "Line 1174 (Administrative Circular 2021/13) is a pointer, not a rule."
+  },
+  {
+   "section": "6.3.1.1",
+   "title": "General guidelines",
+   "lines": [
+    1175,
+    1200
+   ],
+   "rule_ids": [
+    "NAM-6_3_1_1-001",
+    "NAM-6_3_1_1-002",
+    "NAM-6_3_1_1-003",
+    "NAM-6_3_1_1-004",
+    "NAM-6_3_1_1-005",
+    "NAM-6_3_1_1-006",
+    "NAM-6_3_1_1-007",
+    "NAM-6_3_1_1-008",
+    "NAM-6_3_1_1-009",
+    "NAM-6_3_1_1-010"
+   ],
+   "status": "rules",
+   "note": "Exceptions at 1190–1200 are restated in 6.3.1.3 with differences."
+  },
+  {
+   "section": "6.3.1.2",
+   "title": "Using NOCS entries",
+   "lines": [
+    1201,
+    1231
+   ],
+   "rule_ids": [
+    "NAM-6_3_1_2-001",
+    "NAM-6_3_1_2-002",
+    "NAM-6_3_1_2-003",
+    "NAM-6_3_1_2-004",
+    "NAM-6_3_1_2-005",
+    "NAM-6_3_1_2-006",
+    "NAM-6_3_1_2-007",
+    "NAM-6_3_1_2-008",
+    "NAM-6_3_1_2-009",
+    "NAM-6_3_1_2-010"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "6.3.1.3",
+   "title": "Exceptions to the NOCS rules",
+   "lines": [
+    1233,
+    1245
+   ],
+   "rule_ids": [
+    "NAM-6_3_1_3-001",
+    "NAM-6_3_1_3-002",
+    "NAM-6_3_1_3-003",
+    "NAM-6_3_1_3-004"
+   ],
+   "status": "rules",
+   "note": "Duplicates 6.3.1.1 exceptions; deduplicate at merge."
+  },
+  {
+   "section": "6.3.2",
+   "title": "Titles and proper names",
+   "lines": [
+    1246,
+    1278
+   ],
+   "rule_ids": [
+    "NAM-6_3_2-001",
+    "NAM-6_3_2-002",
+    "NAM-6_3_2-003",
+    "NAM-6_3_2-004",
+    "NAM-6_3_2-005",
+    "NAM-6_3_2-006",
+    "NAM-6_3_2-007",
+    "NAM-6_3_2-008",
+    "NAM-6_3_2-009",
+    "NAM-6_3_2-010",
+    "NAM-6_3_2-011",
+    "NAM-6_3_2-012",
+    "NAM-6_3_2-013",
+    "NAM-6_3_2-014"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "6.3.3",
+   "title": "Scientific names",
+   "lines": [
+    1279,
+    1291
+   ],
+   "rule_ids": [
+    "NAM-6_3_3-001",
+    "NAM-6_3_3-002",
+    "NAM-6_3_3-003",
+    "NAM-6_3_3-004",
+    "NAM-6_3_3-005",
+    "NAM-6_3_3-006"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "6.4",
+   "title": "FOREIGN LANGUAGES",
+   "lines": [
+    1292,
+    1317
+   ],
+   "rule_ids": [
+    "FOR-6_4-001",
+    "FOR-6_4-002",
+    "FOR-6_4-003",
+    "FOR-6_4-004",
+    "FOR-6_4-005",
+    "FOR-6_4-006",
+    "FOR-6_4-007",
+    "FOR-6_4-008",
+    "FOR-6_4-009",
+    "FOR-6_4-010"
+   ],
+   "status": "rules",
+   "note": "Includes Box 6.1 (For translations), lines 1309–1316."
+  },
+  {
+   "section": "7",
+   "title": "ABBREVIATIONS",
+   "lines": [
+    1319,
+    1369
+   ],
+   "rule_ids": [
+    "ABB-7-001",
+    "ABB-7-002",
+    "ABB-7-003",
+    "ABB-7-004",
+    "ABB-7-005",
+    "ABB-7-006",
+    "ABB-7-007",
+    "ABB-7-008",
+    "ABB-7-009",
+    "ABB-7-010",
+    "ABB-7-011",
+    "ABB-7-012",
+    "ABB-7-013",
+    "ABB-7-014",
+    "ABB-7-015",
+    "ABB-7-016",
+    "ABB-7-017",
+    "ABB-7-018",
+    "ABB-7-019",
+    "ABB-7-020",
+    "ABB-7-021",
+    "ABB-7-022"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "8",
+   "title": "CAPITALIZATION",
+   "lines": [
+    1371,
+    1416
+   ],
+   "rule_ids": [
+    "CAP-8-001",
+    "CAP-8-002",
+    "CAP-8-003",
+    "CAP-8-004",
+    "CAP-8-005",
+    "CAP-8-006",
+    "CAP-8-007",
+    "CAP-8-008",
+    "CAP-8-009",
+    "CAP-8-010",
+    "CAP-8-011",
+    "CAP-8-012",
+    "CAP-8-013",
+    "CAP-8-014",
+    "CAP-8-015",
+    "CAP-8-016",
+    "CAP-8-017",
+    "CAP-8-018",
+    "CAP-8-019"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "8.1",
+   "title": "TITLES AND HEADINGS",
+   "lines": [
+    1417,
+    1424
+   ],
+   "rule_ids": [
+    "CAP-8_1-001",
+    "CAP-8_1-002",
+    "CAP-8_1-003"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "8.2",
+   "title": "REGIONS AND GROUPS OF PEOPLE",
+   "lines": [
+    1425,
+    1435
+   ],
+   "rule_ids": [
+    "CAP-8_2-001",
+    "CAP-8_2-002",
+    "CAP-8_2-003",
+    "CAP-8_2-004",
+    "CAP-8_2-005",
+    "CAP-8_2-006"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "9",
+   "title": "ITALICS, BOLD AND UNDERLINING",
+   "lines": [
+    1437,
+    1437
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Parent heading only; no text before 9.1."
+  },
+  {
+   "section": "9.1",
+   "title": "ITALICS",
+   "lines": [
+    1438,
+    1453
+   ],
+   "rule_ids": [
+    "ITA-9_1-001",
+    "ITA-9_1-002",
+    "ITA-9_1-003",
+    "ITA-9_1-004",
+    "ITA-9_1-005",
+    "ITA-9_1-006",
+    "ITA-9_1-007",
+    "ITA-9_1-008",
+    "ITA-9_1-009",
+    "ITA-9_1-010",
+    "ITA-9_1-011",
+    "ITA-9_1-012"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "9.2",
+   "title": "BOLD",
+   "lines": [
+    1454,
+    1458
+   ],
+   "rule_ids": [
+    "ITA-9_2-001",
+    "ITA-9_2-002"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "9.3",
+   "title": "UNDERLINING",
+   "lines": [
+    1459,
+    1462
+   ],
+   "rule_ids": [
+    "ITA-9_3-001"
+   ],
+   "status": "rules",
+   "note": ""
+  }
+ ]
+}

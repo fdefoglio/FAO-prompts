@@ -1,0 +1,247 @@
+{
+ "_about": "Post-extraction corrections from the independent audit of 30 October 2026. Applied by scripts/apply_corrections.py after merging. Each patch replaces the named fields; 'check.*' keys patch inside check.",
+ "execution": {
+  "unit": "paragraph",
+  "notes": "Patterns run on one paragraph at a time (DOCX paragraph or labelled-markdown line). Anchored patterns use (?m). The runner must enforce `scope` (body, heading, caption, table, footnote, reference ...) and mask quotations first (REF-12_3_3-006).",
+  "input": "DOCX run text is the reference input: it keeps non-breaking spaces, superscripts and italics. On markdown or plain text, rules whose check.requires includes 'nbsp' or 'formatting' are skipped and listed as not checked in the receipt.",
+  "apply_policy": "Calibration phase: every finding is reported as Verify, whatever its action. A rule is promoted to auto-apply only after it has run on at least three real manuscripts with no false positive; record that in calibration.status. Until then `action: Apply` means 'unambiguous once the editor has confirmed the hit'."
+ },
+ "patches": {
+  "CAP-8_1-002": {
+   "action": "Verify"
+  },
+  "NAM-6_3_1_1-008": {
+   "action": "Verify",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ]
+  },
+  "NAM-6_3_1_3-002": {
+   "action": "Verify",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ]
+  },
+  "TRM-6_1-013": {
+   "action": "Verify",
+   "check.notes": "Exclude reference entries and titles of non-FAO bodies (a ministry's Director General)."
+  },
+  "REF-12_8-002": {
+   "action": "Verify"
+  },
+  "WRT-3_3_1-002": {
+   "rule": "Avoid referring to Indigenous Peoples as farmers, ethnic groups, local communities or marginalized communities."
+  },
+  "PUB-2_1_3_2-017": {
+   "rule": "YEAR: give the year of publication."
+  },
+  "SPL-4-001": {
+   "action": "Verify",
+   "check.notes": "Skip proper names (Center for Global Development, the guide's own exception, line 899), quotations and published titles."
+  },
+  "SPL-4-002": {
+   "action": "Verify",
+   "check.notes": "Skip proper names (Department of Labor), quotations and published titles."
+  },
+  "SPL-4-005": {
+   "action": "Verify",
+   "check.notes": "Candidate generator only (OVR-05). Skip proper names (Organisation for Economic Co-operation and Development), quotations, published titles and foreign-language spans; check every hit against header.ise_exceptions."
+  },
+  "PUN-5_10-006": {
+   "check.pattern": "“[^”]{250,}”|\"[^\"]{250,}\""
+  },
+  "WRT-3_1-012": {
+   "check": {
+    "method": "agent",
+    "notes": "Judgement: replace an imprecise verb (do, make, get, enhance) only where a more precise verb fits; never as a word swap."
+   }
+  },
+  "WRT-3_3_2-007": {
+   "check.pairs": [
+    [
+     "chairman",
+     "chair"
+    ],
+    [
+     "chairwoman",
+     "chair"
+    ],
+    [
+     "layman",
+     "layperson"
+    ],
+    [
+     "man-hour",
+     "work-hour"
+    ],
+    [
+     "mankind",
+     "humanity"
+    ],
+    [
+     "man-made",
+     "artificial"
+    ],
+    [
+     "manning",
+     "staffing"
+    ],
+    [
+     "manpower",
+     "workforce"
+    ]
+   ],
+   "check.notes": "Table 3.2 lists alternatives (Chair or head; humanity or human race; artificial, manufactured or synthetic; human resources, labour force, personnel, workers or workforce). The editor picks the one that fits."
+  },
+  "ABB-7-019": {
+   "action": "Verify",
+   "check.pattern": "(?<![#\\w])(?:no|nr|Nr|NR|num|Num|NO)\\.?\\s?(?=\\d)|\\bNo(?!\\.)\\s?(?=\\d)",
+   "check.notes": "Markdown heading hashes are not abbreviations of number."
+  },
+  "ABB-7-018": {
+   "kind": "preference",
+   "check.notes": "The guide itself uses e.g. outside parentheses; flag only clusters (more than about one per paragraph) for the editor."
+  },
+  "ABB-7-013": {
+   "check.notes": "Skip headings written entirely in capitals (a design choice), roman numerals and NOCS names that contain capitals (Hong Kong SAR). Report under WRT-3_5-003 for document titles."
+  },
+  "WRT-3_5-003": {
+   "see_also": [
+    "ABB-7-013"
+   ]
+  },
+  "PUB-2_2_3-003": {
+   "check": {
+    "method": "module",
+    "module": "heading_numbering",
+    "notes": "Document-level: report once if numbered subheadings are used and nothing cross-refers to them."
+   }
+  },
+  "NUM-10-004": {
+   "action": "Verify",
+   "check.notes": "Exclude 'para. N', section numbers, list numbering and wrapped lines."
+  },
+  "NUM-10-011": {
+   "action": "Verify",
+   "check.notes": "The unspaced 5+ digit alternative also hits article numbers (World Development, 142: 105455), file names and URLs; skip references and URLs."
+  },
+  "PUN-5_12-002": {
+   "action": "Verify",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote"
+   ]
+  },
+  "PUN-5_8-008": {
+   "check.notes": "Exclude official terms such as least developed countries (Appendix 2)."
+  },
+  "PUN-5_9-002": {
+   "check": {
+    "method": "module",
+    "module": "list_format",
+    "notes": "Needs the paragraph before a list: a lead-in that is not followed by a colon."
+   }
+  },
+  "REF-12_4-003": {
+   "check.pattern": "(?m)^\\s*(?:SOURCES?\\b|Sources?\\s*[-–—.]|Sources?\\s+:|Source\\s*\\(s\\)|Data sources?\\s*:|Sources?\\s+(?:FAO|[A-Z]{2,})\\b)",
+   "action": "Verify"
+  },
+  "REF-12_5-001": {
+   "check.pattern": "(?m)^\\s*(?:#+\\s*)?(?:[\\dIVX]+\\.?\\s+)?(?:Literature\\s+[Cc]ited|Works\\s+[Cc]ited|Reference\\s+[Ll]ist|List\\s+of\\s+[Rr]eferences|Cited\\s+[Ll]iterature|Bibliographic\\s+[Rr]eferences|Literature|Sources\\s+[Cc]ited|Endnotes)\\s*$"
+  },
+  "REF-12_5-004": {
+   "check.pattern": "(?m)^[^()\\n]{2,150}?\\(\\s*(?:19|20)\\d{2}[a-z]?\\s*\\)"
+  },
+  "REF-12_6-004": {
+   "check.pattern": "(?m)^\\s*(?:[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)*,\\s*(?:[A-Z]\\.(?:-?[A-Z]\\.)*)\\s*,?\\s*){1,6}(?:&\\s*)?et\\.?\\s?al\\b|^\\s*[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:,\\s*(?:[A-Z]\\.)+)?\\s+et\\.?\\s?al\\b"
+  },
+  "REF-12_6-005": {
+   "check.pattern": "(?m)^\\s*(?:[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)*,\\s*(?:[A-Z]\\.(?:-?[A-Z]\\.)*),\\s*){1,}[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)*,\\s*(?:[A-Z]\\.(?:-?[A-Z]\\.)*)\\s+(?:\\(|(?:19|20)\\d{2}[a-z]?|n\\.d\\.)",
+   "action": "Verify"
+  },
+  "REF-12_8_1-016": {
+   "check.pattern": "(?m)^\\s*FAO\\b(?=.*\\[Accessed on)(?!.*Licence:\\s*CC-BY-4\\.0)"
+  },
+  "NUM-10-009": {
+   "check.pattern": "(?m)(?:^|(?<=[\\s(\\[–=<>±−-]))\\.\\d+\\b"
+  },
+  "PUN-5_4-002": {
+   "check.pattern": "(?m)(?:^|(?<=[.!?]\\s))(?:However|Moreover|Furthermore|Nevertheless|Nonetheless|Consequently|Therefore|In addition|For example|For instance|In contrast|As a result|In particular|Additionally|Similarly|Meanwhile|Overall|Accordingly)\\s+(?=[a-z])"
+  },
+  "REF-12_6-015": {
+   "check.pattern": "(?m)\\b[Ii]n\\s+[Pp]ress\\b|\\b[Ff]orthcoming\\b[,.]?\\s*\\(?(?:19|20)\\d{2}[a-z]?|(?:19|20)\\d{2}[a-z]?\\s*,?\\s*\\(?[Ff]orthcoming\\b|^[^()\\n]*?[A-Z]\\.\\s+[Ff]orthcoming\\b",
+   "action": "Verify"
+  },
+  "ABB-7-011": {
+   "kind": "mandatory",
+   "rule": "Define abbreviations at first mention in every chapter and self-standing section (project override OVR-01 of the guide's 'consider')."
+  },
+  "NOT-11_1-016": {
+   "action": "Verify",
+   "check.pattern": "(?:\\[\\^\\d+\\]|<sup>[^<]{1,12}</sup>|\\^[^\\^\\s]{1,12}\\^)[.!?]",
+   "check.notes": "Editor comment anchors like [^c559] and footnote definitions are excluded."
+  },
+  "NOT-11_1-017": {
+   "action": "Verify",
+   "check.pattern": "(?:\\[\\^\\d+\\](?!:)|<sup>[^<]{1,12}</sup>|\\^[^\\^\\s]{1,12}\\^)[,;:]"
+  },
+  "WRT-3_1-013": {
+   "check.notes": "Flag only where the phrase describes a quantity that could be given as a number; most hits ('some of the arguments') are not."
+  },
+  "CAP-8-019": {
+   "check.notes": "Section titles and NOCS terms (Short Name for Lists and Tables) are false positives."
+  },
+  "PUN-5_13-002": {
+   "check.requires": [
+    "nbsp"
+   ]
+  },
+  "PUN-5_13-003": {
+   "check.requires": [
+    "nbsp"
+   ]
+  },
+  "PUN-5_13-004": {
+   "check.requires": [
+    "nbsp"
+   ]
+  },
+  "NUM-10-012": {
+   "check.requires": [
+    "nbsp"
+   ]
+  }
+ },
+ "requires_by_module": {
+  "formatting": [
+   "formatting"
+  ],
+  "docx_formatting": [
+   "formatting"
+  ]
+ },
+ "duplicates_extra": [
+  [
+   "WRT-3_5-003",
+   "ABB-7-013",
+   "Same requirement for publication titles and headings; report once."
+  ]
+ ]
+}

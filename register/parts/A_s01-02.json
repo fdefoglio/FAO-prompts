@@ -1,0 +1,5263 @@
+{
+ "part": "A_s01-02",
+ "lines_covered": [
+  205,
+  682
+ ],
+ "rules": [
+  {
+   "id": "PUB-1-001",
+   "section": "1",
+   "section_title": "ABOUT FAOSTYLE",
+   "lines": [
+    206,
+    207
+   ],
+   "quote": "It should be applied to all FAO knowledge products to ensure clarity and consistency.",
+   "rule": "Apply FAOSTYLE to all FAO knowledge products.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Scope statement; defines the register's domain."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-1-002",
+   "section": "1",
+   "section_title": "ABOUT FAOSTYLE",
+   "lines": [
+    207,
+    208
+   ],
+   "quote": "We also recommend applying FAOSTYLE to web content.",
+   "rule": "FAOSTYLE is also recommended for web content.",
+   "kind": "preference",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Scope statement."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-1-003",
+   "section": "1",
+   "section_title": "ABOUT FAOSTYLE",
+   "lines": [
+    210,
+    211
+   ],
+   "quote": "All FAO staff, consultants and contractors involved in writing, reviewing, editing, translating or proofreading FAO knowledge products in English should refer to “ FAOSTYLE: English”.",
+   "rule": "Everyone writing, reviewing, editing, translating or proofreading FAO knowledge products in English should refer to FAOSTYLE: English.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Scope statement. Stray space after the opening quotation mark is a conversion artefact."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-1-004",
+   "section": "1",
+   "section_title": "ABOUT FAOSTYLE",
+   "lines": [
+    213,
+    214
+   ],
+   "quote": "For editorial issues not addressed in “ FAOSTYLE: English”, please refer to Appendix 1 Online editorial resources.",
+   "rule": "For issues FAOSTYLE does not address, consult Appendix 1 Online editorial resources.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Fallback authority; editors resolve unaddressed issues from Appendix 1 sources."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-2-001",
+   "section": "2",
+   "section_title": "BUILDING A PUBLICATION",
+   "lines": [
+    221,
+    223
+   ],
+   "quote": "Below is a suggested order of common parts of a standard publication (such as a book or a report). The list is not exhaustive, as some publications may have other parts not included here. This guidance applies to all publications, regardless of their format.",
+   "rule": "The order of parts in 2.1 is a suggested, non-exhaustive order and applies to all publication formats.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Framing statement for 2.1; the order is \"suggested\", not mandatory."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-2_1_1-001",
+   "section": "2.1.1",
+   "section_title": "Front cover",
+   "lines": [
+    227,
+    227
+   ],
+   "quote": "Include full title and – if applicable – subtitle, series title, series number and ISSN.",
+   "rule": "The front cover includes the full title and, if applicable, subtitle, series title, series number and ISSN.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_1-002",
+   "section": "2.1.1",
+   "section_title": "Front cover",
+   "lines": [
+    227,
+    228
+   ],
+   "quote": "Authors and editors must not be named on the cover.",
+   "rule": "Do not name authors or editors on the cover.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Cover is produced by FAO publishing. If an author DOCX has a cover-style page, an editor may flag names there."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "PUB-2_3_2-004"
+   ]
+  },
+  {
+   "id": "PUB-2_1_1-003",
+   "section": "2.1.1",
+   "section_title": "Front cover",
+   "lines": [
+    228,
+    229
+   ],
+   "quote": "Any other text, such as a tagline for a project, must be approved in advance by OCCP.",
+   "rule": "Any other cover text, such as a project tagline, needs advance OCCP approval.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_1-004",
+   "section": "2.1.1",
+   "section_title": "Front cover",
+   "lines": [
+    236,
+    236
+   ],
+   "quote": "The front cover of a magazine may include features, synopses, highlights and the like.",
+   "rule": "A magazine front cover may include features, synopses and highlights.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_1-005",
+   "section": "2.1.1",
+   "section_title": "Front cover",
+   "lines": [
+    237,
+    239
+   ],
+   "quote": "When a product is designed without a cover, the first page includes the same information a cover would include but may also list authors, if applicable, and photo credits for images on that page. The main text will start on this page.",
+   "rule": "Without a cover, the first page carries the cover information (and may list authors and photo credits for that page), and the main text starts on it.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_2-001",
+   "section": "2.1.2",
+   "section_title": "Inside front cover (and inside back cover)",
+   "lines": [
+    243,
+    244
+   ],
+   "quote": "Where the inside front and back covers of a print PDF are blank and are not included in the page count of the publication, it is possible to remove them from a digital format.",
+   "rule": "Blank inside covers not counted in the page count may be removed from a digital format.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_2-002",
+   "section": "2.1.2",
+   "section_title": "Inside front cover (and inside back cover)",
+   "lines": [
+    245,
+    246
+   ],
+   "quote": "However, where the inside front or back covers are not blank, or where they have been included in the page count, it is not possible to remove them from a digital format.",
+   "rule": "Inside covers that are not blank or are included in the page count must not be removed from a digital format.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_1-001",
+   "section": "2.1.3.1",
+   "section_title": "Title page",
+   "lines": [
+    251,
+    251
+   ],
+   "quote": "All publication formats except HTML may have a title page.",
+   "rule": "Any format except HTML may have a title page.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_1-002",
+   "section": "2.1.3.1",
+   "section_title": "Title page",
+   "lines": [
+    251,
+    252
+   ],
+   "quote": "The title page includes the full title and – if applicable – subtitle, series title and series number.",
+   "rule": "The title page includes the full title and, if applicable, subtitle, series title and series number.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_1-003",
+   "section": "2.1.3.1",
+   "section_title": "Title page",
+   "lines": [
+    252,
+    253
+   ],
+   "quote": "This is followed by – if permitted – authors or editors (with their affiliations, if applicable).",
+   "rule": "After the title elements come, if permitted, the authors or editors with affiliations where applicable.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Author naming and affiliations are checked under 2.3.2."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "PUB-2_3_2-005",
+    "PUB-2_3_2-007"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_1-004",
+   "section": "2.1.3.1",
+   "section_title": "Title page",
+   "lines": [
+    253,
+    254
+   ],
+   "quote": "Any publishers are named in full (no abbreviations), along with the city and year of publication, in the footer.",
+   "rule": "On the title page, publishers are named in full (no abbreviations), with city and year of publication, in the footer.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_1-005",
+   "section": "2.1.3.1",
+   "section_title": "Title page",
+   "lines": [
+    254,
+    255
+   ],
+   "quote": "No additional text may be added to the title page.",
+   "rule": "Do not add any other text to the title page.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_1-006",
+   "section": "2.1.3.1",
+   "section_title": "Title page",
+   "lines": [
+    255,
+    255
+   ],
+   "quote": "In HTML publications, authors are named under the title.",
+   "rule": "In HTML publications, name the authors under the title.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_2-001",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    257,
+    258
+   ],
+   "quote": "This page is required for certain knowledge products, based on the quality control criteria outlined in the FAO Publications Taxonomy",
+   "rule": "A copyright page is required for certain knowledge products, per the quality-control criteria in the FAO Publications Taxonomy.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "The following \". During quality control\" (line 259) starts with a stray full stop: conversion artefact of a hyperlink."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_2-002",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    259,
+    260
+   ],
+   "quote": "During quality control, OCCP will confirm whether the copyright page is required and provide corrections or additional details as needed.",
+   "rule": "OCCP confirms at quality control whether a copyright page is required and supplies corrections or details.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Process statement."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-2_1_3_2-003",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    261,
+    262
+   ],
+   "quote": "Publications in non-FAO languages use the English disclaimer page and Creative Commons licence unless one of the other FAO languages is better suited.",
+   "rule": "Publications in non-FAO languages use the English disclaimer page and Creative Commons licence unless another FAO language suits better.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [
+    {
+     "quote": "The exceptions to this are Italian and Portuguese.",
+     "lines": [
+      262,
+      263
+     ],
+     "note": "Italian and Portuguese have their own templates (line 264)."
+    }
+   ],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_2-004",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    265,
+    266
+   ],
+   "quote": "For a co-publication, a customized copyright page will be included, in English, within the co- publishing agreement. This page should be inserted, unchanged, into the publication.",
+   "rule": "For a co-publication, insert the customized English copyright page from the co-publishing agreement unchanged.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Quote contains \"co- publishing\": end-of-line hyphenation artefact (lines 265-266)."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_2-005",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    266,
+    268
+   ],
+   "quote": "It is the authoring unit’s responsibility to have the copyright page translated, if needed, into FAO’s other languages.",
+   "rule": "The authoring unit is responsible for translating the copyright page into FAO's other languages if needed.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_2-006",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    270,
+    273
+   ],
+   "quote": "The author disclaimer a should be omitted from the copyright page if FAO is named as the, or one of the, corporate authors.",
+   "rule": "Omit the author disclaimer from the copyright page if FAO is the corporate author or one of the corporate authors.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Applies only when the manuscript includes a copyright-page draft. If the citation/author line is FAO (corporate) and the author-disclaimer text (line 282) is present, flag. The isolated \"a\" on line 271 is a footnote marker split onto its own line (conversion artefact)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUB-2_3_3-003",
+    "PUB-2_1_3_2-008"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_2-007",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    276,
+    279
+   ],
+   "quote": "If maps with dotted or dashed administrative boundaries are included in the publication, a specific disclaimer sentence b is added within the general disclaimer.",
+   "rule": "If the publication has maps with dotted or dashed administrative boundaries, add the map disclaimer sentence within the general disclaimer.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter",
+    "figure"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Disclaimer is added by publishing on the copyright page. Footnote marker \"b\" split onto line 278 (conversion artefact)."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "PUB-2_1_3_2-009"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_2-008",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    282,
+    283
+   ],
+   "quote": "Author disclaimer: The views expressed in this information product are those of the author(s) and do not necessarily reflect the views or policies of FAO.",
+   "rule": "Standard English author-disclaimer wording.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Reference text for detecting the author disclaimer (used by PUB-2_1_3_2-006 and PUB-2_3_3-003). Footnote a to line 270."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-2_1_3_2-009",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    286,
+    286
+   ],
+   "quote": "Map disclaimer: Dashed lines on maps represent approximate border lines for which there may not yet be full agreement.",
+   "rule": "Standard English map-disclaimer wording.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter",
+    "figure"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Reference text. Footnote b to line 277. Placement per the separate map guidance document."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-2_1_3_2-010",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    290,
+    291
+   ],
+   "quote": "The copyright page typically follows the title page but may be placed elsewhere for certain types of publications, such as immediately after the front cover in a report.",
+   "rule": "The copyright page normally follows the title page; some publication types place it elsewhere (e.g. right after the front cover in a report).",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_2-011",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    292,
+    293
+   ],
+   "quote": "In HTML publications, a link to the copyright section, named Citation and copyright (where there is a required citation) or Copyright (where no citation is required) is placed in the footer.",
+   "rule": "In HTML publications, link to the copyright section from the footer, named Citation and copyright (with a required citation) or Copyright (without).",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_2-012",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    297,
+    298
+   ],
+   "quote": "To write a required citation, combine the following elements with a full stop after each, unless otherwise instructed:",
+   "rule": "Build the required citation from the listed elements, each followed by a full stop unless instructed otherwise.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). Element order: AUTHOR(S). YEAR. TITLE. EDITION/REVISION. SERIES TITLE, No. N. PLACE, PUBLISHER. DOI. Examples are reconstructed from lines 338-347 (line breaks and the stray \". FAO\" split on line 346 are conversion artefacts; italics lost)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "FAO & WHO. 2022. Code of Practice for the Prevention and Reduction of Lead Contamination in Foods. Codex Code of Practice, No. CXC 56-2004. Rome. https://doi.org/10.4060/cc0579en",
+     "Kenney, N. 2022. Achieving de facto gender equality in land, forest and fisheries tenure – Scaling up the adoption of temporary special measures in national legal frameworks. FAO Legal Papers, No. 110. Rome, FAO. https://doi.org/10.4060/cb9701en",
+     "FAO. 2023. The Progressive Management Pathway for Aquaculture Biosecurity – Guidelines for application. FAO Fisheries and Aquaculture Technical Paper, No. 689. Rome. https://doi.org/10.4060/cc6858en"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-013",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    299,
+    299
+   ],
+   "quote": "Individuals’ names are generally written Pavarotti, L.",
+   "rule": "In a required citation, write individual authors as surname, initial(s) (e.g. Pavarotti, L.).",
+   "kind": "preference",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Pavarotti, L.",
+     "Kenney, N."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-014",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    299,
+    301
+   ],
+   "quote": "Separate multiple author names with commas and the last two names with and or & (no comma).",
+   "rule": "Separate multiple authors with commas and join the last two with \"and\" or \"&\" with no serial comma.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). A violation looks like \"L., and\" or \"L., &\" before the final name."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "FAO & WHO"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-015",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    301,
+    302
+   ],
+   "quote": "If there are editors instead of authors, insert a comma after the final name and add ed. or eds.",
+   "rule": "For editors, put a comma after the final name and add \"ed.\" or \"eds.\"",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3)."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-016",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    302,
+    302
+   ],
+   "quote": "Many FAO publications are given corporate authorship: FAO.",
+   "rule": "Corporate-authored publications use \"FAO\" as the author element.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). See 2.3.1 for which publications must have corporate authorship."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "FAO. 2023."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUB-2_3_1-001"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_2-017",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    306,
+    306
+   ],
+   "quote": "YEAR – The year of publication.",
+   "rule": "The second element is the year of publication.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-018",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    307,
+    307
+   ],
+   "quote": "TITLE – Insert the complete title in italics",
+   "rule": "Set the complete title in italics in the required citation.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). Italics visible only in DOCX run formatting or markdown emphasis; lost in the guide's own examples (conversion)."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-019",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    307,
+    307
+   ],
+   "quote": "TITLE – Insert the complete title in italics and using sentence case.",
+   "rule": "Write the complete title in sentence case in the required citation.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "heading_case",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). AMBIGUOUS: the printed \"correct\" example \"Code of Practice for the Prevention and Reduction of Lead Contamination in Foods\" (lines 339-340) and the Figure 2.1 note title (line 232) are capitalized like title case, presumably as proper names of the documents; the Kenney example capitalizes the subtitle start after the en dash (\"– Scaling up\"). Verify rather than auto-lowercase."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-020",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    307,
+    314
+   ],
+   "quote": "To separate the title from the subtitle, use: - a full stop for Arabic; - a Chinese dash (—) for Chinese; - an en-dash (–) for English; - a full stop or colon for French; - a colon for Spanish; and - a full stop for Russian.",
+   "rule": "Separate title and subtitle with the language-specific mark; for English, an en dash (–).",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). For English manuscripts: flag a colon or full stop between title and subtitle in the citation title. Other language marks apply only to citations in those languages."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "The Progressive Management Pathway for Aquaculture Biosecurity – Guidelines for application",
+     "Achieving de facto gender equality in land, forest and fisheries tenure – Scaling up the adoption of temporary special measures in national legal frameworks"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-021",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    315,
+    316
+   ],
+   "quote": "EDITION or REVISION (when applicable) – Insert the edition or revision, or both, in sentence case, e.g. Second edition or Revised.",
+   "rule": "When applicable, give the edition and/or revision in sentence case.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Second edition",
+     "Revised"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-022",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    317,
+    318
+   ],
+   "quote": "SERIES TITLE and ISSUE NUMBER (when applicable) – Insert the series title using initial capitalization.",
+   "rule": "Give the series title with initial capitalization.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). \"Initial capitalization\" here means capitalized main words (cf. examples)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "FAO Fisheries and Aquaculture Technical Papers",
+     "FAO Legal Papers",
+     "Codex Code of Practice"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-023",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    318,
+    319
+   ],
+   "quote": "If there is an issue number, add a comma and insert the number, e.g. FAO Fisheries and Aquaculture Technical Papers, No. 693.",
+   "rule": "Put a comma between the series title and the issue number, written \"No. N\".",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). Violation: series title followed by \"No.\" without a comma. INCONSISTENCY: series named \"Technical Papers\" here (line 319) but \"Technical Paper\" in the Figure 2.1 note (line 233)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "FAO Fisheries and Aquaculture Technical Papers, No. 693",
+     "FAO Legal Papers, No. 110",
+     "Codex Code of Practice, No. CXC 56-2004"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-024",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    319,
+    320
+   ],
+   "quote": "If the series number is a date, omit No.",
+   "rule": "If the series number is a date, omit \"No.\"",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3)."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-025",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    321,
+    324
+   ],
+   "quote": "PLACE(S) OF PUBLICATION – The city (or cities) of publication. If it is not a capital city, add a comma and the country (use the Short Name from NOCS; see 6.3.1 Country names and regions for some exceptions).",
+   "rule": "Give the city (or cities) of publication; for a non-capital city add a comma and the NOCS Short Name of the country.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). AMBIGUOUS: the example \"Washington, DC\" (lines 330) adds \"DC\" to a capital city and DC is not a country."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "6.3.1"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_2-026",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    325,
+    325
+   ],
+   "quote": "PUBLISHER(S) – Add the publisher(s) only if different from the author(s).",
+   "rule": "Include the publisher only if it differs from the author.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). E.g. \"FAO. 2023. ... Rome.\" has no publisher; \"Kenney, N. ... Rome, FAO.\" does."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Rome, FAO."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-027",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    325,
+    326
+   ],
+   "quote": "Use a comma (not a full stop) to separate the place of publication and the publisher.",
+   "rule": "Separate place of publication and publisher with a comma, not a full stop.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). Violation looks like \"Rome. FAO\"."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Rome, FAO."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-028",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    326,
+    328
+   ],
+   "quote": "Insert commas between each publisher and separate the last two with and or & (no comma), e.g. CAIRO, FAO, CIRAD & CIHEAM.",
+   "rule": "Separate multiple publishers with commas and join the last two with \"and\" or \"&\" with no serial comma.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). Guide prints \"CAIRO\" in capitals (line 328), probably a source typo for \"Cairo\"; not a casing rule."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-029",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    328,
+    330
+   ],
+   "quote": "If co-publishers are publishing in different cities, indicate each location. The location should precede each publisher (e.g. Rome, FAO & Washington, DC, World Bank).",
+   "rule": "When co-publishers are in different cities, give each location before its publisher.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Rome, FAO & Washington, DC, World Bank"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-030",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    335,
+    335
+   ],
+   "quote": "DOI – When supplied by OCCP, insert the full DOI URL.",
+   "rule": "Insert the DOI (supplied by OCCP) as a full DOI URL.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\bdoi:\\s*10\\.\\d{4,9}/\\S+",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). Flags the \"doi:10.xxxx/...\" form. Restrict to the required-citation block; reference-list DOIs are governed by §12."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "https://doi.org/10.4060/cc0579en",
+     "https://doi.org/10.4060/cb9701en"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-031",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    335,
+    336
+   ],
+   "quote": "Do not use a full stop at the end.",
+   "rule": "Do not end the DOI with a full stop.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?m)https?://doi\\.org/\\S*\\.[ \\t]*$",
+    "notes": "Box 2.1 (required citation). Applies only when the manuscript carries a required citation (copyright-page draft or citation line); OCCP approves the citation at quality control (2.3.3). Flags a DOI URL ending in a full stop at paragraph end. Restrict to the required-citation block; reference-list punctuation is §12."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "https://doi.org/10.4060/cc0579en",
+     "https://doi.org/10.4060/cb9701en"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_2-032",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    349,
+    352
+   ],
+   "quote": "The credit for a front or back cover photograph or illustration, or for the hero image of an HTML publication, may be placed at the bottom of the copyright page of a PDF; on the back cover if there is one; on one of the inside covers, if applicable; or at the bottom of the hero image in HTML publications.",
+   "rule": "Credit for a cover photo/illustration or HTML hero image may go at the foot of the copyright page, on the back or inside cover, or under the hero image.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "PUB-2_2_6-003"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_2-033",
+   "section": "2.1.3.2",
+   "section_title": "Copyright page",
+   "lines": [
+    354,
+    355
+   ],
+   "quote": "A QR code related to the publication may be inserted on the copyright page. QR codes are issued by OCCP upon request.",
+   "rule": "A QR code (issued by OCCP on request) may be placed on the copyright page.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_3-001",
+   "section": "2.1.3.3",
+   "section_title": "Abstract",
+   "lines": [
+    357,
+    357
+   ],
+   "quote": "The abstract (usually 150–200 words and maximum 400 words)",
+   "rule": "The abstract must not exceed 400 words.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "abstract_length",
+    "notes": "Count words in the Abstract section; >400 is a violation."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_3-002",
+   "section": "2.1.3.3",
+   "section_title": "Abstract",
+   "lines": [
+    357,
+    357
+   ],
+   "quote": "The abstract (usually 150–200 words and maximum 400 words)",
+   "rule": "An abstract is usually 150–200 words.",
+   "kind": "preference",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "abstract_length",
+    "notes": "Soft target: report when outside 150–200 words (but <=400) as information for the editor."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUB-2_1_3_3-001"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_3-003",
+   "section": "2.1.3.3",
+   "section_title": "Abstract",
+   "lines": [
+    359,
+    365
+   ],
+   "quote": "An abstract should include the following information: - main subject of the publication; - methods used to compile the content (research, case studies, fieldwork, external collaborations, etc.); - results or findings; - main audience; and - main conclusions and recommendations.",
+   "rule": "The abstract should state the main subject, methods, results or findings, main audience, and main conclusions and recommendations.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Check each of the five elements is present; report missing ones as author queries."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_4-001",
+   "section": "2.1.3.4",
+   "section_title": "Contents",
+   "lines": [
+    367,
+    367
+   ],
+   "quote": "A table of contents, titled Contents",
+   "rule": "Title the table of contents \"Contents\".",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?im)^[ \\t]*(?:#+[ \\t]*)?table[ \\t]+of[ \\t]+contents[ \\t]*:?[ \\t]*$",
+    "notes": "Run on heading/paragraph text; flags a ToC titled \"Table of contents\"."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Contents"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_4-002",
+   "section": "2.1.3.4",
+   "section_title": "Contents",
+   "lines": [
+    367,
+    369
+   ],
+   "quote": "includes each section of the front matter (except the title page, the copyright page and the table of contents itself); the titles of the first-level headings, such as chapter titles; any second-level (subsection) titles; and each section of the end matter.",
+   "rule": "The Contents lists all front-matter sections (except title page, copyright page and Contents), first- and second-level headings, and all end-matter sections.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "toc_consistency",
+    "notes": "Compare ToC entries with document headings (levels 1-2) and front/end-matter sections. Production may regenerate the ToC; flag gaps only."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_4-003",
+   "section": "2.1.3.4",
+   "section_title": "Contents",
+   "lines": [
+    370,
+    372
+   ],
+   "quote": "The table of contents may contain a subsection that includes all figures, tables and boxes. This is required when there are many stand-alone elements, and suggested if it would be particularly useful for the reader to have quick access.",
+   "rule": "Include a list of figures, tables and boxes in the Contents when there are many stand-alone elements; it is suggested when quick access would help.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "toc_consistency",
+    "notes": "AMBIGUOUS threshold: \"many\" is not quantified. Report the count of figures/tables/boxes and whether a list exists."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_4-004",
+   "section": "2.1.3.4",
+   "section_title": "Contents",
+   "lines": [
+    372,
+    373
+   ],
+   "quote": "If it benefits the reader, it may be separated into three subsections: Figures, Tables and Boxes.",
+   "rule": "The list may be split into Figures, Tables and Boxes subsections.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent"
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_4-005",
+   "section": "2.1.3.4",
+   "section_title": "Contents",
+   "lines": [
+    373,
+    374
+   ],
+   "quote": "Avoid repeating, for example, Figure 1, Figure 2, etc., in such subsections; instead, each entry should contain only the number and title, e.g.:",
+   "rule": "In list-of-figures/tables/boxes subsections, give each entry as number and title only, without repeating the label (Figure, Table, Box).",
+   "kind": "preference",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "toc_consistency",
+    "notes": "Flag entries in these lists that start with \"Figure\", \"Table\" or \"Box\". The guide's example (lines 377-379) shows bullets with no numbers: the list numbering was probably lost in conversion."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_4-006",
+   "section": "2.1.3.4",
+   "section_title": "Contents",
+   "lines": [
+    380,
+    381
+   ],
+   "quote": "In HTML publications, the table of contents appears as the menu. The list of figures, tables and boxes can be linked to from the footer, in addition to being available via the main navigation.",
+   "rule": "In HTML publications, the ToC is the menu and the list of figures, tables and boxes can be linked from the footer.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_5-001",
+   "section": "2.1.3.5",
+   "section_title": "Contributors",
+   "lines": [
+    383,
+    384
+   ],
+   "quote": "A contributors section may only be included in certain cases; see the Authorship and plagiarism guidelines f or details.",
+   "rule": "Include a contributors section only in the cases allowed by the Authorship and plagiarism guidelines.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Flag the presence of a Contributors section for the editor to check against the external guidelines. \"f  or\" is a conversion artefact."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_5-002",
+   "section": "2.1.3.5",
+   "section_title": "Contributors",
+   "lines": [
+    385,
+    386
+   ],
+   "quote": "This section may be substituted with a masthead when publishing a magazine or journal.",
+   "rule": "In a magazine or journal, the contributors section may be replaced by a masthead.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_5-003",
+   "section": "2.1.3.5",
+   "section_title": "Contributors",
+   "lines": [
+    387,
+    387
+   ],
+   "quote": "In HTML publications, a link to the contributors, if applicable, should be placed in the footer.",
+   "rule": "In HTML publications, link to the contributors from the footer.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_6-001",
+   "section": "2.1.3.6",
+   "section_title": "Acknowledgements",
+   "lines": [
+    389,
+    391
+   ],
+   "quote": "This section should be brief, acknowledging organizations and individuals that have made a significant contribution to the preparation and production of the publication but do not appear in the contributors section.",
+   "rule": "Keep acknowledgements brief, covering organizations and individuals with a significant contribution who are not in the contributors section.",
+   "kind": "preference",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Check brevity (no length given) and overlap with any Contributors section; overlap is a query."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_6-002",
+   "section": "2.1.3.6",
+   "section_title": "Acknowledgements",
+   "lines": [
+    391,
+    393
+   ],
+   "quote": "Refer to the Authorship and plagiarism guidelines to identify when someone should be recognized as an author and not just acknowledged.",
+   "rule": "Use the Authorship and plagiarism guidelines to decide whether someone is an author rather than acknowledged.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "External guideline; not checkable from the text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-2_1_3_6-003",
+   "section": "2.1.3.6",
+   "section_title": "Acknowledgements",
+   "lines": [
+    393,
+    394
+   ],
+   "quote": "Acknowledgements may appear on the same page as contributors.",
+   "rule": "Acknowledgements may share a page with contributors.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_6-004",
+   "section": "2.1.3.6",
+   "section_title": "Acknowledgements",
+   "lines": [
+    395,
+    396
+   ],
+   "quote": "In HTML publications, a link to the acknowledgements should be placed in the footer (Contributors and Acknowledgements is also acceptable as a single section heading).",
+   "rule": "In HTML publications, link to the acknowledgements from the footer; \"Contributors and Acknowledgements\" is acceptable as one heading.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_7-001",
+   "section": "2.1.3.7",
+   "section_title": "Foreword",
+   "lines": [
+    398,
+    400
+   ],
+   "quote": "A foreword is a short introduction to a book, usually written by a person who did not contribute to the content of the main text. It highlights the assets of the publication, underscores its added value, and presents it to its target audience.",
+   "rule": "A foreword is a short introduction, usually by someone who did not contribute to the main text, that presents the publication to its audience.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Descriptive; may support a query if a foreword is written by the authors (that would be a preface, 2.1.3.8)."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference",
+   "see_also": [
+    "PUB-2_1_3_8-001"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_7-002",
+   "section": "2.1.3.7",
+   "section_title": "Foreword",
+   "lines": [
+    400,
+    401
+   ],
+   "quote": "A foreword is always signed and is used in flagship, general interest and high-profile publications.",
+   "rule": "A foreword must always be signed; forewords are used in flagship, general interest and high-profile publications.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "If a Foreword section exists, check that it ends with a signature (name/title)."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_7-003",
+   "section": "2.1.3.7",
+   "section_title": "Foreword",
+   "lines": [
+    402,
+    402
+   ],
+   "quote": "In HTML publications, a link to the foreword, if applicable, should be placed underneath the hero",
+   "rule": "In HTML publications, link to the foreword under the hero image.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_8-001",
+   "section": "2.1.3.8",
+   "section_title": "Preface",
+   "lines": [
+    405,
+    406
+   ],
+   "quote": "A preface introduces a publication, stating its subject, scope and aims. It describes how the idea for the book was developed, mentions any previous editions, and identifies the target audience.",
+   "rule": "A preface states subject, scope and aims, explains how the work developed, mentions previous editions and identifies the target audience.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Content check if a Preface section exists."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_8-002",
+   "section": "2.1.3.8",
+   "section_title": "Preface",
+   "lines": [
+    407,
+    408
+   ],
+   "quote": "The preface is usually written by the author(s) or, for publications with corporate authorship, by the main contributor(s) of the work.",
+   "rule": "The preface is usually written by the author(s), or by the main contributor(s) for corporate-authored publications.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Not checkable from text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  },
+  {
+   "id": "PUB-2_1_3_8-003",
+   "section": "2.1.3.8",
+   "section_title": "Preface",
+   "lines": [
+    408,
+    409
+   ],
+   "quote": "This may be substituted with an editorial or letter from the editor when publishing a journal or magazine.",
+   "rule": "In a journal or magazine, the preface may be replaced by an editorial or letter from the editor.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_8-004",
+   "section": "2.1.3.8",
+   "section_title": "Preface",
+   "lines": [
+    410,
+    410
+   ],
+   "quote": "In HTML publications, a link to the preface, if applicable, should be placed underneath the hero",
+   "rule": "In HTML publications, link to the preface under the hero image.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_9-001",
+   "section": "2.1.3.9",
+   "section_title": "Abbreviations",
+   "lines": [
+    413,
+    414
+   ],
+   "quote": "A list of abbreviations used in the publication, with the full terms written out, can be included as necessary.",
+   "rule": "An abbreviations list, if included, covers abbreviations used in the publication with their full terms written out.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "abbreviations_list",
+    "notes": "Cross-check: every list entry has an expansion and occurs in the text; report list entries not used in the text."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "7"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_9-002",
+   "section": "2.1.3.9",
+   "section_title": "Abbreviations",
+   "lines": [
+    414,
+    414
+   ],
+   "quote": "Do not capitalize terms that are not proper names.",
+   "rule": "In the abbreviations list, do not capitalize expansions that are not proper names.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Run on expansions in the abbreviations list; flag capitalized common nouns (e.g. title-cased expansions of generic terms). Proper names keep capitals."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "8"
+   ]
+  },
+  {
+   "id": "PUB-2_1_3_9-003",
+   "section": "2.1.3.9",
+   "section_title": "Abbreviations",
+   "lines": [
+    415,
+    415
+   ],
+   "quote": "In HTML publications, a link to the abbreviations should be placed in the footer.",
+   "rule": "In HTML publications, link to the abbreviations from the footer.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_3_10-001",
+   "section": "2.1.3.10",
+   "section_title": "Executive summary or summary",
+   "lines": [
+    419,
+    420
+   ],
+   "quote": "All publications for which a launch or press release is envisaged must include an executive summary.",
+   "rule": "Publications with a planned launch or press release must include an executive summary.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Launch plans are not visible in the manuscript; if no Executive summary/Summary section exists, raise an author query."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_10-002",
+   "section": "2.1.3.10",
+   "section_title": "Executive summary or summary",
+   "lines": [
+    420,
+    420
+   ],
+   "quote": "It is good practice for all other books to include a summary (which is shorter than an",
+   "rule": "Other books should include a summary, shorter than an executive summary.",
+   "kind": "preference",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "section_presence",
+    "notes": "Report absence of a Summary/Executive summary section."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_10-003",
+   "section": "2.1.3.10",
+   "section_title": "Executive summary or summary",
+   "lines": [
+    424,
+    425
+   ],
+   "quote": "An executive summary should be no longer than 10 percent of the whole publication.",
+   "rule": "An executive summary must be no longer than 10 percent of the whole publication.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "section_length_ratio",
+    "notes": "Compare executive-summary word count with total word count. The unit of measure (words or pages) is not stated."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_3_10-004",
+   "section": "2.1.3.10",
+   "section_title": "Executive summary or summary",
+   "lines": [
+    427,
+    427
+   ],
+   "quote": "In HTML publications, a link to the executive summary should be placed underneath the hero",
+   "rule": "In HTML publications, link to the executive summary under the hero image.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_4-001",
+   "section": "2.1.4",
+   "section_title": "Main text",
+   "lines": [
+    433,
+    433
+   ],
+   "quote": "The first paragraph of a chapter or section, following a title or heading, is not indented.",
+   "rule": "Do not indent the first paragraph after a chapter or section heading.",
+   "kind": "mandatory",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout set by design; DOCX first-line indent could be inspected but is not an editorial preflight item."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_4-002",
+   "section": "2.1.4",
+   "section_title": "Main text",
+   "lines": [
+    434,
+    434
+   ],
+   "quote": "Otherwise, paragraphs should be indented, unless they are separated by ample white space.",
+   "rule": "Indent other paragraphs unless they are separated by ample white space.",
+   "kind": "mandatory",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_5_1-001",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    438,
+    438
+   ],
+   "quote": "A bibliography is a list of references to all sources cited in the main text and end matter",
+   "rule": "Every source cited in the main text and end matter must appear in the bibliography.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "citation_crossref",
+    "notes": "In-text citation <-> reference list cross-check."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "12"
+   ]
+  },
+  {
+   "id": "PUB-2_1_5_1-002",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    438,
+    439
+   ],
+   "quote": "it does not include personal communications",
+   "rule": "Do not list personal communications in the bibliography.",
+   "kind": "mandatory",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b(?:personal\\s+communication|pers\\.\\s*comm\\.?)",
+    "notes": "Run on reference-list entries only."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "12"
+   ]
+  },
+  {
+   "id": "PUB-2_1_5_1-003",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    439,
+    439
+   ],
+   "quote": "or sources cited in the front matter.",
+   "rule": "Sources cited only in the front matter are not listed in the bibliography.",
+   "kind": "mandatory",
+   "scope": [
+    "reference",
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "citation_crossref",
+    "notes": "Flag reference entries whose only citations are in front-matter sections."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-004",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    439,
+    440
+   ],
+   "quote": "The bibliography may include subsections for some or all figures, tables and boxes. Duplication of sources may occur.",
+   "rule": "The bibliography may have subsections for figures, tables and boxes, and sources may then be duplicated.",
+   "kind": "guidance",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "citation_crossref",
+    "notes": "Do not flag a source repeated across such subsections as a duplicate."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-005",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    441,
+    443
+   ],
+   "quote": "The placement of the bibliographic information within the end matter is flexible. For example, where there are no sources cited in annexes or appendices, it is recommended to insert the list ahead of these sections.",
+   "rule": "Where annexes/appendices cite no sources, place the bibliography before them.",
+   "kind": "preference",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "section_order",
+    "notes": "If no citations occur in annexes/appendices and the reference list comes after them, report."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-006",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    444,
+    444
+   ],
+   "quote": "When using the author–date system, the bibliography is titled References",
+   "rule": "With the author–date system, title the list \"References\".",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "bibliography_structure",
+    "notes": "Exception: \"Bibliography\" when uncited sources are included (PUB-2_1_5_1-008)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "References"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-007",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    444,
+    445
+   ],
+   "quote": "and is organized alphabetically by author.",
+   "rule": "With the author–date system, order the reference list alphabetically by author.",
+   "kind": "mandatory",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "reference_order",
+    "notes": "Check alphabetical order of first-author surnames/corporate authors."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-008",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    445,
+    445
+   ],
+   "quote": "When using the endnote system, it is titled Notes",
+   "rule": "With the endnote system, title the list \"Notes\".",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "bibliography_structure"
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Notes"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-009",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    445,
+    446
+   ],
+   "quote": "each entry is numbered by order of first appearance in the text.",
+   "rule": "With the endnote system, number entries in order of first appearance in the text.",
+   "kind": "mandatory",
+   "scope": [
+    "reference",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "endnote_order"
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "11"
+   ]
+  },
+  {
+   "id": "PUB-2_1_5_1-010",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    447,
+    449
+   ],
+   "quote": "When the author wishes to include sources not directly cited in the text, for the author-date system, the title Bibliography is used in place of References and the list is subdivided into two lists titled References and Further reading (or Additional resources).",
+   "rule": "With author–date and uncited sources, title the section \"Bibliography\" and divide it into \"References\" and \"Further reading\" (or \"Additional resources\").",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "bibliography_structure",
+    "notes": "If reference entries are never cited in text, expect this structure; otherwise flag uncited entries (citation_crossref)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Bibliography",
+     "References",
+     "Further reading",
+     "Additional resources"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-011",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    449,
+    450
+   ],
+   "quote": "When using the endnote system, a separate heading for Further reading (or Additional resources) follows Notes.",
+   "rule": "With the endnote system, put uncited sources under a separate \"Further reading\" (or \"Additional resources\") heading after Notes.",
+   "kind": "mandatory",
+   "scope": [
+    "heading",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "bibliography_structure"
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-012",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    450,
+    451
+   ],
+   "quote": "They are alphabetically arranged by author name.",
+   "rule": "Arrange Further reading/Additional resources entries alphabetically by author.",
+   "kind": "mandatory",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "reference_order",
+    "notes": "AMBIGUOUS referent: \"They\" most likely means the Further reading/Additional resources lists (both systems)."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_1-013",
+   "section": "2.1.5.1",
+   "section_title": "Bibliography",
+   "lines": [
+    452,
+    453
+   ],
+   "quote": "All references in the bibliographic section, whether ordered by number or alphabetically, are formatted in the same way",
+   "rule": "Format all bibliography entries the same way, whether numbered or alphabetical (templates in 12.8).",
+   "kind": "mandatory",
+   "scope": [
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "consistency",
+    "notes": "Reference formatting consistency; templates in §12.8."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "12.8"
+   ]
+  },
+  {
+   "id": "PUB-2_1_5_2-001",
+   "section": "2.1.5.2",
+   "section_title": "Glossary",
+   "lines": [
+    455,
+    456
+   ],
+   "quote": "Ensure that all entries are correctly attributed",
+   "rule": "Correctly attribute all glossary entries.",
+   "kind": "mandatory",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "If a Glossary exists, check each definition has a source/attribution where taken from elsewhere."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_2-002",
+   "section": "2.1.5.2",
+   "section_title": "Glossary",
+   "lines": [
+    456,
+    456
+   ],
+   "quote": "and listed alphabetically.",
+   "rule": "List glossary entries alphabetically.",
+   "kind": "mandatory",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "module",
+    "module": "alphabetical_order",
+    "notes": "Glossary terms."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_2-003",
+   "section": "2.1.5.2",
+   "section_title": "Glossary",
+   "lines": [
+    456,
+    457
+   ],
+   "quote": "If the glossary is necessary for the understanding of the entire publication, it may be moved to the front matter and placed before the executive summary.",
+   "rule": "A glossary needed to understand the whole publication may go in the front matter before the executive summary.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent"
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_3-001",
+   "section": "2.1.5.3",
+   "section_title": "Appendix or appendices",
+   "lines": [
+    461,
+    462
+   ],
+   "quote": "Appendices are written by the publication’s author. They contain stand-alone supplementary information to the publication, and, likewise, the publication can stand alone without them.",
+   "rule": "Appendices are the author's own stand-alone supplementary material; the publication must stand without them.",
+   "kind": "guidance",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Material written by others belongs in an annex (2.1.5.4); query mislabelled sections."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUB-2_1_5_4-001"
+   ]
+  },
+  {
+   "id": "PUB-2_1_5_3-002",
+   "section": "2.1.5.3",
+   "section_title": "Appendix or appendices",
+   "lines": [
+    463,
+    464
+   ],
+   "quote": "Numbering of figures, tables and boxes begins anew in each appendix, e.g. Table A1.1 is the first table in Appendix 1.",
+   "rule": "Restart figure, table and box numbering in each appendix (e.g. Table A1.1 for the first table in Appendix 1).",
+   "kind": "mandatory",
+   "scope": [
+    "caption",
+    "figure",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_numbering"
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Table A1.1"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_4-001",
+   "section": "2.1.5.4",
+   "section_title": "Annex or annexes",
+   "lines": [
+    466,
+    467
+   ],
+   "quote": "Annexes are written by someone other than the author of the text and are self-contained, stand- alone items, such as the text of a law or news article.",
+   "rule": "Annexes are self-contained items written by someone other than the author.",
+   "kind": "guidance",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Query sections labelled Annex that are the author's own material (should be Appendix)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUB-2_1_5_3-001"
+   ]
+  },
+  {
+   "id": "PUB-2_1_5_4-002",
+   "section": "2.1.5.4",
+   "section_title": "Annex or annexes",
+   "lines": [
+    467,
+    468
+   ],
+   "quote": "Figure, table and box numbering begin anew in each annex, such as by adding A before the number, e.g. Figure A1.1.",
+   "rule": "Restart figure, table and box numbering in each annex (e.g. Figure A1.1).",
+   "kind": "mandatory",
+   "scope": [
+    "caption",
+    "figure",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_numbering",
+    "notes": "AMBIGUOUS: the same \"A\" prefix is shown for appendices (Table A1.1, line 463) and annexes (Figure A1.1, line 468)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Figure A1.1"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_4-003",
+   "section": "2.1.5.4",
+   "section_title": "Annex or annexes",
+   "lines": [
+    468,
+    471
+   ],
+   "quote": "If a publication includes both appendices and annexes that have figures, tables and boxes, find a way to identify them by either continuing the numbering system from appendices to annexes, or by replacing A with B in the annexes.",
+   "rule": "If both appendices and annexes have figures, tables or boxes, distinguish them by continuing the numbering into annexes or using B instead of A in annexes.",
+   "kind": "mandatory",
+   "scope": [
+    "caption",
+    "figure",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_numbering",
+    "notes": "Flag identical labels (e.g. two \"Table A1.1\") across appendix and annex."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_1_5_5-001",
+   "section": "2.1.5.5",
+   "section_title": "Index",
+   "lines": [
+    473,
+    475
+   ],
+   "quote": "Few FAO publications require an index. Generating a useful index is not an easy task. It requires skill and a clear understanding of the ideas in the publication. An automatically generated index may prove frustrating to users.",
+   "rule": "Few FAO publications need an index; an automatically generated index may frustrate users.",
+   "kind": "guidance",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_5_5-002",
+   "section": "2.1.5.5",
+   "section_title": "Index",
+   "lines": [
+    475,
+    476
+   ],
+   "quote": "Ensure that the index is concise by only including entries of significance to the publication.",
+   "rule": "Keep any index concise, with significant entries only.",
+   "kind": "mandatory",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_6-001",
+   "section": "2.1.6",
+   "section_title": "Back cover",
+   "lines": [
+    478,
+    478
+   ],
+   "quote": "The back cover should include a blurb (about 250–300 words).",
+   "rule": "The back cover should include a blurb of about 250–300 words.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Back-cover blurb; see 3.4. If a blurb is supplied with the manuscript its length could be counted."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "3.4"
+   ]
+  },
+  {
+   "id": "PUB-2_1_6-002",
+   "section": "2.1.6",
+   "section_title": "Back cover",
+   "lines": [
+    478,
+    480
+   ],
+   "quote": "The blurb is not a summary or abstract – it is a marketing device that includes interesting highlights and facts to attract readers’ attention.",
+   "rule": "A blurb is a marketing text with highlights, not a summary or abstract.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_6-003",
+   "section": "2.1.6",
+   "section_title": "Back cover",
+   "lines": [
+    481,
+    482
+   ],
+   "quote": "In HTML publications, the blurb appears in a section called About this publication and a link should be placed in the footer.",
+   "rule": "In HTML publications, the blurb appears in \"About this publication\", linked from the footer.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_6-004",
+   "section": "2.1.6",
+   "section_title": "Back cover",
+   "lines": [
+    483,
+    484
+   ],
+   "quote": "The back cover may include contact information, non-FAO logos and a QR code. QR codes are issued by OCCP upon request.",
+   "rule": "The back cover may include contact information, non-FAO logos and an OCCP-issued QR code.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_6-005",
+   "section": "2.1.6",
+   "section_title": "Back cover",
+   "lines": [
+    485,
+    486
+   ],
+   "quote": "The footer is reserved for information provided by OCCP during quality control, such as a barcode or a job number.",
+   "rule": "The back-cover footer is reserved for OCCP quality-control information such as barcode or job number.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_1_6-006",
+   "section": "2.1.6",
+   "section_title": "Back cover",
+   "lines": [
+    486,
+    491
+   ],
+   "quote": "If a copyright page is not present, the footer may also include: - the citation (required only if a DOI is assigned); - the copyright holder and year; - the Creative Commons licence; - the general disclaimer; and - disclaimers for maps, authors or third-party logos.",
+   "rule": "Without a copyright page, the footer may also carry the citation (required only with a DOI), copyright holder and year, CC licence, general disclaimer and other disclaimers.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "POSSIBLE CONFLICT with 2.3.3 (lines 675-676), which places the required citation in the final-page footer whenever there is no copyright page, without the DOI condition."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "PUB-2_3_3-002"
+   ]
+  },
+  {
+   "id": "PUB-2_1_6-007",
+   "section": "2.1.6",
+   "section_title": "Back cover",
+   "lines": [
+    492,
+    493
+   ],
+   "quote": "If there is no back cover, the last page may accommodate the standard back cover content, but space must be reserved for the required footer content from OCCP.",
+   "rule": "Without a back cover, the last page may carry back-cover content but must reserve space for OCCP footer content.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_1-001",
+   "section": "2.2.1",
+   "section_title": "Page numbering",
+   "lines": [
+    498,
+    498
+   ],
+   "quote": "Page numbering is required in all formats except HTML publications.",
+   "rule": "Number pages in every format except HTML.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_1-002",
+   "section": "2.2.1",
+   "section_title": "Page numbering",
+   "lines": [
+    499,
+    500
+   ],
+   "quote": "It is best practice to use lowercase roman numerals (i, ii, iii...) for the front matter and arabic numerals (1, 2, 3...) for the rest of the publication",
+   "rule": "Prefer lowercase roman numerals for front matter and arabic numerals for the rest.",
+   "kind": "preference",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [
+    {
+     "quote": "However, it is also possible to use arabic numerals consecutively for the entire publication.",
+     "lines": [
+      501,
+      502
+     ],
+     "note": ""
+    }
+   ],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_1-003",
+   "section": "2.2.1",
+   "section_title": "Page numbering",
+   "lines": [
+    502,
+    503
+   ],
+   "quote": "The title page is usually the first page to be numbered (either i or 1), but neither the title page nor the copyright page display the number.",
+   "rule": "The title page is usually page i or 1; neither the title page nor the copyright page displays its number.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_1-004",
+   "section": "2.2.1",
+   "section_title": "Page numbering",
+   "lines": [
+    503,
+    504
+   ],
+   "quote": "In most books, the table of contents will be on page iii (or 3) and is the first page to display a number.",
+   "rule": "In most books the Contents is page iii (or 3), the first page displaying a number.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_1-005",
+   "section": "2.2.1",
+   "section_title": "Page numbering",
+   "lines": [
+    504,
+    505
+   ],
+   "quote": "In a print PDF, the odd numbers (i, iii, v, etc. and 1, 3, 5, etc.) should appear on the right side of a two-page spread.",
+   "rule": "In print PDFs, odd page numbers fall on right-hand pages.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_1-006",
+   "section": "2.2.1",
+   "section_title": "Page numbering",
+   "lines": [
+    506,
+    507
+   ],
+   "quote": "When using roman numerals for the front matter, page numbering in arabic numerals begins with the first page of the main text. Thus, for example, Chapter 1 Introduction is page 1.",
+   "rule": "With roman front matter, arabic numbering starts at the first page of the main text.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_1-007",
+   "section": "2.2.1",
+   "section_title": "Page numbering",
+   "lines": [
+    507,
+    508
+   ],
+   "quote": "Page numbering continues from main text into end matter without restarting.",
+   "rule": "Page numbering continues from main text into end matter without restarting.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_2-001",
+   "section": "2.2.2",
+   "section_title": "Running heads or feet",
+   "lines": [
+    510,
+    511
+   ],
+   "quote": "Traditionally, running heads put the chapter title on the right-hand pages and the publication title on the left-hand pages.",
+   "rule": "Running heads traditionally show chapter title on right-hand pages and publication title on left-hand pages.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_2-002",
+   "section": "2.2.2",
+   "section_title": "Running heads or feet",
+   "lines": [
+    511,
+    512
+   ],
+   "quote": "For web PDFs and HTML publications, there may be value in combining the chapter title and publication title on every page. Shorten the titles as necessary.",
+   "rule": "In web PDFs and HTML, chapter and publication titles may be combined on every page, shortened as necessary.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_2-003",
+   "section": "2.2.2",
+   "section_title": "Running heads or feet",
+   "lines": [
+    513,
+    515
+   ],
+   "quote": "In the end matter, both running heads may indicate the part of the publication. Alternatively, the part of the publication can be put on the left-hand pages (e.g. Appendices) and the specific section on the right-hand pages (e.g. Appendix 3 List of participants).",
+   "rule": "In end matter, running heads may show the part on both pages, or the part on left and the specific section on right.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_2-004",
+   "section": "2.2.2",
+   "section_title": "Running heads or feet",
+   "lines": [
+    515,
+    517
+   ],
+   "quote": "Avoid running heads and feet in the front matter, unless specific sections running over several pages would benefit from them.",
+   "rule": "Avoid running heads and feet in front matter unless long sections benefit from them.",
+   "kind": "preference",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_3-001",
+   "section": "2.2.3",
+   "section_title": "Headings",
+   "lines": [
+    519,
+    519
+   ],
+   "quote": "Use no more than four levels of headings, including the headings for parts and chapters",
+   "rule": "Use at most four heading levels, counting part and chapter headings.",
+   "kind": "mandatory",
+   "scope": [
+    "heading"
+   ],
+   "check": {
+    "method": "module",
+    "module": "heading_levels",
+    "notes": "Count DOCX Heading styles / labelled markdown levels; level 5+ is a violation. Part and chapter headings count as levels."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_3-002",
+   "section": "2.2.3",
+   "section_title": "Headings",
+   "lines": [
+    519,
+    520
+   ],
+   "quote": "which should be as concise as possible.",
+   "rule": "Keep headings as concise as possible.",
+   "kind": "preference",
+   "scope": [
+    "heading"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "No length threshold is given; flag sentence-like or very long headings for the editor."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_3-003",
+   "section": "2.2.3",
+   "section_title": "Headings",
+   "lines": [
+    520,
+    521
+   ],
+   "quote": "Avoid the use of numbered subheadings (e.g. 2.4, 2.4.1) unless necessary for cross-referencing purposes.",
+   "rule": "Avoid numbered subheadings unless needed for cross-referencing.",
+   "kind": "preference",
+   "scope": [
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "^\\s*(?:#+\\s*)?\\d+\\.\\d+(?:\\.\\d+)*\\.?(?=\\s|$)",
+    "notes": "Run on heading text only. Flags multilevel numbers (2.4, 2.4.1); keep them if the text cross-refers to sections by number. FP: a heading that starts with a decimal quantity."
+   },
+   "action": "Verify",
+   "examples": {
+    "incorrect": [
+     "2.4",
+     "2.4.1"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_3-004",
+   "section": "2.2.3",
+   "section_title": "Headings",
+   "lines": [
+    521,
+    522
+   ],
+   "quote": "Ensure that the hierarchy of headings is clear in the design of your document (for example, by formatting the headings in Microsoft Word).",
+   "rule": "Make the heading hierarchy clear in the document, e.g. by applying Word heading styles.",
+   "kind": "mandatory",
+   "scope": [
+    "heading"
+   ],
+   "check": {
+    "method": "module",
+    "module": "heading_styles",
+    "notes": "DOCX: headings use Heading 1-4 styles (not manual bold), and no level is skipped."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_4-001",
+   "section": "2.2.4",
+   "section_title": "Notes (general)",
+   "lines": [
+    526,
+    526
+   ],
+   "quote": "Keep footnotes short to minimize layout problems.",
+   "rule": "Keep footnotes short.",
+   "kind": "preference",
+   "scope": [
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "footnote_length",
+    "notes": "No threshold given; report the longest footnotes for editor judgement."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "11"
+   ]
+  },
+  {
+   "id": "PUB-2_2_5-001",
+   "section": "2.2.5",
+   "section_title": "Figures, tables and boxes",
+   "lines": [
+    528,
+    528
+   ],
+   "quote": "Figures, tables and boxes should complement, not repeat, the main text.",
+   "rule": "Figures, tables and boxes should complement, not repeat, the main text.",
+   "kind": "mandatory",
+   "scope": [
+    "figure",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Compare element content with surrounding paragraphs; flag wholesale repetition."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5-002",
+   "section": "2.2.5",
+   "section_title": "Figures, tables and boxes",
+   "lines": [
+    528,
+    529
+   ],
+   "quote": "They can also help break up the text, although too many placed consecutively may disrupt the reading experience.",
+   "rule": "Avoid placing too many figures, tables or boxes consecutively.",
+   "kind": "preference",
+   "scope": [
+    "figure",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_sequence",
+    "notes": "Report runs of consecutive figures/tables/boxes with no intervening text; no threshold given."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5-003",
+   "section": "2.2.5",
+   "section_title": "Figures, tables and boxes",
+   "lines": [
+    532,
+    533
+   ],
+   "quote": "They should be numbered consecutively throughout the main text, e.g. Table 1, Table 2, Box 1, Box 2 (numbering restarts in appendices and annexes).",
+   "rule": "Number figures, tables and boxes consecutively through the main text, each type separately (restarting in appendices and annexes).",
+   "kind": "mandatory",
+   "scope": [
+    "caption",
+    "figure",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_numbering",
+    "notes": "Check for gaps, duplicates and out-of-order numbers per element type."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Table 1",
+     "Table 2",
+     "Box 1",
+     "Box 2"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUB-2_1_5_3-002",
+    "PUB-2_1_5_4-002"
+   ]
+  },
+  {
+   "id": "PUB-2_2_5-004",
+   "section": "2.2.5",
+   "section_title": "Figures, tables and boxes",
+   "lines": [
+    533,
+    536
+   ],
+   "quote": "More sophisticated numbering may be required for lengthier or multi-authored works. For example, where necessary, the numbering may be arranged by chapter (e.g. for Chapter 9, Figure 9.1, Figure 9.2), depending on the nature and purpose of the work.",
+   "rule": "Lengthy or multi-authored works may number by chapter (e.g. Figure 9.1, Figure 9.2).",
+   "kind": "guidance",
+   "scope": [
+    "caption",
+    "figure",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_numbering",
+    "notes": "Accept chapter-based numbering if used consistently."
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "Figure 9.1",
+     "Figure 9.2"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5-005",
+   "section": "2.2.5",
+   "section_title": "Figures, tables and boxes",
+   "lines": [
+    537,
+    537
+   ],
+   "quote": "Titles are placed above tables and boxes.",
+   "rule": "Place titles above tables and boxes.",
+   "kind": "mandatory",
+   "scope": [
+    "caption",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_format",
+    "notes": "Title paragraph must precede the table/box."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5-006",
+   "section": "2.2.5",
+   "section_title": "Figures, tables and boxes",
+   "lines": [
+    537,
+    538
+   ],
+   "quote": "For figures, titles are placed above, unless it is more useful to place the title below – as with scientific publications – as long as it’s consistent.",
+   "rule": "Place figure titles above the figure, or consistently below where more useful (e.g. scientific publications).",
+   "kind": "mandatory",
+   "scope": [
+    "caption",
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_format",
+    "notes": "Check consistent position of all figure titles; above is the default."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5-007",
+   "section": "2.2.5",
+   "section_title": "Figures, tables and boxes",
+   "lines": [
+    538,
+    539
+   ],
+   "quote": "Notes and captions are placed below the element.",
+   "rule": "Place notes and captions below the figure, table or box.",
+   "kind": "mandatory",
+   "scope": [
+    "caption",
+    "figure",
+    "table",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_format",
+    "notes": "Source/Note lines must follow the element. Terminology: \"titles\" (above) vs \"captions\" (below) are distinct here."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-001",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    541,
+    542
+   ],
+   "quote": "Some data are better presented in the form of figures or tables rather than text. Figures and tables should reinforce the message of the publication visually.",
+   "rule": "Figures and tables should reinforce the publication's message visually.",
+   "kind": "guidance",
+   "scope": [
+    "figure",
+    "table"
+   ],
+   "check": {
+    "method": "agent"
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-002",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    543,
+    543
+   ],
+   "quote": "All data in a figure or table must be cited.",
+   "rule": "Cite the source of all data in every figure and table.",
+   "kind": "mandatory",
+   "scope": [
+    "figure",
+    "table",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "caption_format",
+    "notes": "Each figure/table needs a Source line or note citation below it; missing source is an author query."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "11",
+    "12"
+   ]
+  },
+  {
+   "id": "PUB-2_2_5_1-003",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    546,
+    547
+   ],
+   "quote": "Figures may include graphs, maps, photographs or illustrations that are informative rather than decorative",
+   "rule": "Figures should be informative, not decorative.",
+   "kind": "guidance",
+   "scope": [
+    "figure"
+   ],
+   "check": {
+    "method": "agent"
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-004",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    550,
+    551
+   ],
+   "quote": "Each figure or table must address a specific subject. Avoid conflating multiple subjects within one figure or table.",
+   "rule": "Each figure or table must address one specific subject.",
+   "kind": "mandatory",
+   "scope": [
+    "figure",
+    "table"
+   ],
+   "check": {
+    "method": "agent"
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-005",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    551,
+    552
+   ],
+   "quote": "If using multiple graphs within a figure, ensure they compare like data.",
+   "rule": "Multiple graphs within one figure must compare like data.",
+   "kind": "mandatory",
+   "scope": [
+    "figure"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Usually needs the figure image."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-006",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    553,
+    554
+   ],
+   "quote": "Axes, heading rows and legends should be labelled consistently, using sentence case or all-caps",
+   "rule": "Label axes, table heading rows and legends consistently, in sentence case or all caps.",
+   "kind": "mandatory",
+   "scope": [
+    "figure",
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "heading_case",
+    "notes": "Checkable for DOCX table header rows; figure axes/legends need the image (agent)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-007",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    553,
+    554
+   ],
+   "quote": "Axes, heading rows and legends should be labelled consistently, using sentence case or all-caps, and include relevant units",
+   "rule": "Include relevant units in axis labels, table heading rows and legends.",
+   "kind": "mandatory",
+   "scope": [
+    "figure",
+    "table"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Flag numeric table columns whose header carries no unit."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-008",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    555,
+    555
+   ],
+   "quote": "Refer to all figures and tables in the main text (e.g. see Figure 1).",
+   "rule": "Refer to every figure and table in the main text.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "figure",
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "crossref_elements",
+    "notes": "Each numbered figure/table must be cited in body text."
+   },
+   "action": "Author",
+   "examples": {
+    "correct": [
+     "see Figure 1"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-009",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    555,
+    556
+   ],
+   "quote": "Do not use abbreviations (e.g. Fig. 4, Tab. 6).",
+   "rule": "Do not abbreviate \"Figure\" or \"Table\" in references to them.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "caption"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:[Ff]igs?|[Tt]abs?)\\.\\s*[A-Z]?\\d",
+    "notes": "Flags Fig./Figs./Tab. before a number."
+   },
+   "action": "Apply",
+   "examples": {
+    "incorrect": [
+     "Fig. 4",
+     "Tab. 6"
+    ],
+    "correct": [
+     "see Figure 1"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-010",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    556,
+    557
+   ],
+   "quote": "Avoid vague references such as see the table above or refer to the figure below.",
+   "rule": "Avoid vague location references to figures and tables; refer by number.",
+   "kind": "preference",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b(?:the|this)\\s+(?:table|figure)\\s+(?:above|below)\\b",
+    "notes": "FP: rare literal uses, e.g. \"the figure below 5 percent\"."
+   },
+   "action": "Verify",
+   "examples": {
+    "incorrect": [
+     "see the table above",
+     "refer to the figure below"
+    ],
+    "correct": [
+     "see Figure 1"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-011",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    558,
+    559
+   ],
+   "quote": "Figures and tables may be separate graphic files, not imported into the Microsoft Word file. Indicate their placement in the Microsoft Word file (close to the first reference to the",
+   "rule": "If figures/tables are separate files, mark their placement in the Word file near the first reference.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "figure",
+    "table"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Check placeholders exist for figures/tables not embedded, close to their first mention."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-012",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    560,
+    561
+   ],
+   "quote": "Always provide the designer with the source files (e.g. Microsoft Excel for charts and graphs, or vector format)",
+   "rule": "Always supply source files for figures (e.g. Excel for charts, or vector format).",
+   "kind": "mandatory",
+   "scope": [
+    "figure"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Submission-package requirement; not visible in text. A DOCX chart pasted as a bitmap may prompt an author query."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_5_1-013",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    561,
+    562
+   ],
+   "quote": "always use standard table or spreadsheet software (such as Microsoft Excel) for tables.",
+   "rule": "Make tables with standard table or spreadsheet software.",
+   "kind": "mandatory",
+   "scope": [
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "table_format",
+    "notes": "DOCX: flag tables supplied as images or built with tabs/spaces instead of a table object."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-014",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    564,
+    565
+   ],
+   "quote": "alternative text must be created for every figure and table to facilitate accessibility.",
+   "rule": "Provide alternative text for every figure and table.",
+   "kind": "mandatory",
+   "scope": [
+    "figure",
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "alt_text",
+    "notes": "DOCX: wp:docPr/@descr for drawings; w:tblDescription for tables. Missing alt text is an author query."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-015",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    567,
+    567
+   ],
+   "quote": "Ensure blank cells are not ambiguous.",
+   "rule": "Do not leave ambiguous blank table cells.",
+   "kind": "mandatory",
+   "scope": [
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "table_cells",
+    "notes": "Report empty data cells."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-016",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    567,
+    568
+   ],
+   "quote": "Prefer an en-dash or abbreviations such as n/a (not applicable or not available; specify which in the notes) or n.s. (not significant).",
+   "rule": "For empty cells, prefer an en dash or abbreviations such as n/a or n.s.",
+   "kind": "preference",
+   "scope": [
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "table_cells",
+    "notes": "A cell containing only a hyphen may be an intended en dash."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "–",
+     "n/a",
+     "n.s."
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-017",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    567,
+    568
+   ],
+   "quote": "n/a (not applicable or not available; specify which in the notes)",
+   "rule": "If n/a is used in a table, state in the table notes whether it means not applicable or not available.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "table_cells",
+    "notes": "If any cell has \"n/a\", the note below the table must contain \"not applicable\" or \"not available\"."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_1-018",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    569,
+    569
+   ],
+   "quote": "Columns of numbers should align neatly, particularly when there are decimal points.",
+   "rule": "Align columns of numbers, especially on decimal points.",
+   "kind": "mandatory",
+   "scope": [
+    "table"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Table layout is set by design."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_5_1-019",
+   "section": "2.2.5.1",
+   "section_title": "Figures and tables",
+   "lines": [
+    570,
+    571
+   ],
+   "quote": "When the last row or column contains a number that is the sum of other cells, or when there is a chart with percentages, the total sum must be checked for correctness.",
+   "rule": "Check totals in tables and percentages in charts for correctness.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "table_totals",
+    "notes": "Recompute rows/columns labelled Total; chart percentages need the source data (agent/author)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_2-001",
+   "section": "2.2.5.2",
+   "section_title": "Boxes",
+   "lines": [
+    575,
+    576
+   ],
+   "quote": "Boxes support and reinforce the main message of the publication; they do not make the primary argument of the text.",
+   "rule": "Boxes support the main message and must not carry the primary argument.",
+   "kind": "mandatory",
+   "scope": [
+    "box"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Flag a box whose content the main text depends on."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_2-002",
+   "section": "2.2.5.2",
+   "section_title": "Boxes",
+   "lines": [
+    576,
+    578
+   ],
+   "quote": "Boxes are often case studies, first-hand accounts, opposing perspectives or interesting anecdotal stories: in other words, isolated texts that each have a clear narrative structure.",
+   "rule": "Boxes are typically isolated texts (case studies, accounts, perspectives, anecdotes) with a clear narrative structure.",
+   "kind": "guidance",
+   "scope": [
+    "box"
+   ],
+   "check": {
+    "method": "agent"
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_2-003",
+   "section": "2.2.5.2",
+   "section_title": "Boxes",
+   "lines": [
+    578,
+    578
+   ],
+   "quote": "Explain any concepts used in boxes within the box",
+   "rule": "Explain any concept used in a box within that box.",
+   "kind": "mandatory",
+   "scope": [
+    "box"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Treat each box as stand-alone."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_5_2-004",
+   "section": "2.2.5.2",
+   "section_title": "Boxes",
+   "lines": [
+    578,
+    579
+   ],
+   "quote": "abbreviations should be written out at first mention.",
+   "rule": "Write out abbreviations at first mention within each box.",
+   "kind": "mandatory",
+   "scope": [
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Run first-use tracking with each box as its own scope, independent of the main text."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "7"
+   ]
+  },
+  {
+   "id": "PUB-2_2_6-001",
+   "section": "2.2.6",
+   "section_title": "Photographs and illustrations",
+   "lines": [
+    583,
+    583
+   ],
+   "quote": "Captions should be brief and explanatory.",
+   "rule": "Keep photo and illustration captions brief and explanatory.",
+   "kind": "preference",
+   "scope": [
+    "caption"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "No length given."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_6-002",
+   "section": "2.2.6",
+   "section_title": "Photographs and illustrations",
+   "lines": [
+    583,
+    584
+   ],
+   "quote": "If relevant, they should mention the country (use the NOCS Short Name) and project.",
+   "rule": "Where relevant, captions mention the country (NOCS Short Name) and project.",
+   "kind": "mandatory",
+   "scope": [
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "nocs",
+    "notes": "Country names in photo captions must be NOCS Short Names; presence of country/project is judgement (agent)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "6.3.1"
+   ]
+  },
+  {
+   "id": "PUB-2_2_6-003",
+   "section": "2.2.6",
+   "section_title": "Photographs and illustrations",
+   "lines": [
+    584,
+    584
+   ],
+   "quote": "Photos must carry a credit line.",
+   "rule": "Every photo must carry a credit line.",
+   "kind": "mandatory",
+   "scope": [
+    "caption",
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "photo_credit",
+    "notes": "Each embedded photo needs a credit; format per §12."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "12"
+   ]
+  },
+  {
+   "id": "PUB-2_2_6-004",
+   "section": "2.2.6",
+   "section_title": "Photographs and illustrations",
+   "lines": [
+    587,
+    588
+   ],
+   "quote": "alternative text must be created for every photograph and illustration to facilitate accessibility.",
+   "rule": "Provide alternative text for every photograph and illustration.",
+   "kind": "mandatory",
+   "scope": [
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "alt_text"
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_2_7-001",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    590,
+    590
+   ],
+   "quote": "Contact information is strongly recommended but not required",
+   "rule": "Contact information is strongly recommended but optional.",
+   "kind": "preference",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-002",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    590,
+    592
+   ],
+   "quote": "may only be placed on the back cover, or in the footer of the last page if there is no back cover. In an HTML publication, it is placed in the footer.",
+   "rule": "Place contact information only on the back cover (or last-page footer without a back cover); in HTML, in the footer.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-003",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    592,
+    592
+   ],
+   "quote": "It is written in the language of the publication.",
+   "rule": "Write contact information in the language of the publication.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-004",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    593,
+    594
+   ],
+   "quote": "It is best practice to use the full “block”. However, on communications materials and short publications without a back cover, the full block may be replaced by a website or email address.",
+   "rule": "Use the full contact block; short items without a back cover may use just a website or email address.",
+   "kind": "preference",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-005",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    595,
+    601
+   ],
+   "quote": "The order of standard elements, layout and formatting are as follows for the full block: Division – Stream [OR Office or Centre] Generic email address Website Social media links Food and Agriculture Organization of the United Nations City, Country",
+   "rule": "Order the full block: Division – Stream (or Office/Centre); generic email; website; social media; Food and Agriculture Organization of the United Nations; City, Country.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-006",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    603,
+    605
+   ],
+   "quote": "Use the current division and stream or the full office or centre name (see the FAO organizational chart f or exact wording).",
+   "rule": "Use the current division and stream, or full office/centre name, as in the FAO organizational chart.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "\"f  or\" is a conversion artefact."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-007",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    605,
+    605
+   ],
+   "quote": "Omit abbreviations and the word stream.",
+   "rule": "In the contact block, omit abbreviations and the word \"stream\".",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-008",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    605,
+    608
+   ],
+   "quote": "Teams and Programme Priority Areas should not be included, but international years and statutory bodies may, provided they are written out in full and include the responsible administrative body, e.g. International Year of Fruits and Vegetables 2021 Secretariat.",
+   "rule": "Do not include teams or Programme Priority Areas; international years and statutory bodies may be included if written out with the responsible body.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "International Year of Fruits and Vegetables 2021 Secretariat"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-009",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    609,
+    609
+   ],
+   "quote": "The email address, website and social media links are optional.",
+   "rule": "Email, website and social media links are optional.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-010",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    610,
+    613
+   ],
+   "quote": "A generic email address refers to the address for an office, division or senior manager’s office. Exceptions can be made for other, non-personal addresses, if there is a cogent argument for their relevance. No unofficial email addresses, nor email addresses containing a person’s name, may be used.",
+   "rule": "Use only a generic (office, division or senior manager's office) email address; no unofficial or personal-name addresses.",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Example 3 line 639 \"Data-in-   emergencies@fao.org\" contains stray spaces (conversion artefact)."
+   },
+   "action": "Info",
+   "exceptions": [
+    {
+     "quote": "Exceptions can be made for other, non-personal addresses, if there is a cogent argument for their relevance.",
+     "lines": [
+      611,
+      612
+     ],
+     "note": ""
+    }
+   ],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-011",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    614,
+    614
+   ],
+   "quote": "The website URL can be shortened to omit http://, https:// and www.",
+   "rule": "The website URL may omit http://, https:// and www.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "fao.org/africa"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-012",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    614,
+    615
+   ],
+   "quote": "Phone numbers should be avoided.",
+   "rule": "Avoid phone numbers in contact information.",
+   "kind": "preference",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_2_7-013",
+   "section": "2.2.7",
+   "section_title": "Contact information",
+   "lines": [
+    616,
+    616
+   ],
+   "quote": "It is possible to use the full mailing address in place of the city and country.",
+   "rule": "A full mailing address may replace city and country.",
+   "kind": "guidance",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_3_1-001",
+   "section": "2.3.1",
+   "section_title": "Corporate author",
+   "lines": [
+    649,
+    656
+   ],
+   "quote": "The FAO Publications Taxonomy defines the publications that must have corporate authorship and those that may have individual authors. Publications that must be attributed to FAO are: - flagship reports and other corporate publications (those that express the official position of FAO or key messages on specific subjects); - formal publications such as meeting reports, proceedings or circulars; - advocacy and promotional material such as brochures or flyers; - certain publications produced under a letter of agreement; and - general interest books.",
+   "rule": "Flagship/corporate publications, formal publications (meeting reports, proceedings, circulars), advocacy and promotional material, certain letter-of-agreement products and general interest books must be attributed to FAO.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter",
+    "title"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "If the manuscript is one of these types and names individual authors, raise a query. Publication type is often not determinable from the text."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUB-2_1_3_2-016"
+   ]
+  },
+  {
+   "id": "PUB-2_3_2-001",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    658,
+    659
+   ],
+   "quote": "For publications that may have individual authors (or editors, for edited volumes), as defined by the FAO Publications Taxonomy, there is no limit to the number of authors or editors.",
+   "rule": "There is no limit on the number of authors or editors.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Do not flag long author lists."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_3_2-002",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    659,
+    661
+   ],
+   "quote": "Only contributors who meet all four criteria for authorship as described in the Authorship and plagiarism guidelines may be named in the citation and title page.",
+   "rule": "Name only contributors who meet all four authorship criteria in the citation and on the title page.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Criteria are in the external Authorship and plagiarism guidelines; not verifiable from text."
+   },
+   "action": "Author",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_3_2-003",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    661,
+    663
+   ],
+   "quote": "The order of names, agreed upon by all authors or editors in advance, should be based on magnitude of contribution, regardless of professional ranking or management hierarchy.",
+   "rule": "Order authors by magnitude of contribution, agreed in advance, not by rank.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Not determinable from the text; do not flag. At most a standard author confirmation."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_3_2-004",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    666,
+    666
+   ],
+   "quote": "Names of authors are never displayed on a cover.",
+   "rule": "Never show author names on a cover.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "PUB-2_1_1-002"
+   ]
+  },
+  {
+   "id": "PUB-2_3_2-005",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    666,
+    667
+   ],
+   "quote": "For publications with a title page, the names of the authors must be inserted on the title page, below the title and above the publishers.",
+   "rule": "On the title page, put author names below the title and above the publishers.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "In the manuscript, author byline should sit directly under the title (and subtitle)."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_3_2-006",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    667,
+    669
+   ],
+   "quote": "For publications with no cover, the authors should be named below the title and banner at the top of the first page.",
+   "rule": "Without a cover, name the authors below the title and banner at the top of the first page.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_3_2-007",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    670,
+    670
+   ],
+   "quote": "Author affiliations are accepted only when authors are not FAO-affiliated.",
+   "rule": "Give affiliations only for non-FAO authors.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "author_affiliation",
+    "notes": "Flag an affiliation line naming FAO / Food and Agriculture Organization (or an FAO office) against an author."
+   },
+   "action": "Apply",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_3_2-008",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    670,
+    671
+   ],
+   "quote": "The city is only permitted when it is not part of the organization name.",
+   "rule": "Include a city in an affiliation only if it is not already part of the organization name.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "author_affiliation"
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_3_2-009",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    671,
+    672
+   ],
+   "quote": "Departments and divisions are not permitted.",
+   "rule": "Do not include departments or divisions in affiliations.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "author_affiliation",
+    "notes": "Flag \"Department\"/\"Division\" in affiliation lines. Judgement needed where the word is part of an institution name."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_3_2-010",
+   "section": "2.3.2",
+   "section_title": "Individual author(s) or editor(s)",
+   "lines": [
+    672,
+    673
+   ],
+   "quote": "If an author does not have an institutional affiliation, it is acceptable to use international consultant.",
+   "rule": "An author without institutional affiliation may be described as \"international consultant\".",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "author_affiliation"
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "international consultant"
+    ]
+   },
+   "exceptions": [],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "PUB-2_3_3-001",
+   "section": "2.3.3",
+   "section_title": "Required citation",
+   "lines": [
+    675,
+    675
+   ],
+   "quote": "When a copyright page is present, the required citation goes at the top of that page.",
+   "rule": "Put the required citation at the top of the copyright page when there is one.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Layout/production; not visible in manuscript text."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production"
+  },
+  {
+   "id": "PUB-2_3_3-002",
+   "section": "2.3.3",
+   "section_title": "Required citation",
+   "lines": [
+    675,
+    676
+   ],
+   "quote": "If there is no copyright page, the required citation goes in the footer of the final page of the publication.",
+   "rule": "Without a copyright page, put the required citation in the footer of the final page.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "See conflict note at PUB-2_1_6-006 (citation \"required only if a DOI is assigned\")."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "production",
+   "see_also": [
+    "PUB-2_1_6-006"
+   ]
+  },
+  {
+   "id": "PUB-2_3_3-003",
+   "section": "2.3.3",
+   "section_title": "Required citation",
+   "lines": [
+    676,
+    678
+   ],
+   "quote": "When authors are named in the citation, the standard author disclaimer must appear on the copyright page or in the footer of the final page.",
+   "rule": "When individual authors are named in the citation, the standard author disclaimer must appear on the copyright page or final-page footer.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "required_citation",
+    "notes": "If the manuscript has a required citation naming individuals, check the author-disclaimer text (line 282) is present."
+   },
+   "action": "Verify",
+   "exceptions": [],
+   "relevance": "manuscript",
+   "see_also": [
+    "PUB-2_1_3_2-006",
+    "PUB-2_1_3_2-008"
+   ]
+  },
+  {
+   "id": "PUB-2_3_3-004",
+   "section": "2.3.3",
+   "section_title": "Required citation",
+   "lines": [
+    679,
+    679
+   ],
+   "quote": "OCCP will approve the citation during quality control.",
+   "rule": "OCCP approves the citation at quality control (building rules in 2.1.3.2 Box 2.1).",
+   "kind": "guidance",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Process statement."
+   },
+   "action": "Info",
+   "exceptions": [],
+   "relevance": "reference"
+  }
+ ],
+ "sections": [
+  {
+   "section": "1",
+   "title": "ABOUT FAOSTYLE",
+   "lines": [
+    205,
+    219
+   ],
+   "rule_ids": [
+    "PUB-1-001",
+    "PUB-1-002",
+    "PUB-1-003",
+    "PUB-1-004"
+   ],
+   "status": "rules",
+   "note": "Scope/background or production statements only; nothing checkable in a manuscript."
+  },
+  {
+   "section": "2",
+   "title": "BUILDING A PUBLICATION",
+   "lines": [
+    220,
+    224
+   ],
+   "rule_ids": [
+    "PUB-2-001"
+   ],
+   "status": "rules",
+   "note": "Scope/background or production statements only; nothing checkable in a manuscript."
+  },
+  {
+   "section": "2.1",
+   "title": "PARTS OF A PUBLICATION",
+   "lines": [
+    225,
+    225
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Heading only; content is in subsections 2.1.1-2.1.6."
+  },
+  {
+   "section": "2.1.1",
+   "title": "Front cover",
+   "lines": [
+    226,
+    241
+   ],
+   "rule_ids": [
+    "PUB-2_1_1-001",
+    "PUB-2_1_1-002",
+    "PUB-2_1_1-003",
+    "PUB-2_1_1-004",
+    "PUB-2_1_1-005"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.1.2",
+   "title": "Inside front cover (and inside back cover)",
+   "lines": [
+    242,
+    246
+   ],
+   "rule_ids": [
+    "PUB-2_1_2-001",
+    "PUB-2_1_2-002"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.1.3",
+   "title": "Front matter (preliminary pages)",
+   "lines": [
+    247,
+    249
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Definition of front matter and cross-reference to 2.2.1 only."
+  },
+  {
+   "section": "2.1.3.1",
+   "title": "Title page",
+   "lines": [
+    250,
+    255
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_1-001",
+    "PUB-2_1_3_1-002",
+    "PUB-2_1_3_1-003",
+    "PUB-2_1_3_1-004",
+    "PUB-2_1_3_1-005",
+    "PUB-2_1_3_1-006"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.1.3.2",
+   "title": "Copyright page",
+   "lines": [
+    256,
+    355
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_2-001",
+    "PUB-2_1_3_2-002",
+    "PUB-2_1_3_2-003",
+    "PUB-2_1_3_2-004",
+    "PUB-2_1_3_2-005",
+    "PUB-2_1_3_2-006",
+    "PUB-2_1_3_2-007",
+    "PUB-2_1_3_2-008",
+    "PUB-2_1_3_2-009",
+    "PUB-2_1_3_2-010",
+    "PUB-2_1_3_2-011",
+    "PUB-2_1_3_2-012",
+    "PUB-2_1_3_2-013",
+    "PUB-2_1_3_2-014",
+    "PUB-2_1_3_2-015",
+    "PUB-2_1_3_2-016",
+    "PUB-2_1_3_2-017",
+    "PUB-2_1_3_2-018",
+    "PUB-2_1_3_2-019",
+    "PUB-2_1_3_2-020",
+    "PUB-2_1_3_2-021",
+    "PUB-2_1_3_2-022",
+    "PUB-2_1_3_2-023",
+    "PUB-2_1_3_2-024",
+    "PUB-2_1_3_2-025",
+    "PUB-2_1_3_2-026",
+    "PUB-2_1_3_2-027",
+    "PUB-2_1_3_2-028",
+    "PUB-2_1_3_2-029",
+    "PUB-2_1_3_2-030",
+    "PUB-2_1_3_2-031",
+    "PUB-2_1_3_2-032",
+    "PUB-2_1_3_2-033"
+   ],
+   "status": "rules",
+   "note": "Includes Box 2.1 Required citation (lines 295-347), whose rules are manuscript-relevant when a required citation is present."
+  },
+  {
+   "section": "2.1.3.3",
+   "title": "Abstract",
+   "lines": [
+    356,
+    365
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_3-001",
+    "PUB-2_1_3_3-002",
+    "PUB-2_1_3_3-003"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.3.4",
+   "title": "Contents",
+   "lines": [
+    366,
+    381
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_4-001",
+    "PUB-2_1_3_4-002",
+    "PUB-2_1_3_4-003",
+    "PUB-2_1_3_4-004",
+    "PUB-2_1_3_4-005",
+    "PUB-2_1_3_4-006"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.3.5",
+   "title": "Contributors",
+   "lines": [
+    382,
+    387
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_5-001",
+    "PUB-2_1_3_5-002",
+    "PUB-2_1_3_5-003"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.3.6",
+   "title": "Acknowledgements",
+   "lines": [
+    388,
+    396
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_6-001",
+    "PUB-2_1_3_6-002",
+    "PUB-2_1_3_6-003",
+    "PUB-2_1_3_6-004"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.3.7",
+   "title": "Foreword",
+   "lines": [
+    397,
+    403
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_7-001",
+    "PUB-2_1_3_7-002",
+    "PUB-2_1_3_7-003"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.3.8",
+   "title": "Preface",
+   "lines": [
+    404,
+    411
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_8-001",
+    "PUB-2_1_3_8-002",
+    "PUB-2_1_3_8-003",
+    "PUB-2_1_3_8-004"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.3.9",
+   "title": "Abbreviations",
+   "lines": [
+    412,
+    417
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_9-001",
+    "PUB-2_1_3_9-002",
+    "PUB-2_1_3_9-003"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.3.10",
+   "title": "Executive summary or summary",
+   "lines": [
+    418,
+    428
+   ],
+   "rule_ids": [
+    "PUB-2_1_3_10-001",
+    "PUB-2_1_3_10-002",
+    "PUB-2_1_3_10-003",
+    "PUB-2_1_3_10-004"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.4",
+   "title": "Main text",
+   "lines": [
+    429,
+    434
+   ],
+   "rule_ids": [
+    "PUB-2_1_4-001",
+    "PUB-2_1_4-002"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.1.5",
+   "title": "End matter",
+   "lines": [
+    435,
+    436
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Definition of end matter only."
+  },
+  {
+   "section": "2.1.5.1",
+   "title": "Bibliography",
+   "lines": [
+    437,
+    453
+   ],
+   "rule_ids": [
+    "PUB-2_1_5_1-001",
+    "PUB-2_1_5_1-002",
+    "PUB-2_1_5_1-003",
+    "PUB-2_1_5_1-004",
+    "PUB-2_1_5_1-005",
+    "PUB-2_1_5_1-006",
+    "PUB-2_1_5_1-007",
+    "PUB-2_1_5_1-008",
+    "PUB-2_1_5_1-009",
+    "PUB-2_1_5_1-010",
+    "PUB-2_1_5_1-011",
+    "PUB-2_1_5_1-012",
+    "PUB-2_1_5_1-013"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.5.2",
+   "title": "Glossary",
+   "lines": [
+    454,
+    459
+   ],
+   "rule_ids": [
+    "PUB-2_1_5_2-001",
+    "PUB-2_1_5_2-002",
+    "PUB-2_1_5_2-003"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.5.3",
+   "title": "Appendix or appendices",
+   "lines": [
+    460,
+    464
+   ],
+   "rule_ids": [
+    "PUB-2_1_5_3-001",
+    "PUB-2_1_5_3-002"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.5.4",
+   "title": "Annex or annexes",
+   "lines": [
+    465,
+    471
+   ],
+   "rule_ids": [
+    "PUB-2_1_5_4-001",
+    "PUB-2_1_5_4-002",
+    "PUB-2_1_5_4-003"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.1.5.5",
+   "title": "Index",
+   "lines": [
+    472,
+    476
+   ],
+   "rule_ids": [
+    "PUB-2_1_5_5-001",
+    "PUB-2_1_5_5-002"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.1.6",
+   "title": "Back cover",
+   "lines": [
+    477,
+    495
+   ],
+   "rule_ids": [
+    "PUB-2_1_6-001",
+    "PUB-2_1_6-002",
+    "PUB-2_1_6-003",
+    "PUB-2_1_6-004",
+    "PUB-2_1_6-005",
+    "PUB-2_1_6-006",
+    "PUB-2_1_6-007"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.2",
+   "title": "FORMATTING",
+   "lines": [
+    496,
+    496
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Heading only; content is in subsections 2.2.1-2.2.7."
+  },
+  {
+   "section": "2.2.1",
+   "title": "Page numbering",
+   "lines": [
+    497,
+    508
+   ],
+   "rule_ids": [
+    "PUB-2_2_1-001",
+    "PUB-2_2_1-002",
+    "PUB-2_2_1-003",
+    "PUB-2_2_1-004",
+    "PUB-2_2_1-005",
+    "PUB-2_2_1-006",
+    "PUB-2_2_1-007"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.2.2",
+   "title": "Running heads or feet",
+   "lines": [
+    509,
+    517
+   ],
+   "rule_ids": [
+    "PUB-2_2_2-001",
+    "PUB-2_2_2-002",
+    "PUB-2_2_2-003",
+    "PUB-2_2_2-004"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.2.3",
+   "title": "Headings",
+   "lines": [
+    518,
+    522
+   ],
+   "rule_ids": [
+    "PUB-2_2_3-001",
+    "PUB-2_2_3-002",
+    "PUB-2_2_3-003",
+    "PUB-2_2_3-004"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.2.4",
+   "title": "Notes (general)",
+   "lines": [
+    523,
+    526
+   ],
+   "rule_ids": [
+    "PUB-2_2_4-001"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.2.5",
+   "title": "Figures, tables and boxes",
+   "lines": [
+    527,
+    539
+   ],
+   "rule_ids": [
+    "PUB-2_2_5-001",
+    "PUB-2_2_5-002",
+    "PUB-2_2_5-003",
+    "PUB-2_2_5-004",
+    "PUB-2_2_5-005",
+    "PUB-2_2_5-006",
+    "PUB-2_2_5-007"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.2.5.1",
+   "title": "Figures and tables",
+   "lines": [
+    540,
+    573
+   ],
+   "rule_ids": [
+    "PUB-2_2_5_1-001",
+    "PUB-2_2_5_1-002",
+    "PUB-2_2_5_1-003",
+    "PUB-2_2_5_1-004",
+    "PUB-2_2_5_1-005",
+    "PUB-2_2_5_1-006",
+    "PUB-2_2_5_1-007",
+    "PUB-2_2_5_1-008",
+    "PUB-2_2_5_1-009",
+    "PUB-2_2_5_1-010",
+    "PUB-2_2_5_1-011",
+    "PUB-2_2_5_1-012",
+    "PUB-2_2_5_1-013",
+    "PUB-2_2_5_1-014",
+    "PUB-2_2_5_1-015",
+    "PUB-2_2_5_1-016",
+    "PUB-2_2_5_1-017",
+    "PUB-2_2_5_1-018",
+    "PUB-2_2_5_1-019"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.2.5.2",
+   "title": "Boxes",
+   "lines": [
+    574,
+    581
+   ],
+   "rule_ids": [
+    "PUB-2_2_5_2-001",
+    "PUB-2_2_5_2-002",
+    "PUB-2_2_5_2-003",
+    "PUB-2_2_5_2-004"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.2.6",
+   "title": "Photographs and illustrations",
+   "lines": [
+    582,
+    588
+   ],
+   "rule_ids": [
+    "PUB-2_2_6-001",
+    "PUB-2_2_6-002",
+    "PUB-2_2_6-003",
+    "PUB-2_2_6-004"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.2.7",
+   "title": "Contact information",
+   "lines": [
+    589,
+    645
+   ],
+   "rule_ids": [
+    "PUB-2_2_7-001",
+    "PUB-2_2_7-002",
+    "PUB-2_2_7-003",
+    "PUB-2_2_7-004",
+    "PUB-2_2_7-005",
+    "PUB-2_2_7-006",
+    "PUB-2_2_7-007",
+    "PUB-2_2_7-008",
+    "PUB-2_2_7-009",
+    "PUB-2_2_7-010",
+    "PUB-2_2_7-011",
+    "PUB-2_2_7-012",
+    "PUB-2_2_7-013"
+   ],
+   "status": "production_only",
+   "note": "All rules concern layout/production by FAO publishing staff."
+  },
+  {
+   "section": "2.3",
+   "title": "AUTHORSHIP, EDITORSHIP AND REQUIRED CITATION",
+   "lines": [
+    646,
+    647
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Cross-reference to the external Authorship and plagiarism guidelines only."
+  },
+  {
+   "section": "2.3.1",
+   "title": "Corporate author",
+   "lines": [
+    648,
+    656
+   ],
+   "rule_ids": [
+    "PUB-2_3_1-001"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.3.2",
+   "title": "Individual author(s) or editor(s)",
+   "lines": [
+    657,
+    673
+   ],
+   "rule_ids": [
+    "PUB-2_3_2-001",
+    "PUB-2_3_2-002",
+    "PUB-2_3_2-003",
+    "PUB-2_3_2-004",
+    "PUB-2_3_2-005",
+    "PUB-2_3_2-006",
+    "PUB-2_3_2-007",
+    "PUB-2_3_2-008",
+    "PUB-2_3_2-009",
+    "PUB-2_3_2-010"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "2.3.3",
+   "title": "Required citation",
+   "lines": [
+    674,
+    682
+   ],
+   "rule_ids": [
+    "PUB-2_3_3-001",
+    "PUB-2_3_3-002",
+    "PUB-2_3_3-003",
+    "PUB-2_3_3-004"
+   ],
+   "status": "rules",
+   "note": ""
+  }
+ ]
+}
