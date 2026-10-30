@@ -5184,14 +5184,8 @@
    "headword": "cheque",
    "rule": "Use cheque, not check.",
    "check": {
-    "method": "wordlist",
-    "pairs": [
-     [
-      "check",
-      "cheque"
-     ]
-    ],
-    "notes": "Explicit \"not\" form in Appendix 2. Leave quotations and published titles alone."
+    "method": "agent",
+    "notes": "Only the payment sense of check; calibration showed the verb \"check\" matched."
    },
    "action": "Verify",
    "pdf_page": 73,

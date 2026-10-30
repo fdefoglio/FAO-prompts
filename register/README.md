@@ -32,6 +32,19 @@ Every rule in FAOSTYLE (Publishing at FAO – English, revised November 2024, CB
 - `relevance`: manuscript (checkable in an author manuscript), production (FAO publishing staff), reference (background).
 - Mandatory rules are never offered to the author as a choice (OVR-11).
 
+## Running the preflight
+
+```
+python3 register/preflight/preflight.py MANUSCRIPT_for_ai.md \
+    --register register/fao_style_register.json --words register/fao_recommended_words.json \
+    --nocs nocs/nocsDataExport_20261030.csv --nocs-script nocs/nocs_check.py --out-dir OUT
+# annexes: add --context MAIN_TEXT_for_ai.md (abbreviations defined in the main text are not reported again)
+```
+
+Input: the labelled markdown from editor_tool --export (preferred), or a .docx. Outputs: `<stem>_preflight_findings.csv` (one row per spot, with the [N] label), `<stem>_preflight_receipt.md` (coverage of the guide, modules not yet built) and `<stem>_agent_checklist.md` (rules that need judgement). Every finding is reported as Verify during calibration.
+
+First calibration: FAO Technical Guide on the VGGT and Indigenous Peoples plus four annexes (October 2026): 90 percent of findings on the main guide were correct in the first run; the false-positive sources found there are fixed (see corrections.json, "Calibration" notes).
+
 ## Rebuilding
 
 The build needs the markdown guide and the PDF next to the scripts:

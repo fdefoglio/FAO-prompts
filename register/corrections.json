@@ -49,15 +49,49 @@
   },
   "SPL-4-001": {
    "action": "Verify",
-   "check.notes": "Skip proper names (Center for Global Development, the guide's own exception, line 899), quotations and published titles."
+   "check.notes": "Skip proper names (Center for Global Development, the guide's own exception, line 899), quotations and published titles.",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check.pattern": "(?i)\\b(?:cent|calib|theat|fib|lit|kilomet|centimet|millimet)er(?:s|ed|ing)?\\b",
+   "check.case_policy": "lower_or_sentence_start"
   },
   "SPL-4-002": {
    "action": "Verify",
-   "check.notes": "Skip proper names (Department of Labor), quotations and published titles."
+   "check.notes": "Skip proper names (Department of Labor), quotations and published titles.",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check.pattern": "(?i)\\b(?:col|lab|behavi|fav|hon|harb|neighb|vap|rum|flav|endeav|od|vig|hum)or(?:s|ed|ing|ful|able|ably|ite|ites|al|ally|less|er|ers|hood|hoods)?\\b",
+   "check.case_policy": "lower_or_sentence_start"
   },
   "SPL-4-005": {
    "action": "Verify",
-   "check.notes": "Candidate generator only (OVR-05). Skip proper names (Organisation for Economic Co-operation and Development), quotations, published titles and foreign-language spans; check every hit against header.ise_exceptions."
+   "check.notes": "Candidate generator only (OVR-05). Skip proper names (Organisation for Economic Co-operation and Development), quotations, published titles and foreign-language spans; check every hit against header.ise_exceptions.",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ]
   },
   "PUN-5_10-006": {
    "check.pattern": "“[^”]{250,}”|\"[^\"]{250,}\""
@@ -183,7 +217,7 @@
    "check.pattern": "(?m)(?:^|(?<=[\\s(\\[–=<>±−-]))\\.\\d+\\b"
   },
   "PUN-5_4-002": {
-   "check.pattern": "(?m)(?:^|(?<=[.!?]\\s))(?:However|Moreover|Furthermore|Nevertheless|Nonetheless|Consequently|Therefore|In addition|For example|For instance|In contrast|As a result|In particular|Additionally|Similarly|Meanwhile|Overall|Accordingly)\\s+(?=[a-z])"
+   "check.pattern": "(?m)(?:^|(?<=[.!?]\\s))(?:However|Moreover|Furthermore|Nevertheless|Nonetheless|Consequently|Therefore|In addition|For example|For instance|In contrast|As a result|In particular|Additionally|Similarly|Meanwhile|Overall|Accordingly)\\s+(?=[a-z])(?!(?:to|of|with|from|for)\\b)"
   },
   "REF-12_6-015": {
    "check.pattern": "(?m)\\b[Ii]n\\s+[Pp]ress\\b|\\b[Ff]orthcoming\\b[,.]?\\s*\\(?(?:19|20)\\d{2}[a-z]?|(?:19|20)\\d{2}[a-z]?\\s*,?\\s*\\(?[Ff]orthcoming\\b|^[^()\\n]*?[A-Z]\\.\\s+[Ff]orthcoming\\b",
@@ -203,7 +237,10 @@
    "check.pattern": "(?:\\[\\^\\d+\\](?!:)|<sup>[^<]{1,12}</sup>|\\^[^\\^\\s]{1,12}\\^)[,;:]"
   },
   "WRT-3_1-013": {
-   "check.notes": "Flag only where the phrase describes a quantity that could be given as a number; most hits ('some of the arguments') are not."
+   "check": {
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide: 37 regex hits, almost none a vague quantity that could be given as a number. Judgement only."
+   }
   },
   "CAP-8-019": {
    "check.notes": "Section titles and NOCS terms (Short Name for Lists and Tables) are false positives."
@@ -211,22 +248,125 @@
   "PUN-5_13-002": {
    "check.requires": [
     "nbsp"
-   ]
+   ],
+   "check.report": "summary"
   },
   "PUN-5_13-003": {
    "check.requires": [
     "nbsp"
-   ]
+   ],
+   "check.report": "summary"
   },
   "PUN-5_13-004": {
    "check.requires": [
     "nbsp"
-   ]
+   ],
+   "check.report": "summary"
   },
   "NUM-10-012": {
    "check.requires": [
     "nbsp"
-   ]
+   ],
+   "check.report": "summary"
+  },
+  "SPL-4-003": {
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check.pattern": "(?i)\\b(?:defen|offen)se(?:s|less)?\\b|\\blicenc(?:ed|ing)\\b|\\bto licence\\b|\\b(?:a|the|this|that|its|their|our|valid)\\s+licenses?\\b",
+   "action": "Verify",
+   "check.case_policy": "lower_or_sentence_start"
+  },
+  "SPL-4-004": {
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check.pattern": "(?i)\\b(?:travel|counsel|model|label|cancel|fuel|signal|channel|level|equal|total|marvel|tunnel|dial|rival|quarrel|jewel|pedal|shovel|funnel)(?:ed|ing|er|ers)\\b|\\bcounselors?\\b",
+   "action": "Verify",
+   "check.case_policy": "lower_or_sentence_start"
+  },
+  "SPL-4-006": {
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check.pattern": "(?i)\\b(?:analy|cataly|paraly|dialy|hydroly|electroly)z(?:e|es|ed|ing|er|ers)\\b",
+   "action": "Verify",
+   "check.case_policy": "lower_or_sentence_start"
+  },
+  "REF-12_8-004": {
+   "check.pattern": "\\b[Nn]o\\s+date\\b|\\b[Uu]ndated\\b|\\(\\s*n\\.\\s?d\\.?\\s*\\)|\\bn\\.\\s?d(?![.\\w])|(?<!,\\s)\\bN\\.\\s?D\\.(?!,)|\\bs\\.\\s?d\\.(?=\\s)",
+   "check.notes": "Author initials such as Burgess, N.D. are excluded."
+  },
+  "PUN-5_2-003": {
+   "check.pattern": "\\([^()\\n]*(?<!\\w)\\([^()\\n]*\\)[^()\\n]*\\)",
+   "check.notes": "Legal subdivisions such as Article 11(2) are not nested parentheses."
+  },
+  "WRT-3_3_1-003": {
+   "check": {
+    "method": "agent",
+    "notes": "Calibration: hits were official titles (Indigenous and Tribal Peoples Convention). Judgement only."
+   }
+  },
+  "ABB-7-014": {
+   "scope": [
+    "body",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check.notes": "Sentence-level rule: not applied to data-table cells (short labels such as \"VGGT 9.1–9.2\"). Calibrated on the VGGT guide, October 2026."
+  },
+  "WRT-3_1-007": {
+   "check": {
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide (October 2026): pattern hits were mostly correct usage. Judgement only."
+   }
+  },
+  "WRT-3_2-002": {
+   "check": {
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide (October 2026): pattern hits were mostly correct usage. Judgement only."
+   }
+  },
+  "NAM-6_3_2-006": {
+   "check": {
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide (October 2026): pattern hits were mostly correct usage. Judgement only."
+   }
+  },
+  "PUN-5_8-005": {
+   "check": {
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide (October 2026): pattern hits were mostly correct usage. Judgement only."
+   }
+  },
+  "PUN-5_4-007": {
+   "check.pattern": "\\b[A-Za-z]+, (?!respectively,)[A-Za-z]+, and (?![A-Za-z]+ and\\b)[A-Za-z]+\\b",
+   "check.notes": "Not flagged when the last item itself contains \"and\" (the comma then avoids ambiguity, as §5.4 allows)."
+  },
+  "REF-12_3_3-001": {
+   "check.notes": "Single-quoted titles are reported under PUN-5_10-005 instead."
   }
  },
  "requires_by_module": {
@@ -237,11 +377,5 @@
    "formatting"
   ]
  },
- "duplicates_extra": [
-  [
-   "WRT-3_5-003",
-   "ABB-7-013",
-   "Same requirement for publication titles and headings; report once."
-  ]
- ]
+ "duplicates_extra": []
 }

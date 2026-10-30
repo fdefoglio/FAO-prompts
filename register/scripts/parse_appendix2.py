@@ -73,7 +73,7 @@ def closest(bad, goods):
 
 
 # Bad forms that are also ordinary words in another sense: report, never auto-apply.
-CONTEXT_DEPENDENT = {'check', 'spelt', 'lac', 'tire', 'comprised of', 'accommodations', 'glasshouse', 'fall',
+CONTEXT_DEPENDENT = {'check (payment)', 'spelt', 'lac', 'tire', 'comprised of', 'accommodations', 'glasshouse', 'fall',
                      'firewood', 'multinational', 'societal costs', 'healthcare services', 'inquire', 'inquiry'}
 # Entries that look like "X not Y" but are usage notes.
 USAGE_HEADS = {'stationary', 'afforestation', 'ensure', 'historic, historical', 'impact', 'religions, religious groups',
@@ -215,6 +215,9 @@ def main():
                 seen_bad[key] = rid
             else:
                 seen_bad.setdefault(key, rid)
+        if text.startswith('cheque not check'):
+            entry['check'] = dict(method='agent', notes='Only the payment sense of check; calibration showed the verb "check" matched.')
+            entry['action'] = 'Verify'
         if text.startswith('transnational '):
             entry['check'] = dict(method='wordlist', pairs=[['multinational', 'transnational']],
                                   notes='Only for corporations operating across borders; editor confirms.')

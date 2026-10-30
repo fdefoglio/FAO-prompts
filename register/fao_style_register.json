@@ -66,7 +66,7 @@
   },
   "audit": {
    "date": "2026-10-30",
-   "patched_rules": 41,
+   "patched_rules": 54,
    "note": "Independent audit: fidelity sample 6/60 defects, regex noise, Appendix 2 pairing; all corrected."
   },
   "ise_exceptions": [
@@ -5903,9 +5903,8 @@
     "footnote"
    ],
    "check": {
-    "method": "regex",
-    "pattern": "(?i)\\b(?:hopefully|really|very)\\b",
-    "notes": "Flags every occurrence of the three printed examples; \"very\" is frequent and often acceptable, so the editor decides whether it is unnecessary."
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide (October 2026): pattern hits were mostly correct usage. Judgement only."
    },
    "action": "Verify",
    "examples": {
@@ -5916,6 +5915,9 @@
     ]
    },
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 20,
    "quote_pdf": "Avoid unnecessary and vague adverbs and intensifiers (e.g. {-hopefully}, {-really}, {-very}).",
    "examples_pdf": {
@@ -6140,9 +6142,8 @@
     "footnote"
    ],
    "check": {
-    "method": "regex",
-    "pattern": "(?i)\\b(?:a few|some|many|enough|several|a number of)\\b",
-    "notes": "Flag only where the phrase describes a quantity that could be given as a number; most hits ('some of the arguments') are not."
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide: 37 regex hits, almost none a vague quantity that could be given as a number. Judgement only."
    },
    "action": "Verify",
    "examples": {
@@ -6238,9 +6239,8 @@
     "footnote"
    ],
    "check": {
-    "method": "regex",
-    "pattern": "(?i)\\b(?:staff|police|people)\\s+(?:is|was|has|does)\\b",
-    "notes": "Only catches the verb immediately after the noun. False positives: metalinguistic use (the guide's own \"Older people is generally accepted\", line 774); \"a people\" in the sense of a nation; attributive uses followed by a relative clause are rare."
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide (October 2026): pattern hits were mostly correct usage. Judgement only."
    },
    "action": "Verify",
    "examples": {
@@ -6251,6 +6251,9 @@
    "relevance": "manuscript",
    "see_also": [
     "WRT-3_2-001"
+   ],
+   "audit": [
+    "corrected after independent audit 2026-10-30"
    ],
    "pdf_page": 20,
    "quote_pdf": "Use the plural form of the verb for {+people}, {+staff }and {+the police}, e.g. {+The staff }**{+have }**{+received a memorandum.}",
@@ -6671,9 +6674,8 @@
     "all"
    ],
    "check": {
-    "method": "regex",
-    "pattern": "\\b(?:[Tt]rib(?:e|es|al)|[Pp]ueblos?)\\b",
-    "notes": "\"bands\" is left out of the pattern because of frequent non-ethnic senses (frequency bands, price bands); the agent should catch it. The guide prints Indigenous women / Indigenous youth with capital I."
+    "method": "agent",
+    "notes": "Calibration: hits were official titles (Indigenous and Tribal Peoples Convention). Judgement only."
    },
    "action": "Verify",
    "examples": {
@@ -6683,6 +6685,9 @@
     ]
    },
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 22,
    "quote_pdf": "Terms like {+bands}, {+pueblos }or {+tribes }may be appropriate, but only in specific contexts, and {+Indigenous women }and {+Indigenous youth }are broadly accepted.",
    "examples_pdf": {
@@ -8560,12 +8565,20 @@
    "rule": "Spell -re, not -er: centre, calibre, theatre.",
    "kind": "mandatory",
    "scope": [
-    "all"
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
    ],
    "check": {
     "method": "regex",
     "pattern": "(?i)\\b(?:cent|calib|theat|fib|lit|kilomet|centimet|millimet)er(?:s|ed|ing)?\\b",
-    "notes": "Skip proper names (Center for Global Development, the guide's own exception, line 899), quotations and published titles."
+    "notes": "Skip proper names (Center for Global Development, the guide's own exception, line 899), quotations and published titles.",
+    "case_policy": "lower_or_sentence_start"
    },
    "action": "Verify",
    "examples": {
@@ -8634,12 +8647,20 @@
    "rule": "Spell -our, not -or: colour, labour, behaviour.",
    "kind": "mandatory",
    "scope": [
-    "all"
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
    ],
    "check": {
     "method": "regex",
     "pattern": "(?i)\\b(?:col|lab|behavi|fav|hon|harb|neighb|vap|rum|flav|endeav|od|vig|hum)or(?:s|ed|ing|ful|able|ably|ite|ites|al|ally|less|er|ers|hood|hoods)?\\b",
-    "notes": "Skip proper names (Department of Labor), quotations and published titles."
+    "notes": "Skip proper names (Department of Labor), quotations and published titles.",
+    "case_policy": "lower_or_sentence_start"
    },
    "action": "Verify",
    "examples": {
@@ -8686,12 +8707,20 @@
    "rule": "Spell the nouns defence, offence, licence with -ence; the verb is to license.",
    "kind": "mandatory",
    "scope": [
-    "all"
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
    ],
    "check": {
     "method": "regex",
     "pattern": "(?i)\\b(?:defen|offen)se(?:s|less)?\\b|\\blicenc(?:ed|ing)\\b|\\bto licence\\b|\\b(?:a|the|this|that|its|their|our|valid)\\s+licenses?\\b",
-    "notes": "Noun/verb distinction for licence/license needs context: the pattern flags determiner + license (noun) and licenced/licencing/to licence (verb). Defensive/offensive are not flagged. Verify for noun/verb ambiguity. The guide says \"prefer\" within \"FAO applies the following spelling rules\" (line 884); recorded as mandatory. Skip proper names and quotations (lines 897-900)."
+    "notes": "Noun/verb distinction for licence/license needs context: the pattern flags determiner + license (noun) and licenced/licencing/to licence (verb). Defensive/offensive are not flagged. Verify for noun/verb ambiguity. The guide says \"prefer\" within \"FAO applies the following spelling rules\" (line 884); recorded as mandatory. Skip proper names and quotations (lines 897-900).",
+    "case_policy": "lower_or_sentence_start"
    },
    "action": "Verify",
    "examples": {
@@ -8721,6 +8750,9 @@
     }
    ],
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 27,
    "quote_pdf": "words ending in {+-ence}/{--ense }prefer {+-ence }(for nouns): {+defence}, {+offence}, {+licence }(but spell the verb {+to license})",
    "examples_pdf": {
@@ -8757,14 +8789,22 @@
    "rule": "Double the final l before a suffix: traveller, counselled, modelling.",
    "kind": "mandatory",
    "scope": [
-    "all"
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
    ],
    "check": {
     "method": "regex",
     "pattern": "(?i)\\b(?:travel|counsel|model|label|cancel|fuel|signal|channel|level|equal|total|marvel|tunnel|dial|rival|quarrel|jewel|pedal|shovel|funnel)(?:ed|ing|er|ers)\\b|\\bcounselors?\\b",
-    "notes": "Stems beyond the three printed examples are applications of the stated rule; counsellor is confirmed in Appendix 2 (line 2668). Note the guide does not extend this to fulfil/enrol (Appendix 2 keeps single l there; not checked here). Conversion artefact \"prefer - ll\" (line 892). The guide says \"prefer\" within \"FAO applies the following spelling rules\" (line 884); recorded as mandatory. Skip proper names and quotations (lines 897-900)."
+    "notes": "Stems beyond the three printed examples are applications of the stated rule; counsellor is confirmed in Appendix 2 (line 2668). Note the guide does not extend this to fulfil/enrol (Appendix 2 keeps single l there; not checked here). Conversion artefact \"prefer - ll\" (line 892). The guide says \"prefer\" within \"FAO applies the following spelling rules\" (line 884); recorded as mandatory. Skip proper names and quotations (lines 897-900).",
+    "case_policy": "lower_or_sentence_start"
    },
-   "action": "Apply",
+   "action": "Verify",
    "examples": {
     "correct": [
      "traveller",
@@ -8791,6 +8831,9 @@
     }
    ],
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 27,
    "pdf_match": false
   },
@@ -8806,7 +8849,14 @@
    "rule": "Spell -ize, not -ise: organize, realize, theorize.",
    "kind": "mandatory",
    "scope": [
-    "all"
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
    ],
    "check": {
     "method": "regex",
@@ -8859,14 +8909,22 @@
    "rule": "Spell -yse, not -yze: analyse, catalyse, paralyse.",
    "kind": "mandatory",
    "scope": [
-    "all"
+    "body",
+    "heading",
+    "caption",
+    "table",
+    "figure",
+    "box",
+    "footnote",
+    "front_matter"
    ],
    "check": {
     "method": "regex",
     "pattern": "(?i)\\b(?:analy|cataly|paraly|dialy|hydroly|electroly)z(?:e|es|ed|ing|er|ers)\\b",
-    "notes": "Appendix 2 confirms analyse (line 2460). The guide says \"prefer\" within \"FAO applies the following spelling rules\" (line 884); recorded as mandatory. Skip proper names and quotations (lines 897-900)."
+    "notes": "Appendix 2 confirms analyse (line 2460). The guide says \"prefer\" within \"FAO applies the following spelling rules\" (line 884); recorded as mandatory. Skip proper names and quotations (lines 897-900).",
+    "case_policy": "lower_or_sentence_start"
    },
-   "action": "Apply",
+   "action": "Verify",
    "examples": {
     "correct": [
      "analyse",
@@ -8893,6 +8951,9 @@
     }
    ],
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 27,
    "quote_pdf": "words ending in {+-yse}/{+-yze }prefer {+-yse}: {+analyse}, {+catalyse}, {+paralyse}",
    "examples_pdf": {
@@ -9219,8 +9280,8 @@
    ],
    "check": {
     "method": "regex",
-    "pattern": "\\([^()\\n]*\\([^()\\n]*\\)[^()\\n]*\\)",
-    "notes": "False positives: list labels such as (a) inside parentheses, chemical/mathematical notation. Exceptions are allowed where justified."
+    "pattern": "\\([^()\\n]*(?<!\\w)\\([^()\\n]*\\)[^()\\n]*\\)",
+    "notes": "Legal subdivisions such as Article 11(2) are not nested parentheses."
    },
    "action": "Verify",
    "examples": {
@@ -9239,6 +9300,9 @@
     }
    ],
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 28,
    "quote_pdf": "Use square brackets within parentheses {+(like this [not parentheses within parentheses])}.",
    "examples_pdf": {
@@ -9410,7 +9474,7 @@
    ],
    "check": {
     "method": "regex",
-    "pattern": "(?m)(?:^|(?<=[.!?]\\s))(?:However|Moreover|Furthermore|Nevertheless|Nonetheless|Consequently|Therefore|In addition|For example|For instance|In contrast|As a result|In particular|Additionally|Similarly|Meanwhile|Overall|Accordingly)\\s+(?=[a-z])",
+    "pattern": "(?m)(?:^|(?<=[.!?]\\s))(?:However|Moreover|Furthermore|Nevertheless|Nonetheless|Consequently|Therefore|In addition|For example|For instance|In contrast|As a result|In particular|Additionally|Similarly|Meanwhile|Overall|Accordingly)\\s+(?=[a-z])(?!(?:to|of|with|from|for)\\b)",
     "notes": "Covers sentence-initial connectives only; longer introductory phrases and clauses need the agent. \"However much ...\" (degree sense) is a false positive."
    },
    "action": "Verify",
@@ -9558,8 +9622,8 @@
    ],
    "check": {
     "method": "regex",
-    "pattern": "\\b[A-Za-z]+, (?!respectively,)[A-Za-z]+, and [A-Za-z]+\\b",
-    "notes": "Detects a serial comma in a list of single words. Verify because the guide allows the comma to avoid ambiguity or in a complex series (lines 950-954). Multi-word short lists are missed."
+    "pattern": "\\b[A-Za-z]+, (?!respectively,)[A-Za-z]+, and (?![A-Za-z]+ and\\b)[A-Za-z]+\\b",
+    "notes": "Not flagged when the last item itself contains \"and\" (the comma then avoids ambiguity, as §5.4 allows)."
    },
    "action": "Verify",
    "examples": {
@@ -9588,6 +9652,9 @@
     }
    ],
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 29,
    "quote_pdf": "before {+and }in short lists, e.g. {+sheep, goats }**{+and }**{+oxen}.",
    "examples_pdf": {
@@ -10668,9 +10735,8 @@
     "all"
    ],
    "check": {
-    "method": "regex",
-    "pattern": "\\b[A-Z][a-z]+-(?:(?:and|of|the|in|on|for|to|a)-)*[a-z]{4,}\\b(?=\\s+[A-Z][a-z])",
-    "notes": "Flags Capitalized-lowercase hyphenated words followed by another capitalized word (a title-case proper noun). Sentence-initial compounds before a proper noun are false positives. Tension: the guide itself prints \"Organisation for Economic Co-operation and Development\" (line 898) with lower-case -operation, as an official name."
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide (October 2026): pattern hits were mostly correct usage. Judgement only."
    },
    "action": "Verify",
    "examples": {
@@ -10679,6 +10745,9 @@
     ]
    },
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 30,
    "quote_pdf": "Use upper case for all major hyphenated words in proper nouns, e.g. {+European Commission for the Control of }**{+Foot-and-Mouth Disease}**{+.}",
    "examples_pdf": {
@@ -11975,7 +12044,8 @@
     "notes": "Matches an ordinary space (U+0020); a non-breaking space (U+00A0 or U+202F) passes. The conversion of the guide shows ordinary spaces in its own examples (e.g. \"Figure 1\", \"12 kg\"), presumably because the non-breaking spaces were lost, so those examples are not used as tests. Run on the DOCX text, not on markdown that may have normalized spaces. Compound modifiers take a hyphen instead (PUN-5_8-009, \"a 15-kg bag\").",
     "requires": [
      "nbsp"
-    ]
+    ],
+    "report": "summary"
    },
    "action": "Apply",
    "relevance": "manuscript",
@@ -12007,7 +12077,8 @@
     "notes": "Matches an ordinary space (U+0020); a non-breaking space (U+00A0 or U+202F) passes. The conversion of the guide shows ordinary spaces in its own examples (e.g. \"Figure 1\", \"12 kg\"), presumably because the non-breaking spaces were lost, so those examples are not used as tests. Run on the DOCX text, not on markdown that may have normalized spaces.",
     "requires": [
      "nbsp"
-    ]
+    ],
+    "report": "summary"
    },
    "action": "Apply",
    "relevance": "manuscript",
@@ -12042,7 +12113,8 @@
     "notes": "Matches an ordinary space (U+0020); a non-breaking space (U+00A0 or U+202F) passes. The conversion of the guide shows ordinary spaces in its own examples (e.g. \"Figure 1\", \"12 kg\"), presumably because the non-breaking spaces were lost, so those examples are not used as tests. Run on the DOCX text, not on markdown that may have normalized spaces.",
     "requires": [
      "nbsp"
-    ]
+    ],
+    "report": "summary"
    },
    "action": "Apply",
    "relevance": "manuscript",
@@ -14883,13 +14955,15 @@
     "front_matter"
    ],
    "check": {
-    "method": "regex",
-    "pattern": "\\b(?:Dr|Prof|Professor)\\.?\\s+[A-Z]",
-    "notes": "Every hit needs judgement on relevance."
+    "method": "agent",
+    "notes": "Calibration on the VGGT guide (October 2026): pattern hits were mostly correct usage. Judgement only."
    },
    "action": "Verify",
    "exceptions": [],
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 37,
    "quote_pdf": "Only use honorifics or titles, such as {+Dr }and {+Professor}, if strictly relevant to the context.",
    "pdf_examples": {
@@ -16334,7 +16408,6 @@
    "audit": [
     "corrected after independent audit 2026-10-30"
    ],
-   "duplicate_of": "WRT-3_5-003",
    "pdf_page": 39,
    "quote_pdf": "With the exceptions of {+FAO }and {+COVID-19}, avoid using abbreviations in titles and headings of information products.",
    "examples_pdf": {
@@ -16364,15 +16437,13 @@
    "scope": [
     "body",
     "caption",
-    "table",
-    "figure",
     "box",
     "footnote"
    ],
    "check": {
     "method": "regex",
     "pattern": "(?m)(?:^|(?<=[.!?]\\s))(?!(?:FAO|COVID-19)\\b)[A-Z][A-Z0-9&]*[A-Z0-9](?:s)?\\b(?![a-z])",
-    "notes": "Sentence start = line start or after . ! ? plus space. False positives: list items and table cells starting with an abbreviation; sentences after \"e.g.\" mid-sentence."
+    "notes": "Sentence-level rule: not applied to data-table cells (short labels such as \"VGGT 9.1–9.2\"). Calibrated on the VGGT guide, October 2026."
    },
    "action": "Verify",
    "examples": {
@@ -16382,6 +16453,9 @@
    },
    "exceptions": [],
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 39,
    "quote_pdf": "Avoid beginning sentences with an abbreviation. {+FAO }and {+COVID-19 }are exceptions.",
    "examples_pdf": {
@@ -19075,7 +19149,8 @@
     "notes": "Pattern contains an ordinary space (U+0020) between digit groups; NBSP (U+00A0) and narrow NBSP (U+202F) pass. Run only on text extracted from DOCX with NBSPs preserved; the markdown conversion of the guide itself (and many labelled markdown exports) normalizes NBSP to ordinary spaces, so the guide's own examples (10 000) would match here and are therefore not listed as examples. Also applies to millions (line 1487).",
     "requires": [
      "nbsp"
-    ]
+    ],
+    "report": "summary"
    },
    "action": "Apply",
    "relevance": "manuscript",
@@ -25040,7 +25115,7 @@
    "check": {
     "method": "regex",
     "pattern": "‘[^’\\n]{40,}’|(?<![\\w’'])'[^'\\n]{40,}'(?![\\w])",
-    "notes": "Flags passages of 40+ characters in single quotation marks (likely quotations). Quotes nested inside double quotes are legitimate single quotes; Verify."
+    "notes": "Single-quoted titles are reported under PUN-5_10-005 instead."
    },
    "action": "Verify",
    "examples": {
@@ -25049,6 +25124,9 @@
     ]
    },
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 53,
    "examples_pdf": {
     "correct": [
@@ -27236,8 +27314,8 @@
    ],
    "check": {
     "method": "regex",
-    "pattern": "\\b[Nn]o\\s+date\\b|\\b[Uu]ndated\\b|\\(\\s*n\\.\\s?d\\.?\\s*\\)|\\bn\\.\\s?d(?![.\\w])|\\bN\\.\\s?D\\.|\\bs\\.\\s?d\\.(?=\\s)",
-    "notes": "Flags \"no date\", \"undated\", \"(n.d.)\", \"n.d\" without final stop, \"N.D.\", \"s.d.\". In-text form for undated works is not specified in §12 (Verify \"(IMO, n.d.)\")."
+    "pattern": "\\b[Nn]o\\s+date\\b|\\b[Uu]ndated\\b|\\(\\s*n\\.\\s?d\\.?\\s*\\)|\\bn\\.\\s?d(?![.\\w])|(?<!,\\s)\\bN\\.\\s?D\\.(?!,)|\\bs\\.\\s?d\\.(?=\\s)",
+    "notes": "Author initials such as Burgess, N.D. are excluded."
    },
    "action": "Apply",
    "examples": {
@@ -27246,6 +27324,9 @@
     ]
    },
    "relevance": "manuscript",
+   "audit": [
+    "corrected after independent audit 2026-10-30"
+   ],
    "pdf_page": 58
   },
   {
