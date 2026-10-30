@@ -626,6 +626,7 @@ def main():
     with open(os.path.join(out, f'{stem}_preflight_receipt.md'), 'w', encoding='utf-8') as f:
         h = reg['header']
         f.write(f'# FAOSTYLE preflight receipt — {os.path.basename(a.manuscript)}\n\n')
+        f.write(f'- Manuscript sha256: {hashlib.sha256(open(a.manuscript, "rb").read()).hexdigest()} (a later run can reuse this receipt only if the file is unchanged)\n')
         f.write(f'- Tool: {VERSION}; input format: {fmt}; paragraphs: {len(paras)} '
                 f'({dict(Counter(p["kind"] for p in paras))})\n')
         f.write(f'- Register: {h["register"]} {h["register_version"]}, compiled {h["compiled"]}; guide sha256 {h["source"]["sha256"][:16]}…\n')
