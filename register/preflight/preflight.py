@@ -270,13 +270,17 @@ def run_acronyms(paras, out, context_defined=frozenset()):
     expansion (FAOSTYLE §7 with override OVR-01). Abbreviations defined in the main text (context_defined,
     from --context) need no redefinition in annexes and appendices."""
     known = known_abbreviations(paras) | set(context_defined)
+    # chapter level: '#' when the document has several level-1 headings (chapters); otherwise
+    # '#' is only the title and the chapters are the '##' headings (OVR-01: subsections do not reset)
+    h1 = sum(1 for p in paras if p['kind'] == 'heading' and re.match(r'^#\s', p['text']))
+    chap_rx = re.compile(r'^#\s' if h1 > 1 else r'^##?\s')
     chapter, seen, defined = 'front', set(), set()
     box_saved, cur_box = None, None
     for p in paras:
         if p['kind'] in ('reference', 'footnote'):
             continue
         t = p['text']
-        if p['kind'] == 'heading' and re.match(r'^##?\s', t):
+        if p['kind'] == 'heading' and chap_rx.match(t):
             chapter, seen, defined = t, set(), set()
             continue
         bm = re.match(r'^T(\d+)\.', p['label'])
