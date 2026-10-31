@@ -13,6 +13,18 @@ author documents (abstract, revised sections).
 | Manuscript to finalise | `{{REF}}_{{Pn}}_final_Edited.docx` |
 | Author-annotated comment sheet | `With_author_responses_{{REF}}_CommentSheet__{{Pn}}_final.csv` |
 | Separate author documents | `{{list, or "none"}}` |
+| NOCS check (fetched, not attached) | `nocs/nocs_check.py` and `nocs/nocsDataExport_*.csv` from this repository |
+
+Fetch the NOCS check before starting:
+
+```
+BASE=https://raw.githubusercontent.com/fdefoglio/FAO-prompts/main/nocs
+curl -sSLf -o nocs_check.py $BASE/nocs_check.py
+curl -sSLf -o nocs_export.csv $BASE/nocsDataExport_20261030.csv
+```
+
+If the fetch fails and neither file is in the project or the attachments, stop and ask for
+them. Do not finalise without the NOCS check.
 
 If a filename in this brief does not match an attached file, work from the attachment
 and tell me about the mismatch rather than pausing.
@@ -31,7 +43,10 @@ follows:
 - **Author supplied content** (a source, a gloss, bibliographic data, a URL) → incorporate it,
   reformatted to FAOSTYLE rather than pasted verbatim.
 - **Author declined, or confirmed the current text** → leave the text as it stands and record
-  that no change was needed.
+  that no change was needed. The exception is a mandatory FAOSTYLE rule (NOCS country names,
+  -ize spelling, "percent" in running text, sentence-case headings). An author's reply such as
+  "Laos is fine" does not override the rule: apply it, record `Implemented editorially`, and
+  explain in the Implementation note that the rule is mandatory for FAO content.
 - **Author left the decision to the editor** → decide it, apply the decision, and state the
   FAOSTYLE rule or series precedent it rests on.
 - **Author's remark is ambiguous or internally inconsistent** → apply the reading that requires
@@ -82,6 +97,20 @@ Where the author's document and the manuscript both carry the same element (keyw
 heading), the manuscript version wins if it already conforms to the series conventions recorded
 in project memory. State which you kept and why.
 
+### Final compliance sweep (before the file is called final)
+
+Finalising a manuscript means certifying it against FAOSTYLE as a whole, not only against the
+comment sheet. Run this scripted check on the finished DOCX as the last step:
+
+1. `python3 nocs_check.py <final>.docx --nocs nocs_export.csv --apply <final>_nocs.docx --gate`.
+   Apply rows are fixed and highlighted in yellow. Decide each Verify row yourself (possible
+   proper names, citation keys, "(Lao PDR)"-type abbreviations, "northern Laos", US/UK as a
+   noun); never pass them to the author. Re-run with `--gate` until it shows Apply 0.
+2. Log the NOCS changes as `E` rows in the returned CSV (`Implemented editorially`,
+   FAOSTYLE §6.3.1): one row per form, with the count and the pages.
+3. The check covers text added in this round too. In 2026, round-2 additions to P4 carried
+   "Dar es Salaam, Tanzania"; the NOCS form is "Dar es Salaam, United Republic of Tanzania".
+
 ---
 
 ## Why
@@ -105,6 +134,8 @@ whose authority, and against which rule — without re-reading the manuscript.
 - Apply FAOSTYLE and the project's `conflicts.md` precedence order. Cite the rule number or
   section for any judgment call you make on the editor's own authority.
 - Keep the word-count drift within 8 percent, excluding the author's newly supplied material.
+- Country names follow NOCS (FAOSTYLE §6.3.1) everywhere, including text added in this round.
+  The NOCS receipt showing "Delivery gate: PASS" goes with the delivery.
 - Add reference entries only where the author supplied the source or authorised its addition.
 - Where a new convention has to be chosen (italicisation of a foreign term, an author key for a
   corporate source), match what the manuscript already does and flag the inconsistency, rather
@@ -114,7 +145,7 @@ whose authority, and against which rule — without re-reading the manuscript.
 
 ## What done looks like
 
-Two files, plus a short summary in chat.
+Three files, plus a short summary in chat.
 
 **1. `{{REF}}_{{Pn}}_final_Edited_v2.docx`** — the finalised manuscript, yellow-highlighted, no
 residual strikethrough from resolved items.
@@ -130,7 +161,10 @@ sheet returned unchanged in its existing columns, with two columns appended:
 Append editorial fixes found outside the comment sheet as extra rows, numbered `E1`, `E2`, …,
 after a blank separator row.
 
-**3. Summary in chat** — lead with anything needing an author or client decision before
+**3. `<final>_nocs_receipt.md`**: the NOCS check receipt, showing the data file used, the counts
+and "Delivery gate: PASS".
+
+**4. Summary in chat** — lead with anything needing an author or client decision before
 delivery, then the rest. Keep it short; the CSV holds the detail.
 
 ---
