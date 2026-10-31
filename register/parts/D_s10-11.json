@@ -1,0 +1,4324 @@
+{
+ "part": "D_s10-11",
+ "lines_covered": [
+  1464,
+  1787
+ ],
+ "rules": [
+  {
+   "id": "NUM-10-001",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1465,
+    1466
+   ],
+   "quote": "Numbers from one to ten inclusive are written in text as words",
+   "rule": "Write numbers from one to ten inclusive as words in text (subject to the listed exceptions).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?!(?:table|figure|box|section|chapter|annex|appendix|part|page|paragraph|article|step|phase|level|tier|type|goal|target|number|no|grade|round|version|aged|age|scale|ratio|of|sdg)\\b)[a-z]+ (?:[1-9]|10) (?!(?:percent|per|cms?|mms?|m|kms?|ha|kgs?|g|t|l|h|s|kcals?|days?|weeks?|months?|years?|hours?|minutes?|seconds?|decades?|million|billion|trillion|and|to|or|out|in)\\b)[a-z]{2,}",
+    "notes": "Flags a bare numeral 1-10 between two lower-case words (e.g. \"were 5 farmers\"). Excludes numerals followed by units, time units (see NUM-10-007), \"and/to/or\" (mixed-number rule NUM-10-006), and common label words (table, figure, page, level ...). Remaining false positives: ages, ratios, scales, money and mixed series with a number over ten in the same sentence (all exempt per NUM-10-003/006) -- editor verifies."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "ranging between 2 and 12 per group",
+     "e.g. 5 cm, 7 percent, USD 2"
+    ]
+   },
+   "exceptions": [
+    {
+     "quote": "with the following exceptions:",
+     "lines": [
+      1466,
+      1466
+     ],
+     "note": "Exceptions are the bullets at lines 1467-1475 (NUM-10-003 to NUM-10-007)."
+    }
+   ],
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-002",
+    "NUM-10-003",
+    "NUM-10-005",
+    "NUM-10-006",
+    "NUM-10-007"
+   ]
+  },
+  {
+   "id": "NUM-10-002",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1465,
+    1466
+   ],
+   "quote": "whereas numbers from 11 upward are written as numerals",
+   "rule": "Write numbers from 11 upward as numerals, not words.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<=[a-z,;:] )(?<!teen )(?<!ty )(?<!dred )\\b(?:eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand)(?:-(?:one|two|three|four|five|six|seven|eight|nine))?\\b(?!-)(?!\\s+(?:hundred|thousand|million|billion|trillion)\\b)",
+    "notes": "Flags a cardinal number word >= 11 inside a sentence (preceded by a lower-case word). Compound glosses such as \"one hundred thousand\" or \"one thousand million\" (definitions) are skipped. Sentence-initial numbers (NUM-10-004), spelled-out years after \"Nineteen ...\" and ordinals/centuries such as \"twenty-first\" are excluded. \"million/billion\" are not flagged (NUM-10-015 prescribes \"150 million\")."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Fifteen people were present.",
+     "the twenty-first century",
+     "Nineteen ninety-eight was not a leap year.",
+     "the Thirteenth Session of the FAO Committee on Fisheries"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-004",
+    "NUM_10_3-004"
+   ]
+  },
+  {
+   "id": "NUM-10-003",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1467,
+    1468
+   ],
+   "quote": "Always use arabic numerals for dates, percentages, money, measurements, ages, ratios and scales.",
+   "rule": "Use arabic numerals (even for one to ten) for dates, percentages, money, measurements, ages, ratios and scales.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b(?:one|two|three|four|five|six|seven|eight|nine|ten)\\s+(?:percent|per\\s+cent|years?\\s+old|year-old|dollars?|euros?)\\b|\\baged\\s+(?:one|two|three|four|five|six|seven|eight|nine|ten)\\b",
+    "notes": "Regex covers percentages, ages and money written as words. Ratios, scales and measurements need agent review; measurements with a unit are also caught by NUM-10-005; dates by §10.3 rules."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "7 percent",
+     "USD 2"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-005"
+   ]
+  },
+  {
+   "id": "NUM-10-004",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1469,
+    1469
+   ],
+   "quote": "Write out any number that begins a sentence, e.g. Fifteen people were present.",
+   "rule": "Write out a number that begins a sentence.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?m)(?:^|(?<=[a-z]{3}[.!?] ))(?!(?:1[5-9]|20)\\d{2}\\b)\\d+(?: \\d{3})*(?:\\.\\d+)? +[a-z]",
+    "notes": "Flags a numeral at paragraph start or after a sentence end (preceded by a word of 3+ lower-case letters, so \"p. 40\", \"e.g. 5\" are skipped). Years at sentence start are handled by NUM-10_3-004. False positives: numbered list items without a full stop, abbreviations of 3+ letters ending in a full stop (e.g. \"approx. 5\")."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Fifteen people were present."
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_3-004"
+   ]
+  },
+  {
+   "id": "NUM-10-005",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1470,
+    1470
+   ],
+   "quote": "Use numerals where a number accompanies a unit, e.g. 5 cm, 7 percent, USD 2.",
+   "rule": "Use numerals, not words, when a number accompanies a unit (including percent and currency).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b(?:one|two|three|four|five|six|seven|eight|nine|ten)\\s+(?:percent|cm|mm|km|kg|ha|kcal|Mt|°C|centimetres?|millimetres?|metres?|kilometres?|hectares?|tonnes?|kilograms?|grams?|litres?)(?![\\w-])|\\b(?:USD|EUR)\\s+(?:one|two|three|four|five|six|seven|eight|nine|ten)\\b",
+    "notes": "Single-letter symbols (m, g, t, l, s, h, K) are omitted to avoid matching ordinary words. Time units are excluded: they follow NUM-10-007 (writer discretion, consistent). Currency: extend USD|EUR with the NOCS ISO code list."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "5 cm",
+     "7 percent",
+     "USD 2"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-003",
+    "NUM-10-007",
+    "NUM-10_5-001"
+   ]
+  },
+  {
+   "id": "NUM-10-006",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1471,
+    1473
+   ],
+   "quote": "When providing two or more numbers that refer to the same subject and at least one of them is over ten, use arabic numerals, e.g. The number of replies varied, ranging between 2 and 12 per group.",
+   "rule": "When two or more numbers refer to the same subject and at least one is over ten, use numerals for all of them.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b(?:one|two|three|four|five|six|seven|eight|nine|ten)\\s+(?:and|to|or|–)\\s+\\d{2,}\\b|(?<![\\d.,])\\d{2,3}\\s+(?:and|to|or)\\s+(?:one|two|three|four|five|six|seven|eight|nine|ten)\\b(?!-)",
+    "notes": "Catches the adjacent pattern (\"between two and 12\"). Numbers on the same subject further apart in the sentence need agent review."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "The number of replies varied, ranging between 2 and 12 per group."
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-001"
+   ]
+  },
+  {
+   "id": "NUM-10-007",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1474,
+    1475
+   ],
+   "quote": "For units of time, applying the rule can be at the discretion of the writer, as long as it is consistent throughout the document (5 days or five days).",
+   "rule": "For units of time, numerals or words may be used for one to ten, but the choice must be consistent throughout the document.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "consistency",
+    "notes": "Collect \"<number> <time unit>\" (seconds, minutes, hours, days, weeks, months, years, decades) for values 1-10 and flag a document that mixes words and numerals."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "5 days",
+     "five days"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10-008",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1476,
+    1477
+   ],
+   "quote": "For decimals: - Use a point (a full stop, not a comma), e.g. 14.36.",
+   "rule": "Use a decimal point (full stop), not a decimal comma.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<![\\d,.])(?:0,\\d+|[1-9]\\d*,\\d{1,2})(?![\\d,])",
+    "notes": "Flags \"0,xx\" and \"n,d\"/\"n,dd\". A comma followed by exactly three digits is treated as a thousands separator (NUM-10-011). False positives: unspaced lists of numbers such as \"Tables 1,2\"."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "14.36"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-011"
+   ]
+  },
+  {
+   "id": "NUM-10-009",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1478,
+    1478
+   ],
+   "quote": "Use a zero before the decimal point for numbers smaller than 1, e.g. 0.23.",
+   "rule": "Put a zero before the decimal point for numbers smaller than 1.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?:^|(?<=[\\s(\\[–=<>±−-]))\\.\\d+\\b",
+    "notes": "Flags a decimal point not preceded by a digit (\".23\", \"p < .05\")."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "0.23"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10-010",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1479,
+    1479
+   ],
+   "quote": "Use the plural for any decimal number above 1.0, e.g. 1.5 days.",
+   "rule": "Use the plural noun after any decimal number above 1.0.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:1\\.\\d*[1-9]\\d*|[2-9]\\.\\d+|\\d{2,}\\.\\d+)\\s+(?:day|week|month|year|hour|minute|second|tonne|metre|hectare|litre|kilogram|gram|kilometre|centimetre|millimetre)\\b(?!-)",
+    "notes": "Flags a decimal > 1.0 followed by a singular unit noun. Compound adjectives (\"a 1.5-day course\") are skipped. Unit symbols are never pluralized (NUM-10_1-009)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "1.5 days"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_1-009"
+   ]
+  },
+  {
+   "id": "NUM-10-011",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1480,
+    1481
+   ],
+   "quote": "Use spaces, not full stops or commas, to denote thousands (e.g. 10 000; 125 500).",
+   "rule": "Separate thousands with spaces, not commas or full stops.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<![\\d.,])[1-9]\\d{0,2}(?:,\\d{3})+(?![\\d,]|\\.\\d)|(?<![\\d.,])[1-9]\\d{0,2}(?:\\.\\d{3}){2,}(?![\\d.]|,\\d)|(?<![\\w/.:=+#-])(?<!\\d )[1-9]\\d{4,}(?![\\w/-]|[.,]\\d)",
+    "notes": "Alternative 1: comma separators (10,000). Alternative 2: full-stop separators with two or more groups (1.000.000); a single group such as \"10.000\" is ambiguous with a three-place decimal and is not flagged. Alternative 3: unspaced numbers of five or more digits (10000), excluding digits inside URLs, codes and phone numbers preceded by a digit group; remaining false positives: IDs, ISBN/ISSN parts, phone numbers. 1000-9999 without a space is acceptable (NUM-10-013); years and page numbers take no space (NUM-10-014)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "10 000",
+     "125 500",
+     "150 324 399",
+     "USD 700 000",
+     "p. 1402",
+     "2007"
+    ],
+    "incorrect": [
+     "US$700,000",
+     "€800,000"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-012",
+    "NUM-10-013",
+    "NUM-10-014"
+   ]
+  },
+  {
+   "id": "NUM-10-012",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1481,
+    1482
+   ],
+   "quote": "Use non-breaking spaces to avoid number divisions at the end of lines.",
+   "rule": "Use non-breaking spaces (not ordinary spaces) as thousands separators.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<!\\d)(?<!\\d[  ])\\d{1,3}(?: \\d{3})+(?!\\d)",
+    "notes": "Pattern contains an ordinary space (U+0020) between digit groups; NBSP (U+00A0) and narrow NBSP (U+202F) pass. Run only on text extracted from DOCX with NBSPs preserved; the markdown conversion of the guide itself (and many labelled markdown exports) normalizes NBSP to ordinary spaces, so the guide's own examples (10 000) would match here and are therefore not listed as examples. Also applies to millions (line 1487)."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-011",
+    "NUM-10-015"
+   ]
+  },
+  {
+   "id": "NUM-10-013",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1482,
+    1485
+   ],
+   "quote": "It is acceptable to write 1000 through 9999 with no space where a space would look awkward (particularly in titles or headings) and when it is not specifically compared with another number in the thousands or higher, where the space would be required, e.g. between 5 000 and 10 000.",
+   "rule": "Numbers 1000-9999 may be written without a space, except when compared with another number in the thousands or higher, where the space is required.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<!\\d)(?<!\\d[  ])[1-9]\\d{3}(?![  ]?\\d)\\s*(?:–|-|to|and|or)\\s*[1-9]\\d{0,2}(?:[  ]\\d{3})+(?!\\d)|(?<!\\d)(?<!\\d[  ])[1-9]\\d{0,2}(?:[  ]\\d{3})+\\s*(?:–|-|to|and|or)\\s*[1-9]\\d{3}(?![  ]?\\d)",
+    "notes": "Flags an unspaced 4-digit number directly compared with a spaced number of 10 000 or more (\"5000 and 10 000\"). A 4-digit year next to a large number can be a false positive. Comparisons across a sentence need agent review. Whether the unspaced form is \"awkward\" is a judgement; the guide does not require consistency for 1000-9999 otherwise."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "between 5 000 and 10 000"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-011"
+   ]
+  },
+  {
+   "id": "NUM-10-014",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1486,
+    1486
+   ],
+   "quote": "Do not use spaces for years (e.g. 2007) or page numbers (e.g. p. 1402).",
+   "rule": "Do not use thousands spaces in years or page numbers.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "reference",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bpp?\\.\\s?\\d{1,3}[  ]\\d{3}\\b|\\b(?:in|since|by|until|from|to|year|of)\\s+[12][  ]\\d{3}\\b(?![  ]\\d)",
+    "notes": "Flags \"p. 1 402\" and a spaced 4-digit year after a typical year preposition. A genuine quantity \"of 2 000\" can be a false positive; editor verifies."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "2007",
+     "p. 1402"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10-015",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1487,
+    1490
+   ],
+   "quote": "For millions, use numerals separated by non-breaking spaces (e.g. 150 324 399) unless the last six numerals are zeros, in which case express these digits as million (e.g. 150 000 000 should be written as 150 million). The same principle holds for billions, trillions, etc.",
+   "rule": "Write millions (billions, trillions) as spaced numerals, but where the last six digits are zeros write the number with the word million (billion, trillion).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<![\\d,.])(?<!\\d[  ])\\d{1,3}(?:[  ,.]\\d{3})*[  ,.]000[  ,.]000(?![  ,.]?\\d)|(?<![\\d.,])[1-9]\\d{0,2}(?:\\d{3})*000000(?!\\d)",
+    "notes": "Flags numbers ending in six zeros, spaced or unspaced. The guide itself writes \"1 000 000 000\" when defining the short scale (line 1492); definitional uses like that are false positives. Unclear whether the rule applies in tables."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "150 million",
+     "150 324 399"
+    ],
+    "incorrect": [
+     "150 000 000"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-012",
+    "NUM-10-016",
+    "NUM-10-017"
+   ]
+  },
+  {
+   "id": "NUM-10-016",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1490,
+    1490
+   ],
+   "quote": "Data are in general reported to three significant figures.",
+   "rule": "In general, report data to three significant figures.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement on data precision; the guide's own example 150 324 399 (line 1487) has nine significant figures, so apply only to reported data values, and query the author rather than rounding."
+   },
+   "action": "Author",
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-015"
+   ]
+  },
+  {
+   "id": "NUM-10-017",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1491,
+    1496
+   ],
+   "quote": "FAO uses the short scale for billions and trillions: 1 billion = one thousand million or 1 000 000 000 (10 9 ); 1 trillion = one million million or 1 000 000 000 000 (10 12 ).",
+   "rule": "Use the short scale: 1 billion = 10^9 (one thousand million); 1 trillion = 10^12 (one million million).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Check that \"billion\"/\"trillion\" are used in the short-scale sense (e.g. in translated manuscripts where a long-scale billion = 10^12 may have been carried over). Conversion artefact: the exponents 10^9 and 10^12 appear as \"10 / 9\" and \"10 / 12\" on separate lines."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10-018",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1497,
+    1497
+   ],
+   "quote": "Write fractions in words rather than numbers, using a hyphen, e.g. one-third.",
+   "rule": "Write fractions in words with a hyphen (one-third), not as numerals.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)(?<![\\d/.])\\b[1-9]/(?:[2-9]|1[0-2])\\b(?![\\d/])|\\b(?:one|two|three|four|five|six|seven|eight|nine)\\s+(?:half|halves|thirds?|quarters?|fourths?|fifths?|sixths?|sevenths?|eighths?|ninths?|tenths?)\\b",
+    "notes": "Alternative 1: numeric fractions (1/3); crop years like 2015/16 and units like m/s are excluded. Alternative 2: unhyphenated fraction words (\"one third\"). \"one fifth\" etc. used as ordinal adjectives are rare false positives. Interaction with NUM-10-003 (numerals for measurements/percentages) is not addressed by the guide; prefer decimals there."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "one-third"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10-019",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1498,
+    1498
+   ],
+   "quote": "Avoid the use of roman numerals except in established terminology, e.g. Type II error.",
+   "rule": "Avoid roman numerals except in established terminology.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:Chapter|Part|Section|Volume|Vol\\.|Annex|Appendix|Table|Figure|Box|Phase|Stage|Module|Step)\\s+(?:I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII)\\b",
+    "notes": "Flags roman numerals used as labels after common label words. Other roman numerals (e.g. list markers (i), (ii)) need agent review; lower-case roman numerals are permitted as source-note indicators in figures/tables/boxes (Table 11.1)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Type II error"
+    ]
+   },
+   "exceptions": [
+    {
+     "quote": "except in established terminology, e.g. Type II error.",
+     "lines": [
+      1498,
+      1498
+     ],
+     "note": "Established terminology keeps roman numerals."
+    }
+   ],
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-009"
+   ]
+  },
+  {
+   "id": "NUM-10-020",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1499,
+    1500
+   ],
+   "quote": "Where possible, write out ordinal numbers in full, e.g. the Thirteenth Session of the FAO Committee on Fisheries.",
+   "rule": "Where possible, write ordinal numbers out in full.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "title"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d+(?:st|nd|rd|th)\\b",
+    "notes": "Flags numeric ordinals (13th). Numerals are allowed \"where it is necessary\" (e.g. long ordinals), so Verify. Dates and centuries have their own rules (NUM-10_3-003, NUM-10_3-012)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "the Thirteenth Session of the FAO Committee on Fisheries"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-021",
+    "NUM-10_3-003",
+    "NUM-10_3-012"
+   ]
+  },
+  {
+   "id": "NUM-10-021",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1500,
+    1501
+   ],
+   "quote": "Where it is necessary to use numerals, do not use superscript for the ordinal indicator, e.g. the 13th Session, not the 13th Session.",
+   "rule": "When ordinals are written as numerals, do not superscript the ordinal indicator.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "title",
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "docx_formatting",
+    "notes": "Superscript cannot be seen in plain text or labelled markdown; check DOCX runs: a run with vertAlign=superscript containing st|nd|rd|th directly after a digit. Conversion artefact: the guide's own contrast example reads \"the 13th Session, not the 13th Session\" because the superscript was lost."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-020"
+   ]
+  },
+  {
+   "id": "NUM-10-022",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1502,
+    1503
+   ],
+   "quote": "Avoid the use of adverbial ordinal numbers (firstly, secondly, thirdly, etc.), as subsequent numbers sound awkward. Replace these with first, second, third, etc.",
+   "rule": "Use first, second, third, etc. instead of firstly, secondly, thirdly, etc.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "wordlist",
+    "pairs": [
+     [
+      "firstly",
+      "first"
+     ],
+     [
+      "secondly",
+      "second"
+     ],
+     [
+      "thirdly",
+      "third"
+     ],
+     [
+      "fourthly",
+      "fourth"
+     ],
+     [
+      "fifthly",
+      "fifth"
+     ],
+     [
+      "sixthly",
+      "sixth"
+     ]
+    ],
+    "notes": "Case-insensitive; keep initial capital when sentence-initial. Pairs beyond \"thirdly\" follow the guide's \"etc.\"."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "first",
+     "second",
+     "third"
+    ],
+    "incorrect": [
+     "firstly",
+     "secondly",
+     "thirdly"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10-023",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1504,
+    1504
+   ],
+   "quote": "For telephone numbers, be consistent in the use of parentheses and spaces.",
+   "rule": "Format telephone numbers consistently (parentheses and spaces).",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "module",
+    "module": "consistency",
+    "notes": "Collect telephone numbers and compare their parenthesis/space pattern."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-024",
+    "NUM-10-025"
+   ]
+  },
+  {
+   "id": "NUM-10-024",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1504,
+    1505
+   ],
+   "quote": "Always include the country code using this format: (+39) or (+505).",
+   "rule": "Always include the country code in telephone numbers, in the form (+39).",
+   "kind": "mandatory",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<![(\\w])\\+\\d{1,3}\\b(?!\\))",
+    "notes": "Flags a country code not enclosed in parentheses (\"+39 06 ...\"). Telephone numbers lacking any country code need agent review. False positives: signed values such as \"+5%\" or \"UTC +6\" written without parentheses."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "(+39) 06 57057051",
+     "(+505)"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-023"
+   ]
+  },
+  {
+   "id": "NUM-10-025",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1505,
+    1505
+   ],
+   "quote": "The recommended style is: (+39) 06 57057051.",
+   "rule": "Recommended telephone style: country code in parentheses, space, area code, space, number.",
+   "kind": "preference",
+   "scope": [
+    "all"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Compare against the model (+39) 06 57057051."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "(+39) 06 57057051"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-023",
+    "NUM-10-024"
+   ]
+  },
+  {
+   "id": "NUM-10-026",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1508,
+    1508
+   ],
+   "quote": "To refer to a specific page: p. 40.",
+   "rule": "Refer to a single page as \"p. 40\" (p, full stop, space, number).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bpp?\\.(?=\\d)|(?<![A-Za-z])pp?\\s\\d",
+    "notes": "Flags a missing space (\"p.40\") or missing full stop (\"p 40\"). False positive: statistical \"p 0.05\" written without an operator. Using \"pp.\" for a single page needs agent review."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "p. 40",
+     "p. 1402"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-027",
+    "NUM-10-028"
+   ]
+  },
+  {
+   "id": "NUM-10-027",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1508,
+    1508
+   ],
+   "quote": "To refer to a page range: pp. 40–42.",
+   "rule": "Refer to a page range as \"pp. 40–42\" (pp., en dash between the numbers).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "footnote",
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\bpp?\\.\\s?\\d+\\s?-\\s?\\d+\\b|\\bp\\.\\s?\\d+\\s?–\\s?\\d+\\b",
+    "notes": "Flags a hyphen in a page range, and \"p.\" used with a range. Spaced en dashes (\"pp. 40 – 42\") are not flagged here."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "pp. 40–42"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10-028",
+   "section": "10",
+   "section_title": "NUMBERS",
+   "lines": [
+    1508,
+    1509
+   ],
+   "quote": "To refer to the total number of pages in a publication: 120 pp.",
+   "rule": "Give the total number of pages of a publication as \"120 pp.\".",
+   "kind": "mandatory",
+   "scope": [
+    "reference",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d+\\s?p\\.(?=[\\s,;)]|$)|\\b\\d+pp\\.",
+    "notes": "Flags \"120 p.\" and unspaced \"120pp.\". \"8 p.m.\" is not matched. Applies mainly to reference lists."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "120 pp."
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_1-001",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1511,
+    1512
+   ],
+   "quote": "Use the International System of Units (metric system) with equivalents in parentheses if necessary.",
+   "rule": "Use SI (metric) units; give other equivalents in parentheses only if necessary.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<!\\()\\b\\d[\\d  ,.]*\\s?(?:miles?|feet|foot|ft|inch(?:es)?|yards?|acres?|pounds?|lbs?|gallons?)\\b",
+    "notes": "Flags a quantity in a non-metric unit not directly inside an opening parenthesis. Equivalents in parentheses are permitted; shipping tons/cubic feet are an accepted exception (NUM-10_1-002). Verify, since conversion needs the author's data."
+   },
+   "action": "Verify",
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_1-002",
+    "NUM-10_1-005"
+   ]
+  },
+  {
+   "id": "NUM-10_1-002",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1513,
+    1514
+   ],
+   "quote": "In general, use t onnes (equal to 1000 kg), not tons (2240 lb or approximately 1016 kg).",
+   "rule": "Use tonnes, not tons.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "wordlist",
+    "pairs": [
+     [
+      "ton",
+      "tonne"
+     ],
+     [
+      "tons",
+      "tonnes"
+     ]
+    ],
+    "notes": "Whole-word, case-insensitive. Skip shipping contexts (exception below). Conversion artefact: \"tonnes\" is split as \"t / onnes\" across lines 1513-1514."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "tonnes"
+    ],
+    "incorrect": [
+     "tons"
+    ]
+   },
+   "exceptions": [
+    {
+     "quote": "For shipping, tons may however be appropriate. A shipping ton is used to measure the volume of freight, equivalent to 40 cubic feet (1.1 m 3 ) in the United States, or 42 cubic feet (1.2 m 3 ) in the United Kingdom.",
+     "lines": [
+      1517,
+      1523
+     ],
+     "note": "Shipping (freight volume) tons are acceptable."
+    }
+   ],
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_1-003"
+   ]
+  },
+  {
+   "id": "NUM-10_1-003",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1514,
+    1515
+   ],
+   "quote": "A tonne is sometimes referred to in the United States as a metric ton, but always use the word tonne.",
+   "rule": "Write tonne, never metric ton.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "wordlist",
+    "pairs": [
+     [
+      "metric ton",
+      "tonne"
+     ],
+     [
+      "metric tons",
+      "tonnes"
+     ],
+     [
+      "metric tonne",
+      "tonne"
+     ],
+     [
+      "metric tonnes",
+      "tonnes"
+     ]
+    ],
+    "notes": "\"metric tonne(s)\" is included as a redundant variant of the prescribed word; drop those two pairs if a stricter reading is wanted."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "tonne"
+    ],
+    "incorrect": [
+     "metric ton"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_1-002"
+   ]
+  },
+  {
+   "id": "NUM-10_1-004",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1515,
+    1516
+   ],
+   "quote": "A megatonne (Mt) is equivalent to one million tonnes.",
+   "rule": "Megatonne (Mt) = one million tonnes.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Definition; supports checking that Mt is used for 10^6 tonnes."
+   },
+   "action": "Info",
+   "relevance": "reference"
+  },
+  {
+   "id": "NUM-10_1-005",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1524,
+    1524
+   ],
+   "quote": "Always give temperature in Celsius, not Fahrenheit, e.g. 35.5 °C.",
+   "rule": "Give temperatures in degrees Celsius, not Fahrenheit.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "°\\s?F\\b|\\bFahrenheit\\b",
+    "notes": "Conversion needs the author's data; Verify."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "35.5 °C"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_1-006",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1525,
+    1542
+   ],
+   "quote": "TABLE 10.1 _ Common units Unit Symbol metre m square metre m 2 cubic metre m 3 micron μ litre l,L gram g tonne t second s degree Celsius °C degree absolute K Kilocalorie kcal hour h",
+   "rule": "Use the unit symbols in Table 10.1: m, m2, m3, μ (micron), l or L, g, t, s, °C, K, kcal, h.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "The table gives correct symbols only, no incorrect forms, so no wordlist is built. Symbol lists in NUM-10_1-007..012 draw on it. Conversion artefacts: superscript 2/3 of m2/m3 on separate lines; \"Kilocalorie\" capitalized (cell start). The guide lists \"μ\" for micron as written. Litre may be l or L; the guide does not say whether one must be used consistently."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_1-007",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1547,
+    1547
+   ],
+   "quote": "Do not use punctuation or letter spacing in such units as cm, mm, g, °C.",
+   "rule": "Do not put full stops in, or space out the letters of, unit symbols.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d\\s?(?:c\\.m\\.|m\\.m\\.|k\\.g\\.|k\\.m\\.|(?:cm|mm|km|kg|g|kcal|ha)\\.(?=\\s[a-z]))|°\\s+C\\b|\\d\\s?(?:c m|m m|k g|k m)\\b",
+    "notes": "Flags dotted symbols (c.m., \"5 cm. of\"), \"° C\" and letter-spaced symbols. A unit followed by a full stop is flagged only when the next word is lower case (i.e. not the sentence end)."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "3 cm",
+     "70 g",
+     "37 °C"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_1-008"
+   ]
+  },
+  {
+   "id": "NUM-10_1-008",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1547,
+    1548
+   ],
+   "quote": "Note, however, that there should always be a non-breaking space between the number and the unit, e.g. 3 cm, 70 g, 37 °C.",
+   "rule": "Always put a non-breaking space between a number and its unit symbol.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d+(?:\\.\\d+)?(?:cm|mm|km|kg|kcal|ha|Mt|m|g|t|l|L|h|K)[23²³]?\\b|\\d°C\\b",
+    "notes": "Flags a missing space (\"3cm\", \"37°C\"). \"s\" (second) is omitted to avoid matching decades (1990s). Ordinary vs non-breaking space can only be distinguished on raw DOCX text (U+00A0/U+202F); markdown exports normalize it. Does not apply to % (NUM-10_2-004) or to degrees of latitude/longitude (10°30')."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "3 cm",
+     "70 g",
+     "37 °C",
+     "10°30' north"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_4-005",
+    "NUM-10_2-004"
+   ]
+  },
+  {
+   "id": "NUM-10_1-009",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1549,
+    1549
+   ],
+   "quote": "Do not use the plural for abbreviations of units (e.g. 7 kg, not 7 kgs).",
+   "rule": "Do not add a plural s to unit abbreviations.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d\\s?(?:kgs|cms|mms|kms|kcals|Mts)\\b",
+    "notes": "Only symbols from Table 10.1 and the guide's text are included."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "7 kg"
+    ],
+    "incorrect": [
+     "7 kgs"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_1-010",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1549,
+    1552
+   ],
+   "quote": "To indicate per, use /, as in 3 m/s (rather than 3 m s -1 ).",
+   "rule": "Indicate \"per\" with a slash (3 m/s), not a negative exponent.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:m|cm|mm|km|g|kg|t|Mt|ha|l|L|kcal)\\s+(?:s|h|ha|m|l|L|kg|g|t|d|yr|year)\\s?(?:-|−|–|⁻)\\s?[1¹]\\b",
+    "notes": "In plain text the superscript -1 appears inline (\"m s-1\", \"m s -1\"). Conversion artefact: double space in \"in  3 m/s\" and the exponent on a separate line."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "3 m/s"
+    ],
+    "incorrect": [
+     "3 m s -1"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_1-011",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1555,
+    1556
+   ],
+   "quote": "Avoid combinations of three units such as: Production is 25 tonnes/ha/year. Prefer: Annual production is 25 tonnes/ha. Exceptions may be made for statistical documents.",
+   "rule": "Avoid combining three units (25 tonnes/ha/year); rephrase (Annual production is 25 tonnes/ha).",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d\\s(?:[A-Za-zμ°]+[23]?)/(?:[A-Za-z]+[23]?)/(?:[A-Za-z]+)\\b",
+    "notes": "Requires a number before the unit chain to avoid URLs and and/or constructions. Statistical documents are exempt. Note the guide uses the word \"tonnes\" with the symbol \"ha\" in its own example."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Annual production is 25 tonnes/ha."
+    ],
+    "incorrect": [
+     "Production is 25 tonnes/ha/year."
+    ]
+   },
+   "exceptions": [
+    {
+     "quote": "Exceptions may be made for statistical documents.",
+     "lines": [
+      1556,
+      1556
+     ],
+     "note": "Statistical documents."
+    }
+   ],
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_1-012",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1557,
+    1558
+   ],
+   "quote": "In series of measurements, use the symbol each time: 10 cm, 20 cm and 50 cm, not 10, 20 and 50 cm.",
+   "rule": "Repeat the unit symbol after every value in a series of measurements.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d+(?:\\.\\d+)?,\\s\\d+(?:\\.\\d+)?(?:,\\s\\d+(?:\\.\\d+)?)*,?\\s(?:and|or)\\s\\d+(?:\\.\\d+)?\\s?(?:cm|mm|km|kg|kcal|ha|m|g|t|l|L|h|K|°C)\\b",
+    "notes": "Flags a comma-separated series of bare numbers ending with a single unit. Two-item ranges (\"from 10 to 20 cm\") are not covered by the guide and are not flagged."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "10 cm, 20 cm and 50 cm"
+    ],
+    "incorrect": [
+     "10, 20 and 50 cm"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_1-013",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1559,
+    1560
+   ],
+   "quote": "Correct ways of writing latitude and longitude include: 10°30' north; 90° west; the zone from 10° to 40° north.",
+   "rule": "Write latitude and longitude as in the models: 10°30' north; 90° west; from 10° to 40° north (direction as a word).",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Compare coordinates in text against the models; direction abbreviations in running text are caught by NUM-10_1-014."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "10°30' north",
+     "90° west",
+     "the zone from 10° to 40° north"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_1-014",
+    "NUM-10_1-015"
+   ]
+  },
+  {
+   "id": "NUM-10_1-014",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1560,
+    1560
+   ],
+   "quote": "Use the abbreviations N, E, S and W only in tables.",
+   "rule": "Use the compass abbreviations N, E, S and W only in tables; write the words in text.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "box",
+    "footnote",
+    "caption"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d°(?:\\s?\\d+['′](?:\\s?\\d+(?:\\.\\d+)?[\"″])?)?\\s?[NESW]\\b",
+    "notes": "Flags a coordinate followed by N/E/S/W outside tables. Do not run on table scope."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "10°30' north",
+     "90° west",
+     "41°16'40\" south"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_1-013"
+   ]
+  },
+  {
+   "id": "NUM-10_1-015",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1560,
+    1562
+   ],
+   "quote": "For minutes and seconds of latitude or longitude (41°16'40\" south) a straight apostrophe or straight quotation mark may be used rather than the prime symbol (‘).",
+   "rule": "For minutes and seconds of latitude/longitude, straight apostrophe and straight quotation mark are acceptable instead of prime symbols.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Permissive: do not flag straight ' or \" in coordinates. Conversion artefact: the prime symbol is rendered as a left single quotation mark (U+2018) in the file; a checker must not treat curly quotes as the prescribed alternative. Curly quotes in coordinates are not addressed by the guide."
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "41°16'40\" south"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_1-016",
+   "section": "10.1",
+   "section_title": "UNITS",
+   "lines": [
+    1563,
+    1564
+   ],
+   "quote": "If your reader may not immediately understand the unit abbreviation, include it in the list of abbreviations or spell out the full name once: 100 hectares (ha).",
+   "rule": "Introduce an unfamiliar unit abbreviation in the list of abbreviations or by spelling it out once with the symbol in parentheses.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "acronym_first_use",
+    "notes": "Treat unit symbols beyond the very common ones as abbreviations needing first-use definition or a list entry; which units the reader \"may not immediately understand\" is a judgement (Verify)."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "100 hectares (ha)"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_2-001",
+   "section": "10.2",
+   "section_title": "PERCENTAGES",
+   "lines": [
+    1566,
+    1566
+   ],
+   "quote": "Use percent (never per cent)",
+   "rule": "Write percent, never per cent.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "wordlist",
+    "pairs": [
+     [
+      "per cent",
+      "percent"
+     ],
+     [
+      "per-cent",
+      "percent"
+     ]
+    ],
+    "notes": "Case-insensitive. \"per-cent\" is a typographic variant of the forbidden form."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "16 percent"
+    ],
+    "incorrect": [
+     "per cent"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_2-002"
+   ]
+  },
+  {
+   "id": "NUM-10_2-002",
+   "section": "10.2",
+   "section_title": "PERCENTAGES",
+   "lines": [
+    1566,
+    1567
+   ],
+   "quote": "rather than the symbol % in text, e.g. Exports increased by 16 percent in the last quarter.",
+   "rule": "In running text, write percent rather than the % symbol.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "box",
+    "footnote",
+    "heading"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d\\s?%",
+    "notes": "Do not run on table/figure scope, where % is required (NUM-10_2-003). Captions and notes to tables/figures: the guide does not say; Verify."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Exports increased by 16 percent in the last quarter."
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_2-003"
+   ]
+  },
+  {
+   "id": "NUM-10_2-003",
+   "section": "10.2",
+   "section_title": "PERCENTAGES",
+   "lines": [
+    1567,
+    1568
+   ],
+   "quote": "In tables and figures, use the symbol",
+   "rule": "In tables and figures, use the % symbol rather than the word percent.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d\\s?(?:percent|per cent)\\b",
+    "notes": "Run on table cells and figure text only. Column headings such as \"Share (percent)\" are not addressed by the guide; Verify."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "16%"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_2-004"
+   ]
+  },
+  {
+   "id": "NUM-10_2-004",
+   "section": "10.2",
+   "section_title": "PERCENTAGES",
+   "lines": [
+    1568,
+    1568
+   ],
+   "quote": "with no space between the number and the symbol, e.g. 16%.",
+   "rule": "In tables and figures, put no space between the number and %.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d[   ]+%",
+    "notes": "Includes ordinary and non-breaking spaces."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "16%"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-001",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1570,
+    1570
+   ],
+   "quote": "Write dates in this order: Monday, 16 October 2000",
+   "rule": "Write dates as (weekday,) day month year.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\\s+\\d{1,2}(?:st|nd|rd|th)?,?\\s+\\d{4}\\b",
+    "notes": "Flags month-first dates (\"October 16, 2000\"). All-numeric dates are not addressed by the guide."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Monday, 16 October 2000"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_3-002",
+    "NUM-10_3-003"
+   ]
+  },
+  {
+   "id": "NUM-10_3-002",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1570,
+    1571
+   ],
+   "quote": "(with no comma between the date and the month, or the month and the year)",
+   "rule": "Put no comma between day and month or between month and year.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d{1,2},\\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\\b|\\b(?:January|February|March|April|May|June|July|August|September|October|November|December),\\s+\\d{4}\\b",
+    "notes": "The comma after the weekday is correct."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "Monday, 16 October 2000"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-003",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1571,
+    1572
+   ],
+   "quote": "Do not use ordinal numbers for dates (e.g. 1 January, not 1st January).",
+   "rule": "Do not use ordinal numbers in dates.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "reference"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d{1,2}(?:st|nd|rd|th)\\s+(?:of\\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December)\\b|\\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\\s+\\d{1,2}(?:st|nd|rd|th)\\b",
+    "notes": ""
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "1 January"
+    ],
+    "incorrect": [
+     "1st January"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-004",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1573,
+    1574
+   ],
+   "quote": "Avoid starting a sentence with a year, but if it is unavoidable it must be written out: Nineteen ninety-eight was not a leap year.",
+   "rule": "Avoid starting a sentence with a year; if unavoidable, write the year out in words.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?m)(?:^|(?<=[a-z]{3}[.!?] ))(?:1[5-9]|20)\\d{2}\\b(?![./\\]])",
+    "notes": "Flags a numeral year at paragraph start or after a sentence end; a year followed by \".\", \"/\" or \"]\" (reference-list pattern \"World Bank. 2019.\", crop years) is skipped. Do not run on reference scope. Preferred fix is rewording (e.g. \"In 1998, ...\"), so Verify."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "Nineteen ninety-eight was not a leap year."
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10-004"
+   ]
+  },
+  {
+   "id": "NUM-10_3-005",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1574,
+    1574
+   ],
+   "quote": "Do not abbreviate years, e.g. 1985, not ’85.",
+   "rule": "Do not abbreviate years.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<!\\d)[’'‘]\\d{2}(?!\\d)",
+    "notes": "An apostrophe preceded by a digit (minutes of arc, 41°16'40\") is excluded."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "1985"
+    ],
+    "incorrect": [
+     "’85"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-006",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1574,
+    1575
+   ],
+   "quote": "Decades are referred to in complete numerals (e.g. the 1990s; not the nineties, the ’90s or the 90s).",
+   "rule": "Write decades in complete numerals (the 1990s).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)[’'‘]\\d0s\\b|\\b\\d0s\\b|\\bthe\\s+(?:twenties|thirties|forties|fifties|sixties|seventies|eighties|nineties)\\b",
+    "notes": "\"the thirties\" etc. can refer to ages; Verify those."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "the 1990s"
+    ],
+    "incorrect": [
+     "the nineties",
+     "the ’90s",
+     "the 90s"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-007",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1576,
+    1578
+   ],
+   "quote": "When indicating a range of values or dates, there are two possible forms: - from ... to or between ... and, e.g. from 1970 to 1987; or - with an en-dash, e.g. The 1970–1987 period was ...",
+   "rule": "Express a range of values or dates with from ... to, between ... and, or an en dash.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:1[5-9]|20)\\d{2}-(?:1[5-9]|20)\\d{2}\\b|\\bbetween\\s+\\d[\\d  ]*(?:\\.\\d+)?\\s+to\\s+\\d|\\bfrom\\s+\\d[\\d  ]*(?:\\.\\d+)?\\s+and\\s+\\d",
+    "notes": "Flags a hyphen between two full years and mismatched pairs (between ... to; from ... and). The tabular multiyear form 1997-99–2015-17 (NUM-10_3-011) is not matched."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "from 1970 to 1987",
+     "The 1970–1987 period was ...",
+     "1997-99–2015-17"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_3-008"
+   ]
+  },
+  {
+   "id": "NUM-10_3-008",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1579,
+    1579
+   ],
+   "quote": "Do not combine the two forms, e.g. from 1970–1987.",
+   "rule": "Do not combine from/between with an en dash in a range.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:from|between)\\s+\\d[\\d  ]*(?:\\.\\d+)?\\s?[–-]\\s?\\d",
+    "notes": ""
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "from 1970 to 1987"
+    ],
+    "incorrect": [
+     "from 1970–1987"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-009",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1580,
+    1581
+   ],
+   "quote": "A standard range of dates (2015–2025; from 2015 to 2025) implies the whole period from the beginning of 2015 to the end of 2025 inclusive.",
+   "rule": "A date range is inclusive of both end years.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Interpretive; relevant when checking stated durations against ranges."
+   },
+   "action": "Info",
+   "relevance": "reference"
+  },
+  {
+   "id": "NUM-10_3-010",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1581,
+    1582
+   ],
+   "quote": "Note that for a crop or fiscal year, exceptionally, an abbreviated version should be used (2015/16, not 2015/2016).",
+   "rule": "Write crop or fiscal years in abbreviated form (2015/16).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:19|20)\\d{2}/(?:19|20)\\d{2}\\b",
+    "notes": "Verify that the slash form denotes a crop or fiscal year."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "2015/16"
+    ],
+    "incorrect": [
+     "2015/2016"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-011",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1582,
+    1584
+   ],
+   "quote": "When used in tables, multiyear ranges or averages may take a hyphen to denote the three-year period and an en-dash between the two sets, e.g. 1997-99–2015-17.",
+   "rule": "In tables, multiyear ranges/averages may use a hyphen within each period and an en dash between periods (1997-99–2015-17).",
+   "kind": "guidance",
+   "scope": [
+    "table"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Permissive table convention; exempts this form from NUM-10_3-007."
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "1997-99–2015-17"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-012",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1585,
+    1585
+   ],
+   "quote": "Centuries should be written out in full, e.g. the twenty-first century, not the 21st century.",
+   "rule": "Write centuries out in full.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b\\d{1,2}(?:st|nd|rd|th)[\\s-]centur(?:y|ies)\\b"
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "the twenty-first century"
+    ],
+    "incorrect": [
+     "the 21st century"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_3-013",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1586,
+    1587
+   ],
+   "quote": "Where necessary to avoid confusion, use BCE (before Common Era) or CE (Common Era) for dates",
+   "rule": "Where needed, use BCE/CE for era designations.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d{1,4}\\s?(?:BC|B\\.C\\.|AD|A\\.D\\.)(?![\\w.])|\\b(?:AD|A\\.D\\.)\\s?\\d{1,4}\\b",
+    "notes": "Flags BC/AD next to a year (implied by the instruction to use BCE/CE). \"AD\" can be an unrelated abbreviation (e.g. anaerobic digestion); Verify."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "1000 BCE"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_3-014"
+   ]
+  },
+  {
+   "id": "NUM-10_3-014",
+   "section": "10.3",
+   "section_title": "DATES",
+   "lines": [
+    1587,
+    1587
+   ],
+   "quote": "placing the abbreviation after the year (e.g. 1000 BCE).",
+   "rule": "Place BCE/CE after the year.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:BCE|CE)\\s\\d{1,4}\\b"
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "1000 BCE"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_4-001",
+   "section": "10.4",
+   "section_title": "TIME",
+   "lines": [
+    1591,
+    1591
+   ],
+   "quote": "The use of the 24-hour system is preferred, e.g. 08.00, 13.30.",
+   "rule": "Prefer the 24-hour clock.",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d{1,2}(?:[.:]\\d{2})?\\s?(?:a\\.m\\.|p\\.m\\.|am|pm|AM|PM)(?![\\w])",
+    "notes": "Flags 12-hour times; acceptable \"where it is necessary\", hence Verify."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "08.00",
+     "13.30"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_4-002",
+    "NUM-10_4-003",
+    "NUM-10_4-004"
+   ]
+  },
+  {
+   "id": "NUM-10_4-002",
+   "section": "10.4",
+   "section_title": "TIME",
+   "lines": [
+    1591,
+    1591
+   ],
+   "quote": "e.g. 08.00, 13.30.",
+   "rule": "Write 24-hour times with a full stop between hours and minutes, as in the examples 08.00, 13.30.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:[01]\\d|2[0-3]):[0-5]\\d\\b",
+    "notes": "Inferred from the examples only: the guide does not explicitly prohibit the colon in 24-hour times. Verify."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "08.00",
+     "13.30"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_4-003",
+   "section": "10.4",
+   "section_title": "TIME",
+   "lines": [
+    1591,
+    1592
+   ],
+   "quote": "Where it is necessary to use the 12- hour system, use full stops as follows: 8 a.m. , 1.30 p.m.",
+   "rule": "In the 12-hour system, write a.m./p.m. with full stops and use a full stop between hours and minutes (8 a.m., 1.30 p.m.).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d{1,2}(?:[.:]\\d{2})?\\s?(?:am|pm|AM|PM|A\\.M\\.|P\\.M\\.)(?![\\w])|\\b\\d{1,2}:\\d{2}\\s?(?:a\\.m\\.|p\\.m\\.)",
+    "notes": "Conversion artefact: stray space before the comma in \"8 a.m. , 1.30 p.m.\"."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "8 a.m.",
+     "1.30 p.m."
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_4-004",
+   "section": "10.4",
+   "section_title": "TIME",
+   "lines": [
+    1592,
+    1592
+   ],
+   "quote": "Be consistent.",
+   "rule": "Use one time system consistently.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "module",
+    "module": "consistency",
+    "notes": "Flag a document mixing 24-hour and 12-hour times (or mixed time formats)."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_4-005",
+   "section": "10.4",
+   "section_title": "TIME",
+   "lines": [
+    1593,
+    1593
+   ],
+   "quote": "Use a non-breaking space between the number and the unit.",
+   "rule": "Put a non-breaking space between a time and its unit (e.g. a.m./p.m.).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d(?:a\\.m\\.|p\\.m\\.)|\\b\\d+h\\b",
+    "notes": "Ambiguous: §10.4 does not say which \"unit\" is meant; read as a.m./p.m. (and h). Ordinary vs non-breaking space needs raw DOCX text."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "8 a.m.",
+     "1.30 p.m."
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_1-008"
+   ]
+  },
+  {
+   "id": "NUM-10_4-006",
+   "section": "10.4",
+   "section_title": "TIME",
+   "lines": [
+    1594,
+    1596
+   ],
+   "quote": "When referring to time zones , prefer Universal Time Coordinated, i.e. UTC + or –. For example, The meeting will be held at 17.00 (UTC +6).",
+   "rule": "For time zones, prefer UTC with an offset, e.g. 17.00 (UTC +6).",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Look for time-zone names or abbreviations other than UTC. Ambiguity: \"UTC + or –\" uses an en dash where §10.6 would require the minus sign; the example puts a space between UTC and the sign. \"Universal Time Coordinated\" is the guide's wording."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "17.00 (UTC +6)"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_6-004"
+   ]
+  },
+  {
+   "id": "NUM-10_5-001",
+   "section": "10.5",
+   "section_title": "CURRENCIES",
+   "lines": [
+    1598,
+    1602
+   ],
+   "quote": "Rather than the currency symbol (which sometimes fails to convert across different software programs), use the ISO currency code given in NOCS",
+   "rule": "Use the NOCS ISO currency code, not a currency symbol.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?:US\\$|\\$|€|£|¥)\\s?\\d|\\d\\s?(?:\\$|€|£|¥)",
+    "notes": "Validity of the code against NOCS is a module task (nocs). \"$\" alone may denote non-US dollars; Verify which code applies."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "USD 700 000",
+     "EUR 800 000"
+    ],
+    "incorrect": [
+     "US$700,000",
+     "€800,000"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_5-002",
+    "NUM-10_5-003"
+   ]
+  },
+  {
+   "id": "NUM-10_5-002",
+   "section": "10.5",
+   "section_title": "CURRENCIES",
+   "lines": [
+    1600,
+    1602
+   ],
+   "quote": "with a non-breaking space between the code and the amount, e.g. USD 700 000 rather than US$700,000 and EUR 800 000 rather than €800,000.",
+   "rule": "Put a non-breaking space between the currency code and the amount.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b(?:USD|EUR)(?=\\d)",
+    "notes": "Extend USD|EUR with the NOCS ISO code list (a generic [A-Z]{3}\\d pattern hits SDG2, COP28 etc.). Ordinary vs non-breaking space needs raw DOCX text."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "USD 700 000",
+     "EUR 800 000"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_5-003",
+   "section": "10.5",
+   "section_title": "CURRENCIES",
+   "lines": [
+    1601,
+    1602
+   ],
+   "quote": "e.g. USD 700 000 rather than US$700,000 and EUR 800 000 rather than €800,000.",
+   "rule": "Place the currency code before the amount, as in the examples.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d\\s?(?:USD|EUR)\\b",
+    "notes": "Inferred from the examples (code precedes amount); not stated explicitly. Column headers like \"Value (USD)\" are not matched because no digit precedes."
+   },
+   "action": "Verify",
+   "examples": {
+    "correct": [
+     "USD 700 000",
+     "EUR 800 000"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_5-004",
+   "section": "10.5",
+   "section_title": "CURRENCIES",
+   "lines": [
+    1602,
+    1603
+   ],
+   "quote": "For amounts of less than one unit of currency, use a zero followed by a decimal point (i.e. USD 0.20 rather than 20 cents).",
+   "rule": "Express amounts under one currency unit as a decimal with a leading zero, not in cents.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?i)\\b\\d+\\s?(?:cents?|eurocents?)\\b|\\d\\s?¢"
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "USD 0.20"
+    ],
+    "incorrect": [
+     "20 cents"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_5-005",
+   "section": "10.5",
+   "section_title": "CURRENCIES",
+   "lines": [
+    1604,
+    1606
+   ],
+   "quote": "To facilitate comparison of amounts in different currencies within a text, try to give an indicative equivalent in USD, or provide an exchange rate (either in a footnote or following the list of abbreviations).",
+   "rule": "Where several currencies appear, give indicative USD equivalents or an exchange rate (footnote or after the list of abbreviations).",
+   "kind": "preference",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "footnote",
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Trigger: more than one currency code in the document, or any non-USD amount, without a USD equivalent or stated exchange rate."
+   },
+   "action": "Author",
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_5-006"
+   ]
+  },
+  {
+   "id": "NUM-10_5-006",
+   "section": "10.5",
+   "section_title": "CURRENCIES",
+   "lines": [
+    1606,
+    1607
+   ],
+   "quote": "The exchange rate provided or the one used to calculate the indicative equivalent should be that valid at the date referenced, rather than at the time of writing or editing.",
+   "rule": "Use the exchange rate valid at the date referenced, not at the time of writing or editing.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "footnote",
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Only the author can confirm the rate date."
+   },
+   "action": "Author",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_6-001",
+   "section": "10.6",
+   "section_title": "MATHEMATICS AND EQUATIONS",
+   "lines": [
+    1609,
+    1609
+   ],
+   "quote": "Relational and operational signs have a space on either side of them (e.g. 3 + 2 = 5).",
+   "rule": "Put a space on either side of relational and operational signs.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d(?:[+=×<>≤≥]\\s?\\d|\\s[+=×<>≤≥]\\d)|\\b[pPnNrR](?:[<>=≤≥]\\s?\\d|\\s[<>=≤≥]\\d)",
+    "notes": "Flags unspaced signs between digits and in statistical expressions (p<0.05, n=12). The minus sign is excluded here because a leading minus for a negative number is unspaced. Ion charges (Ba2+) and phone codes (+39) are not matched."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "3 + 2 = 5"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_6-003"
+   ]
+  },
+  {
+   "id": "NUM-10_6-002",
+   "section": "10.6",
+   "section_title": "MATHEMATICS AND EQUATIONS",
+   "lines": [
+    1609,
+    1610
+   ],
+   "quote": "Use the multiplication sign ×, not lower case letter x.",
+   "rule": "Use the multiplication sign ×, not the letter x.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\b\\d+(?:\\.\\d+)?\\s?x\\s?\\d",
+    "notes": "Flags \"3 x 2\", \"3x2\". Product names like \"4x4\" are false positives."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "×"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_6-003",
+   "section": "10.6",
+   "section_title": "MATHEMATICS AND EQUATIONS",
+   "lines": [
+    1610,
+    1611
+   ],
+   "quote": "Use the minus symbol −, not the hyphen - or en- dash −.",
+   "rule": "Use the minus sign (−) as the subtraction operator, not a hyphen or en dash.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "\\d\\s-\\s\\d",
+    "notes": "Flags a spaced hyphen between numbers. A spaced en dash between numbers (\"5 – 3\") is ambiguous with a spaced range and is left to agent review. Conversion artefact: the en dash in the guide text is rendered as the minus glyph (U+2212), so the line literally reads \"not the hyphen - or en-dash −\"."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "3 + 2 = 5"
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_6-004"
+   ]
+  },
+  {
+   "id": "NUM-10_6-004",
+   "section": "10.6",
+   "section_title": "MATHEMATICS AND EQUATIONS",
+   "lines": [
+    1611,
+    1611
+   ],
+   "quote": "Use the minus symbol when indicating a negative number.",
+   "rule": "Use the minus sign (−) for negative numbers.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?<![\\w)\\].,/–−-])[-–]\\d+(?:\\.\\d+)?(?![\\w-])",
+    "notes": "Flags a hyphen or en dash directly before a number that is not preceded by a word character or digit (so ranges, codes and hyphenated words are skipped). Also flags exponent forms such as \"s -1\" (see NUM-10_1-010). The guide's own \"UTC + or –\" (line 1595) uses an en dash for the sign."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "pp. 40–42",
+     "1997-99–2015-17",
+     "The 1970–1987 period was ..."
+    ]
+   },
+   "relevance": "manuscript",
+   "see_also": [
+    "NUM-10_6-003",
+    "NUM-10_4-006"
+   ]
+  },
+  {
+   "id": "NUM-10_6-005",
+   "section": "10.6",
+   "section_title": "MATHEMATICS AND EQUATIONS",
+   "lines": [
+    1614,
+    1614
+   ],
+   "quote": "Symbols used for variables, including Greek characters, should be italicized.",
+   "rule": "Italicize symbols for variables, including Greek letters.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Needs DOCX run formatting (italic) plus judgement about what is a variable; invisible in plain text/markdown without emphasis markup."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_6-006",
+   "section": "10.6",
+   "section_title": "MATHEMATICS AND EQUATIONS",
+   "lines": [
+    1615,
+    1618
+   ],
+   "quote": "In chemical formulae, use subscript (indicating molecules), e.g. CO 2 . Only use CO2 where it is impossible to use subscript.",
+   "rule": "Use subscript numerals in chemical formulae (CO₂); the on-line form CO2 only where subscript is impossible.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure",
+    "heading"
+   ],
+   "check": {
+    "method": "module",
+    "module": "docx_formatting",
+    "notes": "Check DOCX runs for vertAlign=subscript on the digits of formulae such as CO2. In plain text/markdown subscript is invisible, so \"CO2\" cannot be judged there. Conversion artefact: the subscript 2 is on a separate line (\"CO / 2\")."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NUM-10_6-007",
+   "section": "10.6",
+   "section_title": "MATHEMATICS AND EQUATIONS",
+   "lines": [
+    1618,
+    1619
+   ],
+   "quote": "Superscript indicates atomic charge, as in Ba 2+",
+   "rule": "Show atomic (ionic) charge in superscript (Ba2+ with 2+ superscript).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "heading",
+    "caption",
+    "box",
+    "footnote",
+    "table",
+    "figure"
+   ],
+   "check": {
+    "method": "module",
+    "module": "docx_formatting",
+    "notes": "Check DOCX runs for vertAlign=superscript on charge notation. Conversion artefact: \"2+\" on a separate line."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-001",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1627,
+    1628
+   ],
+   "quote": "Endnotes and footnotes are identified in front matter, main text and end matter with an indicator (a superscript number, a superscript letter or a symbol).",
+   "rule": "Mark endnotes and footnotes in front matter, main text and end matter with an indicator: a superscript number, superscript letter or symbol.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Requires DOCX footnote/endnote references or superscript runs; plain text loses superscript."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-002"
+   ]
+  },
+  {
+   "id": "NOT-11_1-002",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1628,
+    1629
+   ],
+   "quote": "This same indicator (e.g.*) precedes the correlating note.",
+   "rule": "The note itself begins with the same indicator as in the text.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter",
+    "footnote",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Cross-check each in-text indicator against a note beginning with the same indicator, and vice versa."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-003",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1629,
+    1630
+   ],
+   "quote": "In figures, tables and boxes, endnotes and footnotes do not require an indicator if the information in the note refers to the entire element.",
+   "rule": "In figures, tables and boxes, a note about the whole element needs no indicator.",
+   "kind": "guidance",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "See NOT-11_3_2-001, which states this as a requirement."
+   },
+   "action": "Info",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_3_2-001"
+   ]
+  },
+  {
+   "id": "NOT-11_1-004",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1630,
+    1631
+   ],
+   "quote": "When possible, avoid putting note indicators in titles, headings and sub-headings.",
+   "rule": "Avoid note indicators in titles, headings and subheadings.",
+   "kind": "preference",
+   "scope": [
+    "title",
+    "heading",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Flag a footnote/endnote reference (or markdown [^n] / <sup>) inside a heading or title paragraph. Whether figure/table titles count as \"titles\" is not stated; Verify."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-005",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1632,
+    1653
+   ],
+   "quote": "TABLE 11.1 _ Indicators for endnotes and footnotes Front matter Main text & end matter Figures, tables & boxes Providing general notes FOOTNOTES Prefer 1, 2, 3 Use a, b, c when endnotes are used in the main text",
+   "rule": "For general notes in front matter and in main text/end matter, use footnotes numbered 1, 2, 3 (preferred), or a, b, c when endnotes are used in the main text.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Detect whether the document uses endnote citations; if so, general footnotes must use letters. Conversion artefact: Table 11.1 is flattened (lines 1633-1677); the column assignment is reconstructed from the order of cells: front matter and main text/end matter cells are identical for general notes."
+   },
+   "action": "Verify",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-008"
+   ]
+  },
+  {
+   "id": "NOT-11_1-006",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1654,
+    1659
+   ],
+   "quote": "FOOTNOTES Notes follow the heading Note: or Notes: Optionally use *, †, ‡, §, ∥, #",
+   "rule": "In figures, tables and boxes, general notes follow the heading Note: or Notes:, optionally with the symbols *, †, ‡, §, ∥, #.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": "Reconstructed column: Figures, tables & boxes / Providing general notes."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_3_2-004",
+    "NOT-11_1-012"
+   ]
+  },
+  {
+   "id": "NOT-11_1-007",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1660,
+    1664
+   ],
+   "quote": "Citing sources FOOTNOTES Combine with general footnotes",
+   "rule": "In front matter, cite sources in footnotes combined with the general footnotes.",
+   "kind": "mandatory",
+   "scope": [
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Reconstructed column: Front matter / Citing sources."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-008",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1666,
+    1670
+   ],
+   "quote": "AUTHOR- DATE OR ENDNOTES Use 1, 2, 3 for endnotes",
+   "rule": "In main text and end matter, cite sources with author-date or endnotes; number endnotes 1, 2, 3.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Reconstructed column: Main text & end matter / Citing sources. See §12.3 for the choice of one system per product."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-005",
+    "NOT-11_2-002"
+   ]
+  },
+  {
+   "id": "NOT-11_1-009",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1672,
+    1677
+   ],
+   "quote": "FOOTNOTES Notes follow the heading Source: or Sources: Optionally use i, ii, iii",
+   "rule": "In figures, tables and boxes, source notes follow the heading Source: or Sources:, optionally with indicators i, ii, iii.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": "Reconstructed column: Figures, tables & boxes / Citing sources."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_3_2-005"
+   ]
+  },
+  {
+   "id": "NOT-11_1-010",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1679,
+    1680
+   ],
+   "quote": "If using letters for footnotes and there are more than 26 footnotes, continue with aa, ab, ac, and subsequently aaa, aab, aac.",
+   "rule": "After 26 letter footnotes, continue aa, ab, ac, then aaa, aab, aac.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter",
+    "footnote",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": ""
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-011",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1680,
+    1680
+   ],
+   "quote": "Letters and roman numerals should always be lower case.",
+   "rule": "Letter and roman-numeral note indicators are always lower case.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter",
+    "footnote",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Check indicator runs (superscript) and note labels for upper-case letters or roman numerals."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-012",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1680,
+    1681
+   ],
+   "quote": "Assign symbols in the following order: * (asterisk), † (dagger), ‡ (double dagger), § (section mark), ∥(parallels), # (number sign).",
+   "rule": "Assign symbol indicators in the order *, †, ‡, §, ∥, #.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": ""
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-013",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1681,
+    1682
+   ],
+   "quote": "Do not use * (asterisk) if p values occur in the table.",
+   "rule": "Do not use the asterisk as a note indicator in a table that contains p values.",
+   "kind": "mandatory",
+   "scope": [
+    "table"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Detect tables containing p values or significance asterisks together with an asterisk note."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-014",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1682,
+    1682
+   ],
+   "quote": "When there are many notes, symbols may be doubled, tripled and so on.",
+   "rule": "With many notes, symbols may be doubled or tripled (**, ††).",
+   "kind": "guidance",
+   "scope": [
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Permissive; accept doubled symbols in sequence checks."
+   },
+   "action": "Info",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-015",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1684,
+    1685
+   ],
+   "quote": "In text, the note indicator (a superscript number or letter or a symbol) should be placed close to the idea it refers to, whether that is at the end of a sentence or within a sentence.",
+   "rule": "Place a note indicator close to the idea it refers to.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Judgement."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-016",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1685,
+    1686
+   ],
+   "quote": "Where placed at the end of a sentence, it should follow terminal punctuation.",
+   "rule": "At the end of a sentence, put the note indicator after the terminal punctuation.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?:\\[\\^[^\\]]+\\]|<sup>[^<]{1,12}</sup>|\\^[^\\^\\s]{1,12}\\^)[.!?]",
+    "notes": "Works on markup that preserves indicators: markdown footnotes [^n], <sup>..</sup> or ^..^. Plain-text extraction of DOCX loses superscript; use DOCX footnote-reference positions instead."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-017"
+   ]
+  },
+  {
+   "id": "NOT-11_1-017",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1688,
+    1690
+   ],
+   "quote": "Where used within a sentence, if it is next to punctuation, the indicator should be placed after the punctuation",
+   "rule": "Within a sentence, put the note indicator after adjacent punctuation.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?:\\[\\^[^\\]]+\\]|<sup>[^<]{1,12}</sup>|\\^[^\\^\\s]{1,12}\\^)[,;:]",
+    "notes": "Same markup caveat as NOT-11_1-016. Whether closing parentheses and quotation marks count as \"punctuation\" is not stated; not flagged."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-018"
+   ]
+  },
+  {
+   "id": "NOT-11_1-018",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1692,
+    1696
+   ],
+   "quote": "However, if the indicator is next to an en-dash 3 – it should come after the word preceding the en-dash.",
+   "rule": "Next to an en dash, place the indicator after the word before the dash, not after the dash.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "–\\s?(?:\\[\\^[^\\]]+\\]|<sup>[^<]{1,12}</sup>|\\^[^\\^\\s]{1,12}\\^)",
+    "notes": "Same markup caveat as NOT-11_1-016. The guide's example renders the indicator \"3\" on its own line (superscript lost)."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-019",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1697,
+    1698
+   ],
+   "quote": "When inserting two or more indicators in text, separate them with a comma followed by a non- breaking space.",
+   "rule": "Separate two or more adjacent indicators with a comma and a non-breaking space.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "<sup>[^<]*[\\w*†‡§∥#],(?![  ])[^<]*</sup>|\\[\\^[^\\]]+\\]\\[\\^|</sup><sup>",
+    "notes": "Flags a comma not followed by a (non-breaking) space inside a superscript, and directly adjacent indicators without a comma. Ordinary vs non-breaking space needs raw text."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "d, e, 5"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-020",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1698,
+    1700
+   ],
+   "quote": "When inserting both endnote and footnote indicators at the same place, footnote indicators come first.",
+   "rule": "Where endnote and footnote indicators coincide, put the footnote indicators first.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": ""
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "d, e, 5"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-021",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1703,
+    1705
+   ],
+   "quote": "If there are several consecutive numbers cited, Zotero will automatically collapse the numbers, e. g. according to reports. 81–4, 97",
+   "rule": "Consecutive endnote numbers cited together are collapsed into a range (e.g. 81–4, 97).",
+   "kind": "guidance",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Describes Zotero behaviour; implies collapsed ranges are acceptable/expected. The abbreviated second number in \"81–4\" is shown without explanation. Conversion artefact: \"e.  g.\" split."
+   },
+   "action": "Info",
+   "examples": {
+    "correct": [
+     "81–4, 97"
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-022",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1707,
+    1708
+   ],
+   "quote": "In the correlating note, footnote indicators are superscript while endnote indicators may be superscript or not.",
+   "rule": "In the note itself, footnote indicators are superscript; endnote indicators may be either.",
+   "kind": "mandatory",
+   "scope": [
+    "footnote",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "docx_formatting",
+    "notes": "Superscript not visible in plain text."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-023",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1708,
+    1708
+   ],
+   "quote": "The indicator is followed by a space",
+   "rule": "In the note, follow the indicator with a space.",
+   "kind": "mandatory",
+   "scope": [
+    "footnote",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Check note text start: indicator immediately followed by a letter."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_1-024",
+   "section": "11.1",
+   "section_title": "FORMATTING",
+   "lines": [
+    1708,
+    1711
+   ],
+   "quote": "and the note should be in sentence format: e China is distinguished from China (mainland) throughout this report.",
+   "rule": "Write notes in sentence format (capital initial, full stop).",
+   "kind": "mandatory",
+   "scope": [
+    "footnote",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "\"Sentence format\" read as initial capital and terminal full stop, per the example."
+   },
+   "action": "Apply",
+   "examples": {
+    "correct": [
+     "China is distinguished from China (mainland) throughout this report."
+    ]
+   },
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_2-001",
+   "section": "11.2",
+   "section_title": "ENDNOTES",
+   "lines": [
+    1713,
+    1713
+   ],
+   "quote": "Endnotes are not used for general notes.",
+   "rule": "Do not use endnotes for general (informational) notes.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Check endnote content: informational remarks belong in footnotes."
+   },
+   "action": "Verify",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_3-001"
+   ]
+  },
+  {
+   "id": "NOT-11_2-002",
+   "section": "11.2",
+   "section_title": "ENDNOTES",
+   "lines": [
+    1713,
+    1716
+   ],
+   "quote": "The endnote system is one of the two systems available for citing references in the main text and end matter of a publication, described in ### 12.3.2 Endnote system (in-text).",
+   "rule": "The endnote system is one of the two citation systems for main text and end matter (see 12.3.2).",
+   "kind": "guidance",
+   "scope": [
+    "body"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Cross-reference. Conversion anomaly: the cross-reference \"12.3.2 Endnote system (in-text)\" became a markdown heading at line 1715 inside §11.2; the real §12.3.2 heading is absent from the body of §12."
+   },
+   "action": "Info",
+   "relevance": "reference",
+   "see_also": [
+    "NOT-11_1-008"
+   ]
+  },
+  {
+   "id": "NOT-11_2-003",
+   "section": "11.2",
+   "section_title": "ENDNOTES",
+   "lines": [
+    1716,
+    1717
+   ],
+   "quote": "Endnotes may also be used for stand-alone elements. See 12.4 Referencing in figures, tables and boxes f or how to correctly source stand-alone elements.",
+   "rule": "Endnotes may also be used for stand-alone elements (see 12.4).",
+   "kind": "guidance",
+   "scope": [
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Permissive. Tension with Table 11.1, which assigns Source:/Sources: footnotes to figures, tables and boxes. Conversion artefact: \"f or\"."
+   },
+   "action": "Info",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-009"
+   ]
+  },
+  {
+   "id": "NOT-11_2-004",
+   "section": "11.2",
+   "section_title": "ENDNOTES",
+   "lines": [
+    1718,
+    1719
+   ],
+   "quote": "The endnote referencing system provides each source with a unique indicator, based on first appearance in the text, to avoid duplication in the bibliographic list.",
+   "rule": "Give each source a unique endnote number assigned by first appearance; reuse that number for later citations of the same source.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "endnote_numbering",
+    "notes": "New numbers must appear in ascending order of first use; the same source must not receive two numbers."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_2-005",
+   "section": "11.2",
+   "section_title": "ENDNOTES",
+   "lines": [
+    1719,
+    1721
+   ],
+   "quote": "Endnote numbering may be continuous throughout the publication, or it may restart for the end matter. For large books, an exception may be made to allow numbering to restart for each major section of the book.",
+   "rule": "Number endnotes continuously, or restart for the end matter; large books may restart per major section.",
+   "kind": "guidance",
+   "scope": [
+    "body",
+    "reference"
+   ],
+   "check": {
+    "method": "module",
+    "module": "endnote_numbering",
+    "notes": "Accept these restart patterns; flag other restarts."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_3-001",
+   "section": "11.3",
+   "section_title": "FOOTNOTES",
+   "lines": [
+    1723,
+    1724
+   ],
+   "quote": "Footnotes are used in the main text and end matter to provide the reader with informational notes only.",
+   "rule": "In main text and end matter, use footnotes for informational notes only, not for source references.",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "footnote"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Flag main-text footnotes whose content is only a citation/reference (sources go in author-date citations or endnotes)."
+   },
+   "action": "Verify",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-008",
+    "NOT-11_2-001"
+   ]
+  },
+  {
+   "id": "NOT-11_3-002",
+   "section": "11.3",
+   "section_title": "FOOTNOTES",
+   "lines": [
+    1724,
+    1725
+   ],
+   "quote": "In front matter and in figures, tables and boxes, footnotes include both informational notes and source references.",
+   "rule": "In front matter and in figures, tables and boxes, footnotes carry both informational notes and source references.",
+   "kind": "guidance",
+   "scope": [
+    "front_matter",
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Descriptive; supports NOT-11_1-007 and NOT-11_1-009."
+   },
+   "action": "Info",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_3_1-001",
+   "section": "11.3.1",
+   "section_title": "Footnotes in front matter, main text and end matter",
+   "lines": [
+    1727,
+    1727
+   ],
+   "quote": "In front matter, main text and end matter, each footnote receives a new indicator.",
+   "rule": "Each footnote in front matter, main text and end matter gets a new indicator (no reuse).",
+   "kind": "mandatory",
+   "scope": [
+    "body",
+    "front_matter",
+    "footnote"
+   ],
+   "check": {
+    "method": "module",
+    "module": "note_indicators",
+    "notes": "Contrast with stand-alone elements, where reuse is allowed (NOT-11_3_2-009)."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_3_1-002",
+   "section": "11.3.1",
+   "section_title": "Footnotes in front matter, main text and end matter",
+   "lines": [
+    1727,
+    1728
+   ],
+   "quote": "Footnotes are placed at the foot of the page, preceded by the indicator.",
+   "rule": "Place footnotes at the foot of the page, preceded by their indicator.",
+   "kind": "mandatory",
+   "scope": [
+    "footnote"
+   ],
+   "check": {
+    "method": "manual",
+    "notes": "Page layout; in a DOCX manuscript satisfied by using Word footnotes rather than manual notes."
+   },
+   "action": "Info",
+   "relevance": "production"
+  },
+  {
+   "id": "NOT-11_3_1-003",
+   "section": "11.3.1",
+   "section_title": "Footnotes in front matter, main text and end matter",
+   "lines": [
+    1728,
+    1731
+   ],
+   "quote": "The sequence of indicators may be continuous throughout the publication. Or if preferred, the sequence may be restarted for the main text and again for the end matter; for each part of the main text; or even for each page – so long as it is consistent.",
+   "rule": "Footnote numbering may be continuous or restart (per main text/end matter, part or page), but the chosen scheme must be consistent.",
+   "kind": "mandatory",
+   "scope": [
+    "footnote",
+    "body"
+   ],
+   "check": {
+    "method": "module",
+    "module": "consistency",
+    "notes": "Per-page restart is not visible in a manuscript; check restart points against part/end-matter boundaries."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_3_2-001",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1740,
+    1741
+   ],
+   "quote": "Within those subcategories, notes that refer to the entire element are not marked with an indicator",
+   "rule": "In figures, tables and boxes, notes that refer to the whole element carry no indicator.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": "Also stated at lines 1733-1734."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-003"
+   ]
+  },
+  {
+   "id": "NOT-11_3_2-002",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1741,
+    1741
+   ],
+   "quote": "and precede any notes that have been given an indicator.",
+   "rule": "Whole-element notes come before notes with indicators within each subcategory.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": ""
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_3_2-003",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1734,
+    1735
+   ],
+   "quote": "Footnotes are placed directly below stand-alone elements and are subcategorized by the information they provide.",
+   "rule": "Place footnotes directly below the figure, table or box, grouped by subcategory.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": ""
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_3_2-004",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1736,
+    1736
+   ],
+   "quote": "Note: or Notes: for informational notes.",
+   "rule": "Introduce informational notes under a stand-alone element with Note: or Notes:.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": "Conversion artefact: line starts with a private-use bullet glyph (U+F0A7). Whether \"Note:\" is singular-only and \"Notes:\" plural-only is not stated."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-006"
+   ]
+  },
+  {
+   "id": "NOT-11_3_2-005",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1737,
+    1737
+   ],
+   "quote": "Source: or Sources: for references to all the source material for the element.",
+   "rule": "Introduce source references under a stand-alone element with Source: or Sources:.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": ""
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_1-009"
+   ]
+  },
+  {
+   "id": "NOT-11_3_2-006",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1738,
+    1739
+   ],
+   "quote": "Download: for a single DOI, formatted as a URL, for downloadable data; see 11.4 Download notes.",
+   "rule": "Use Download: for a single dataset DOI, formatted as a URL.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": "Regex check of the DOI form is in NOT-11_4-003."
+   },
+   "action": "Apply",
+   "relevance": "manuscript",
+   "see_also": [
+    "NOT-11_4-001",
+    "NOT-11_4-002",
+    "NOT-11_4-003"
+   ]
+  },
+  {
+   "id": "NOT-11_3_2-007",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1741,
+    1742
+   ],
+   "quote": "Any indicators should be inserted left to right and top to bottom",
+   "rule": "Assign indicators in a stand-alone element left to right, top to bottom.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": "Needs table cell order from DOCX."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_3_2-008",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1742,
+    1742
+   ],
+   "quote": "and restarted for each figure, table and box.",
+   "rule": "Restart indicators for each figure, table and box.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": ""
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_3_2-009",
+   "section": "11.3.2",
+   "section_title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1742,
+    1743
+   ],
+   "quote": "Within a figure, table or box, an indicator can be reused to refer to the same note.",
+   "rule": "Within one stand-alone element, an indicator may be reused for the same note.",
+   "kind": "guidance",
+   "scope": [
+    "table",
+    "figure",
+    "box"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": "Permissive; do not flag repeated indicators within one element."
+   },
+   "action": "Info",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_4-001",
+   "section": "11.4",
+   "section_title": "DOWNLOAD NOTES",
+   "lines": [
+    1782,
+    1782
+   ],
+   "quote": "The download note is used only when a dataset has a unique digital object identifier (DOI).",
+   "rule": "Use a download note only for a dataset with a unique DOI.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "agent",
+    "notes": "Flag Download: notes without a DOI."
+   },
+   "action": "Verify",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_4-002",
+   "section": "11.4",
+   "section_title": "DOWNLOAD NOTES",
+   "lines": [
+    1783,
+    1785
+   ],
+   "quote": "Add Download: or alternatively a symbol, such as , below any footnotes or source notes",
+   "rule": "Place the Download: label (or a symbol) below all other footnotes and source notes.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "module",
+    "module": "element_notes",
+    "notes": "Conversion artefact: the example symbol (an icon glyph) is lost, leaving \"such as   ,\"."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  },
+  {
+   "id": "NOT-11_4-003",
+   "section": "11.4",
+   "section_title": "DOWNLOAD NOTES",
+   "lines": [
+    1785,
+    1785
+   ],
+   "quote": "and insert the DOI URL for the dataset only.",
+   "rule": "After Download:, give only the dataset DOI as a URL.",
+   "kind": "mandatory",
+   "scope": [
+    "table",
+    "figure",
+    "box",
+    "caption"
+   ],
+   "check": {
+    "method": "regex",
+    "pattern": "(?m)^\\W{0,3}Download:[ \\t]*(?!https?://(?:dx\\.)?doi\\.org/10\\.)\\S|^\\W{0,3}Download:.*doi\\.org.*doi\\.org",
+    "notes": "Flags a Download: line whose content is not a doi.org URL, or that holds more than one DOI."
+   },
+   "action": "Apply",
+   "relevance": "manuscript"
+  }
+ ],
+ "sections": [
+  {
+   "section": "10",
+   "title": "NUMBERS",
+   "lines": [
+    1464,
+    1509
+   ],
+   "rule_ids": [
+    "NUM-10-001",
+    "NUM-10-002",
+    "NUM-10-003",
+    "NUM-10-004",
+    "NUM-10-005",
+    "NUM-10-006",
+    "NUM-10-007",
+    "NUM-10-008",
+    "NUM-10-009",
+    "NUM-10-010",
+    "NUM-10-011",
+    "NUM-10-012",
+    "NUM-10-013",
+    "NUM-10-014",
+    "NUM-10-015",
+    "NUM-10-016",
+    "NUM-10-017",
+    "NUM-10-018",
+    "NUM-10-019",
+    "NUM-10-020",
+    "NUM-10-021",
+    "NUM-10-022",
+    "NUM-10-023",
+    "NUM-10-024",
+    "NUM-10-025",
+    "NUM-10-026",
+    "NUM-10-027",
+    "NUM-10-028"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "10.1",
+   "title": "UNITS",
+   "lines": [
+    1510,
+    1564
+   ],
+   "rule_ids": [
+    "NUM-10_1-001",
+    "NUM-10_1-002",
+    "NUM-10_1-003",
+    "NUM-10_1-004",
+    "NUM-10_1-005",
+    "NUM-10_1-006",
+    "NUM-10_1-007",
+    "NUM-10_1-008",
+    "NUM-10_1-009",
+    "NUM-10_1-010",
+    "NUM-10_1-011",
+    "NUM-10_1-012",
+    "NUM-10_1-013",
+    "NUM-10_1-014",
+    "NUM-10_1-015",
+    "NUM-10_1-016"
+   ],
+   "status": "rules",
+   "note": "Table 10.1 (lines 1525-1545) captured as NUM-10_1-006."
+  },
+  {
+   "section": "10.2",
+   "title": "PERCENTAGES",
+   "lines": [
+    1565,
+    1568
+   ],
+   "rule_ids": [
+    "NUM-10_2-001",
+    "NUM-10_2-002",
+    "NUM-10_2-003",
+    "NUM-10_2-004"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "10.3",
+   "title": "DATES",
+   "lines": [
+    1569,
+    1589
+   ],
+   "rule_ids": [
+    "NUM-10_3-001",
+    "NUM-10_3-002",
+    "NUM-10_3-003",
+    "NUM-10_3-004",
+    "NUM-10_3-005",
+    "NUM-10_3-006",
+    "NUM-10_3-007",
+    "NUM-10_3-008",
+    "NUM-10_3-009",
+    "NUM-10_3-010",
+    "NUM-10_3-011",
+    "NUM-10_3-012",
+    "NUM-10_3-013",
+    "NUM-10_3-014"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "10.4",
+   "title": "TIME",
+   "lines": [
+    1590,
+    1596
+   ],
+   "rule_ids": [
+    "NUM-10_4-001",
+    "NUM-10_4-002",
+    "NUM-10_4-003",
+    "NUM-10_4-004",
+    "NUM-10_4-005",
+    "NUM-10_4-006"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "10.5",
+   "title": "CURRENCIES",
+   "lines": [
+    1597,
+    1607
+   ],
+   "rule_ids": [
+    "NUM-10_5-001",
+    "NUM-10_5-002",
+    "NUM-10_5-003",
+    "NUM-10_5-004",
+    "NUM-10_5-005",
+    "NUM-10_5-006"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "10.6",
+   "title": "MATHEMATICS AND EQUATIONS",
+   "lines": [
+    1608,
+    1621
+   ],
+   "rule_ids": [
+    "NUM-10_6-001",
+    "NUM-10_6-002",
+    "NUM-10_6-003",
+    "NUM-10_6-004",
+    "NUM-10_6-005",
+    "NUM-10_6-006",
+    "NUM-10_6-007"
+   ],
+   "status": "rules",
+   "note": "Cross-reference to Appendix 3 (lines 1611-1613) is not a rule."
+  },
+  {
+   "section": "11",
+   "title": "NOTATION (inserting endnotes and footnotes)",
+   "lines": [
+    1622,
+    1625
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Introductory description of the purpose of notation; no normative statement."
+  },
+  {
+   "section": "11.1",
+   "title": "FORMATTING",
+   "lines": [
+    1626,
+    1711
+   ],
+   "rule_ids": [
+    "NOT-11_1-001",
+    "NOT-11_1-002",
+    "NOT-11_1-003",
+    "NOT-11_1-004",
+    "NOT-11_1-005",
+    "NOT-11_1-006",
+    "NOT-11_1-007",
+    "NOT-11_1-008",
+    "NOT-11_1-009",
+    "NOT-11_1-010",
+    "NOT-11_1-011",
+    "NOT-11_1-012",
+    "NOT-11_1-013",
+    "NOT-11_1-014",
+    "NOT-11_1-015",
+    "NOT-11_1-016",
+    "NOT-11_1-017",
+    "NOT-11_1-018",
+    "NOT-11_1-019",
+    "NOT-11_1-020",
+    "NOT-11_1-021",
+    "NOT-11_1-022",
+    "NOT-11_1-023",
+    "NOT-11_1-024"
+   ],
+   "status": "rules",
+   "note": "Table 11.1 (lines 1632-1682) is flattened by the conversion; column assignment reconstructed in NOT-11_1-005..009."
+  },
+  {
+   "section": "11.2",
+   "title": "ENDNOTES",
+   "lines": [
+    1712,
+    1721
+   ],
+   "rule_ids": [
+    "NOT-11_2-001",
+    "NOT-11_2-002",
+    "NOT-11_2-003",
+    "NOT-11_2-004",
+    "NOT-11_2-005"
+   ],
+   "status": "rules",
+   "note": "Contains the spurious heading at line 1715 (see section entry 12.3.2)."
+  },
+  {
+   "section": "12.3.2",
+   "title": "Endnote",
+   "lines": [
+    1715,
+    1716
+   ],
+   "rule_ids": [],
+   "status": "no_rules",
+   "note": "Conversion anomaly: not a real heading. It is the in-text cross-reference \"12.3.2 Endnote system (in-text)\" inside §11.2, turned into a level-3 heading. Its text belongs to §11.2 (rules NOT-11_2-002, NOT-11_2-003). The genuine §12.3.2 heading is missing from the body of §12 (lines 1841-1850 show 12.3.1 then a spurious 12.3.3)."
+  },
+  {
+   "section": "11.3",
+   "title": "FOOTNOTES",
+   "lines": [
+    1722,
+    1725
+   ],
+   "rule_ids": [
+    "NOT-11_3-001",
+    "NOT-11_3-002"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "11.3.1",
+   "title": "Footnotes in front matter, main text and end matter",
+   "lines": [
+    1726,
+    1731
+   ],
+   "rule_ids": [
+    "NOT-11_3_1-001",
+    "NOT-11_3_1-002",
+    "NOT-11_3_1-003"
+   ],
+   "status": "rules",
+   "note": ""
+  },
+  {
+   "section": "11.3.2",
+   "title": "Footnotes in figures, tables and boxes",
+   "lines": [
+    1732,
+    1780
+   ],
+   "rule_ids": [
+    "NOT-11_3_2-001",
+    "NOT-11_3_2-002",
+    "NOT-11_3_2-003",
+    "NOT-11_3_2-004",
+    "NOT-11_3_2-005",
+    "NOT-11_3_2-006",
+    "NOT-11_3_2-007",
+    "NOT-11_3_2-008",
+    "NOT-11_3_2-009"
+   ],
+   "status": "rules",
+   "note": "Figure 11.1 (lines 1746-1779) is an illustrative example only (lorem ipsum); no rules. Artefact: the single-asterisk note at line 1772 lost its \"*\" (rendered as a list bullet \"-\")."
+  },
+  {
+   "section": "11.4",
+   "title": "DOWNLOAD NOTES",
+   "lines": [
+    1781,
+    1786
+   ],
+   "rule_ids": [
+    "NOT-11_4-001",
+    "NOT-11_4-002",
+    "NOT-11_4-003"
+   ],
+   "status": "rules",
+   "note": ""
+  }
+ ]
+}

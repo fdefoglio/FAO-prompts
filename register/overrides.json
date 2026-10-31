@@ -1,0 +1,376 @@
+{
+ "precedence": [
+  "1. Overrides recorded in this register (overrides[]). Each states its source; where an override corrects a project preset (OVR-03, OVR-04) it says so, and the override wins.",
+  "2. Explicit locks in the run's own preset block (project system_prompt: fao_editor1, fao_editor2, ...)",
+  "3. Live official databases the guide itself points to: NOCS export for country names (fao.org/nocs), FAO Term Portal for terminology",
+  "4. FAOSTYLE CB8081EN as captured in rules[] and fao_recommended_words.json",
+  "5. fao_termlist.json",
+  "6. Oxford English Dictionary, first spelling listed"
+ ],
+ "overrides": [
+  {
+   "id": "OVR-01",
+   "topic": "Acronym redefinition scope",
+   "guide_says": "§7: redefinition advised where parts are likely to be read separately (chapters, front matter, boxes); not needed in annexes/appendices.",
+   "project_rule": "Define at first mention in every chapter and self-standing section; boxes count as separate; annexes and appendices do not need redefinition.",
+   "source": "fao_styleguide_schema.json ACR-DEF-001 (client_override: true); conflicts.md §8",
+   "sections": [
+    "7"
+   ],
+   "match": "first mention|redefin|define",
+   "affects_explicit": [
+    "ABB-7-003",
+    "ABB-7-010",
+    "ABB-7-011"
+   ]
+  },
+  {
+   "id": "OVR-02",
+   "topic": "per cent",
+   "guide_says": "percent, never per cent; % only in figures and tables.",
+   "project_rule": "Use percent in running text; normalize per cent and log once. % closed up in tables and figures.",
+   "source": "fao_editor2 percent_in_text = word; conflicts.md §3 (the schema's client override permits but does not require per cent)",
+   "sections": [
+    "10.2",
+    "Appendix 2"
+   ],
+   "match": "percent|per cent|%",
+   "affects_explicit": [
+    "NUM-10_2-001",
+    "NUM-10_2-002",
+    "NUM-10_2-003",
+    "NUM-10_2-004"
+   ]
+  },
+  {
+   "id": "OVR-03",
+   "topic": "Thousands separator character",
+   "guide_says": "Spaces, non-breaking, to denote thousands.",
+   "project_rule": "Non-breaking space (U+00A0) in Word manuscripts; thin space only where a typesetting specification asks for it. This corrects the 001WRR preset (thousands_spacing = thin_space) for DOCX work; the override wins over the preset.",
+   "source": "conflicts.md §4 (001WRR thousands_spacing = thin_space is overruled for DOCX)",
+   "sections": [
+    "10"
+   ],
+   "match": "thousand|spaces, not full stops",
+   "affects_explicit": [
+    "NUM-10-011",
+    "NUM-10-012"
+   ]
+  },
+  {
+   "id": "OVR-04",
+   "topic": "En-dash spacing",
+   "guide_says": "§5.6: spaced en dash for parenthetical asides; unspaced for ranges, relationships and equal-weight compounds.",
+   "project_rule": "Resolve by function, as §5.6 does: spaced en dash for parenthetical asides and elaborations, unspaced for ranges, relationships and equal-weight compounds. This corrects fao_editor2 (dash_parenthetical_spacing = unspaced), which would otherwise close up parenthetical dashes against §5.6; the override wins over the preset. Em dashes are never correct.",
+   "source": "conflicts.md §5; presets fao_editor1/fao_editor2 dash_parenthetical_spacing",
+   "sections": [
+    "5.6"
+   ],
+   "match": "dash",
+   "affects_explicit": [
+    "PUN-5_6-004",
+    "PUN-5_6-006",
+    "PUN-5_6-008",
+    "PUN-5_6-009",
+    "PUN-5_6-010",
+    "PUN-5_6-011"
+   ]
+  },
+  {
+   "id": "OVR-05",
+   "topic": "-ise to -ize",
+   "guide_says": "§4 spelling policy (-ize) with -yse verbs and listed -ise words (Appendix 2: advertise, comprise, liaise, merchandise, otherwise, ...).",
+   "project_rule": "The project regex \\b([A-Za-z]+?)ise\\b -> \\1ize is a candidate generator only, never auto-apply. Exceptions: the conflicts.md §6 list, every -ise word in Appendix 2 (header.ise_exceptions_from_appendix2), proper names with registered spelling, quotations.",
+   "source": "project system_prompt spelling_enforcement; conflicts.md §6",
+   "sections": [
+    "4",
+    "Appendix 2"
+   ],
+   "match": "\\b\\w+is(e|es|ed|ing)\\b|-iz|-is|\\bize\\b",
+   "affects_explicit": [
+    "SPL-4-005"
+   ]
+  },
+  {
+   "id": "OVR-06",
+   "topic": "This/There + verb openers (002ThV)",
+   "guide_says": "Not a FAOSTYLE rule; project pass.",
+   "project_rule": "Use the 002ThV pass regex (27 verbs incl. modals), not the short schema validation regex.",
+   "source": "fao_editor2 002ThV; conflicts.md §7",
+   "sections": [],
+   "match": "",
+   "affects_explicit": []
+  },
+  {
+   "id": "OVR-07",
+   "topic": "Sentence length",
+   "guide_says": "§3 writing guidance (keep sentences short); no numeric cap.",
+   "project_rule": "Target 18–28 words, hard cap 34 (001NM2/001NM2B/002ThV).",
+   "source": "fao_editor1 sentence_length_threshold = 34; 002ThV",
+   "sections": [
+    "3.1",
+    "3.2"
+   ],
+   "match": "sentence|short|concise",
+   "affects_explicit": [
+    "WRT-3_1-001"
+   ]
+  },
+  {
+   "id": "OVR-08",
+   "topic": "Country names: live NOCS outranks the guide's printed examples",
+   "guide_says": "§6.3.1: follow NOCS. Printed examples date from November 2024 (e.g. line 1180 'the Bahamas').",
+   "project_rule": "The official NOCS export governs (e.g. 'The Bahamas' with capital T per NOCS since April 2025; 'the Gambia' lower case per NOCS; Naoero for Nauru from June 2026). Check with nocs_check.py.",
+   "source": "FAOSTYLE §6.3.1 points to NOCS; NOCS export 30 October 2026. Note: fao_styleguide_schema.json and conflicts.md §10 give 'The Gambia', which NOCS does not support.",
+   "sections": [
+    "6.3.1",
+    "6.3.1.1",
+    "6.3.1.2",
+    "6.3.1.3"
+   ],
+   "match": "",
+   "affects_explicit": [
+    "NAM-6_3_1-001",
+    "NAM-6_3_1-003",
+    "NAM-6_3_1_2-002",
+    "NAM-6_3_1_2-003",
+    "NAM-6_3_1_2-009"
+   ]
+  },
+  {
+   "id": "OVR-09",
+   "topic": "Year ranges",
+   "guide_says": "§10.3: calendar ranges in full with en dash (2015–2025); crop and fiscal years with slash, compacted (2015/16).",
+   "project_rule": "Follow the guide. The old schema's 2015–16 compacting (NUM-RANGE-004) is withdrawn.",
+   "source": "conflicts.md §2",
+   "sections": [
+    "10.3"
+   ],
+   "match": "range|crop|fiscal|year",
+   "affects_explicit": [
+    "NUM-10_3-007",
+    "NUM-10_3-009",
+    "NUM-10_3-010"
+   ]
+  },
+  {
+   "id": "OVR-10",
+   "topic": "Numbers one to ten",
+   "guide_says": "§10: one to ten in words, 11 upward in numerals.",
+   "project_rule": "Follow the guide. The old schema's 'zero to nine' (NUM-WORDS-001) is withdrawn.",
+   "source": "conflicts.md §1",
+   "sections": [
+    "10"
+   ],
+   "match": "one to ten|words",
+   "affects_explicit": [
+    "NUM-10-001",
+    "NUM-10-002"
+   ]
+  },
+  {
+   "id": "OVR-11",
+   "topic": "Mandatory rules are never author choices",
+   "guide_says": "FAOSTYLE applies to all FAO content.",
+   "project_rule": "Where a rule of kind 'mandatory' has a fix the editor can make from the document and the guide (action Apply or Verify), the editor applies it and never offers the author a choice; an author reply does not override it. Rules with action Author are different: they ask the author for missing content (a source, a page number, a permission), not for a choice of form.",
+   "source": "Project decision after the October 2026 NOCS slip (P4, P6)",
+   "sections": [],
+   "match": "",
+   "affects_explicit": []
+  },
+  {
+   "id": "OVR-12",
+   "topic": "reuse",
+   "guide_says": "Implied: Appendix 2 closes up re- compounds (WRD entry for re- compounds), which gives reuse.",
+   "project_rule": "reuse, without a hyphen; not re-use or re use.",
+   "source": "fao_styleguide_schema.json LANG-TERM-004 (client_override: true); consistent with Appendix 2",
+   "sections": [],
+   "match": "",
+   "check": {
+    "method": "wordlist",
+    "pairs": [
+     [
+      "re-use",
+      "reuse"
+     ],
+     [
+      "re use",
+      "reuse"
+     ]
+    ]
+   },
+   "action": "Apply",
+   "affects_explicit": []
+  },
+  {
+   "id": "OVR-13",
+   "topic": "British English",
+   "guide_says": "Implicit in §4 (-re, -our, -ence, -ll) and Appendix 2; no explicit statement.",
+   "project_rule": "British English throughout, with FAO -ize spelling (§4).",
+   "source": "Project presets enforce_language = British_English; fao_styleguide_schema.json LANG-UK-001",
+   "sections": [
+    "4"
+   ],
+   "match": "prefer",
+   "affects_explicit": [
+    "SPL-4-001",
+    "SPL-4-002",
+    "SPL-4-003",
+    "SPL-4-004",
+    "SPL-4-005",
+    "SPL-4-006"
+   ]
+  },
+  {
+   "id": "OVR-14",
+   "topic": "Caption line format",
+   "guide_says": "§3.5.1 / §5.7: no full stop at the end of a figure, table or box title; numbering consecutive (§2.2.5).",
+   "project_rule": "Caption line 'Figure/Table/Box N Title' or 'X.Y' by chapter, no colon after the label, no full stop at the end.",
+   "source": "fao_styleguide_schema.json CAPTION-FTB-001 (client_override: true)",
+   "sections": [
+    "2.2.5",
+    "3.5.1",
+    "5.7"
+   ],
+   "match": "title|full stop|numbered",
+   "affects_explicit": [
+    "PUB-2_2_5-003",
+    "WRT-3_5_1-003",
+    "PUN-5_7-007"
+   ]
+  }
+ ],
+ "duplicates": [
+  [
+   "NAM-6_3_1_3-001",
+   "NAM-6_3_1_1-007",
+   "Guide states the UK/US short-form rule twice (§6.3.1.1 and §6.3.1.3) with different scope; see Q01"
+  ],
+  [
+   "NAM-6_3_1_3-002",
+   "NAM-6_3_1_1-008",
+   ""
+  ],
+  [
+   "NAM-6_3_1_3-003",
+   "NAM-6_3_1_1-009",
+   ""
+  ],
+  [
+   "NAM-6_3_1_3-004",
+   "NAM-6_3_1_1-010",
+   ""
+  ],
+  [
+   "ITA-9_1-010",
+   "NAM-6_3_3-001",
+   "§9.1 cross-refers to §6.3.3"
+  ]
+ ],
+ "open_questions": [
+  {
+   "id": "Q01",
+   "topic": "UK/US short forms in boxes",
+   "guide": "§6.3.1.1 (lines 1191–1195) allows the short forms in text, figures, tables and boxes; §6.3.1.3 (lines 1237–1241) names text, figures and tables only.",
+   "proposed_default": "Allow in boxes (the more specific listing in §6.3.1.1); Verify.",
+   "rules": [
+    "NAM-6_3_1_1-007",
+    "NAM-6_3_1_3-001"
+   ]
+  },
+  {
+   "id": "Q02",
+   "topic": "Sentence case for titles in references and citations",
+   "guide": "Box 2.1 (line 307) and §12.6 (line 2015) require sentence case for FAO titles, but several printed examples are in title case (lines 339–340, 2171, 2281).",
+   "proposed_default": "Sentence case for FAO information products; keep title case for names of documents, meetings, conferences and projects; Verify, never Apply.",
+   "rules": [
+    "PUB-2_1_3_2-019",
+    "PUB-2_1_3_2-021",
+    "REF-12_6-008"
+   ]
+  },
+  {
+   "id": "Q03",
+   "topic": "Capital after a colon in titles",
+   "guide": "§5.3 and §8: lower case unless a full sentence or proper noun follows; §3.5 (line 850): either case allowed in titles; many sample references capitalize.",
+   "proposed_default": "Body text: §5.3 (Verify). Titles and reference entries: keep as published.",
+   "rules": [
+    "PUN-5_3-001",
+    "PUN-5_3-002",
+    "CAP-8-005",
+    "WRT-3_5-007"
+   ]
+  },
+  {
+   "id": "Q04",
+   "topic": "build-up vs buildup (noun)",
+   "guide": "§5.8 (lines 1021–1022) prints the build-up; Appendix 2 (line 2556) gives buildup (n.).",
+   "proposed_default": "buildup (n.) per Appendix 2, the dedicated word list; Verify.",
+   "rules": [
+    "PUN-5_8-012",
+    "WRD-A2-0125"
+   ]
+  },
+  {
+   "id": "Q05",
+   "topic": "co- compounds",
+   "guide": "§5.8 (line 1031): co- compounds hyphenated; Appendix 2: most hyphenated, but cooperate, cooperation, coordinate closed.",
+   "proposed_default": "Follow Appendix 2 entries; otherwise hyphenate; Verify.",
+   "rules": [
+    "PUN-5_8-016",
+    "WRD-A2-0189",
+    "WRD-A2-0208",
+    "WRD-A2-0210"
+   ]
+  },
+  {
+   "id": "Q06",
+   "topic": "Interviews in the reference list",
+   "guide": "§12 (line 1800): personal communications are not listed; Table 12.1 lists an unpublished interview (lines 2263–2265).",
+   "proposed_default": "Personal communications in text only; formal recorded interviews may be listed as in Table 12.1; Author query when unclear.",
+   "rules": [
+    "REF-12-006",
+    "REF-12-007",
+    "REF-12-008"
+   ]
+  },
+  {
+   "id": "Q07",
+   "topic": "URL protocol in references",
+   "guide": "§12.6 (line 2038): include http:// or https://; examples at lines 2054 and 2213 omit it.",
+   "proposed_default": "Require the protocol (the stated rule); Apply only when the full URL is known, otherwise Verify.",
+   "rules": [
+    "REF-12_6-017",
+    "REF-12_6-019"
+   ]
+  },
+  {
+   "id": "Q08",
+   "topic": "The Gambia / the Gambia",
+   "guide": "NOCS export: Gambia (the) -> the Gambia; fao_styleguide_schema.json and conflicts.md §10 give The Gambia.",
+   "proposed_default": "Follow NOCS (OVR-08) and correct conflicts.md §10.",
+   "rules": []
+  },
+  {
+   "id": "Q09",
+   "topic": "Blurb length",
+   "guide": "§3.4 (line 810): 250–300 words in three paragraphs of 50–100 words (which allows 150–300).",
+   "proposed_default": "Production only; not checked in manuscripts.",
+   "rules": [
+    "WRT-3_4-002"
+   ]
+  },
+  {
+   "id": "Q10",
+   "topic": "Footnotes for more than three sources",
+   "guide": "§12.3.1 (line 1879) puts more than three sources for one idea in a footnote; §11.3 (lines 1723–1724) restricts main-text footnotes to informational notes.",
+   "proposed_default": "Allow the §12.3.1 exception (it is stated as an exception); Verify.",
+   "rules": [
+    "REF-12_3_1-013",
+    "NOT-11_3-001",
+    "NOT-11_3-002",
+    "NOT-11_3_2-004"
+   ]
+  }
+ ]
+}

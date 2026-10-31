@@ -1,0 +1,4120 @@
+{
+  "part": "E_s12",
+  "lines_covered": [
+    1788,
+    2372
+  ],
+  "rules": [
+    {
+      "id": "REF-12-001",
+      "section": "12",
+      "section_title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1789,
+        1790
+      ],
+      "quote": "Proper referencing of all source material is important for the credibility of FAO communication and information products and to avoid inadvertent plagiarism.",
+      "rule": "All borrowed source material must be properly referenced.",
+      "kind": "guidance",
+      "scope": [
+        "all"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Principle behind §12. An agent can flag unsourced data, statistics or close paraphrase; only the author can supply the source."
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12-002",
+      "section": "12",
+      "section_title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1791,
+        1794
+      ],
+      "quote": "a citation is the shorthand within the text that points to the reference. A reference is the string of terms (author, date, title, publisher, etc.) that identifies the source. A source is the place (publication, website, database, etc.) the information was borrowed from.",
+      "rule": "Defines citation (in-text pointer), reference (list entry) and source (where the material comes from).",
+      "kind": "guidance",
+      "scope": [
+        "all"
+      ],
+      "check": {
+        "method": "manual",
+        "notes": "Terminology used by every REF rule; nothing to check."
+      },
+      "action": "Info",
+      "relevance": "reference"
+    },
+    {
+      "id": "REF-12-003",
+      "section": "12",
+      "section_title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1795,
+        1796
+      ],
+      "quote": "FAO has developed its own referencing styles. These styles share some elements with, but nevertheless differ from, the most common referencing systems (APA, Chicago, Harvard, MLA).",
+      "rule": "FAO referencing style differs from APA, Chicago, Harvard and MLA; do not assume those conventions.",
+      "kind": "guidance",
+      "scope": [
+        "body",
+        "reference"
+      ],
+      "check": {
+        "method": "manual",
+        "notes": "Context: APA-style forms (year in parentheses after author, (Eds.), \"&\" in-text, \"Retrieved from\") are the usual deviations; see the specific regex rules."
+      },
+      "action": "Info",
+      "relevance": "reference",
+      "see_also": [
+        "REF-12_5-004",
+        "REF-12_3_1-003",
+        "REF-12_6-026"
+      ]
+    },
+    {
+      "id": "REF-12-004",
+      "section": "12",
+      "section_title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1797,
+        1798
+      ],
+      "quote": "When borrowing material, check whether there is a required citation and revise to match FAOSTYLE.",
+      "rule": "Where a source specifies a required citation, use it but revise it to FAOSTYLE format.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Typical case: FAO or UN products whose \"Required citation\" block is pasted verbatim (e.g. with \"Licence: CC BY-NC-SA 3.0 IGO\" or \"https://doi.org/...\" in a different order). Agent compares entry against FAOSTYLE templates."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12-005",
+      "section": "12",
+      "section_title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1798,
+        1799
+      ],
+      "quote": "Where permission has been obtained to use third-party content, the reference should include Reproduced with permission.",
+      "rule": "When third-party content is used with permission, add \"Reproduced with permission.\" to its reference.",
+      "kind": "mandatory",
+      "scope": [
+        "reference",
+        "caption"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Only the author knows whether permission was obtained. Table 12.1 (Schaller sample, l. 2286-2289) places the notation at the end of the entry."
+      },
+      "action": "Author",
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_4-008",
+        "REF-12_8_1-003"
+      ]
+    },
+    {
+      "id": "REF-12-006",
+      "section": "12",
+      "section_title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1800,
+        1801
+      ],
+      "quote": "Personal communications do not appear in a bibliographic list",
+      "rule": "Do not list personal communications in the reference list.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "Flag list entries containing \"personal communication\", \"pers. comm.\" etc. and in-text personal communications that also have a list entry. Ambiguity: Table 12.1 lists an unpublished interview (Johnson, Kwame ... [personal interview], l. 2263-2265) in References; treat interviews per REF-12_8_1-013 and Verify."
+      },
+      "action": "Apply",
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12-007",
+        "REF-12_8_1-013"
+      ]
+    },
+    {
+      "id": "REF-12-007",
+      "section": "12",
+      "section_title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1800,
+        1801
+      ],
+      "quote": "are cited in the text using parentheses, e.g. (R. Wright, personal communication, 2000).",
+      "rule": "Cite personal communications in the text in parentheses in the form (Initial. Surname, personal communication, year).",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b[Pp]ers\\.\\s*[Cc]omm\\b|\\b[Pp]ersonal\\s+[Cc]omm\\.|\\bp\\.\\s?c\\.(?=\\s*[,;)])|\\b[Pp]ersonal [Cc]ommunications?\\s+(?:with|from)\\b",
+        "notes": "Flags abbreviated forms (pers. comm., personal comm., p.c.) and prose forms (\"personal communication with X\") that do not use the parenthetical pattern. Word order (initial + surname first) is checked by agent."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "(R. Wright, personal communication, 2000)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12-008",
+      "section": "12",
+      "section_title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1801,
+        1803
+      ],
+      "quote": "Social media comments, messages and direct replies should be treated as personal communications; an example from a social media platform is: (Facebook direct message to author, 30 April 2017).",
+      "rule": "Treat social media comments, messages and direct replies as personal communications (in-text only, not in the reference list).",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Distinguish from public social media posts, which may have a full reference (REF-12_8_1-008)."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "(Facebook direct message to author, 30 April 2017)"
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12-006",
+        "REF-12_8_1-008"
+      ]
+    },
+    {
+      "id": "REF-12_1-001",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1805,
+        1807
+      ],
+      "quote": "When original artwork is created for the publication, it is often required to mention the creator. This is typically done in the acknowledgements or on the copyright page. A citation for each element they create is not required.",
+      "rule": "Credit creators of original artwork in the acknowledgements or on the copyright page, not with a citation per element.",
+      "kind": "guidance",
+      "scope": [
+        "front_matter"
+      ],
+      "check": {
+        "method": "manual"
+      },
+      "action": "Info",
+      "relevance": "production"
+    },
+    {
+      "id": "REF-12_1-002",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1808,
+        1810
+      ],
+      "quote": "All photos must carry a credit line adjacent to the photo stating the copyright holder and the photographer, if known, and any other obligatory information required by the source of the photo.",
+      "rule": "Every photo needs an adjacent credit line naming the copyright holder and, if known, the photographer.",
+      "kind": "mandatory",
+      "scope": [
+        "caption",
+        "figure"
+      ],
+      "check": {
+        "method": "module",
+        "module": "caption_format",
+        "notes": "For each photo/image placeholder or caption, check a © credit line exists nearby; missing credits go to the author."
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_1-003",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1810,
+        1814
+      ],
+      "quote": "Credit FAO as well as the photographer where it is the work of a staff member or a remunerated external collaborator whose duties include photography, in particular where FAO provided the equipment, i.e. © FAO/Robert Smith.",
+      "rule": "Photos by FAO staff or paid collaborators in their duties are credited \"© FAO/Photographer Name\".",
+      "kind": "mandatory",
+      "scope": [
+        "caption",
+        "figure"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\([cC]\\)\\s*FAO\\b|©(?=[A-Za-z])|©\\s*FAO\\s+/|©\\s*FAO/\\s+|\\b[Pp]hoto(?:graph)?(?:\\s+[Cc]redit)?\\s*:\\s*FAO\\b|\\bCopyright\\s+FAO\\b",
+        "notes": "Regex checks the credit-line form shown in the examples (© + space + FAO/Name, no spaces round the slash; \"(c)\", \"Photo: FAO\", \"Copyright FAO\" are deviations). Whether FAO or the individual is the right holder (REF-12_1-004) needs author input."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "© FAO/Robert Smith",
+          "© FAO/Jon Marsh",
+          "© FAO",
+          "© Robert Smith"
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_1-004",
+        "REF-12_1-005"
+      ]
+    },
+    {
+      "id": "REF-12_1-004",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1812,
+        1814
+      ],
+      "quote": "Credit the individual if the photo was taken by a staff member or collaborator outside their official duties, or by a person external to FAO, i.e. © Robert Smith.",
+      "rule": "Photos taken outside official duties or by external people are credited to the individual: \"© Name\".",
+      "kind": "mandatory",
+      "scope": [
+        "caption",
+        "figure"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Author",
+      "examples": {
+        "correct": [
+          "© Robert Smith"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_1-005",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1814,
+        1814
+      ],
+      "quote": "Where the name of the photographer is not known, just put © FAO.",
+      "rule": "If the photographer is unknown, the credit is \"© FAO\".",
+      "kind": "mandatory",
+      "scope": [
+        "caption",
+        "figure"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "© FAO"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_1-006",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1815,
+        1817
+      ],
+      "quote": "For cover photographs, add: Cover photograph: before the credit.",
+      "rule": "Precede the credit for a cover photo with \"Cover photograph:\".",
+      "kind": "mandatory",
+      "scope": [
+        "front_matter"
+      ],
+      "check": {
+        "method": "manual",
+        "notes": "Cover/copyright page is produced by FAO publishing. Cross-reference to 2.1.3.2 Copyright page."
+      },
+      "action": "Info",
+      "relevance": "production"
+    },
+    {
+      "id": "REF-12_1-007",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1818,
+        1819
+      ],
+      "quote": "If you are negotiating rights with a third party, check whether you are obligated to apply their policy for photo credits or captions.",
+      "rule": "Check whether a third-party rights holder's own credit/caption policy must be applied.",
+      "kind": "guidance",
+      "scope": [
+        "caption"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_1-008",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1820,
+        1822
+      ],
+      "quote": "Always ensure that required permissions have been obtained, preferably using the Permission Request Form",
+      "rule": "Required permissions for third-party images must be obtained, preferably via the Permission Request Form.",
+      "kind": "mandatory",
+      "scope": [
+        "figure",
+        "caption"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Not visible in the text; raise an author query for every third-party image without a permission statement."
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_1-009",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1825,
+        1826
+      ],
+      "quote": "If previously published visuals (such as a poster, infographic or illustration) are inserted, they are considered figures. Apply a credit line to each like a photo: © FAO/Jon Marsh.",
+      "rule": "Previously published visuals (posters, infographics, illustrations) are treated as figures and each carries a photo-style credit line.",
+      "kind": "mandatory",
+      "scope": [
+        "figure",
+        "caption"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Author",
+      "examples": {
+        "correct": [
+          "© FAO/Jon Marsh"
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_1-003"
+      ]
+    },
+    {
+      "id": "REF-12_1-010",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1826,
+        1827
+      ],
+      "quote": "Screenshots are discouraged, but if they are necessary, insert the copyright credit for the owner of the website.",
+      "rule": "Avoid screenshots; if used, credit the website owner as copyright holder.",
+      "kind": "preference",
+      "scope": [
+        "figure",
+        "caption"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_1-011",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1828,
+        1828
+      ],
+      "quote": "(Note that screenshots should ideally be taken with a Mac as the resolution will be higher.)",
+      "rule": "Screenshots should ideally be taken on a Mac for higher resolution.",
+      "kind": "guidance",
+      "scope": [
+        "figure"
+      ],
+      "check": {
+        "method": "manual"
+      },
+      "action": "Info",
+      "relevance": "production"
+    },
+    {
+      "id": "REF-12_1-012",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1829,
+        1830
+      ],
+      "quote": "However, if these figures are heavily cited or directly quoted in the text, use standard in-text citation and a bibliographic entry.",
+      "rule": "If an inserted published visual is heavily cited or quoted in the text, give it a standard in-text citation and a reference-list entry.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "reference"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_1-013",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1830,
+        1831
+      ],
+      "quote": "The copyright holder is the corporate author if no individual author is available.",
+      "rule": "With no individual author, the copyright holder is the corporate author.",
+      "kind": "mandatory",
+      "scope": [
+        "reference",
+        "caption"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_1-014",
+      "section": "12.1",
+      "section_title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1831,
+        1833
+      ],
+      "quote": "Be sure to identify the medium in the full source, e.g. FAO. 2021. Assessing climate change vulnerability in Dieppe Bay fisheries using value chain analysis [poster]. Rome.",
+      "rule": "Identify a non-print medium in square brackets after the title in the reference, e.g. [poster].",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Table 12.1 extends the pattern to [audio recording], [video], [CD-ROM], [.mobi edition], [Shapefile], [personal interview], [Text & video] (all in square brackets directly after the title). Check: entries whose URL points to video/audio hosts (youtube, vimeo, soundcloud) or whose title mentions poster/video/map file but lack a bracketed medium."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "FAO. 2021. Assessing climate change vulnerability in Dieppe Bay fisheries using value chain analysis [poster]. Rome. https://openknowledge.fao.org/handle/20.500.14283/cb6528en",
+          "FAO. 2021a. Assessing climate change vulnerability in Dieppe Bay's fisheries using value chain analysis [poster]. Rome. https://openknowledge.fao.org/handle/20.500.14283/cb6528en",
+          "FAO. 2023a. A new generation of Syrian agricultural entrepreneurs [audio recording]. Rome. [Cited 18 November 2024]. https://digital-media.fao.org/Package/2A6XC5FUVQ#/SearchResult&VBID=2A6XUVV36ZVS&PN=1&WS=PackagePres",
+          "FAO. 2023b. FAO in Emergencies - Rein Paulsen, Director of FAO's Office of Emergencies and Resilience [video]. [Cited 4 May 2023]. https://www.youtube.com/watch?v=neUjNfi8gHY",
+          "Giel, T., Bijman, J. & Oorthuizen, J. 2007. Producer organisations and market chains [CD-ROM]. Wageningen, Kingdom of the Netherlands, Agri-Profocus.",
+          "UN Geospatial. 2020a. BNDA_CTY [Shapefile]. New York, USA, UN.",
+          "FAO. 2022. Food Outlook – Biannual Report on Global Food Markets. Food Outlook, November 2022 [.mobi edition]. Rome. [Cited 15 December 2022]. https://openknowledge.fao.org/handle/20.500.14283/cc2864en"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_2-001",
+      "section": "12.2",
+      "section_title": "REFERENCING IN FRONT MATTER (PRELIMINARY PAGES)",
+      "lines": [
+        1835,
+        1836
+      ],
+      "quote": "In front matter, it is best practice to use footnotes for both sources and general notes; include the full reference in the footnote",
+      "rule": "In front matter, give sources and general notes as footnotes, with the full reference in the footnote.",
+      "kind": "preference",
+      "scope": [
+        "front_matter",
+        "footnote"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Applies to forewords, prefaces etc. (reports); most journal articles have no front matter."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_2-002",
+      "section": "12.2",
+      "section_title": "REFERENCING IN FRONT MATTER (PRELIMINARY PAGES)",
+      "lines": [
+        1836,
+        1837
+      ],
+      "quote": "do not include these sources in the bibliographic list (unless they are also cited in the main text).",
+      "rule": "Sources cited only in the front matter are not included in the reference list.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "Needs zone-aware crossref: reference entries whose only citations are in front matter are flagged. Consistent with 2.1.5.1 (l. 438-439)."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_2-003",
+      "section": "12.2",
+      "section_title": "REFERENCING IN FRONT MATTER (PRELIMINARY PAGES)",
+      "lines": [
+        1837,
+        1838
+      ],
+      "quote": "Each note, whether it is a general note or source reference, receives a separate number (this means a reference may appear more than once).",
+      "rule": "Every front-matter note gets its own number; a reference may therefore be repeated.",
+      "kind": "mandatory",
+      "scope": [
+        "front_matter",
+        "footnote"
+      ],
+      "check": {
+        "method": "module",
+        "module": "footnote_numbering",
+        "notes": "Flag reuse of one footnote number for several call-outs in front matter (unlike the endnote system, REF-12_3_2-001)."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3-001",
+      "section": "12.3",
+      "section_title": "REFERENCING IN MAIN TEXT AND END MATTER",
+      "lines": [
+        1842,
+        1844
+      ],
+      "quote": "There are two different systems for referencing source material in the main text of FAO information products: the author–date system and the endnote system. Only one system may be used within an information product.",
+      "rule": "Use either the author–date or the endnote system, never both, in one product.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_system",
+        "notes": "Detect author–date citations (Name, YYYY) and endnote call-outs feeding a numbered Notes list in the same document. FAO journal articles normally use author–date."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-001",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1846,
+        1847
+      ],
+      "quote": "For in-text citations, the author’s name is followed by the year of publication of the source, e.g. This point has been demonstrated in a recent report (Costa and Gilles, 2016).",
+      "rule": "In-text citations give author then year; in parentheses, a comma separates author and year.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\((?:see\\s+(?:also\\s+)?|e\\.g\\.\\s+|cf\\.\\s+)?(?!(?:January|February|March|April|May|June|July|August|September|October|November|December|Table|Figure|Box|Annex|Appendix|Chapter|Section|Phase|Round|Wave|Census|Vol|No)\\b)[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:\\s+(?:and|et al\\.)(?:\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)?)?\\s+(?:19|20)\\d{2}[a-z]?(?=[;,)])",
+        "notes": "Flags a parenthetical author followed directly by the year without a comma, e.g. \"(FAO 2019)\", \"(Sanders et al. 2011)\". Narrative form \"Sanders (2008)\" is correct. Known false positives: \"(Census 2010)\" style labels not in the exclusion list, product names like \"(SOFI 2023)\"."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "This point has been demonstrated in a recent report (Costa and Gilles, 2016).",
+          "as demonstrated by Sanders (2008) or as the study demonstrated (Sanders, 2008)",
+          "as stated in a recent survey (Sanders et al., 2011)",
+          "(Sanders, ed., 2008) or according to Sanders (ed., 2008)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-002",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1847,
+        1848
+      ],
+      "quote": "It is not necessary to indicate the page number unless text is quoted.",
+      "rule": "Page numbers are required in a citation only when text is quoted.",
+      "kind": "mandatory",
+      "scope": [
+        "body"
+      ],
+      "check": {
+        "method": "module",
+        "module": "quote_locator",
+        "notes": "For each direct quotation (text in double quotation marks of more than a few words, or a block quotation), check the attached citation has a page locator \"p. N\"; missing page numbers are an author query. Page numbers on non-quoted citations are permitted, not errors."
+      },
+      "action": "Author",
+      "examples": {
+        "correct": [
+          "McKinsey and Company (2009, p. 9) state that “in forestry and agriculture, both costs and investments are relatively low.”"
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_3_3-002"
+      ]
+    },
+    {
+      "id": "REF-12_3_1-003",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1851,
+        1851
+      ],
+      "quote": "Use and between the last two author names with no comma. Do not use the ampersand (&).",
+      "rule": "In in-text citations, join the last two author names with \"and\", never \"&\".",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "[A-Z][A-Za-zÀ-ÿ'’\\-]+\\s*&\\s*[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:,\\s*(?:19|20)\\d{2}[a-z]?|\\s*\\(\\s*(?:19|20)\\d{2}[a-z]?)",
+        "notes": "Note the opposite rule for reference-list entries (REF-12_6-005: \"and\" or \"&\" allowed). Run on body text only, not on the reference list. False positives: company names with & cited as corporate authors (e.g. \"Johnson & Johnson, 2010\")."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "according to a recent report (Sanders, Cohen and Bolbol, 2010)",
+          "This point has been demonstrated in a recent report (Costa and Gilles, 2016)."
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_6-005"
+      ]
+    },
+    {
+      "id": "REF-12_3_1-004",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1851,
+        1851
+      ],
+      "quote": "Use and between the last two author names with no comma.",
+      "rule": "No serial comma before \"and\" between the last two author names in in-text citations.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "[A-Z][A-Za-zÀ-ÿ'’\\-]+,\\s+and\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:,\\s*(?:19|20)\\d{2}[a-z]?|\\s*\\(\\s*(?:19|20)\\d{2}[a-z]?)",
+        "notes": "Flags \"(Sanders, Cohen, and Bolbol, 2010)\" and \"Sanders, Cohen, and Bolbol (2010)\"."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "according to a recent report (Sanders, Cohen and Bolbol, 2010)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-005",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1851,
+        1852
+      ],
+      "quote": "Use a semicolon between different citations unless they are from the same author.",
+      "rule": "Separate citations of different authors with semicolons; separate several years of the same author with commas.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "(?:19|20)\\d{2}[a-z]?,\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:\\s+et al\\.|\\s+and\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)?,\\s*(?:19|20)\\d{2}[a-z]?|;\\s*(?:19|20)\\d{2}[a-z]?\\s*[;,)]",
+        "notes": "Alternative 1: comma between different-author citations \"(Sanders, 2008, Murguía, 2010)\". Alternative 2: semicolon before a bare year, i.e. same author split by semicolon \"(Sanders, 2001; 2004)\". The same-author comma form is shown at l. 1870-1871."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "(Sanders, 2008; Murguía, 2010)",
+          "(Sanders, 2001, 2004, 2009a, 2009b)",
+          "(Sanders, J., 2009; Sanders, B., 1999)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-006",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1853,
+        1854
+      ],
+      "quote": "Generally, in-text citations should be organized alphabetically, chronologically, in order of presentation, or in order of importance and should be consistent within the document.",
+      "rule": "Order multiple citations within one parenthesis by one principle (alphabetical, chronological, presentation or importance) and keep it consistent.",
+      "kind": "preference",
+      "scope": [
+        "body"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_order",
+        "notes": "Classify each multi-citation group as alphabetical / chronological / other; flag if the document mixes alphabetical and chronological groups. The guide's own example \"(Sanders, 2008; Murguía, 2010; Bekele et al., 2007)\" (l. 1866-1867) is neither alphabetical nor chronological, so only consistency can be checked."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "(Sanders, 2008; Murguía, 2010)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-007",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1858,
+        1859
+      ],
+      "quote": "one work, up to three authors: according to a recent report (Sanders, Cohen and Bolbol, 2010)",
+      "rule": "For works with up to three authors, name all authors in the in-text citation.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "Flag \"et al.\" in-text when the matched reference entry has two or three authors."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "(Sanders, Cohen and Bolbol, 2010)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-008",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1860,
+        1863
+      ],
+      "quote": "one work, more than three authors unless there are multiple sources with the same first author and year, in that case, provide a clear distinction between different sources: as stated in a recent survey (Sanders et al., 2011)",
+      "rule": "For works with more than three authors, cite the first author followed by \"et al.\".",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\(\\s*[A-Z][A-Za-zÀ-ÿ'’\\-]+,\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+,\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:,\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)*,?\\s+and\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+,\\s*(?:19|20)\\d{2}[a-z]?|\\b[A-Z][A-Za-zÀ-ÿ'’\\-]+,\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+,\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:,\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)*,?\\s+and\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+\\s*\\(\\s*(?:19|20)\\d{2}[a-z]?",
+        "notes": "Regex flags four or more names listed in one citation. Crossref module (citation_crossref) should also confirm the reference has >3 authors. False positives: lists of corporate authors or countries followed by a year. Exception is undefined: the guide does not say what \"a clear distinction\" is (more names? a/b suffixes?) - Verify."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "as stated in a recent survey (Sanders et al., 2011)"
+        ]
+      },
+      "exceptions": [
+        {
+          "quote": "unless there are multiple sources with the same first author and year, in that case, provide a clear distinction between different sources",
+          "lines": [
+            1860,
+            1861
+          ],
+          "note": "Form of the distinction not specified."
+        }
+      ],
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-009",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1862,
+        1863
+      ],
+      "quote": "as stated in a recent survey (Sanders et al., 2011)",
+      "rule": "Write \"Surname et al., year\" with no comma between surname and et al.",
+      "kind": "preference",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "[A-Z][A-Za-zÀ-ÿ'’\\-]+,\\s+et\\.?\\s?al\\b",
+        "notes": "Form established by the examples only (l. 1862-1863, 1866-1867); not stated in words. The full stop after \"al.\" and italics are governed by §5 (l. 985) and Appendix 2 (l. 2778, \"et al. italicized\")."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "(Sanders et al., 2011)",
+          "(Sanders, 2008; Murguía, 2010; Bekele et al., 2007)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-010",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1872,
+        1873
+      ],
+      "quote": "different authors with the same surname: (Sanders, J., 2009; Sanders, B., 1999)",
+      "rule": "Distinguish different authors sharing a surname by adding initials in the citation.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "When the reference list contains two different first authors with the same surname, in-text citations of either must carry the initial(s) after the surname."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "(Sanders, J., 2009; Sanders, B., 1999)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-011",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1874,
+        1875
+      ],
+      "quote": "edited works: (Sanders, ed., 2008) or according to Sanders (ed., 2008)",
+      "rule": "Cite edited works with \"ed.\" between author and year.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote",
+        "caption",
+        "table"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "If the matched reference entry is an edited work (\"..., ed.\" / \"..., eds.\"), the in-text citation should include \"ed.\" (plural form not shown in the guide - Verify \"eds.\"). Also flag nested forms such as \"(Sanders (ed.), 2008)\"."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "(Sanders, ed., 2008)",
+          "according to Sanders (ed., 2008)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-012",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1876,
+        1878
+      ],
+      "quote": "when referring to a source cited within another source (indirect reference, or secondary source), refer to the one you consulted, not the original: as demonstrated by Sanders (cited in Murguía, 2008)",
+      "rule": "For secondary sources, cite the source actually consulted (\"Original (cited in Consulted, year)\"), not the original.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "footnote"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "(?:19|20)\\d{2}[a-z]?\\s*[,;]?\\s*(?:as\\s+)?(?:cited|quoted)\\s+in\\b",
+        "notes": "Regex flags the original being given its own year before \"cited in\" (e.g. \"Sanders, 1990, as cited in Murguía, 2008\"), which suggests the original is being cited. Crossref: the original should not have its own reference-list entry unless also consulted."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "as demonstrated by Sanders (cited in Murguía, 2008)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_1-013",
+      "section": "12.3.1",
+      "section_title": "Author–date system (in-text)",
+      "lines": [
+        1879,
+        1880
+      ],
+      "quote": "as an exception, when referring to a single idea that cites more than three sources, use a footnote to cite all the sources:",
+      "rule": "If a single idea cites more than three sources, move all of them into a footnote.",
+      "kind": "mandatory",
+      "scope": [
+        "body"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\((?:[^();]*?(?:19|20)\\d{2}[a-z]?[^();]*;){3,}[^();]*?(?:19|20)\\d{2}[a-z]?[^();]*\\)",
+        "notes": "Flags a parenthesis with four or more semicolon-separated citations. Same-author year lists (commas) count as one. Contradiction: 11.3 (l. 1723-1724) says footnotes in main text are for informational notes only. Footnote example (l. 1881-1883) lists sources with semicolons and \"and\" before the last."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "(Sanders, 2008; Murguía, 2010; Bekele et al., 2007)",
+          "See Australia, 1982; Azerbaijan, 1995; Jamaica, 1947; South Africa, 2008; and Thailand, 1973."
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "NOT-11_3"
+      ]
+    },
+    {
+      "id": "REF-12_3_2-001",
+      "section": "12.3.2",
+      "section_title": "Endnote system (in-text)",
+      "lines": [
+        1885,
+        1890
+      ],
+      "quote": "each source receives a unique key;",
+      "rule": "In the endnote system each source has one unique key, reused whenever that source is cited again.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "endnote_keys",
+        "notes": "Only when the endnote system is used. Flag the same Notes entry text appearing under two numbers, and note numbers that never reappear in the list. Superscript indicators in this passage were split onto separate lines by conversion (l. 1886, 1888, 1891, 1894, 1897)."
+      },
+      "action": "Verify",
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_5_2-001"
+      ]
+    },
+    {
+      "id": "REF-12_3_2-002",
+      "section": "12.3.2",
+      "section_title": "Endnote system (in-text)",
+      "lines": [
+        1892,
+        1896
+      ],
+      "quote": "The notes will appear in order of first appearance",
+      "rule": "Endnote numbers are assigned in order of first appearance in the text.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "endnote_keys",
+        "notes": "New (first-time) keys in the text must appear in ascending order 1, 2, 3...; repeats may appear anywhere."
+      },
+      "action": "Apply",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_2-003",
+      "section": "12.3.2",
+      "section_title": "Endnote system (in-text)",
+      "lines": [
+        1903,
+        1904
+      ],
+      "quote": "It is best practice to not use endnotes in front matter.",
+      "rule": "Do not use endnotes in front matter.",
+      "kind": "preference",
+      "scope": [
+        "front_matter"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_system"
+      },
+      "action": "Verify",
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_2-001"
+      ]
+    },
+    {
+      "id": "REF-12_3_3-001",
+      "section": "12.3.3",
+      "section_title": "Direct quotes (both systems)",
+      "lines": [
+        1906,
+        1906
+      ],
+      "quote": "Enclose the quoted material in double quotation marks:",
+      "rule": "Enclose run-in quotations in double quotation marks.",
+      "kind": "mandatory",
+      "scope": [
+        "body"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "‘[^’\\n]{40,}’|(?<![\\w’'])'[^'\\n]{40,}'(?![\\w])",
+        "notes": "Flags passages of 40+ characters in single quotation marks (likely quotations). Quotes nested inside double quotes are legitimate single quotes; Verify."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Author–date: McKinsey and Company (2009, p. 9) state that “in forestry and agriculture, both costs and investments are relatively low.”"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_3-002",
+      "section": "12.3.3",
+      "section_title": "Direct quotes (both systems)",
+      "lines": [
+        1907,
+        1908
+      ],
+      "quote": "Author–date: McKinsey and Company (2009, p. 9) state that",
+      "rule": "Give the page locator for a quotation as \"year, p. N\" inside the citation.",
+      "kind": "preference",
+      "scope": [
+        "body",
+        "footnote"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b(?:19|20)\\d{2}[a-z]?\\s*:\\s*\\d+(?:\\s*[–-]\\s*\\d+)?\\s*\\)|\\b(?:19|20)\\d{2}[a-z]?,\\s*(?:pg\\.?|pages?\\b|p\\.(?=\\d)|p(?=\\s\\d)|pp(?=\\s?\\d))",
+        "notes": "Form established by the examples (l. 1907-1910, 1919); \"p.\" is listed among abbreviations at l. 985. Flags \"(FAO, 2011: 3)\", \"2011, pg. 3\", \"2011, page 3\", \"2011, p.3\", \"2011, pp 3\". \"pp. N–N\" is not shown in §12 and is not flagged."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "McKinsey and Company (2009, p. 9) state that",
+          "nutritional status (FAO, 2011, p. 3).",
+          "McKinsey and Company (p. 9) state that"
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_3_1-002"
+      ]
+    },
+    {
+      "id": "REF-12_3_3-003",
+      "section": "12.3.3",
+      "section_title": "Direct quotes (both systems)",
+      "lines": [
+        1913,
+        1913
+      ],
+      "quote": "For longer quoted text of approximately three or more lines, use block quotations.",
+      "rule": "Set quotations of about three or more lines as block quotations.",
+      "kind": "mandatory",
+      "scope": [
+        "body"
+      ],
+      "check": {
+        "method": "module",
+        "module": "quote_block",
+        "notes": "\"Approximately three lines\" is roughly 35-45 words at FAO measure; flag run-in quotations above ~40 words. Threshold is approximate by the guide's own wording."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_3-004",
+      "section": "12.3.3",
+      "section_title": "Direct quotes (both systems)",
+      "lines": [
+        1913,
+        1914
+      ],
+      "quote": "These are introduced by a colon, indented, and do not have quotation marks:",
+      "rule": "Block quotations are introduced by a colon, indented, and carry no quotation marks.",
+      "kind": "mandatory",
+      "scope": [
+        "body"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "In DOCX, check indentation/quote style of the paragraph; in labelled markdown, check the preceding paragraph ends with \":\" and the block has no enclosing quotation marks. Example also shows the citation at the end of the block before the full stop \"(FAO, 2011, p. 3).\""
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "As stated in the document: Ensuring food security and nutrition at the household and global levels requires investing in nutrition-sensitive agriculture, protecting women’s rights and improving their social and nutritional status (FAO, 2011, p. 3)."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_3-005",
+      "section": "12.3.3",
+      "section_title": "Direct quotes (both systems)",
+      "lines": [
+        1929,
+        1929
+      ],
+      "quote": "Quotations should follow the presentation (italics, bold, capitals, underline, etc.) of the original.",
+      "rule": "Reproduce the original presentation (italics, bold, capitals, underline) in quotations.",
+      "kind": "mandatory",
+      "scope": [
+        "body"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_3_3-006",
+      "section": "12.3.3",
+      "section_title": "Direct quotes (both systems)",
+      "lines": [
+        1930,
+        1930
+      ],
+      "quote": "Do not apply FAOSTYLE to quoted matter unless the quote was from a spoken source.",
+      "rule": "Exclude quoted matter from FAOSTYLE corrections unless it is a quote from a spoken source.",
+      "kind": "mandatory",
+      "scope": [
+        "all"
+      ],
+      "check": {
+        "method": "module",
+        "module": "quote_mask",
+        "notes": "Preflight infrastructure: mask text inside quotation marks and block quotations before running spelling, terminology, number and punctuation rules; report hits inside quotes separately as Verify only if the source is spoken (interviews, speeches)."
+      },
+      "action": "Info",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-001",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1932,
+        1932
+      ],
+      "quote": "Each stand-alone element that contains sourced data must have a complete list of references.",
+      "rule": "Every figure, table or box containing sourced data must list its sources completely.",
+      "kind": "mandatory",
+      "scope": [
+        "figure",
+        "table",
+        "box",
+        "caption"
+      ],
+      "check": {
+        "method": "module",
+        "module": "caption_format",
+        "notes": "Flag figures/tables/boxes without a Source(s): line; whether data are sourced needs judgement (own data may use \"Author's own elaboration\")."
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-002",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1932,
+        1934
+      ],
+      "quote": "The list is placed below the element, following any informational notes, and given the heading Source: or Sources:",
+      "rule": "Place the source list below the element, after any notes.",
+      "kind": "mandatory",
+      "scope": [
+        "figure",
+        "table",
+        "box",
+        "caption"
+      ],
+      "check": {
+        "method": "module",
+        "module": "caption_format",
+        "notes": "Order below the element: Notes first, then Source(s):. Flag a Source(s): line above the element or before a Note(s): line."
+      },
+      "action": "Apply",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-003",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1933,
+        1934
+      ],
+      "quote": "given the heading Source: or Sources:",
+      "rule": "Label the source list \"Source:\" (one) or \"Sources:\" (several).",
+      "kind": "mandatory",
+      "scope": [
+        "figure",
+        "table",
+        "box",
+        "caption"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "^\\s*(?:SOURCES?\\b|Sources?\\s*[-–—.]|Sources?\\s+:|Source\\s*\\(s\\)|Data sources?\\s*:|Sources?\\s+(?:FAO|[A-Z]{2,})\\b)",
+        "notes": "Flags capitalised, dashed, spaced-colon, \"Source(s)\" and \"Data source:\" labels, and a label without colon. Singular/plural choice versus number of sources (\"Source:\" followed by entries separated by semicolons) is a Verify check, not in this regex."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Source: Author's own elaboration.",
+          "Sources: See References."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-004",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1936,
+        1937
+      ],
+      "quote": "If the list is very long, it may be moved to the bibliography, where it should be inserted after the list of sources from the main text and end matter and given an appropriate subtitle.",
+      "rule": "A very long source list may move to the bibliography, placed after the main-text references under its own subtitle.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Conditional rule: applies only if the author has moved the list."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-005",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1937,
+        1940
+      ],
+      "quote": "Direct the reader to the list of references by providing a clear cross-reference to its location, e.g. Sources: See References.",
+      "rule": "When sources are moved to the bibliography, the element carries a cross-reference such as \"Sources: See References.\"",
+      "kind": "mandatory",
+      "scope": [
+        "figure",
+        "table",
+        "box",
+        "caption"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Sources: See References."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-006",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1940,
+        1942
+      ],
+      "quote": "If sources refer to specific data points and not to the entire figure, table or box, refer to Table 11.1 Indicators for endnotes and footnotes.",
+      "rule": "Sources for individual data points use note indicators per Table 11.1 rather than the general Source(s) line.",
+      "kind": "mandatory",
+      "scope": [
+        "figure",
+        "table",
+        "box"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Verify",
+      "relevance": "manuscript",
+      "see_also": [
+        "NOT-11"
+      ]
+    },
+    {
+      "id": "REF-12_4-007",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1943,
+        1943
+      ],
+      "quote": "References may begin with Adapted from or Reproduced with permission from.",
+      "rule": "Source references for elements may begin \"Adapted from\" or \"Reproduced with permission from\".",
+      "kind": "guidance",
+      "scope": [
+        "figure",
+        "table",
+        "box",
+        "caption"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Permissive. An agent may normalize variants such as \"Modified from\", \"Adapted after\" to \"Adapted from\" (Verify)."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-008",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1944,
+        1949
+      ],
+      "quote": "When (optionally) citing the author of the publication as the author of a figure or table, the preferred format is:",
+      "rule": "For author-generated elements, use \"Source: Author's own elaboration.\" (one author) or \"Source: Authors' own elaboration.\" (several).",
+      "kind": "preference",
+      "scope": [
+        "figure",
+        "table",
+        "box",
+        "caption"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "Sources?:\\s*(?:[Oo]wn\\s+(?:elaboration|compilation|work)|[Aa]uthors?[\\'’]?s?[\\'’]?\\s+(?:elaboration|compilation)|[Ee]laborated\\s+by\\s+the\\s+authors?|[Pp]repared\\s+by\\s+the\\s+authors?|[Tt]he\\s+authors?\\b)",
+        "notes": "Flags \"Source: Own elaboration\", \"Authors' elaboration\" (no \"own\"), \"Elaborated/Prepared by the author(s)\", \"Source: The authors\". Singular/plural apostrophe agreement with the number of authors needs the byline (module)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Source: Author's own elaboration.",
+          "Source: Authors' own elaboration."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-009",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1950,
+        1951
+      ],
+      "quote": "Refer to FAO guidance for maps to correctly credit author modifications to maps.",
+      "rule": "Credit author modifications to maps according to FAO map guidance.",
+      "kind": "guidance",
+      "scope": [
+        "figure",
+        "caption"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "FAO map guidance is external to this guide."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_4-010",
+      "section": "12.4",
+      "section_title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1952,
+        1952
+      ],
+      "quote": "If using Zotero, sources for figures, tables and boxes may need to be added manually.",
+      "rule": "Zotero may not generate sources for figures, tables and boxes; add them manually.",
+      "kind": "guidance",
+      "scope": [
+        "figure",
+        "table",
+        "box"
+      ],
+      "check": {
+        "method": "manual"
+      },
+      "action": "Info",
+      "relevance": "reference"
+    },
+    {
+      "id": "REF-12_5-001",
+      "section": "12.5",
+      "section_title": "BIBLIOGRAPHIC INFORMATION",
+      "lines": [
+        1954,
+        1955
+      ],
+      "quote": "This section, called References when using author-date citations, and called Notes when using the endnote system",
+      "rule": "Title the list \"References\" (author–date) or \"Notes\" (endnote system).",
+      "kind": "mandatory",
+      "scope": [
+        "heading"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "^\\s*(?:#+\\s*)?(?:[\\dIVX]+\\.?\\s+)?(?:Literature\\s+[Cc]ited|Works\\s+[Cc]ited|Reference\\s+[Ll]ist|List\\s+of\\s+[Rr]eferences|Cited\\s+[Ll]iterature|Bibliographic\\s+[Rr]eferences|Literature|Sources\\s+[Cc]ited|Endnotes)\\s*$",
+        "notes": "Apply to headings only. \"Bibliography\" is correct when no sources are cited or when there is further reading (REF-12_5-005, REF-12_5_1-003). Heading case is a separate (§8) check."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "References",
+          "Notes",
+          "Bibliography"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5-002",
+      "section": "12.5",
+      "section_title": "BIBLIOGRAPHIC INFORMATION",
+      "lines": [
+        1956,
+        1958
+      ],
+      "quote": "Include each chapter or section’s reference list in the table of contents.",
+      "rule": "Where chapters or sections have their own reference lists, list each in the table of contents.",
+      "kind": "mandatory",
+      "scope": [
+        "front_matter"
+      ],
+      "check": {
+        "method": "manual",
+        "notes": "For long books with per-chapter Notes/References."
+      },
+      "action": "Info",
+      "relevance": "production"
+    },
+    {
+      "id": "REF-12_5-003",
+      "section": "12.5",
+      "section_title": "BIBLIOGRAPHIC INFORMATION",
+      "lines": [
+        1959,
+        1963
+      ],
+      "quote": "FAO (unlike some publishers) applies the same order of elements and formatting of the full bibliographic reference. The basic format for both systems is as follows: Author. Year. Title. Place, Publisher.",
+      "rule": "Every reference follows the element order Author. Year. Title. Place, Publisher.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Parse each entry into author / year / title / place / publisher / URL and check order and full-stop separation. Type-specific templates in 12.8 refine this (REF-12_8-*)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "Markandya, A. 2023. Accounting for the hidden costs of agrifood systems in data-scarce contexts – Background paper for The State of Food and Agriculture 2023. FAO Agricultural Development Economics Working Paper, No. 23-12. Rome, FAO.",
+          "Allison, E. & McBride, R. 2003. Education reform for improved natural resource management: Fisheries and aquaculture in Bangladeshi Universities. Society and Natural Resources, 16(3): 249–263."
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_5-004"
+      ]
+    },
+    {
+      "id": "REF-12_5-004",
+      "section": "12.5",
+      "section_title": "BIBLIOGRAPHIC INFORMATION",
+      "lines": [
+        1962,
+        1962
+      ],
+      "quote": "Author. Year.",
+      "rule": "The year follows the author, set off by full stops, not enclosed in parentheses.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "^[^()\\n]{2,150}?\\(\\s*(?:19|20)\\d{2}[a-z]?\\s*\\)",
+        "notes": "Run per reference entry. Flags APA-style \"Sanders, J. (2008).\" A bracketed \"(forthcoming)\" is correct (REF-12_6-015). False positive possible when a parenthesised year appears early in a title of an entry without author."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Allison, E. & McBride, R. 2003. Education reform for improved natural resource management: Fisheries and aquaculture in Bangladeshi Universities. Society and Natural Resources, 16(3): 249–263.",
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "Sanders, J., Cohen, L. & Bolbol, M. 2010.",
+          "Brandt, S. (forthcoming).",
+          "IMO (International Maritime Organization). n.d. IMO. [Cited 15 February 2017]. https://www.imo.org",
+          "FAO (@FAO). 2024a. “ *Did you know that trees in cities absorb pollutant gases from traffic & industry? *They also filter fine particulates like dust, dirt & smoke, which help shield urban populations from respiratory diseases. WorldCleanAirDay #CleanAirNow #GreenCities.” In: X, 7 September 2024. [Text & video]. [Cited 12 September 2024]. https://x.com/FAO/status/1832380796877074606",
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. (forthcoming). Canadian Fraser River Sockeye Salmon: A Case Study. In: T. Bahri, M. Vasconcellos, D.J. Welch, J. Johnson, R.I. Perry, X. Ma & R. Sharma, eds. Adaptive management of fisheries in response to climate change. FAO Fisheries and Aquaculture Technical Paper, No. 667. Rome, FAO."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5-005",
+      "section": "12.5",
+      "section_title": "BIBLIOGRAPHIC INFORMATION",
+      "lines": [
+        1964,
+        1965
+      ],
+      "quote": "Ideally, references for non-cited sources are formatted in the same way as references for cited sources.",
+      "rule": "Format references to non-cited sources the same way as cited ones.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Apply reference_format checks to Further reading / Additional resources / Bibliography entries too."
+      },
+      "action": "Apply",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5-006",
+      "section": "12.5",
+      "section_title": "BIBLIOGRAPHIC INFORMATION",
+      "lines": [
+        1965,
+        1967
+      ],
+      "quote": "When a publication does not include cited sources in the text but does include a list of referenced material, use the section title Bibliography and list the entries in alphabetical order (not numbered) by author.",
+      "rule": "If no sources are cited in the text, title the list \"Bibliography\" and order it alphabetically by author, unnumbered.",
+      "kind": "mandatory",
+      "scope": [
+        "heading",
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "Detect zero in-text citations with a non-empty list; then check heading and ordering."
+      },
+      "action": "Apply",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5_1-001",
+      "section": "12.5.1",
+      "section_title": "Author–date (References)",
+      "lines": [
+        1971,
+        1973
+      ],
+      "quote": "The list is alphabetical by author’s surname; then by co-authors’ surnames (independent of the number of co-authors); then chronologically in ascending order by publication date (oldest first, e.g. 2019 before 2021).",
+      "rule": "Order References by first author surname, then co-author surnames, then year ascending.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Sort key: (first author surname, co-author surnames in order, year, suffix). Corporate authors sort by abbreviation (REF-12_6-001). Table 12.1 places \"(forthcoming)\" after dated entries of the same authors (Grant 2021 then Grant forthcoming). Note the guide's own Table 12.1 is out of order at l. 2280-2297 (Pingault, Schaller, Ruane)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "FAO. 2019. ...",
+          "FAO. 2020. ...",
+          "WHO. 2020a. ...",
+          "WHO. 2020b. ..."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5_1-002",
+      "section": "12.5.1",
+      "section_title": "Author–date (References)",
+      "lines": [
+        1974,
+        1975
+      ],
+      "quote": "Where there are two or more titles by the same author in the same year, distinguish the sources from each other by using a, b, c, etc. as necessary after the year.",
+      "rule": "Add a, b, c... after the year for several works by the same author(s) in the same year.",
+      "kind": "mandatory",
+      "scope": [
+        "reference",
+        "body"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "Flag identical author string + year without suffix in the list, and in-text citations of such works lacking the letter. \"Same author\" means the same full author string (FAO & WHO 2022 is distinct from FAO 2022). Inconsistency: the social-media sample gives the in-text form \"(FAO [@FAO], 2024)\" for the entry \"FAO (@FAO). 2024a\" (l. 2191, 2206-2207)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "WHO. 2020a. ...",
+          "WHO. 2020b. ...",
+          "(Sanders, 2001, 2004, 2009a, 2009b)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5_1-003",
+      "section": "12.5.1",
+      "section_title": "Author–date (References)",
+      "lines": [
+        1975,
+        1977
+      ],
+      "quote": "The lettering is determined by the order in which the works are first cited in the text, with the first work mentioned being assigned the letter a, e.g. 2008a.",
+      "rule": "Assign the a/b/c letters in order of first citation in the text.",
+      "kind": "mandatory",
+      "scope": [
+        "reference",
+        "body"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "Compare first-occurrence order of 2008a/2008b in body text with the letters assigned."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "2008a"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5_1-004",
+      "section": "12.5.1",
+      "section_title": "Author–date (References)",
+      "lines": [
+        1982,
+        1984
+      ],
+      "quote": "For suggested reading or additional resources, change the title of the section from References to Bibliography and insert the subtitles References (for cited sources) and either Further reading or Additional resources (for non-cited sources).",
+      "rule": "With suggested reading, retitle the section \"Bibliography\" with subtitles \"References\" and \"Further reading\" or \"Additional resources\".",
+      "kind": "mandatory",
+      "scope": [
+        "heading"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Flag headings like \"Suggested reading\", \"Recommended reading\", \"Other sources\" next to References; check parent heading is Bibliography."
+      },
+      "action": "Apply",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5_2-001",
+      "section": "12.5.2",
+      "section_title": "Endnotes (Notes)",
+      "lines": [
+        1986,
+        1987
+      ],
+      "quote": "Under the section title Notes, the list of references is numbered (ordered by the first appearance of a citation in the text).",
+      "rule": "In the endnote system, the Notes list is numbered in order of first citation.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "endnote_keys"
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "1. WHO. 2020. ...",
+          "2. FAO. 2020. ..."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_5_2-002",
+      "section": "12.5.2",
+      "section_title": "Endnotes (Notes)",
+      "lines": [
+        1993,
+        1995
+      ],
+      "quote": "If needed, add a Further reading or Additional resources section immediately after Notes to accommodate sources not cited in the text. This section should not be numbered and should be in alphabetical order by author.",
+      "rule": "Put uncited sources in an unnumbered, alphabetical \"Further reading\" or \"Additional resources\" section right after Notes.",
+      "kind": "mandatory",
+      "scope": [
+        "heading",
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Apply",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-001",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2000,
+        2001
+      ],
+      "quote": "Corporate authors are typically identified by and therefore alphabetized by their abbreviation.",
+      "rule": "Identify and alphabetize corporate authors by their abbreviation.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "\"typically\" - Verify. Corporate author spelled out in full (e.g. \"Food and Agriculture Organization of the United Nations. 2020.\") should be the abbreviation (FAO)."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "ICAO (International Civil Aviation Organization). 2017.",
+          "ICAO. 2020."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-002",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2001,
+        2005
+      ],
+      "quote": "Best practice is to provide your reader access to the full name of the corporate author, whether through a list of abbreviations or in the bibliographic list itself, e.g.: ICAO (International Civil Aviation Organization). 2017. (first use) ICAO. 2020. (second use)",
+      "rule": "Give the full name of a corporate author either in the abbreviations list or at its first entry in the reference list.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "For each abbreviated corporate author: expanded at its first list entry, or present in the list of abbreviations; later entries use the abbreviation alone."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "ICAO (International Civil Aviation Organization). 2017.",
+          "ICAO. 2020.",
+          "IMO (International Maritime Organization). n.d. IMO. [Cited 15 February 2017]. https://www.imo.org"
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "ABB-7"
+      ]
+    },
+    {
+      "id": "REF-12_6-003",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2006,
+        2006
+      ],
+      "quote": "Make manual modifications as necessary to ensure consistency when using Zotero",
+      "rule": "Correct Zotero output manually where needed for consistency.",
+      "kind": "guidance",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "manual"
+      },
+      "action": "Info",
+      "relevance": "reference"
+    },
+    {
+      "id": "REF-12_6-004",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2007,
+        2009
+      ],
+      "quote": "For works with more than ten authors, only the first seven must be listed; the rest may optionally be truncated using et al.",
+      "rule": "In reference entries, et al. may replace authors only beyond the first seven, and only for works with more than ten authors.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "^\\s*(?:[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)*,\\s*(?:[A-Z]\\.(?:-?[A-Z]\\.)*)\\s*,?\\s*){1,6}(?:&\\s*)?et\\.?\\s?al\\b|^\\s*[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:,\\s*(?:[A-Z]\\.)+)?\\s+et\\.?\\s?al\\b",
+        "notes": "Flags et al. after fewer than seven listed authors (e.g. \"Smith, J., Brown, K. et al. 2010.\") and \"Sanders et al. 2011.\" as a list entry. An entry with 7+ named authors then et al. but fewer than 11 authors in reality needs the source (Author). Implicit: works with up to ten authors list all authors (not stated in words)."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. 2021. Canadian Fraser River Sockeye Salmon: A Case Study. This volume, chapter 16.",
+          "Sanders, J., Cohen, L. & Bolbol, M. 2010."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-005",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2010,
+        2011
+      ],
+      "quote": "Use and or the ampersand (&) between the names of the last two authors in each reference, e.g.: Sanders, J., Cohen, L. & Bolbol, M. 2010.",
+      "rule": "In reference entries, join the last two authors with \"and\" or \"&\".",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "^\\s*(?:[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)*,\\s*(?:[A-Z]\\.(?:-?[A-Z]\\.)*),\\s*){1,}[A-Z][A-Za-zÀ-ÿ'’\\-]+(?:\\s+[A-Z][A-Za-zÀ-ÿ'’\\-]+)*,\\s*(?:[A-Z]\\.(?:-?[A-Z]\\.)*)\\s+(?:\\(|(?:19|20)\\d{2}[a-z]?|n\\.d\\.)",
+        "notes": "Flags author lists where the last two names are joined by a comma only (\"Sanders, J., Cohen, L., Bolbol, M. 2010.\"). Contrast in-text rule REF-12_3_1-003 (no &). The guide does not require consistency between \"and\" and \"&\" across entries; all Table 12.1 samples use \"&\"."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Sanders, J., Cohen, L. & Bolbol, M. 2010.",
+          "Allison, E. & McBride, R. 2003. Education reform for improved natural resource management: Fisheries and aquaculture in Bangladeshi Universities. Society and Natural Resources, 16(3): 249–263.",
+          "Giel, T., Bijman, J. & Oorthuizen, J. 2007. Producer organisations and market chains [CD-ROM]. Wageningen, Kingdom of the Netherlands, Agri-Profocus.",
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. 2021. Canadian Fraser River Sockeye Salmon: A Case Study. This volume, chapter 16.",
+          "Ruane, J., Mba, C. & Xia, J., eds. 2022. Proceedings of the Global Conference on Green Development of Seed Industries, 4–5 November 2021. Rome, FAO. https://doi.org/10.4060/cc1220en"
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_3_1-003",
+        "REF-12_6-006"
+      ]
+    },
+    {
+      "id": "REF-12_6-006",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2011,
+        2011
+      ],
+      "quote": "Sanders, J., Cohen, L. & Bolbol, M. 2010.",
+      "rule": "No comma before \"&\"/\"and\" joining the last two authors in a reference entry.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b[A-Z]\\.,\\s*(?:&|and)\\s+[A-Z][a-zà-ÿ]",
+        "notes": "Pattern established by the example at l. 2011 and every multi-author sample in Table 12.1; not stated in words for the list (stated for in-text at l. 1851)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Sanders, J., Cohen, L. & Bolbol, M. 2010.",
+          "Allison, E. & McBride, R. 2003. Education reform for improved natural resource management: Fisheries and aquaculture in Bangladeshi Universities. Society and Natural Resources, 16(3): 249–263.",
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "Schaller, G.B., Jinchu, H., Wenshi, P. & Jing, Z. 1985. The Giant Pandas of Wolong, p. 52. Chicago, Illinois, University of Chicago Press. Reproduced with permission.",
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. (forthcoming). Canadian Fraser River Sockeye Salmon: A Case Study. In: T. Bahri, M. Vasconcellos, D.J. Welch, J. Johnson, R.I. Perry, X. Ma & R. Sharma, eds. Adaptive management of fisheries in response to climate change. FAO Fisheries and Aquaculture Technical Paper, No. 667. Rome, FAO."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-007",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2012,
+        2014
+      ],
+      "quote": "Titles of books, journals, papers, periodicals and websites are italicized, including titles in foreign languages. Titles of articles, presentations and chapters are not italicized, including titles in foreign languages.",
+      "rule": "Italicize titles of books, journals, papers, periodicals and websites; do not italicize titles of articles, presentations and chapters.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Needs formatting runs (DOCX) or markdown emphasis. Classify entry type (journal article: article title roman, journal name italic; book/report: title italic; chapter: chapter title roman, book title italic). Box 12.3 adds: database names may be italic if consistent (REF-12_8_1-017)."
+      },
+      "action": "Apply",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-008",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2015,
+        2016
+      ],
+      "quote": "Titles of FAO information products use sentence case, whereas meetings, official days and years, projects and conferences are given initial capitalization.",
+      "rule": "In references, titles of FAO products are in sentence case; names of meetings, official days/years, projects and conferences take initial capitals.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Agent flags FAO-authored entries whose titles are in title case. Ambiguity: samples show title-case FAO titles (\"Food Outlook – Biannual Report on Global Food Markets\", l. 2171; \"Asia-Pacific Forest Sector Outlook: Innovative forestry...\", l. 2281) and capitals after colons in subtitles (\"The case of\", \"Fisheries and aquaculture\", \"Marketing characteristics\"), which conflict with §5.3/§8 colon rules (l. 929-933, 1378). Non-FAO titles: case not specified."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "Ruane, J., Mba, C. & Xia, J., eds. 2022. Proceedings of the Global Conference on Green Development of Seed Industries, 4–5 November 2021. Rome, FAO. https://doi.org/10.4060/cc1220en"
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "CAP-8"
+      ]
+    },
+    {
+      "id": "REF-12_6-009",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2017,
+        2018
+      ],
+      "quote": "Bold can be used (optionally) for author names only: Munro, G.R. 2010.",
+      "rule": "Bold, if used in references at all, is for author names only.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Needs formatting runs. Flag bold on titles, years or publishers; bold author names are optional and should then be consistent."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Munro, G.R. 2010."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-010",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2019,
+        2020
+      ],
+      "quote": "The city and country of publication come before the publisher, e.g. Montreal, Canada, ICAO.",
+      "rule": "Give the place of publication (city, country) before the publisher.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Flag \"Publisher, City\" order (e.g. \"FAO, Rome.\") and colon-separated \"Rome: FAO\" (the guide uses a comma)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Montreal, Canada, ICAO",
+          "Ankara, FAO",
+          "Arnason, R. 1984. Efficient harvesting of fish stocks: The case of the Icelandic demersal fisheries. Vancouver, Canada, University of British Columbia. PhD dissertation.",
+          "Giel, T., Bijman, J. & Oorthuizen, J. 2007. Producer organisations and market chains [CD-ROM]. Wageningen, Kingdom of the Netherlands, Agri-Profocus."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-011",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2020,
+        2020
+      ],
+      "quote": "When the city is the capital, the country is omitted, e.g. Ankara, FAO.",
+      "rule": "Omit the country when the place of publication is a capital city.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b(?:Rome,\\s*Italy|Paris,\\s*France|London,\\s*(?:UK|United Kingdom|England)|Washington,\\s*(?:DC|D\\.C\\.),\\s*(?:USA|United States)|Ottawa,\\s*(?:Ontario,\\s*)?Canada|Canberra,\\s*Australia|Berlin,\\s*Germany|Madrid,\\s*Spain|Lisbon,\\s*Portugal|Brussels,\\s*Belgium|Vienna,\\s*Austria|Copenhagen,\\s*Denmark|Stockholm,\\s*Sweden|Oslo,\\s*Norway|Helsinki,\\s*Finland|Dublin,\\s*Ireland|Bern,\\s*Switzerland|Tokyo,\\s*Japan|Beijing,\\s*China|New Delhi,\\s*India|Bangkok,\\s*Thailand|Nairobi,\\s*Kenya|Addis Ababa,\\s*Ethiopia|Accra,\\s*Ghana|Cairo,\\s*Egypt|Ankara,\\s*(?:Turkey|Türkiye)|Mexico City,\\s*Mexico|Bras[ií]lia,\\s*Brazil|Buenos Aires,\\s*Argentina|Santiago,\\s*Chile|Lima,\\s*Peru|Bogot[aá],\\s*Colombia|Manila,\\s*(?:the\\s+)?Philippines|Jakarta,\\s*Indonesia|Hanoi,\\s*Viet\\s?Nam|Dhaka,\\s*Bangladesh|Islamabad,\\s*Pakistan|Kathmandu,\\s*Nepal|Wellington,\\s*New Zealand|Kampala,\\s*Uganda|Dakar,\\s*Senegal|Rabat,\\s*Morocco|Tunis,\\s*Tunisia|Harare,\\s*Zimbabwe|Lusaka,\\s*Zambia|Abuja,\\s*Nigeria|Kigali,\\s*Rwanda|Dodoma,\\s*(?:Tanzania|United Republic of Tanzania))\\b",
+        "notes": "Seed list of capital + country pairs; extend as needed. Washington, DC is kept as is (l. 2023-2024) but takes no country. Cities that are not capitals keep the country (Montreal, Canada; Wageningen, Kingdom of the Netherlands; New York, USA)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Ankara, FAO",
+          "Montreal, Canada, ICAO",
+          "World Bank. 2019. Understanding poverty. In: The World Bank. Washington, DC. [Cited 3 April 2019]. https://www.worldbank.org/en/topic/poverty/overviewl",
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "Glanz, J. & Armendariz, A. 2017. Years of ethics charges, but star cancer researcher gets a pass. The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021]. https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html",
+          "Baltzer, K. & Hansen, H. 2011. Agricultural input subsidies in sub-Saharan Africa. Evaluation study. Copenhagen, DANIDA. https://web-archive.oecd.org/derec/denmark/49231998.pdf. Internal document."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-012",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2021,
+        2022
+      ],
+      "quote": "The United States of America and the United Kingdom of Great Britain and Northern Ireland may be abbreviated to USA and UK in references.",
+      "rule": "USA and UK may be used for these countries in references.",
+      "kind": "guidance",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "manual",
+        "notes": "Permission, not a requirement; do not flag the full names. Exception to NOCS short-name rules within references only."
+      },
+      "action": "Info",
+      "examples": {
+        "correct": [
+          "Glanz, J. & Armendariz, A. 2017. Years of ethics charges, but star cancer researcher gets a pass. The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021]. https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html",
+          "UN Geospatial. 2020a. BNDA_CTY [Shapefile]. New York, USA, UN."
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "NAM-6_3"
+      ]
+    },
+    {
+      "id": "REF-12_6-013",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2022,
+        2024
+      ],
+      "quote": "Omit other geographical or administrative details, such as county, state, province and district with the exception of Washington, DC.",
+      "rule": "Omit state, province, county or district from the place of publication (except Washington, DC).",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": ",\\s*(?:Alabama|Alaska|Arizona|Arkansas|California|Colorado|Connecticut|Delaware|Florida|Georgia|Hawaii|Idaho|Illinois|Indiana|Iowa|Kansas|Kentucky|Louisiana|Maine|Maryland|Massachusetts|Michigan|Minnesota|Mississippi|Missouri|Montana|Nebraska|Nevada|New Hampshire|New Jersey|New Mexico|New York|North Carolina|North Dakota|Ohio|Oklahoma|Oregon|Pennsylvania|Rhode Island|South Carolina|South Dakota|Tennessee|Texas|Utah|Vermont|Virginia|Washington|West Virginia|Wisconsin|Wyoming|A[LKZR]|C[AOT]|DE|FL|GA|HI|I[DLNA]|K[SY]|LA|M[EDAINSOT]|N[EVHJMYCD]|O[HKR]|PA|RI|S[CD]|T[NX]|UT|V[TA]|W[AVIY]|Ontario|Quebec|Québec|British Columbia|Alberta|Manitoba|Saskatchewan|Nova Scotia|New Brunswick|New South Wales|Victoria|Queensland|Tasmania|Western Australia|South Australia)\\s*,\\s*(?:USA|United States(?: of America)?|Canada|Australia)\\b",
+        "notes": "Flags US states, Canadian provinces and Australian states between city and country. Contradiction: Table 12.1 sample \"Chicago, Illinois, University of Chicago Press\" (l. 2288) keeps the state and omits the country."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Washington, DC",
+          "Montreal, Canada, ICAO",
+          "Glanz, J. & Armendariz, A. 2017. Years of ethics charges, but star cancer researcher gets a pass. The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021]. https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html",
+          "UN Geospatial. 2020b. Map of the World. In: United Nations. New York, USA, UN. [Cited 25 November 2021]. https://www.un.org/geospatial/content/map-world-1"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-014",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2025,
+        2027
+      ],
+      "quote": "If multiple locations are provided, format as location per publisher (e.g. Rome, FAO & Quebec City, Canada, CINE).",
+      "rule": "With several publishers in different places, give each place before its publisher; with one place, list the publishers after it.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Rome, FAO & Quebec City, Canada, CINE",
+          "Cairo, FAO, CIRAD & CIHEAM",
+          "Bogor, Indonesia, CIFOR & Rome, FAO."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-015",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2028,
+        2032
+      ],
+      "quote": "Information products that have not yet been published at the time of writing should be cited as forthcoming. Thus: (Brandt, forthcoming) (in-text citation) Brandt, S. (forthcoming).",
+      "rule": "Cite unpublished works as \"forthcoming\": \"(Brandt, forthcoming)\" in text and \"Brandt, S. (forthcoming).\" in the list.",
+      "kind": "mandatory",
+      "scope": [
+        "body",
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b[Ii]n\\s+[Pp]ress\\b|\\b[Ff]orthcoming\\b[,.]?\\s*\\(?(?:19|20)\\d{2}[a-z]?|(?:19|20)\\d{2}[a-z]?\\s*,?\\s*\\(?[Ff]orthcoming\\b|^[^()\\n]*?[A-Z]\\.\\s+[Ff]orthcoming\\b",
+        "notes": "Flags \"in press\", a year combined with forthcoming, and an unbracketed \"forthcoming\" after the author in a list entry. Do not run on titles containing the word forthcoming."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "(Brandt, forthcoming)",
+          "Brandt, S. (forthcoming).",
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. (forthcoming). Canadian Fraser River Sockeye Salmon: A Case Study. In: T. Bahri, M. Vasconcellos, D.J. Welch, J. Johnson, R.I. Perry, X. Ma & R. Sharma, eds. Adaptive management of fisheries in response to climate change. FAO Fisheries and Aquaculture Technical Paper, No. 667. Rome, FAO."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-016",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2033,
+        2033
+      ],
+      "quote": "When possible, provide the DOI as a URL access point.",
+      "rule": "Give the DOI as a URL (https://doi.org/...), not as \"doi:\" or a bare number.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b(?:doi|DOI)\\s*:\\s*10\\.\\d{4,9}/|(?<![/\\w.])10\\.\\d{4,9}/[^\\s\\]]+",
+        "notes": "Flags \"doi: 10.xxxx/...\" and bare DOIs. Whether a DOI exists for a source is an agent/author check (REF-12_6-017)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "FAO & WHO. 2022. CODEX – A year in transition. Codex Alimentarius Magazine, 2022. Codex Alimentarius Commission. Rome. https://doi.org/10.4060/cc3141en",
+          "Ruane, J., Mba, C. & Xia, J., eds. 2022. Proceedings of the Global Conference on Green Development of Seed Industries, 4–5 November 2021. Rome, FAO. https://doi.org/10.4060/cc1220en"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-017",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2033,
+        2037
+      ],
+      "quote": "If there is no DOI, provide the link to the preview page (for the FAO Knowledge Repository, this will be the handle URL, e.g. https://openknowledge.fao.org/handle/20.500.14283/cc7724en). If there is no DOI and no preview page, provide a shortened or full URL that points directly to the source of the material.",
+      "rule": "Without a DOI, link to the preview page (FAO: handle URL); failing that, link directly to the source.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Agent flags FAO entries linking to direct PDF URLs (e.g. www.fao.org/3/...pdf) where a handle URL or DOI exists; requires lookup."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "https://openknowledge.fao.org/handle/20.500.14283/cc7724en",
+          "FAO. 2021a. Assessing climate change vulnerability in Dieppe Bay's fisheries using value chain analysis [poster]. Rome. https://openknowledge.fao.org/handle/20.500.14283/cb6528en"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-018",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2037,
+        2038
+      ],
+      "quote": "URLs may optionally be underlined and should not have angled brackets <",
+      "rule": "Do not enclose URLs in angle brackets (underlining is optional).",
+      "kind": "mandatory",
+      "scope": [
+        "reference",
+        "body",
+        "footnote"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "<\\s*(?:https?://|www\\.)[^>\\s]*\\s*>",
+        "notes": "Markdown autolinks <https://...> in labelled markdown exports are a conversion form; check source DOCX before flagging."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "IMO (International Maritime Organization). n.d. IMO. [Cited 15 February 2017]. https://www.imo.org"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-019",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2038,
+        2038
+      ],
+      "quote": "Include the full address as it is copied from the browser, including http:// or https://.",
+      "rule": "Give URLs in full including the http:// or https:// prefix.",
+      "kind": "mandatory",
+      "scope": [
+        "reference",
+        "body",
+        "footnote"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "(?<![/\\w.@-])www\\.[A-Za-z0-9-]+\\.[A-Za-z]",
+        "notes": "Flags URLs starting with \"www.\" without protocol. Contradiction: the guide's own examples omit the protocol at l. 2054 (www.worldbank.org/...) and l. 2213 (www.fao.org/fishery/...), while the Table 12.1 version of the World Bank entry has https:// (l. 2317)."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "World Bank. 2019. Understanding poverty. In: The World Bank. Washington, DC. [Cited 3 April 2019]. https://www.worldbank.org/en/topic/poverty/overviewl",
+          "IMO (International Maritime Organization). n.d. IMO. [Cited 15 February 2017]. https://www.imo.org",
+          "Glanz, J. & Armendariz, A. 2017. Years of ethics charges, but star cancer researcher gets a pass. The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021]. https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-020",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2039,
+        2040
+      ],
+      "quote": "In the bibliographic list, use either the full titles of the journals or their abbreviated titles in all entries (be consistent).",
+      "rule": "Use either full or abbreviated journal titles throughout the list, consistently.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Detect abbreviated journal titles (several tokens ending in \".\" such as \"J. Agric. Econ.\") and flag mixtures of full and abbreviated forms."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-021",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2040,
+        2041
+      ],
+      "quote": "Abbreviated titles should use the standard abbreviation for the journals.",
+      "rule": "Abbreviated journal titles must use the standard abbreviation.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Needs an external journal-abbreviation list (the guide points to sector lists online)."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-022",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2044,
+        2045
+      ],
+      "quote": "References (author–date) may be broken into subsections if helpful to the reader, especially in the case of complex, heavily cited documents.",
+      "rule": "References may be divided into subsections in complex, heavily cited documents.",
+      "kind": "guidance",
+      "scope": [
+        "reference",
+        "heading"
+      ],
+      "check": {
+        "method": "manual"
+      },
+      "action": "Info",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-023",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2048,
+        2049
+      ],
+      "quote": "Notes (endnote system) may include a subtitle such as Annexes or Appendices if endnotes are restarted for end matter.",
+      "rule": "If endnote numbering restarts for end matter, Notes may carry a subtitle such as Annexes or Appendices.",
+      "kind": "guidance",
+      "scope": [
+        "reference",
+        "heading"
+      ],
+      "check": {
+        "method": "manual"
+      },
+      "action": "Info",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-024",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2050,
+        2051
+      ],
+      "quote": "When referencing a web page that is contained within a website, indicate the name of the website after the title of the cited piece starting with In:",
+      "rule": "For a web page within a website, give \"In: Website name\" after the page title.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Flag web-page entries (URL + [Cited]) lacking \"In:\" between title and place/date; also \"In\" without colon or \"Available from:\"."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "World Bank. 2019. Understanding poverty. In: The World Bank. Washington, DC. [Cited 3 April 2019]. www.worldbank.org/en/topic/poverty/overview",
+          "UN Geospatial. 2020b. Map of the World. In: United Nations. New York, USA, UN. [Cited 25 November 2021]. https://www.un.org/geospatial/content/map-world-1"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-025",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2055,
+        2055
+      ],
+      "quote": "Insert the date the source was accessed inside square brackets before the URL.",
+      "rule": "Online references give the access date in square brackets before the URL.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Flag entries with a non-static URL (not DOI, not .pdf) but no [Cited ...] / [Accessed on ...]. Samples with handle URLs and no cited date (FAO 2021a, l. 2159-2162) suggest repository handle pages count as static; Verify."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "FAO. 2023b. FAO in Emergencies - Rein Paulsen, Director of FAO's Office of Emergencies and Resilience [video]. [Cited 4 May 2023]. https://www.youtube.com/watch?v=neUjNfi8gHY",
+          "Glanz, J. & Armendariz, A. 2017. Years of ethics charges, but star cancer researcher gets a pass. The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021]. https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html",
+          "UN Geospatial. 2020b. Map of the World. In: United Nations. New York, USA, UN. [Cited 25 November 2021]. https://www.un.org/geospatial/content/map-world-1"
+        ]
+      },
+      "exceptions": [
+        {
+          "quote": "For static (non-changing) sources such as PDFs and DOIs, omitting a cited date is permitted.",
+          "lines": [
+            2057,
+            2058
+          ],
+          "note": "PDF and DOI links may omit the cited date."
+        }
+      ],
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-026",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2055,
+        2056
+      ],
+      "quote": "Insert the date the source was accessed inside square brackets before the URL. Use this format: [Cited 24 June 2023].",
+      "rule": "Write the access date as \"[Cited D Month YYYY]\" in square brackets, not round brackets or other wording.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\((?:[Cc]ited|[Aa]ccessed|[Rr]etrieved|[Vv]iewed|[Cc]onsulted)\\b[^)]*\\)|\\b[Rr]etrieved\\s+from\\b|\\b(?:[Rr]etrieved|[Vv]iewed|[Cc]onsulted)\\s+(?:on\\s+)?(?:\\d|January|February|March|April|May|June|July|August|September|October|November|December)|\\[(?:cited|accessed|Cited on|Last accessed|Retrieved|Viewed|Consulted)\\b|\\b(?:[Aa]ccessed|[Cc]ited)\\s*:\\s*\\d|\\b[Aa]ccessed\\s+(?:on\\s+)?\\d{1,2}\\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\\s+\\d{4}(?!\\])",
+        "notes": "Flags round brackets, \"Retrieved from\", \"Retrieved/Viewed/Consulted\", lower-case or \"Cited on\" inside brackets, \"Accessed:\" and unbracketed access dates. Databases/datasets use \"[Accessed on ...]\" instead (REF-12_8_1-015)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "[Cited 24 June 2023]",
+          "FAO. 2023b. FAO in Emergencies - Rein Paulsen, Director of FAO's Office of Emergencies and Resilience [video]. [Cited 4 May 2023]. https://www.youtube.com/watch?v=neUjNfi8gHY",
+          "UN Geospatial. 2020b. Map of the World. In: United Nations. New York, USA, UN. [Cited 25 November 2021]. https://www.un.org/geospatial/content/map-world-1",
+          "FAO. 2021b. FAOSTAT: Crops. [Accessed on 1 March 2021]. https://www.fao.org/faostat/en/#data/QC. Licence: CC-BY-4.0.",
+          "IMO (International Maritime Organization). n.d. IMO. [Cited 15 February 2017]. https://www.imo.org"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-027",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2055,
+        2056
+      ],
+      "quote": "Use this format: [Cited 24 June 2023].",
+      "rule": "The access date is day (no leading zero needed), month name in full, four-digit year.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\[(?:Cited|Accessed on)\\s+(?!\\d{1,2} (?:January|February|March|April|May|June|July|August|September|October|November|December) \\d{4}\\])[^\\]]*\\]",
+        "notes": "Flags \"[Cited 2023-06-24]\", \"[Cited June 24, 2023]\", \"[Cited 24 Jun 2023]\". Template at l. 2112 shows \"DD Month YYYY\" but all samples use no leading zero (e.g. \"1 March 2021\"), so 1-2 digits are accepted."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "[Cited 24 June 2023]",
+          "Glanz, J. & Armendariz, A. 2017. Years of ethics charges, but star cancer researcher gets a pass. The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021]. https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html",
+          "FAO. 2021b. FAOSTAT: Crops. [Accessed on 1 March 2021]. https://www.fao.org/faostat/en/#data/QC. Licence: CC-BY-4.0.",
+          "IMO (International Maritime Organization). n.d. IMO. [Cited 15 February 2017]. https://www.imo.org"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-028",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2055,
+        2055
+      ],
+      "quote": "inside square brackets before the URL.",
+      "rule": "The bracketed access date precedes the URL, not follows it.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "(?:https?://|www\\.)\\S+\\s*\\.?\\s*\\[(?:[Cc]ited|[Aa]ccessed)",
+        "notes": "Flags \"... https://example.org [Cited 1 May 2020]\". The database template (l. 2115) also places [Accessed on ...] before the URL."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "UN Geospatial. 2020b. Map of the World. In: United Nations. New York, USA, UN. [Cited 25 November 2021]. https://www.un.org/geospatial/content/map-world-1",
+          "FAO. 2021b. FAOSTAT: Crops. [Accessed on 1 March 2021]. https://www.fao.org/faostat/en/#data/QC. Licence: CC-BY-4.0.",
+          "Glanz, J. & Armendariz, A. 2017. Years of ethics charges, but star cancer researcher gets a pass. The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021]. https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-029",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS (Box 12.1 Best practices for non-English sources)",
+      "lines": [
+        2061,
+        2063
+      ],
+      "quote": "When the language of the publication and the language of a source are not the same, updating the source to a corresponding full version in the language of the publication is the best possible solution.",
+      "rule": "Where a source exists in full in the publication language, cite that version.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-030",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS (Box 12.1 Best practices for non-English sources)",
+      "lines": [
+        2064,
+        2065
+      ],
+      "quote": "If only a translated summary is available, cite the full original source and add the title of the summary (in parentheses) following the title.",
+      "rule": "If only a translated summary exists, cite the original and add the summary title in parentheses after the title.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-031",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS (Box 12.1 Best practices for non-English sources)",
+      "lines": [
+        2066,
+        2068
+      ],
+      "quote": "If no official translation exists, provide a translated title [in square brackets] following the original language title",
+      "rule": "For non-English titles without an official translation, add a translated title in square brackets after the original title.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Agent/language detection: a non-English title not followed by a bracketed English title. The translation itself may need the author."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Sổ tay hỏi đáp về thực hành tốt và an toàn sinh học trong chăn nuôi vịt, ngan (vịt xiêm) bố mẹ quy mô vừa và nhỏ [Questions and answers handbook for good management practices and biosecurity in small- and medium-scale parent ducks/Muscovy ducks farming]."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_6-032",
+      "section": "12.6",
+      "section_title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS (Box 12.1 Best practices for non-English sources)",
+      "lines": [
+        2071,
+        2073
+      ],
+      "quote": "When translating an information product, regardless of the language of the source, put all words that are not copied directly from the work, such as forthcoming, Cited and eds. into the language of the translated publication.",
+      "rule": "In translated products, render reference words not copied from the work (forthcoming, Cited, eds.) in the target language.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Only relevant when the manuscript is a translation into another language; not applicable to English originals."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8-001",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2104,
+        2106
+      ],
+      "quote": "Online publication Author. Year of publication. Publication title. Series title, Series number. Place of publication, Publisher. URL",
+      "rule": "Online publications: Author. Year. Title. Series title, Series number. Place, Publisher. URL",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Ruane, J., Mba, C. & Xia, J., eds. 2022. Proceedings of the Global Conference on Green Development of Seed Industries, 4–5 November 2021. Rome, FAO. https://doi.org/10.4060/cc1220en",
+          "FAO & WHO. 2022. CODEX – A year in transition. Codex Alimentarius Magazine, 2022. Codex Alimentarius Commission. Rome. https://doi.org/10.4060/cc3141en",
+          "Baltzer, K. & Hansen, H. 2011. Agricultural input subsidies in sub-Saharan Africa. Evaluation study. Copenhagen, DANIDA. https://web-archive.oecd.org/derec/denmark/49231998.pdf. Internal document."
+        ]
+      },
+      "exceptions": [
+        {
+          "quote": "Note that some items are not required if not applicable, e.g. the author or place of publication for a web page, or the agency that adopted a legal instrument.",
+          "lines": [
+            2101,
+            2103
+          ],
+          "note": "Elements may be dropped when not applicable."
+        }
+      ],
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8-002",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2107,
+        2109
+      ],
+      "quote": "Print publication Author. Year of publication. Publication title. Series title, Series number. Place of publication, Publisher.",
+      "rule": "Print publications: Author. Year. Title. Series title, Series number. Place, Publisher.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "Markandya, A. 2023. Accounting for the hidden costs of agrifood systems in data-scarce contexts – Background paper for The State of Food and Agriculture 2023. FAO Agricultural Development Economics Working Paper, No. 23-12. Rome, FAO.",
+          "IPPC Secretariat. 2017. Recognition of pest free areas and areas of low pest prevalence. International Standard for Phytosanitary Measures, No. 29. Rome, FAO on behalf of the Secretariat of the International Plant Protection Convention. Adopted 2007."
+        ]
+      },
+      "exceptions": [
+        {
+          "quote": "Note that some items are not required if not applicable, e.g. the author or place of publication for a web page, or the agency that adopted a legal instrument.",
+          "lines": [
+            2101,
+            2103
+          ],
+          "note": "Elements may be dropped when not applicable."
+        }
+      ],
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8-003",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2110,
+        2112
+      ],
+      "quote": "Website or webpage Author. Year of publication, or n.d. if not known. Web page title. Text by Surname, Initials. In: Website identity. [Cited DD Month YYYY]. URL",
+      "rule": "Web pages: Author. Year (or n.d.). Page title. Text by Surname, Initials. In: Website. [Cited D Month YYYY]. URL",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "IMO (International Maritime Organization). n.d. IMO. [Cited 15 February 2017]. https://www.imo.org",
+          "UN Geospatial. 2020b. Map of the World. In: United Nations. New York, USA, UN. [Cited 25 November 2021]. https://www.un.org/geospatial/content/map-world-1",
+          "World Bank. 2019. Understanding poverty. In: The World Bank. Washington, DC. [Cited 3 April 2019]. www.worldbank.org/en/topic/poverty/overview"
+        ]
+      },
+      "exceptions": [
+        {
+          "quote": "Note that some items are not required if not applicable, e.g. the author or place of publication for a web page, or the agency that adopted a legal instrument.",
+          "lines": [
+            2101,
+            2103
+          ],
+          "note": "Elements may be dropped when not applicable."
+        }
+      ],
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_6-024",
+        "REF-12_6-026"
+      ]
+    },
+    {
+      "id": "REF-12_8-004",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2111,
+        2111
+      ],
+      "quote": "Year of publication, or n.d. if not known.",
+      "rule": "Write \"n.d.\" in the year position when the date is unknown.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b[Nn]o\\s+date\\b|\\b[Uu]ndated\\b|\\(\\s*n\\.\\s?d\\.?\\s*\\)|\\bn\\.\\s?d(?![.\\w])|\\bN\\.\\s?D\\.|\\bs\\.\\s?d\\.(?=\\s)",
+        "notes": "Flags \"no date\", \"undated\", \"(n.d.)\", \"n.d\" without final stop, \"N.D.\", \"s.d.\". In-text form for undated works is not specified in §12 (Verify \"(IMO, n.d.)\")."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "IMO (International Maritime Organization). n.d. IMO. [Cited 15 February 2017]. https://www.imo.org"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8-005",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2113,
+        2115
+      ],
+      "quote": "Database Author. Year of last update. Name of database: Name of dataset OR Name of database. [Accessed on DD Month YYYY]. URL. Licence: CC Licence.",
+      "rule": "Databases: Author. Year of last update. Database: Dataset (or Database). [Accessed on D Month YYYY]. URL. Licence: ...",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "FAO. 2021b. FAOSTAT: Crops. [Accessed on 1 March 2021]. https://www.fao.org/faostat/en/#data/QC. Licence: CC-BY-4.0.",
+          "FAO. 2022. FAOSTAT: Crops and livestock products. [Accessed on 3 March 2021]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+          "FAO. 2020. RuLIS. [Accessed on 27 February 2024]. https://www.fao.org/in-action/rural-livelihoods-dataset-rulis/data-application/data/by-indicator/en. Licence: CC-BY-4.0.",
+          "FAO. 2020. Global Forest Resources Assessment (FRA). [Accessed on 19 February 2024]. https://fra-data.fao.org/assessments/fra/2020. Licence: CC-BY-4.0."
+        ]
+      },
+      "exceptions": [
+        {
+          "quote": "Note that some items are not required if not applicable, e.g. the author or place of publication for a web page, or the agency that adopted a legal instrument.",
+          "lines": [
+            2101,
+            2103
+          ],
+          "note": "Elements may be dropped when not applicable."
+        }
+      ],
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12_8_1-015"
+      ]
+    },
+    {
+      "id": "REF-12_8-006",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2116,
+        2117
+      ],
+      "quote": "Legal case Name v. Name. Court name, date. Codes.",
+      "rule": "Legal cases: Name v. Name. Court, date. Codes.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Ashgar Leghari v. Federation of Pakistan. Lahore High Court, September 2015. W.P. No. 25501/2015."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8-007",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2117,
+        2117
+      ],
+      "quote": "Name v. Name.",
+      "rule": "Use \"v.\" between party names in legal cases.",
+      "kind": "mandatory",
+      "scope": [
+        "reference",
+        "body"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b[A-Z][\\w.\\'’-]*\\s+(?:vs\\.?|V\\.|v(?=\\s))\\s+[A-Z]",
+        "notes": "Flags \"vs\", \"vs.\", \"V.\" and \"v\" without stop between capitalised names. False positives: \"A vs B\" comparisons with capitalised words outside legal context."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Ashgar Leghari v. Federation of Pakistan. Lahore High Court, September 2015. W.P. No. 25501/2015.",
+          "State of the Netherlands v. Urgenda Foundation."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8-008",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2118,
+        2119
+      ],
+      "quote": "International instrument (international or regional, binding or non-binding) Name (Alternative name or abbreviation). Agency, Place, date. Codes.",
+      "rule": "International instruments: Name (Alternative name or abbreviation). Agency, Place, date. Codes.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "African Charter on Human and Peoples’ Rights. Nairobi, 27 June 1981. CAB/LEG/67/3 rev. 5 Also available at: https://faolex.fao.org/docs/pdf/mul-209984.pdf",
+          "Treaty establishing the European Economic Community (Treaty of Rome). Rome, 25 March 1957.",
+          "Transforming Our World: The 2030 Agenda for Sustainable Development. United Nations General Assembly, 25 September 2015. UNGA A/RES/70/1.",
+          "United Nations Declaration on the Rights of Indigenous Peoples (UNDRIP). United Nations General Assembly, 13 September 2007. UNGA A/RES/61/295."
+        ]
+      },
+      "exceptions": [
+        {
+          "quote": "Note that some items are not required if not applicable, e.g. the author or place of publication for a web page, or the agency that adopted a legal instrument.",
+          "lines": [
+            2101,
+            2103
+          ],
+          "note": "Elements may be dropped when not applicable."
+        }
+      ],
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8-009",
+      "section": "12.8",
+      "section_title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2120,
+        2122
+      ],
+      "quote": "National and supranational legislation (national, supranational, regional) Country or region, etc. Name of legislation, date. Codes. [OPTIONAL:] Also available at: [URL of database, e.g. FAOLEX URL]",
+      "rule": "National/supranational legislation: Country or region. Name of legislation, date. Codes. (Optionally: Also available at: URL.)",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Kenya. Microfinance Act, 2012. Cap 493D."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-001",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2132,
+        2136
+      ],
+      "quote": "Society and Natural Resources, 16(3): 249–263. Journal article",
+      "rule": "Journal articles: Journal name, volume(issue): pages.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b\\d+\\s*\\(\\s*\\d+[^)]*\\)\\s*(?:,|:(?=\\S))\\s*\\d+|\\b[Vv]ol\\.\\s*\\d+\\s*,\\s*[Nn]o\\.\\s*\\d+|\\b\\d+\\s*\\(\\s*\\d+[^)]*\\)\\s*:\\s*pp?\\.\\s*\\d",
+        "notes": "Pattern established only by the Table 12.1 sample (no rule in words). Flags \"16(3), 249\", \"16(3):249\", \"Vol. 16, No. 3\", \"16(3): pp. 249\". Page-range dash is a §5 check."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Allison, E. & McBride, R. 2003. Education reform for improved natural resource management: Fisheries and aquaculture in Bangladeshi Universities. Society and Natural Resources, 16(3): 249–263."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-002",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2137,
+        2141
+      ],
+      "quote": "Arnason, R. 1984. Efficient harvesting of fish stocks: The case of the Icelandic demersal fisheries. Vancouver, Canada, University of British Columbia. PhD dissertation.",
+      "rule": "Theses: Author. Year. Title. Place, University. Degree type as a closing notation (e.g. PhD dissertation.).",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Pattern established only by the sample. Flag \"[PhD thesis]\" or \"(Doctoral dissertation, ...)\" placed before the place/university."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Arnason, R. 1984. Efficient harvesting of fish stocks: The case of the Icelandic demersal fisheries. Vancouver, Canada, University of British Columbia. PhD dissertation."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-003",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2142,
+        2148
+      ],
+      "quote": "Internal document or paper; online reference that includes a notation",
+      "rule": "Notations (Internal document., Adopted 2007., Reproduced with permission., PhD dissertation.) go at the end of the entry, after the publisher or URL.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Pattern established only by the samples (Baltzer l. 2142-2146; IPPC l. 2257-2261; Schaller l. 2286-2289; Arnason)."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Baltzer, K. & Hansen, H. 2011. Agricultural input subsidies in sub-Saharan Africa. Evaluation study. Copenhagen, DANIDA. https://web-archive.oecd.org/derec/denmark/49231998.pdf. Internal document.",
+          "IPPC Secretariat. 2017. Recognition of pest free areas and areas of low pest prevalence. International Standard for Phytosanitary Measures, No. 29. Rome, FAO on behalf of the Secretariat of the International Plant Protection Convention. Adopted 2007."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-004",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2149,
+        2152
+      ],
+      "quote": "FAO Fisheries Technical Paper, No. 429. Rome, FAO. Series title",
+      "rule": "Series numbers are written \"Series title, No. N\".",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b(?:Paper|Papers|Series|Report|Reports|Studies|Study|Bulletin|Circular|Brief|Note|Notes|Document)\\s+(?:[Nn]o\\.?|N°|Nr\\.?|#)\\s*\\d|,\\s*(?:no\\.|N°|Nr\\.?|#)\\s*\\d",
+        "notes": "Pattern established by the samples (Bartley, Grant forthcoming, IPPC, Markandya) and the template \"Series title, Series number\" (l. 2105). Flags missing comma before No. and \"no.\"/\"N°\"/\"#\" forms."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "IPPC Secretariat. 2017. Recognition of pest free areas and areas of low pest prevalence. International Standard for Phytosanitary Measures, No. 29. Rome, FAO on behalf of the Secretariat of the International Plant Protection Convention. Adopted 2007.",
+          "Markandya, A. 2023. Accounting for the hidden costs of agrifood systems in data-scarce contexts – Background paper for The State of Food and Agriculture 2023. FAO Agricultural Development Economics Working Paper, No. 23-12. Rome, FAO.",
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. (forthcoming). Canadian Fraser River Sockeye Salmon: A Case Study. In: T. Bahri, M. Vasconcellos, D.J. Welch, J. Johnson, R.I. Perry, X. Ma & R. Sharma, eds. Adaptive management of fisheries in response to climate change. FAO Fisheries and Aquaculture Technical Paper, No. 667. Rome, FAO."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-005",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2149,
+        2149
+      ],
+      "quote": "Bartley, D.M. & Leber, K.M., eds. 2004.",
+      "rule": "Editors are marked \", eds.\" (or \", ed.\") after the names, before the year, without parentheses.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\(\\s*(?:[Ee]ds?|[Ee]ditors?|[Hh]rsg|[Cc]oords?)\\.?\\s*\\)|,\\s*Eds?\\.\\s",
+        "notes": "Pattern established only by samples (Bartley, Pingault, Ruane, Grant \"In: ..., eds.\"). Flags \"(eds.)\", \"(Ed.)\", \"(editors)\", \", Eds.\"."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "Ruane, J., Mba, C. & Xia, J., eds. 2022. Proceedings of the Global Conference on Green Development of Seed Industries, 4–5 November 2021. Rome, FAO. https://doi.org/10.4060/cc1220en",
+          "Pingault, N., Roshetko, J.M. & Meybeck, A., eds. - Asia-Pacific Forest Sector Outlook: Innovative forestry for a sustainable future – Youth contributions from Asia and the Pacific. Bogor, Indonesia, CIFOR & Rome, FAO."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-006",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2149,
+        2149
+      ],
+      "quote": "Bartley, D.M. & Leber, K.M.",
+      "rule": "Author names are \"Surname, Initials.\" with unspaced initials (D.M.).",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\b[A-Z]\\.\\s[A-Z]\\.(?=\\s*[,&]|\\s+(?:and\\b|(?:19|20)\\d{2}[a-z]?|\\(|n\\.d\\.))",
+        "notes": "Pattern established by l. 2011, 2017 and the samples (D.M., K.M., J.M., G.B., D.X., R.I.); not stated in words. Exception in the guide's own samples: \"Johnson, Kwame\" (l. 2263). Flags \"Bartley, D. M. & ...\"."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "Bartley, D.M. & Leber, K.M., eds. 2004. Marine ranching. FAO Fisheries Technical Paper, No. 429. Rome, FAO.",
+          "Pingault, N., Roshetko, J.M. & Meybeck, A., eds. - Asia-Pacific Forest Sector Outlook: Innovative forestry for a sustainable future – Youth contributions from Asia and the Pacific. Bogor, Indonesia, CIFOR & Rome, FAO.",
+          "Schaller, G.B., Jinchu, H., Wenshi, P. & Jing, Z. 1985. The Giant Pandas of Wolong, p. 52. Chicago, Illinois, University of Chicago Press. Reproduced with permission.",
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. (forthcoming). Canadian Fraser River Sockeye Salmon: A Case Study. In: T. Bahri, M. Vasconcellos, D.J. Welch, J. Johnson, R.I. Perry, X. Ma & R. Sharma, eds. Adaptive management of fisheries in response to climate change. FAO Fisheries and Aquaculture Technical Paper, No. 667. Rome, FAO.",
+          "Munro, G.R. 2010."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-007",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2153,
+        2158
+      ],
+      "quote": "Electronic livestock identification system. United States of America. No. 4 262 632, filed 25 April 1974, and issued 21 April 1981.",
+      "rule": "Patents: Title. Country. Patent number, filing and issue dates. URL.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Pattern established only by the sample."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Electronic livestock identification system. United States of America. No. 4 262 632, filed 25 April 1974, and issued 21 April 1981. https://patentimages.storage.googleapis.com/6c/49/f1/e746f5f7bca33e/US4262632.pdf"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-008",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2199,
+        2201
+      ],
+      "quote": "Social media post (cite in text only, unless it is important to provide a link;",
+      "rule": "Cite social media posts in the text only, unless a link is important.",
+      "kind": "preference",
+      "scope": [
+        "body",
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Rule stated only in the Table 12.1 comment column."
+      },
+      "action": "Verify",
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12-008"
+      ]
+    },
+    {
+      "id": "REF-12_8_1-009",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2201,
+        2204
+      ],
+      "quote": "if including a full citation, quote as much of the content as possible up to 160 characters,",
+      "rule": "In a full social media reference, quote the post content up to 160 characters.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Measure the quoted post text in social-media entries (handle \"(@...)\" + \"In: X/Facebook/...\"); flag >160 characters. Stated only in the Table 12.1 comment column."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-010",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2204,
+        2205
+      ],
+      "quote": "but do not duplicate content quoted in the main text",
+      "rule": "Do not repeat in the social media reference content already quoted in the main text.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "citation_crossref",
+        "notes": "Compare quoted strings in body with the post text in the entry. Stated only in the Table 12.1 comment column."
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-011",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2205,
+        2207
+      ],
+      "quote": "in-text citation for full reference in this case is (FAO [@FAO], 2024)",
+      "rule": "In-text citation of a social media post: (Author [@handle], year).",
+      "kind": "mandatory",
+      "scope": [
+        "body"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\((?:@\\w+|[A-Z][\\w&.\\s]*?\\s*\\(\\s*@\\w+\\s*\\)|[A-Z][\\w&.\\s]*?\\s+@\\w+)\\s*,\\s*(?:19|20)\\d{2}[a-z]?",
+        "notes": "Flags \"(@FAO, 2024)\", \"(FAO (@FAO), 2024)\" and \"(FAO @FAO, 2024)\". Reference list uses round brackets \"FAO (@FAO). 2024a.\" (l. 2191). Inconsistency: the in-text example omits the \"a\" suffix of the entry. Stated only in the Table 12.1 comment column."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "(FAO [@FAO], 2024)"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-012",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2208,
+        2210
+      ],
+      "quote": "if the content includes emojis, replace each emoji with an asterisk (*) and an explanatory note",
+      "rule": "Replace emojis in quoted social media content with asterisks and add an explanatory note.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "[🌀-🫿☀-➿🇦-🇿]",
+        "notes": "Flags emoji characters in reference entries. The explanatory note in the sample is \"Asterisks represent emojis.\" (l. 2198). Stated only in the Table 12.1 comment column. Hashtag \"#WorldCleanAirDay\" lost its # in conversion (l. 2195)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "FAO (@FAO). 2024a. “ *Did you know that trees in cities absorb pollutant gases from traffic & industry? *They also filter fine particulates like dust, dirt & smoke, which help shield urban populations from respiratory diseases. WorldCleanAirDay #CleanAirNow #GreenCities.” In: X, 7 September 2024. [Text & video]. [Cited 12 September 2024]. https://x.com/FAO/status/1832380796877074606"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-013",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2263,
+        2265
+      ],
+      "quote": "Johnson, Kwame. Interview by Maria Rogers [personal interview]. Kampala, 1 October 2022. Unpublished interview",
+      "rule": "Unpublished interviews: Interviewee. Interview by Interviewer [personal interview]. Place, date.",
+      "kind": "guidance",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Pattern established only by the sample. Conflicts with l. 1800 (personal communications do not appear in a bibliographic list) and with the Surname, Initials. author form and Author. Year. order; Verify whether interviews are listed."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Johnson, Kwame. Interview by Maria Rogers [personal interview]. Kampala, 1 October 2022."
+        ]
+      },
+      "relevance": "manuscript",
+      "see_also": [
+        "REF-12-006"
+      ]
+    },
+    {
+      "id": "REF-12_8_1-014",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2244,
+        2253
+      ],
+      "quote": "In: T. Bahri, M. Vasconcellos, D.J. Welch, J. Johnson, R.I. Perry, X. Ma & R. Sharma, eds. Adaptive management of fisheries in response to climate change.",
+      "rule": "Chapters in edited works: Chapter authors. Year. Chapter title. In: Initials Surname of editors, eds. Book title. Series. Place, Publisher.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Pattern established only by the sample (editors after \"In:\" with initials before surname; \"eds.\" after them). A chapter citing another chapter of the same volume may close with \"This volume, chapter N.\" (l. 2236-2240)."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. (forthcoming). Canadian Fraser River Sockeye Salmon: A Case Study. In: T. Bahri, M. Vasconcellos, D.J. Welch, J. Johnson, R.I. Perry, X. Ma & R. Sharma, eds. Adaptive management of fisheries in response to climate change. FAO Fisheries and Aquaculture Technical Paper, No. 667. Rome, FAO.",
+          "Grant, S., Nener, J., MacDonald, B., Boldt, J., King, J., Patterson, D., Robinson, K. & Wheeler, S. 2021. Canadian Fraser River Sockeye Salmon: A Case Study. This volume, chapter 16."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-015",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.3 Referencing databases)",
+      "lines": [
+        2357,
+        2357
+      ],
+      "quote": "Use the phrase Accessed on when referring to databases and datasets in references.",
+      "rule": "For databases and datasets, write the access date as \"[Accessed on ...]\", not \"[Cited ...]\".",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\[[Cc]ited[^\\]]*\\].*Licen[cs]e:|Licen[cs]e:.*\\[[Cc]ited|\\[Accessed(?!\\s+on\\b)",
+        "notes": "Box 12.3. Uses \"Licence:\" as the marker of a database/dataset entry; also flags \"[Accessed 3 March 2021]\" without \"on\". Database entries without a licence need the module (REF-12_8-005)."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "FAO. 2021b. FAOSTAT: Crops. [Accessed on 1 March 2021]. https://www.fao.org/faostat/en/#data/QC. Licence: CC-BY-4.0.",
+          "FAO. 2022. FAOSTAT: Crops and livestock products. [Accessed on 3 March 2021]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+          "FAO. 2020. RuLIS. [Accessed on 27 February 2024]. https://www.fao.org/in-action/rural-livelihoods-dataset-rulis/data-application/data/by-indicator/en. Licence: CC-BY-4.0.",
+          "FAO. 2020. Global Forest Resources Assessment (FRA). [Accessed on 19 February 2024]. https://fra-data.fao.org/assessments/fra/2020. Licence: CC-BY-4.0.",
+          "FAO. 2024b. FishStat: Global aquaculture production 1950– - [Accessed on 29 March 2024]. In: FishStatJ. Available at www.fao.org/fishery/en/statistics/software/fishstatj. Licence: CC-BY-4.0."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-016",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.3 Referencing databases)",
+      "lines": [
+        2359,
+        2359
+      ],
+      "quote": "All FAO databases have a CC-BY-4.0 Creative Commons licence.",
+      "rule": "References to FAO databases end with \"Licence: CC-BY-4.0.\"",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "^\\s*FAO\\b(?=.*\\[Accessed on)(?!.*Licence:\\s*CC-BY-4\\.0)",
+        "notes": "Box 12.3. Run per entry: an FAO entry with [Accessed on ...] (database/dataset) lacking \"Licence: CC-BY-4.0\"."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "FAO. 2021b. FAOSTAT: Crops. [Accessed on 1 March 2021]. https://www.fao.org/faostat/en/#data/QC. Licence: CC-BY-4.0.",
+          "FAO. 2022. FAOSTAT: Crops and livestock products. [Accessed on 3 March 2021]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+          "FAO. 2020. RuLIS. [Accessed on 27 February 2024]. https://www.fao.org/in-action/rural-livelihoods-dataset-rulis/data-application/data/by-indicator/en. Licence: CC-BY-4.0.",
+          "FAO. 2020. Global Forest Resources Assessment (FRA). [Accessed on 19 February 2024]. https://fra-data.fao.org/assessments/fra/2020. Licence: CC-BY-4.0."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-017",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.3 Referencing databases)",
+      "lines": [
+        2358,
+        2358
+      ],
+      "quote": "Database names may be italicized, as long as it is applied consistently.",
+      "rule": "Database names may be italic, but consistently.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format"
+      },
+      "action": "Verify",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-018",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.3 Referencing databases)",
+      "lines": [
+        2359,
+        2360
+      ],
+      "quote": "For non-FAO databases, check if they have a licence and if so, include it.",
+      "rule": "Include the licence for non-FAO databases when one exists.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-019",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.3 Referencing databases)",
+      "lines": [
+        2356,
+        2356
+      ],
+      "quote": "Licence: CC Licence.",
+      "rule": "Write the licence as \"Licence: CC-BY-4.0.\" (British \"Licence\", hyphenated code).",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "regex",
+        "pattern": "\\bLicense:|\\bLicen[cs]e:\\s*CC\\s+BY\\b|\\bCC-BY\\s+4\\.0\\b|\\bCC\\s+BY-4\\.0\\b",
+        "notes": "Box 12.3 template; hyphenated \"CC-BY-4.0\" form from all samples. Flags \"License:\", \"CC BY 4.0\", \"CC-BY 4.0\". Other licence strings (e.g. CC BY-NC-SA 3.0 IGO for FAO publications) are not covered by §12; this regex may flag them - Verify."
+      },
+      "action": "Apply",
+      "examples": {
+        "correct": [
+          "FAO. 2021b. FAOSTAT: Crops. [Accessed on 1 March 2021]. https://www.fao.org/faostat/en/#data/QC. Licence: CC-BY-4.0.",
+          "FAO. 2022. FAOSTAT: Crops and livestock products. [Accessed on 3 March 2021]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+          "FAO. 2020. RuLIS. [Accessed on 27 February 2024]. https://www.fao.org/in-action/rural-livelihoods-dataset-rulis/data-application/data/by-indicator/en. Licence: CC-BY-4.0.",
+          "FAO. 2020. Global Forest Resources Assessment (FRA). [Accessed on 19 February 2024]. https://fra-data.fao.org/assessments/fra/2020. Licence: CC-BY-4.0."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-020",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.3 Referencing databases)",
+      "lines": [
+        2361,
+        2361
+      ],
+      "quote": "If only referring to one dataset within a database, cite the dataset, e.g.",
+      "rule": "If only one dataset of a database is used, cite the dataset (\"Database: Dataset\").",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "FAO. 2022. FAOSTAT: Crops and livestock products. [Accessed on 3 March 2021]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-021",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.3 Referencing databases)",
+      "lines": [
+        2364,
+        2369
+      ],
+      "quote": "When a database only has one dataset, cite the database, like RuLIS or AQUASTAT, e.g.",
+      "rule": "Cite the database itself when it has only one dataset, or when several of its datasets are used.",
+      "kind": "mandatory",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "Merges the two \"cite the database\" conditions (l. 2364 and 2368-2369), which have the same outcome."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "FAO. 2020. RuLIS. [Accessed on 27 February 2024]. https://www.fao.org/in-action/rural-livelihoods-dataset-rulis/data-application/data/by-indicator/en. Licence: CC-BY-4.0.",
+          "FAO. 2020. Global Forest Resources Assessment (FRA). [Accessed on 19 February 2024]. https://fra-data.fao.org/assessments/fra/2020. Licence: CC-BY-4.0."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-022",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.2 Legal references)",
+      "lines": [
+        2324,
+        2325
+      ],
+      "quote": "Prefer the author–date system when heavily referencing legal sources, as the references list can accommodate subcategories.",
+      "rule": "Use the author–date system for heavily legal-sourced documents.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent"
+      },
+      "action": "Author",
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-023",
+      "section": "12.8.1",
+      "section_title": "Sample references (Box 12.2 Legal references)",
+      "lines": [
+        2325,
+        2326
+      ],
+      "quote": "It is possible to add Also available at: [URL] to legal sources cited from the original and also located in FAOLEX.",
+      "rule": "Legal sources also in FAOLEX may add \"Also available at: URL\".",
+      "kind": "guidance",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Optional; check the exact wording \"Also available at:\" when used."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "African Charter on Human and Peoples’ Rights. Nairobi, 27 June 1981. CAB/LEG/67/3 rev. 5 Also available at: https://faolex.fao.org/docs/pdf/mul-209984.pdf"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-024",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2217,
+        2223
+      ],
+      "quote": "A publication produced by an Article 14 or statutory body may optionally include the name of the body before the place of publication",
+      "rule": "Products of Article 14 or statutory bodies may name the body before the place of publication.",
+      "kind": "guidance",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "manual"
+      },
+      "action": "Info",
+      "examples": {
+        "correct": [
+          "FAO & WHO. 2022. CODEX – A year in transition. Codex Alimentarius Magazine, 2022. Codex Alimentarius Commission. Rome. https://doi.org/10.4060/cc3141en"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-025",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2271,
+        2279
+      ],
+      "quote": "Background paper that is also part of a series (note that there are standard abbreviations for the flagship titles; in other cases, the entire title of the main publication would be inserted after",
+      "rule": "Background papers name the main publication after \"Background paper for\" (standard abbreviation for flagship titles, otherwise full title).",
+      "kind": "guidance",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "agent",
+        "notes": "The sample itself (l. 2266-2270) uses the full flagship title \"The State of Food and Agriculture 2023\" rather than an abbreviation; abbreviations are not listed in §12. Conversion split \"Background paper for )\" across lines 2277-2279."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Markandya, A. 2023. Accounting for the hidden costs of agrifood systems in data-scarce contexts – Background paper for The State of Food and Agriculture 2023. FAO Agricultural Development Economics Working Paper, No. 23-12. Rome, FAO."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-026",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2299,
+        2304
+      ],
+      "quote": "Conference presentation at Does Poultry Reduce Poverty? A Need for Rethinking the Approaches, 30–31 August 2005. Copenhagen, Network for Smallholder Poultry Development.",
+      "rule": "Conference presentations: Author. Year. Title. Conference presentation at Conference name, dates. Place, Organizer.",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Pattern established only by the sample."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Tung, D.X. 2005. Smallholder poultry production in Vietnam: Marketing characteristics and strategies. Conference presentation at Does Poultry Reduce Poverty? A Need for Rethinking the Approaches, 30–31 August 2005. Copenhagen, Network for Smallholder Poultry Development."
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-027",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2228,
+        2233
+      ],
+      "quote": "The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021].",
+      "rule": "Newspaper articles: Author. Year. Title. Newspaper, date. Place. [Cited date]. URL",
+      "kind": "preference",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Pattern established only by the sample."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "Glanz, J. & Armendariz, A. 2017. Years of ethics charges, but star cancer researcher gets a pass. The New York Times, 8 March 2017. New York, USA. [Cited 1 March 2021]. https://www.nytimes.com/2017/03/08/science/cancer-carlo-croce.html"
+        ]
+      },
+      "relevance": "manuscript"
+    },
+    {
+      "id": "REF-12_8_1-028",
+      "section": "12.8.1",
+      "section_title": "Sample references",
+      "lines": [
+        2211,
+        2216
+      ],
+      "quote": "In: FishStatJ. Available at www.fao.org/fishery/en/statistics/software/fishstatj.",
+      "rule": "Datasets accessed through software: name the software with \"In:\" and give its location with \"Available at\".",
+      "kind": "guidance",
+      "scope": [
+        "reference"
+      ],
+      "check": {
+        "method": "module",
+        "module": "reference_format",
+        "notes": "Pattern established only by the sample; sample lacks https:// (see REF-12_6-019) and its year was lost in conversion (l. 2212 \"- [Accessed on\")."
+      },
+      "action": "Verify",
+      "examples": {
+        "correct": [
+          "FAO. 2024b. FishStat: Global aquaculture production 1950– - [Accessed on 29 March 2024]. In: FishStatJ. Available at www.fao.org/fishery/en/statistics/software/fishstatj. Licence: CC-BY-4.0."
+        ]
+      },
+      "relevance": "manuscript"
+    }
+  ],
+  "sections": [
+    {
+      "section": "12",
+      "title": "REFERENCING AND CREDITING SOURCES",
+      "lines": [
+        1788,
+        1803
+      ],
+      "rule_ids": [
+        "REF-12-001",
+        "REF-12-002",
+        "REF-12-003",
+        "REF-12-004",
+        "REF-12-005",
+        "REF-12-006",
+        "REF-12-007",
+        "REF-12-008"
+      ],
+      "status": "rules",
+      "note": ""
+    },
+    {
+      "section": "12.1",
+      "title": "ARTWORK, PHOTOGRAPHS AND OTHER IMAGES",
+      "lines": [
+        1804,
+        1833
+      ],
+      "rule_ids": [
+        "REF-12_1-001",
+        "REF-12_1-002",
+        "REF-12_1-003",
+        "REF-12_1-004",
+        "REF-12_1-005",
+        "REF-12_1-006",
+        "REF-12_1-007",
+        "REF-12_1-008",
+        "REF-12_1-009",
+        "REF-12_1-010",
+        "REF-12_1-011",
+        "REF-12_1-012",
+        "REF-12_1-013",
+        "REF-12_1-014"
+      ],
+      "status": "rules",
+      "note": "Contains page break comment at l. 1824."
+    },
+    {
+      "section": "12.2",
+      "title": "REFERENCING IN FRONT MATTER (PRELIMINARY PAGES)",
+      "lines": [
+        1834,
+        1840
+      ],
+      "rule_ids": [
+        "REF-12_2-001",
+        "REF-12_2-002",
+        "REF-12_2-003"
+      ],
+      "status": "rules",
+      "note": ""
+    },
+    {
+      "section": "12.3",
+      "title": "REFERENCING IN MAIN TEXT AND END MATTER",
+      "lines": [
+        1841,
+        1844
+      ],
+      "rule_ids": [
+        "REF-12_3-001"
+      ],
+      "status": "rules",
+      "note": ""
+    },
+    {
+      "section": "12.3.1",
+      "title": "Author–date system (in-text)",
+      "lines": [
+        1845,
+        1883
+      ],
+      "rule_ids": [
+        "REF-12_3_1-001",
+        "REF-12_3_1-002",
+        "REF-12_3_1-003",
+        "REF-12_3_1-004",
+        "REF-12_3_1-005",
+        "REF-12_3_1-006",
+        "REF-12_3_1-007",
+        "REF-12_3_1-008",
+        "REF-12_3_1-009",
+        "REF-12_3_1-010",
+        "REF-12_3_1-011",
+        "REF-12_3_1-012",
+        "REF-12_3_1-013"
+      ],
+      "status": "rules",
+      "note": "The spurious heading \"### 12.3.3 Direct\" at l. 1849 interrupts this section; l. 1850-1883 belong to 12.3.1. Footnote indicator \"66\" on its own line (l. 1881)."
+    },
+    {
+      "section": "12.3.3",
+      "title": "Direct [conversion artefact]",
+      "lines": [
+        1849,
+        1850
+      ],
+      "rule_ids": [],
+      "status": "no_rules",
+      "note": "Not a real heading: the cross-reference \"see 12.3.3 Direct quotes (both systems).\" was converted into a ### heading. Real 12.3.3 starts at l. 1905."
+    },
+    {
+      "section": "12.3.2",
+      "title": "Endnote system (in-text)",
+      "lines": [
+        1884,
+        1904
+      ],
+      "rule_ids": [
+        "REF-12_3_2-001",
+        "REF-12_3_2-002",
+        "REF-12_3_2-003"
+      ],
+      "status": "rules",
+      "note": "Heading not marked up in markdown (\"12  .3.2   Endnote system (in-text)\" as plain text at l. 1884); a misplaced \"### 12.3.2 Endnote\" heading sits in §11.2 at l. 1715. Superscript endnote keys split onto separate lines (l. 1886-1897)."
+    },
+    {
+      "section": "12.3.3",
+      "title": "Direct quotes (both systems)",
+      "lines": [
+        1905,
+        1930
+      ],
+      "rule_ids": [
+        "REF-12_3_3-001",
+        "REF-12_3_3-002",
+        "REF-12_3_3-003",
+        "REF-12_3_3-004",
+        "REF-12_3_3-005",
+        "REF-12_3_3-006"
+      ],
+      "status": "rules",
+      "note": "Heading not marked up (\"12  .3.3   Direct quotes (both systems)\" as plain text at l. 1905). Endnote indicators 2 and 4 on separate lines (l. 1911, 1927)."
+    },
+    {
+      "section": "12.4",
+      "title": "REFERENCING IN FIGURES, TABLES AND BOXES",
+      "lines": [
+        1931,
+        1952
+      ],
+      "rule_ids": [
+        "REF-12_4-001",
+        "REF-12_4-002",
+        "REF-12_4-003",
+        "REF-12_4-004",
+        "REF-12_4-005",
+        "REF-12_4-006",
+        "REF-12_4-007",
+        "REF-12_4-008",
+        "REF-12_4-009",
+        "REF-12_4-010"
+      ],
+      "status": "rules",
+      "note": ""
+    },
+    {
+      "section": "12.5",
+      "title": "BIBLIOGRAPHIC INFORMATION",
+      "lines": [
+        1953,
+        1969
+      ],
+      "rule_ids": [
+        "REF-12_5-001",
+        "REF-12_5-002",
+        "REF-12_5-003",
+        "REF-12_5-004",
+        "REF-12_5-005",
+        "REF-12_5-006"
+      ],
+      "status": "rules",
+      "note": ""
+    },
+    {
+      "section": "12.5.1",
+      "title": "Author–date (References)",
+      "lines": [
+        1970,
+        1984
+      ],
+      "rule_ids": [
+        "REF-12_5_1-001",
+        "REF-12_5_1-002",
+        "REF-12_5_1-003",
+        "REF-12_5_1-004"
+      ],
+      "status": "rules",
+      "note": ""
+    },
+    {
+      "section": "12.5.2",
+      "title": "Endnotes (Notes)",
+      "lines": [
+        1985,
+        1997
+      ],
+      "rule_ids": [
+        "REF-12_5_2-001",
+        "REF-12_5_2-002"
+      ],
+      "status": "rules",
+      "note": ""
+    },
+    {
+      "section": "12.6",
+      "title": "WRITING OR GENERATING BIBLIOGRAPHIC LISTS",
+      "lines": [
+        1998,
+        2074
+      ],
+      "rule_ids": [
+        "REF-12_6-001",
+        "REF-12_6-002",
+        "REF-12_6-003",
+        "REF-12_6-004",
+        "REF-12_6-005",
+        "REF-12_6-006",
+        "REF-12_6-007",
+        "REF-12_6-008",
+        "REF-12_6-009",
+        "REF-12_6-010",
+        "REF-12_6-011",
+        "REF-12_6-012",
+        "REF-12_6-013",
+        "REF-12_6-014",
+        "REF-12_6-015",
+        "REF-12_6-016",
+        "REF-12_6-017",
+        "REF-12_6-018",
+        "REF-12_6-019",
+        "REF-12_6-020",
+        "REF-12_6-021",
+        "REF-12_6-022",
+        "REF-12_6-023",
+        "REF-12_6-024",
+        "REF-12_6-025",
+        "REF-12_6-026",
+        "REF-12_6-027",
+        "REF-12_6-028",
+        "REF-12_6-029",
+        "REF-12_6-030",
+        "REF-12_6-031",
+        "REF-12_6-032"
+      ],
+      "status": "rules",
+      "note": "Includes Box 12.1 Best practices for non-English sources (l. 2059-2073), rules REF-12_6-029 to -032."
+    },
+    {
+      "section": "12.7",
+      "title": "FORMATTING CITATIONS AND BIBLIOGRAPHIC LISTS",
+      "lines": [
+        2075,
+        2075
+      ],
+      "rule_ids": [],
+      "status": "no_rules",
+      "note": "Heading only; content in 12.7.1 and 12.7.2."
+    },
+    {
+      "section": "12.7.1",
+      "title": "Manual formatting",
+      "lines": [
+        2076,
+        2078
+      ],
+      "rule_ids": [],
+      "status": "no_rules",
+      "note": "Cross-reference to 12.8 only."
+    },
+    {
+      "section": "12.7.2",
+      "title": "Automatic formatting",
+      "lines": [
+        2079,
+        2098
+      ],
+      "rule_ids": [],
+      "status": "no_rules",
+      "note": "Describes bibliographic software (Zotero CSL, EndNote via FAO Library) and notes that manual edits may be needed; tooling advice for FAO staff, nothing checkable in a manuscript."
+    },
+    {
+      "section": "12.8",
+      "title": "EXAMPLES OF BIBLIOGRAPHIC STYLE",
+      "lines": [
+        2099,
+        2124
+      ],
+      "rule_ids": [
+        "REF-12_8-001",
+        "REF-12_8-002",
+        "REF-12_8-003",
+        "REF-12_8-004",
+        "REF-12_8-005",
+        "REF-12_8-006",
+        "REF-12_8-007",
+        "REF-12_8-008",
+        "REF-12_8-009"
+      ],
+      "status": "rules",
+      "note": "Templates for seven source types. Template bullets lost their markers in conversion (glyph \"\" at l. 2107-2120)."
+    },
+    {
+      "section": "12.8.1",
+      "title": "Sample references",
+      "lines": [
+        2125,
+        2372
+      ],
+      "rule_ids": [
+        "REF-12_8_1-001",
+        "REF-12_8_1-002",
+        "REF-12_8_1-003",
+        "REF-12_8_1-004",
+        "REF-12_8_1-005",
+        "REF-12_8_1-006",
+        "REF-12_8_1-007",
+        "REF-12_8_1-008",
+        "REF-12_8_1-009",
+        "REF-12_8_1-010",
+        "REF-12_8_1-011",
+        "REF-12_8_1-012",
+        "REF-12_8_1-013",
+        "REF-12_8_1-014",
+        "REF-12_8_1-015",
+        "REF-12_8_1-016",
+        "REF-12_8_1-017",
+        "REF-12_8_1-018",
+        "REF-12_8_1-019",
+        "REF-12_8_1-020",
+        "REF-12_8_1-021",
+        "REF-12_8_1-022",
+        "REF-12_8_1-023",
+        "REF-12_8_1-024",
+        "REF-12_8_1-025",
+        "REF-12_8_1-026",
+        "REF-12_8_1-027",
+        "REF-12_8_1-028"
+      ],
+      "status": "rules",
+      "note": "Table 12.1 (l. 2130-2318), Box 12.2 Legal references (l. 2322-2349), Box 12.3 Referencing databases (l. 2353-2370). Samples attached as examples.correct to the rules they illustrate; sample-only patterns marked in check.notes. Conversion lost years at l. 2212, 2281, 2347 (turned into \"- \" list markers)."
+    }
+  ]
+}
